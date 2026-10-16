@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NANFEILAOTOU · 原型 02</title>
+<meta name="description" content="AI、全球数字服务、个人项目与日常探索。">
+<style>
+:root{--mono:"JetBrains Mono","SF Mono",Menlo,Consolas,"Liberation Mono",monospace;--cn:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Noto Sans CJK SC",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#050505}
+body{color:#fff;font-family:var(--cn);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#track{width:1px}
+#stage{position:fixed;inset:0;overflow:hidden;background:#050505}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#gl{z-index:1}#cv{z-index:2}
+#ui{position:fixed;inset:0;z-index:10;pointer-events:none;mix-blend-mode:difference;color:#fff}
+#ui a,#ui button{pointer-events:auto;color:inherit;text-decoration:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.hud{position:absolute;font:500 11px/1.7 var(--mono);letter-spacing:.07em;text-transform:uppercase;opacity:0}
+.tl{top:24px;left:30px}.tr{top:24px;right:30px;text-align:right}.bl{bottom:28px;left:30px}.br{bottom:28px;right:30px;text-align:right}
+.brand{font-weight:700;letter-spacing:.22em}
+.crumb{opacity:.5}
+.tr a{display:block;opacity:.5;transition:opacity .2s}.tr a:hover{opacity:1}
+.lang{margin-bottom:10px;letter-spacing:.12em}.lang .off{opacity:.3}
+.bl p{font:400 14px/1.7 var(--cn);letter-spacing:.06em;text-transform:none}
+.bl .rule{width:28px;height:1px;background:#fff;margin-bottom:12px}
+.br .dim{opacity:.45}
+#rail{position:absolute;right:26px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:26px;align-items:flex-end;opacity:0}
+#rail .ln{position:absolute;right:7px;top:-14px;bottom:-14px;width:1px;background:rgba(255,255,255,.18)}
+#rail .fill{position:absolute;right:7px;top:-14px;width:1px;background:#fff;height:0}
+#rail button{all:unset;cursor:pointer;pointer-events:auto;display:flex;align-items:center;gap:12px;font:500 10.5px var(--mono);letter-spacing:.1em;opacity:.42;transition:opacity .25s;position:relative}
+#rail .g{width:15px;height:15px;display:grid;place-items:center;font-size:13px;line-height:1;background:#000}
+#rail .lb{opacity:0;transform:translateX(6px);transition:.25s;white-space:nowrap}
+#rail button:hover .lb,#rail button.on .lb{opacity:1;transform:none}
+#rail button.on,#rail button:hover{opacity:1}
+.chap{position:absolute;left:30px;top:98px;width:min(22vw,330px);opacity:0}
+.chap .no{font:700 13px var(--mono);letter-spacing:.12em}
+.chap .tt{font:700 21px/1.2 var(--cn);margin-top:8px;letter-spacing:.04em}
+.chap .tt small{display:block;font:500 10px var(--mono);letter-spacing:.14em;opacity:.5;margin-top:7px}
+.chap ol{list-style:none;margin-top:30px;border-top:1px solid rgba(255,255,255,.3)}
+.chap li a{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);font:500 14px var(--cn);opacity:.4;transition:opacity .3s}
+.chap li a:hover{opacity:.8}
+.chap li.on a{opacity:1}
+.chap li .k{font:500 10px var(--mono);letter-spacing:.08em;opacity:.7}
+.chap li .m{margin-left:auto;width:6px;height:6px;background:#fff;opacity:0;transition:opacity .3s}
+.chap li.on .m{opacity:1}
+.entry{position:absolute;left:30px;bottom:34px;width:min(22vw,330px);display:block;padding-top:16px;border-top:1px solid #fff;opacity:0;visibility:hidden}
+.entry .i{font:500 10px var(--mono);letter-spacing:.12em;opacity:.55}
+.entry .t{display:block;font:700 25px/1.25 var(--cn);margin:10px 0 8px;letter-spacing:.03em}
+.entry .d{display:block;font:400 13px/1.75 var(--cn);opacity:.62}
+.entry .go{display:inline-block;margin-top:16px;font:600 10.5px var(--mono);letter-spacing:.14em;padding:8px 12px;border:1px solid #fff;transition:background .2s,color .2s}
+.entry:hover .go{background:#fff;color:#000}
+#bridge .l1{position:absolute;left:0;right:0;top:calc(50% - 74px);text-align:center;font:700 clamp(22px,2.3vw,36px) var(--cn);letter-spacing:.06em;opacity:0}
+#bridge .l2{position:absolute;left:0;right:0;top:calc(50% + 30px);display:flex;justify-content:center;gap:48px}
+#bridge .l2 span{font:500 clamp(15px,1.25vw,19px) var(--cn);opacity:0;letter-spacing:.04em}
+#bridge .l2 i{font:500 10px var(--mono);font-style:normal;opacity:.55;margin-right:9px}
+#pe{position:absolute;left:30vw;top:24vh;opacity:0;visibility:hidden}
+#pe a{display:block;margin-bottom:5vh}
+#pe .k{font:500 10.5px var(--mono);letter-spacing:.12em;opacity:.55}
+#pe .t{display:block;font:800 clamp(40px,5.2vw,88px)/1.12 var(--cn);letter-spacing:.03em;margin-top:4px;background:linear-gradient(90deg,#fff var(--p,0%),rgba(255,255,255,.2) var(--p,0%));-webkit-background-clip:text;background-clip:text;color:transparent}
+#pe a:hover .t{--p:100%!important}
+#pe .d{display:block;font:500 11px var(--mono);letter-spacing:.08em;opacity:.5;margin-top:8px}
+#end{position:absolute;left:0;right:0;top:calc(50% + 40px);text-align:center;opacity:0;visibility:hidden}
+#end button{all:unset;cursor:pointer;pointer-events:auto;font:600 10.5px var(--mono);letter-spacing:.16em;border:1px solid #fff;padding:10px 16px;transition:background .2s,color .2s}
+#end button:hover{background:#fff;color:#000}
+#end p{font:500 10px var(--mono);opacity:.4;margin-top:16px;letter-spacing:.16em}
+#dbg{position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:20;font:11px var(--mono);color:#0f0;background:#000;padding:3px 8px;display:none}
+</style>
+<link rel="stylesheet" href="showcase.css">
+</head>
+<body>
+<a class="skip" href="#catalog">跳过动画，阅读全部内容</a>
+<div class="fallback-word" aria-hidden="true">NANFEI<br>LAOTOU</div>
+<div id="track"></div>
+<div id="stage"><canvas id="gl"></canvas><canvas id="cv"></canvas><div id="void" aria-hidden="true"></div></div>
+<div id="ui">
+  <h1 class="sr">NANFEILAOTOU</h1>
+  <div class="hud tl" id="hTL"><div class="brand">NANFEILAOTOU</div><div class="crumb" id="crumb">00 — 起点 POINT</div></div>
+  <div class="hud tr" id="hTR"><div class="lang"><b>中</b> / <span class="off" title="英文版本尚未提供" aria-disabled="true">EN</span></div>
+    <a href="#ai" data-go="models">01 — AI</a><a href="#global" data-go="global">02 — 全球数字服务</a><a href="#personal" data-go="personal">03 — 个人</a></div>
+  <div class="hud bl" id="hBL"><div class="rule"></div><p>AI、全球数字服务、个人项目与日常探索。</p></div>
+  <div class="hud br" id="hBR"><div id="hint">向下滚动 ↓</div><div id="prog">000 / 100</div><div class="dim" id="pts"></div></div>
+  <nav id="rail" aria-label="章节">
+    <span class="ln"></span><span class="fill" id="rfill"></span>
+    <button data-go="open"><span class="lb">00 起点</span><span class="g">·</span></button>
+    <button data-go="models"><span class="lb">01 序列 · AI</span><span class="g">—</span></button>
+    <button data-go="global"><span class="lb">02 链路 · 全球</span><span class="g">#</span></button>
+    <button data-go="personal"><span class="lb">03 场 · 个人</span><span class="g">~</span></button>
+  </nav>
+  <div class="chap" id="chAI"><div class="no">01</div><div class="tt">序列<small>SEQUENCE · AI</small></div>
+    <ol><li data-k="models"><a href="#models" data-go="models"><span class="k">1.1</span>模型生态<span class="m"></span></a></li>
+        <li data-k="local"><a href="#local" data-go="local"><span class="k">1.2</span>本地 AI<span class="m"></span></a></li>
+        <li data-k="agents"><a href="#agents" data-go="agents"><span class="k">1.3</span>AI 客户端与 Agent<span class="m"></span></a></li></ol></div>
+  <div class="chap" id="chGL"><div class="no">02</div><div class="tt">链路<small>NETWORK · 全球数字服务</small></div></div>
+  <div class="chap" id="chPE"><div class="no">03</div><div class="tt">场<small>FIELD · 个人</small></div></div>
+  <a class="entry" id="enModels" href="#models"><span class="i">1.1 / 3</span><span class="t">模型生态</span><span class="d">八个模型品牌与官方代表型号，<br>探索不同的模型生态。</span><span class="go">进入 ↗</span></a>
+  <a class="entry" id="enLocal" href="#local"><span class="i">1.2 / 3</span><span class="t">本地 AI</span><span class="d">Qwen 等开放模型的本地部署，<br>LM Studio 推理与 ComfyUI 图像生成。</span><span class="go">进入 ↗</span></a>
+  <a class="entry" id="enAgents" href="#agents"><span class="i">1.3 / 3</span><span class="t">AI 客户端与 Agent</span><span class="d">从编程助手到智能体平台，<br>探索不同的 AI 工作方式。</span><span class="go">进入 ↗</span></a>
+  <a class="entry" id="enGlobal" href="#global"><span class="i">02</span><span class="t">全球数字服务</span><span class="d">号码、路径、账户与资金，<br>如何连成一条数字链路。</span><span class="go">进入 ↗</span></a>
+  <div id="bridge"><div class="l1" id="b1">要用上这些，你需要</div>
+    <div class="l2"><span><i>01</i>一个号码</span><span><i>02</i>一条路径</span><span><i>03</i>一个账户</span><span><i>04</i>一条资金链路</span></div></div>
+  <div id="pe">
+    <a href="#made"><span class="k">03.1</span><span class="t">做的东西</span><span class="d">WindowDeck · AIGeekTuner · ContextBridge · 音频扩展</span></a>
+    <a href="#using"><span class="k">03.2</span><span class="t">在用的东西</span><span class="d">软件 · 硬件 · 音频链路 · AI 工作流</span></a>
+    <a href="#about"><span class="k">03.3</span><span class="t">关于我</span><span class="d">简介 · 联系 · 社交链接</span></a>
+  </div>
+  <div id="end"><button id="rewind">回到起点 ↑</button><p>NANFEILAOTOU · PROTOTYPE 02</p></div>
+</div>
+<div id="dbg"></div>
+<div id="brands"></div>
+<aside id="brand-detail" role="region" aria-labelledby="detail-title" hidden></aside>
+<button id="catalog-open" type="button" aria-haspopup="dialog">浏览全部内容 ↗</button>
+<dialog id="catalog" aria-labelledby="catalog-title"><button id="catalog-close" type="button">关闭 ×</button><h2 id="catalog-title">NANFEILAOTOU / 内容索引</h2><p>不需要悬停，也可以查阅全部品牌、代表型号和官方入口。型号为资料核验时的 API 代表，不表示产品订阅或账户可用性。</p></dialog>
+<noscript><div style="position:fixed;inset:0;z-index:50;background:#080808;color:white;padding:10vw">NANFEILAOTOU<br>AI、全球数字服务、个人项目与日常探索。<p>动画需要 JavaScript。<a href="../docs/PROTOTYPE-02.md" style="color:white">阅读原型说明</a></p></div></noscript>
+<script src="../data/models.js"></script>
+<script src="../data/agents.js"></script>
+<script src="timeline.js"></script>
+<script src="showcase.js"></script>
+<script src="motion.js"></script>
+</body></html>
