@@ -1,0 +1,122 @@
+[
+  {
+    "file": "openai.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/openai.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "3fcceab3079b52326706fec235b00f0e2a9d8bed03c7b76a57e60f9689c46cc8",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "claude.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/claude.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "dd1e814ca1f8a78760632df307746d05eb4ee6e333b710b6bd1d6399923b1f5b",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "grok.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/grok.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "f976d741d93895d24a7143f401878046a8f6a378614360627f16b4a0eab5551c",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "gemini.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/gemini.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "fca95aa4800880feb7088b3cef20812499cc8a23b27a3c8c32a349ec483badcc",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "deepseek.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/deepseek.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "3765cf32e4086cd886f48da315decf79a43f0eb660d4be11f9266d83d416e94f",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "zai.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/zai.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "aa6d7c29b5bea138e7a4d81e0f47b510d96e7dd1ccd5616affdb5db82c1c32b6",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "qwen.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/qwen.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "ff962a4f509ce7c7892c3f383a1b4a0bd281e557e4cdff8a676e315b9ba66095",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "kimi.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/kimi.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "6e6c4c58f37458901912db6587f3cdba4ccb6b960cd8c0695367e7ac8e5b084a",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "lmstudio.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/lmstudio.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "70ea0c2538e34a6ea84277c464a69e26882a9e0dc8b80cfca08cad5a1274517d",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "comfyui.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/comfyui.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "e28c10832fff7b3be874cb12b326fbef3c23b23ab6900661f0af76b08aaf60bc",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "codex.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/codex.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "d5b9a7bce1dfad42e262fcc67f706cb12d5246f258b47223d43d811da1a749cc",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "claudecode.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/claudecode.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "0537f0d1028c5cf517afb484d17e23003d23af2fdcab76997ffb6cb2400f1472",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "hermesagent.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/hermesagent.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "247346c05f4b96b30690aa5178c6553b618b78366b32f422cc45c2653ea41b01",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "antigravity.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/antigravity.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "5817e85cd9c81bcfff799adcc355f4ec239f9310785b11f6f770798558d7c541",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "notion.svg",
+    "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/notion.svg",
+    "acquiredAt": "2026-10-16",
+    "license": "MIT; original brand trademarks remain with their owners",
+    "sha256": "77849bb2f1061ed97d1b8c0ac014c55827cc1e95a4877a36465936aa2b891862",
+    "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  }
+]
