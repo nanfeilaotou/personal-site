@@ -118,5 +118,29 @@
     "license": "MIT; original brand trademarks remain with their owners",
     "sha256": "77849bb2f1061ed97d1b8c0ac014c55827cc1e95a4877a36465936aa2b891862",
     "modification": "currentColor resolved to #ededeb; path geometry unchanged"
+  },
+  {
+    "file": "dsh-fish.svg",
+    "source": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/1517a4dbca0a2789ff1d41ba439600f8547d23fa/packages/client/ui-primitives/src/FishLogo.tsx",
+    "acquiredAt": "2026-10-17",
+    "license": "MIT; DeepSeek brand guidelines apply",
+    "sha256": "724fd924a6e6236d8390135f82c280901f0c9b87925572a44ff31f5665d9475e",
+    "modification": "Static extraction; geometry and viewBox unchanged; official currentColor resolved to light ink"
+  },
+  {
+    "file": "dsh-wordmark.svg",
+    "source": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/1517a4dbca0a2789ff1d41ba439600f8547d23fa/packages/client/ui-primitives/src/BrandWordmark.tsx",
+    "acquiredAt": "2026-10-17",
+    "license": "MIT; DeepSeek brand guidelines apply",
+    "sha256": "d7154641f2ba7133d7fc2ac7e042a09919319bc5b77c585243ff7bbd8a8da042",
+    "modification": "Static extraction; geometry and viewBox unchanged; official currentColor resolved to light ink"
+  },
+  {
+    "file": "zcode.svg",
+    "source": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/packages/ui/src/components/ui/ZCodeAboutLogo.tsx",
+    "acquiredAt": "2026-10-17",
+    "license": "Apache-2.0; brand trademark rights retained",
+    "sha256": "9fff148d7fdbd4656139db55c7586f04a3d5b415ccb29174022c4a925768008c",
+    "modification": "Static extraction; geometry and viewBox unchanged; official currentColor resolved to light ink"
   }
 ]

@@ -1,2 +1,3 @@
 # Preserve the complete input snapshot byte-for-byte on Windows checkouts.
 prototype/prototype-01.html -text
+assets/brands/*.svg text eol=lf

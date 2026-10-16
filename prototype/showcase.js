@@ -18,8 +18,10 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     const foot=el('div','scene-foot');foot.append(el('span','',content[key][3]),el('span','',content[key][4]));group.append(foot);
     const nodes=data.map((item,i)=>{
       const b=el('button','brand-node'+(item.logo?'':' text-node'));b.type='button';b.dataset.id=item.id;b.setAttribute('aria-label',item.name+'：查看详情');b.setAttribute('aria-controls','brand-detail');b.setAttribute('aria-expanded','false');
-      if(item.logo){const img=el('img');img.src='../assets/brands/'+item.logo;img.alt='';img.width=30;img.height=30;img.draggable=false;img.addEventListener('error',()=>img.hidden=true);b.append(img);}
-      else b.append(el('span','wordmark',item.shortName||item.name));
+      const mark=el('span','brand-mark');
+      if(item.logo){const img=el('img');img.src='../assets/brands/'+item.logo;img.alt='';img.width=40;img.height=40;img.draggable=false;img.addEventListener('error',()=>img.hidden=true);mark.append(img);}
+      else mark.append(el('span','wordmark',item.shortName||item.name));
+      b.append(mark);
       if(item.logo||item.shortName)b.append(el('span','node-name',item.name));
       b.append(el('span','node-meta',item.featuredModels?item.provider:(item.category||item.provider)));
       b.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')touchFocusUntil=performance.now()+600;});
@@ -53,7 +55,7 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     if(active)active.b.setAttribute('aria-expanded','false');active={item,b};pinned=pin;
     panel.replaceChildren();const closeButton=el('button','','×');closeButton.type='button';closeButton.setAttribute('aria-label','关闭详情');closeButton.addEventListener('click',()=>close(true));panel.append(closeButton);
     const title=el('h3','',item.name);title.id='detail-title';
-    panel.append(el('div','detail-type',item.category||'模型生态'),title,el('p','provider',item.provider+(item.officialName&&item.officialName!==item.name?' · '+item.officialName:'')));
+    panel.append(el('div','detail-type',item.category||'模型生态'),title,el('p','provider',item.provider+(item.officialName&&!item.name.includes(item.officialName)?' · '+item.officialName:'')));
     if(item.featuredModels){panel.append(el('p','model-names',item.featuredModels.length?item.featuredModels.join(' / '):'代表模型待核验'),el('p','model-scope',item.modelScope));}
     panel.append(el('p','detail-description',item.description),el('p','verified','资料核验 '+(item.verifiedAt||'待确认')));
     const links=el('div','detail-links');if(item.officialSource)links.append(link('官方资料 ↗',item.officialSource));if(item.detailUrl)links.append(link('访问产品 ↗',item.detailUrl));panel.append(links);
