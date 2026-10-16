@@ -8,6 +8,8 @@ node scripts/serve.mjs
 
 打开 [Prototype 02](http://127.0.0.1:4173/prototype/prototype-02.html)。也可直接双击 `prototype/prototype-02.html`，不需要构建或安装依赖。
 
+- [2026-10-17 精修报告：Logo / 文案 / 滚动](docs/PROTOTYPE-02-REFINEMENT.md)
+- [品牌素材审查页](prototype/brand-review.html)
 - [交付与维护说明](docs/PROTOTYPE-02.md)
 - [实际测试与性能数据](docs/PROTOTYPE-02-TESTS.md)
 - [新旧截图对照](tests/visual-report.html)

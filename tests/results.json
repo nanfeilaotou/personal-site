@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "environment": "Windows / headless Chromium / local desktop",
   "checks": [
     {
@@ -24,7 +24,7 @@
     },
     {
       "name": "local logo loading",
-      "detail": "all 15 SVG assets loaded; 5 intentional name marks"
+      "detail": "all local node SVG assets loaded; 3 intentional name marks"
     },
     {
       "name": "hover / focus / pin / small-scroll / Escape",
@@ -93,10 +93,6 @@
     {
       "name": "GPU timer query",
       "detail": "120 point-draw samples per desktop resolution; draw-only GPU timing excludes clear/compositing"
-    },
-    {
-      "name": "quiet background / stable hold",
-      "detail": "Canvas-only compositor screenshots identical across 800ms at model hold; direct Canvas readback avoided because it changes acceleration"
     }
   ],
   "regression": [
@@ -263,13 +259,13 @@
         "samples": 291,
         "mean": 4.167,
         "p95": 4.3,
-        "max": 4.3
+        "max": 4.5
       },
       "callbackCpu": {
         "samples": 291,
-        "mean": 0.316,
-        "p95": 0.5,
-        "max": 0.8
+        "mean": 0.272,
+        "p95": 0.4,
+        "max": 1.5
       },
       "observedFps": 240,
       "longTasks": [],
@@ -283,37 +279,14 @@
       "height": 1080,
       "scene": "models",
       "raf": {
-        "samples": 291,
-        "mean": 4.166,
+        "samples": 290,
+        "mean": 4.167,
         "p95": 4.3,
         "max": 4.4
       },
       "callbackCpu": {
-        "samples": 291,
-        "mean": 0.363,
-        "p95": 0.5,
-        "max": 0.9
-      },
-      "observedFps": 240,
-      "longTasks": [],
-      "drawCalls": 0,
-      "frames": 291,
-      "points": 41853,
-      "bufferBytes": 1506708
-    },
-    {
-      "width": 1920,
-      "height": 1080,
-      "scene": "local",
-      "raf": {
         "samples": 290,
-        "mean": 4.167,
-        "p95": 4.3,
-        "max": 4.3
-      },
-      "callbackCpu": {
-        "samples": 290,
-        "mean": 0.34,
+        "mean": 0.311,
         "p95": 0.5,
         "max": 0.8
       },
@@ -327,18 +300,18 @@
     {
       "width": 1920,
       "height": 1080,
-      "scene": "agents",
+      "scene": "local",
       "raf": {
         "samples": 289,
-        "mean": 4.167,
+        "mean": 4.166,
         "p95": 4.3,
-        "max": 4.3
+        "max": 4.4
       },
       "callbackCpu": {
         "samples": 289,
-        "mean": 0.346,
+        "mean": 0.311,
         "p95": 0.5,
-        "max": 0.8
+        "max": 0.7
       },
       "observedFps": 240,
       "longTasks": [],
@@ -350,23 +323,46 @@
     {
       "width": 1920,
       "height": 1080,
-      "scene": "global",
+      "scene": "agents",
       "raf": {
-        "samples": 287,
-        "mean": 4.196,
+        "samples": 290,
+        "mean": 4.167,
         "p95": 4.3,
-        "max": 12.6
+        "max": 4.5
       },
       "callbackCpu": {
-        "samples": 287,
-        "mean": 0.477,
-        "p95": 0.8,
-        "max": 1.4
+        "samples": 290,
+        "mean": 0.235,
+        "p95": 0.3,
+        "max": 0.5
       },
-      "observedFps": 238.3,
+      "observedFps": 240,
       "longTasks": [],
       "drawCalls": 0,
-      "frames": 287,
+      "frames": 290,
+      "points": 41853,
+      "bufferBytes": 1506708
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scene": "global",
+      "raf": {
+        "samples": 291,
+        "mean": 4.166,
+        "p95": 4.3,
+        "max": 4.3
+      },
+      "callbackCpu": {
+        "samples": 291,
+        "mean": 0.354,
+        "p95": 0.5,
+        "max": 1
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 291,
       "points": 41853,
       "bufferBytes": 1506708
     },
@@ -378,13 +374,13 @@
         "samples": 290,
         "mean": 4.166,
         "p95": 4.3,
-        "max": 4.3
+        "max": 4.4
       },
       "callbackCpu": {
         "samples": 290,
-        "mean": 0.433,
-        "p95": 0.7,
-        "max": 1
+        "mean": 0.221,
+        "p95": 0.3,
+        "max": 0.5
       },
       "observedFps": 240,
       "longTasks": [],
@@ -399,17 +395,17 @@
       "scene": "models",
       "raf": {
         "samples": 290,
-        "mean": 4.181,
+        "mean": 4.167,
         "p95": 4.3,
-        "max": 8.4
+        "max": 4.4
       },
       "callbackCpu": {
         "samples": 290,
-        "mean": 0.408,
-        "p95": 0.7,
-        "max": 1
+        "mean": 0.258,
+        "p95": 0.4,
+        "max": 0.5
       },
-      "observedFps": 239.2,
+      "observedFps": 240,
       "longTasks": [],
       "drawCalls": 0,
       "frames": 290,
@@ -421,21 +417,21 @@
       "height": 900,
       "scene": "local",
       "raf": {
-        "samples": 290,
+        "samples": 291,
         "mean": 4.167,
         "p95": 4.3,
         "max": 4.4
       },
       "callbackCpu": {
-        "samples": 290,
-        "mean": 0.336,
-        "p95": 0.5,
-        "max": 0.6
+        "samples": 291,
+        "mean": 0.355,
+        "p95": 0.6,
+        "max": 0.8
       },
       "observedFps": 240,
       "longTasks": [],
       "drawCalls": 0,
-      "frames": 290,
+      "frames": 291,
       "points": 29693,
       "bufferBytes": 1068948
     },
@@ -451,9 +447,9 @@
       },
       "callbackCpu": {
         "samples": 290,
-        "mean": 0.298,
-        "p95": 0.4,
-        "max": 0.6
+        "mean": 0.369,
+        "p95": 0.6,
+        "max": 0.8
       },
       "observedFps": 240,
       "longTasks": [],
@@ -467,21 +463,21 @@
       "height": 900,
       "scene": "global",
       "raf": {
-        "samples": 289,
+        "samples": 290,
         "mean": 4.167,
         "p95": 4.3,
         "max": 4.4
       },
       "callbackCpu": {
-        "samples": 289,
-        "mean": 0.407,
-        "p95": 0.6,
-        "max": 0.8
+        "samples": 290,
+        "mean": 0.453,
+        "p95": 0.7,
+        "max": 0.9
       },
       "observedFps": 240,
       "longTasks": [],
       "drawCalls": 0,
-      "frames": 289,
+      "frames": 290,
       "points": 29693,
       "bufferBytes": 1068948
     },
@@ -490,21 +486,21 @@
       "height": 768,
       "scene": "open",
       "raf": {
-        "samples": 288,
-        "mean": 4.181,
+        "samples": 290,
+        "mean": 4.167,
         "p95": 4.3,
-        "max": 8.4
+        "max": 4.3
       },
       "callbackCpu": {
-        "samples": 288,
-        "mean": 0.391,
-        "p95": 0.7,
-        "max": 0.8
+        "samples": 290,
+        "mean": 0.343,
+        "p95": 0.5,
+        "max": 0.6
       },
-      "observedFps": 239.2,
+      "observedFps": 240,
       "longTasks": [],
-      "drawCalls": 288,
-      "frames": 288,
+      "drawCalls": 290,
+      "frames": 290,
       "points": 21930,
       "bufferBytes": 789480
     },
@@ -513,21 +509,21 @@
       "height": 768,
       "scene": "models",
       "raf": {
-        "samples": 289,
-        "mean": 4.166,
+        "samples": 291,
+        "mean": 4.167,
         "p95": 4.3,
         "max": 4.4
       },
       "callbackCpu": {
-        "samples": 289,
-        "mean": 0.281,
-        "p95": 0.4,
+        "samples": 291,
+        "mean": 0.415,
+        "p95": 0.6,
         "max": 0.7
       },
       "observedFps": 240,
       "longTasks": [],
       "drawCalls": 0,
-      "frames": 289,
+      "frames": 291,
       "points": 21930,
       "bufferBytes": 789480
     },
@@ -536,21 +532,21 @@
       "height": 768,
       "scene": "local",
       "raf": {
-        "samples": 289,
+        "samples": 291,
         "mean": 4.166,
         "p95": 4.3,
         "max": 4.4
       },
       "callbackCpu": {
-        "samples": 289,
-        "mean": 0.316,
-        "p95": 0.4,
-        "max": 0.5
+        "samples": 291,
+        "mean": 0.398,
+        "p95": 0.6,
+        "max": 0.7
       },
       "observedFps": 240,
       "longTasks": [],
       "drawCalls": 0,
-      "frames": 289,
+      "frames": 291,
       "points": 21930,
       "bufferBytes": 789480
     },
@@ -559,21 +555,21 @@
       "height": 768,
       "scene": "agents",
       "raf": {
-        "samples": 290,
+        "samples": 291,
         "mean": 4.166,
         "p95": 4.3,
         "max": 4.4
       },
       "callbackCpu": {
-        "samples": 290,
-        "mean": 0.284,
-        "p95": 0.4,
-        "max": 0.5
+        "samples": 291,
+        "mean": 0.437,
+        "p95": 0.7,
+        "max": 0.9
       },
       "observedFps": 240,
       "longTasks": [],
       "drawCalls": 0,
-      "frames": 290,
+      "frames": 291,
       "points": 21930,
       "bufferBytes": 789480
     },
@@ -583,15 +579,15 @@
       "scene": "global",
       "raf": {
         "samples": 289,
-        "mean": 4.167,
+        "mean": 4.166,
         "p95": 4.3,
         "max": 4.4
       },
       "callbackCpu": {
         "samples": 289,
-        "mean": 0.303,
-        "p95": 0.4,
-        "max": 0.5
+        "mean": 0.465,
+        "p95": 0.7,
+        "max": 1.1
       },
       "observedFps": 240,
       "longTasks": [],
@@ -617,9 +613,9 @@
       "available": true,
       "disjoint": false,
       "samples": 120,
-      "meanMs": 0.018355200000000016,
-      "p95Ms": 0.023552,
-      "maxMs": 0.024576
+      "meanMs": 0.01960106666666667,
+      "p95Ms": 0.022528,
+      "maxMs": 0.422912
     },
     {
       "width": 1440,
@@ -627,9 +623,9 @@
       "available": true,
       "disjoint": false,
       "samples": 120,
-      "meanMs": 0.0152576,
+      "meanMs": 0.017058133333333326,
       "p95Ms": 0.02048,
-      "maxMs": 0.021504
+      "maxMs": 0.02048
     },
     {
       "width": 1366,
@@ -637,9 +633,9 @@
       "available": true,
       "disjoint": false,
       "samples": 120,
-      "meanMs": 0.010410666666666658,
-      "p95Ms": 0.014336,
-      "maxMs": 0.01536
+      "meanMs": 0.012902399999999986,
+      "p95Ms": 0.01536,
+      "maxMs": 0.017408
     }
   ]
 }

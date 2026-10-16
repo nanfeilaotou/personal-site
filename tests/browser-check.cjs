@@ -1,13 +1,14 @@
+const {toScroll}=require('./timeline-fixture.cjs');
 /* Dev-only: NODE_PATH may point to the Codex bundled Playwright packages. */
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const ROOT=path.resolve(__dirname,'..'),OUT=path.join(__dirname,'screenshots');
 const BASE=process.env.PREVIEW_URL||'http://127.0.0.1:4173';
 const executablePath=process.env.CHROME_PATH||'C:/Users/28919/AppData/Local/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
-const report={date:'2026-10-16',environment:'Windows / headless Chromium / local desktop',checks:[],regression:[],performance:[],errors:[],failedResources:[]};
+const report={date:'2026-10-17',environment:'Windows / headless Chromium / local desktop',checks:[],regression:[],performance:[],errors:[],failedResources:[]};
 const record=(name,detail)=>{report.checks.push({name,detail});console.log('PASS',name);};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-async function seek(p,s){await p.evaluate(s=>NF_DEBUG.seek(s),s);await p.waitForTimeout(100);}
+async function seek(p,s){await p.evaluate(s=>NF_DEBUG.seek(s),toScroll(s));await p.waitForTimeout(100);}
 async function shot(p,name){await p.evaluate(()=>document.getElementById('dbg').style.display='none');await p.screenshot({path:path.join(OUT,name+'.png'),animations:'disabled'});}
 function monitor(p){p.on('pageerror',e=>report.errors.push(e.message));p.on('console',m=>{if(m.type()==='error')report.errors.push(m.text());});p.on('response',r=>{if(r.status()>=400)report.failedResources.push({url:r.url(),status:r.status()});});}
 async function hashGL(p){
@@ -64,7 +65,7 @@ function summarize(a){const sorted=a.slice().sort((a,b)=>a-b);return {samples:a.
   await p.goto(BASE+'/prototype/prototype-02.html?debug&it=4');await p.waitForTimeout(200);
   report.webgl=await p.evaluate(()=>{const gl=document.getElementById('gl').getContext('webgl'),ext=gl.getExtension('WEBGL_debug_renderer_info');return {renderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),bufferBytes:gl.getBufferParameter(gl.ARRAY_BUFFER,gl.BUFFER_SIZE),gpuTimerAvailable:!!gl.getExtension('EXT_disjoint_timer_query')};});
   assert.equal(await p.locator('#models-brands button').count(),8);assert.equal(await p.locator('#agents-brands button').count(),10);
-  assert.deepEqual(await p.evaluate(()=>[...document.images].filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src)),[]);record('local logo loading','all 15 SVG assets loaded; 5 intentional name marks');
+  assert.deepEqual(await p.evaluate(()=>[...document.images].filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src)),[]);record('local logo loading','all local node SVG assets loaded; 3 intentional name marks');
   for(const [s,name] of [[1.35,'02-rise-1440'],[2.75,'02-models-enter-1440'],[3.65,'02-models-1440'],[4.65,'02-models-exit-1440'],[5.3,'02-local-precision-1440'],[5.97,'02-local-1440'],[6.55,'02-agents-enter-1440'],[7.42,'02-agents-1440'],[8.37,'02-agents-exit-1440'],[8.66,'02-bridge-1440'],[9.97,'02-global-1440'],[11.03,'02-personal-1440']]){await seek(p,s);await shot(p,name);}
   // Hover -> inspector -> source link is a continuous pointer path, not a disappearing tooltip.
   await seek(p,3.65);const node=p.locator('[data-id=claude]');await node.hover();await p.locator('#brand-detail').waitFor({state:'visible'});
@@ -75,11 +76,11 @@ function summarize(a){const sorted=a.slice().sort((a,b)=>a-b);return {samples:a.
   await p.keyboard.press('Escape');assert.ok(await p.locator('#brand-detail').isHidden());
   await p.locator('[data-id=gpt]').focus();await p.keyboard.press('Tab');assert.ok(await p.locator('#brand-detail').isVisible());record('hover / focus / pin / small-scroll / Escape','inspector remains usable across pointer gap and 35px scroll');
   // Navigation settles at stable stops, including browser back and refresh.
-  await p.locator('#chAI [data-go=agents]').click();await p.waitForFunction(()=>Math.abs(NF_DEBUG.state.s-7.42)<.002);assert.equal(new URL(p.url()).hash,'#agents');
-  await p.locator('#hTR [data-go=global]').click();await p.waitForFunction(()=>Math.abs(NF_DEBUG.state.s-9.97)<.002);assert.ok((await p.locator('#crumb').innerText()).includes('NETWORK'));
-  await p.goBack();await p.waitForFunction(()=>Math.abs(NF_DEBUG.state.s-7.42)<.002);
-  await p.reload();await p.waitForFunction(()=>Math.abs(NF_DEBUG.state.s-7.42)<.002);
-  await seek(p,5.97);await p.reload();await p.waitForFunction(()=>Math.abs(NF_DEBUG.state.s-5.97)<.002);record('navigation / URL hash / browser back / refresh','stable stops; refresh preserves manual scroll even when URL retains a chapter hash');
+  await p.locator('#chAI [data-go=agents]').click();await p.waitForFunction(target=>Math.abs(NF_DEBUG.state.s-target)<.002,toScroll(7.42));assert.equal(new URL(p.url()).hash,'#agents');
+  await p.locator('#hTR [data-go=global]').click();await p.waitForFunction(target=>Math.abs(NF_DEBUG.state.s-target)<.002,toScroll(9.97));assert.ok((await p.locator('#crumb').innerText()).includes('NETWORK'));
+  await p.goBack();await p.waitForFunction(target=>Math.abs(NF_DEBUG.state.s-target)<.002,toScroll(7.42));
+  await p.reload();await p.waitForFunction(target=>Math.abs(NF_DEBUG.state.s-target)<.002,toScroll(7.42));
+  await seek(p,5.97);await p.reload();await p.waitForFunction(target=>Math.abs(NF_DEBUG.state.s-target)<.002,toScroll(5.97));record('navigation / URL hash / browser back / refresh','stable stops; refresh preserves manual scroll even when URL retains a chapter hash');
   // Random positioning is reversible and independent of traversal history.
   const random=[0,.5,1.5,2.5,3.65,4.65,5.15,5.97,6.55,7.42,8.2,8.66,9.97,10.5,11.03,11.95];const snapshots=new Map();
   for(const s of random){await seek(p,s);snapshots.set(s,await p.evaluate(()=>({crumb:document.getElementById('crumb').textContent,nodes:[...document.querySelectorAll('.brand-group:not([inert]) .brand-node')].map(x=>x.style.transform)})));}
@@ -101,7 +102,7 @@ function summarize(a){const sorted=a.slice().sort((a,b)=>a-b);return {samples:a.
   // Repeated resize must reuse the same context and buffer; preserve screen progress.
   await seek(p,7.42);const allocBefore=await p.evaluate(()=>({buffers:__metrics.buffers,contexts:__metrics.contexts,nodes:document.querySelectorAll('.brand-node').length}));
   for(let i=0;i<10;i++)await p.setViewportSize({width:i%2?1440:1366,height:i%2?900:768});await p.waitForTimeout(200);
-  const allocAfter=await p.evaluate(()=>({buffers:__metrics.buffers,contexts:__metrics.contexts,nodes:document.querySelectorAll('.brand-node').length}));assert.deepEqual(allocAfter,allocBefore);assert.ok(Math.abs(await p.evaluate(()=>NF_DEBUG.state.s)-7.42)<.01);record('10 resize cycles','one WebGL context / one point buffer / fixed DOM count; no repeated allocations');
+  const allocAfter=await p.evaluate(()=>({buffers:__metrics.buffers,contexts:__metrics.contexts,nodes:document.querySelectorAll('.brand-node').length}));assert.deepEqual(allocAfter,allocBefore);assert.ok(Math.abs(await p.evaluate(()=>NF_DEBUG.state.s)-toScroll(7.42))<.01);record('10 resize cycles','one WebGL context / one point buffer / fixed DOM count; no repeated allocations');
   // WebGL context loss recovery and a fresh no-WebGL session.
   await seek(p,0);await p.evaluate(()=>{window.__loseExt=document.getElementById('gl').getContext('webgl').getExtension('WEBGL_lose_context');__loseExt.loseContext();});await p.waitForTimeout(150);assert.ok(await p.locator('html').evaluate(x=>x.classList.contains('no-gl')));
   await p.evaluate(()=>__loseExt.restoreContext());await p.waitForTimeout(200);assert.ok(!await p.locator('html').evaluate(x=>x.classList.contains('no-gl')));record('WebGL loss / restore','fallback wordmark and restored buffer');
@@ -109,12 +110,12 @@ function summarize(a){const sorted=a.slice().sort((a,b)=>a-b);return {samples:a.
   const fallback=await browser.newPage({viewport:{width:1366,height:768}});monitor(fallback);
   await fallback.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t,...a){return /webgl/.test(t)?null:get.call(this,t,...a);};});
   await fallback.goto(BASE+'/prototype/prototype-02.html?debug&at=0&it=4');assert.ok(await fallback.locator('.fallback-word').isVisible());await shot(fallback,'02-no-webgl');await seek(fallback,3.65);assert.ok(await fallback.locator('[data-id=claude]').isVisible());await fallback.close();record('WebGL unavailable','readable opening wordmark and fully usable content');
-  const reduced=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});monitor(reduced);await reduced.goto(BASE+'/prototype/prototype-02.html?debug&at=0');await reduced.locator('#hTR [data-go=models]').click();await reduced.waitForTimeout(80);assert.equal(await reduced.evaluate(()=>NF_DEBUG.state.s),3.65);await shot(reduced,'02-reduced-motion');await reduced.close();record('prefers-reduced-motion','no animated navigation or idle time motion; all content readable');
-  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});monitor(mobile);await mobile.goto(BASE+'/prototype/prototype-02.html?debug&at=3.65&it=4');await mobile.waitForTimeout(200);await shot(mobile,'02-models-mobile');assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  const reduced=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});monitor(reduced);await reduced.goto(BASE+'/prototype/prototype-02.html?debug&at=0');await reduced.locator('#hTR [data-go=models]').click();await reduced.waitForTimeout(80);assert.ok(Math.abs(await reduced.evaluate(()=>NF_DEBUG.state.s)-toScroll(3.65))<.002);await shot(reduced,'02-reduced-motion');await reduced.close();record('prefers-reduced-motion','no animated navigation or idle time motion; all content readable');
+  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});monitor(mobile);await mobile.goto(BASE+'/prototype/prototype-02.html?debug&at='+toScroll(3.65)+'&it=4');await mobile.waitForTimeout(200);await shot(mobile,'02-models-mobile');assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   for(const s of [3.65,5.97,7.42]){await seek(mobile,s);const rects=await mobile.locator('.brand-group:not([inert]) .brand-node').evaluateAll(xs=>xs.map(x=>{const r=x.getBoundingClientRect();return {l:r.left,r:r.right,t:r.top,b:r.bottom};}));for(const r of rects){assert.ok(r.l>=0&&r.r<=390&&r.t>=0&&r.b<=844);}}
   await shot(mobile,'02-agents-mobile');await mobile.locator('[data-id=grokbot]').tap();assert.ok(await mobile.locator('#brand-detail').isVisible());await mobile.close();record('390px mobile / touch access','readable nodes inside viewport; no horizontal overflow; tap inspector');
-  const hidpi=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:2.5});monitor(hidpi);await hidpi.goto(BASE+'/prototype/prototype-02.html?debug&at=3.65&it=4');await hidpi.waitForTimeout(150);assert.deepEqual(await hidpi.evaluate(()=>NF_DEBUG.state.canvas),[2880,1800]);assert.equal(await hidpi.evaluate(()=>NF_DEBUG.state.dpr),2);await hidpi.close();record('HiDPI cap','device DPR 2.5 uses canvas DPR 2; logical node positions unchanged');
-  const file=await browser.newPage();monitor(file);await file.goto('file:///'+path.join(ROOT,'prototype/prototype-02.html').replaceAll('\\','/')+'?debug&at=3.65&it=4');await file.waitForTimeout(200);assert.equal(await file.locator('#models-brands button').count(),8);assert.ok(await file.locator('[data-id=gpt] img').evaluate(x=>x.complete&&x.naturalWidth>0));await file.close();record('file:// direct preview','classic data scripts and relative logos load without fetch');
+  const hidpi=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:2.5});monitor(hidpi);await hidpi.goto(BASE+'/prototype/prototype-02.html?debug&at='+toScroll(3.65)+'&it=4');await hidpi.waitForTimeout(150);assert.deepEqual(await hidpi.evaluate(()=>NF_DEBUG.state.canvas),[2880,1800]);assert.equal(await hidpi.evaluate(()=>NF_DEBUG.state.dpr),2);await hidpi.close();record('HiDPI cap','device DPR 2.5 uses canvas DPR 2; logical node positions unchanged');
+  const file=await browser.newPage();monitor(file);await file.goto('file:///'+path.join(ROOT,'prototype/prototype-02.html').replaceAll('\\','/')+'?debug&at='+toScroll(3.65)+'&it=4');await file.waitForTimeout(200);assert.equal(await file.locator('#models-brands button').count(),8);assert.ok(await file.locator('[data-id=gpt] img').evaluate(x=>x.complete&&x.naturalWidth>0));await file.close();record('file:// direct preview','classic data scripts and relative logos load without fetch');
   assert.deepEqual(report.errors,[]);assert.deepEqual(report.failedResources,[]);record('console / network','no page errors, console errors or HTTP failures');
  }finally{fs.writeFileSync(path.join(__dirname,'results.json'),JSON.stringify(report,null,2)+'\n');await browser.close();}
  console.log('Saved tests/results.json and screenshots.');

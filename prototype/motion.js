@@ -14,8 +14,8 @@ const CN='"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Not
 const MONO='"JetBrains Mono","SF Mono",Menlo,Consolas,"Liberation Mono",monospace';
 
 /* ============ 时间轴（单位：屏）—— 所有画面都是 s 的函数 ============ */
-const TIMELINE=window.NF_TIMELINE,TOTAL=TIMELINE.total;
-const STOP={open:0,...Object.fromEntries(['models','local','agents','global','personal'].map(k=>[k,TIMELINE[k].stop])),end:TOTAL};
+const CLOCK=window.NF_TIMELINE,TIMELINE=CLOCK.scene,TOTAL=CLOCK.total;
+const STOP={open:0,...Object.fromEntries(['models','local','agents','global','personal'].map(k=>[k,CLOCK[k].stop])),end:TOTAL};
 const legacyLocal=s=>lerp(TIMELINE.local.oldStart,TIMELINE.local.oldEnd,R(s,TIMELINE.local.start,TIMELINE.local.end));
 const legacyLater=s=>s-TIMELINE.legacyOffset;
 
@@ -414,17 +414,17 @@ const b2=[...document.querySelectorAll('#bridge .l2 span')],peT=[...document.que
 function show(el,a,dy=0){a=clamp(a);a=Math.round(a*1000)/1000;if(el._a===a&&el._dy===dy)return;el._a=a;el._dy=dy;
  el.style.opacity=a;el.style.visibility=a>.01?'visible':'hidden';el.style.transform=dy?`translateY(${dy.toFixed(1)}px)`:'';}
 const setT=(el,t)=>{if(el._t!==t){el._t=t;el.textContent=t}};
-function ui(s,intro){
+function ui(s,intro,scrollS=s){
  const hud=AT!==null||REDUCED?1:R(intro,1.7,2.8),old=legacyLater(s),M=TIMELINE.models,A=TIMELINE.agents;
  show(hTL,hud);show(hTR,hud);show(hBR,hud);show(rail,hud);show(hBL,hud*(1-R(s,.1,.28)));
  hint.style.opacity=1-R(s,.02,.12);
- setT(progEl,String(Math.round(s/TOTAL*100)).padStart(3,'0')+' / 100');
+ setT(progEl,String(Math.round(scrollS/TOTAL*100)).padStart(3,'0')+' / 100');
  const section=s<M.start?'open':s<TIMELINE.local.start?'models':s<A.start?'local':s<TIMELINE.bridge.start?'agents':s<TIMELINE.global.start?'bridge':s<TIMELINE.personal.start?'global':'personal';
  setT(pts,s<.95?`${NPTS.toLocaleString('en')} PTS`:section==='models'?'08 / MODELS':section==='agents'?'10 / PLATFORMS':section==='global'?'NETWORK':section==='personal'?'FIELD':'SEQUENCE');
  setT(crumb,({open:'00 — 起点 POINT',models:'01.1 — 模型生态',local:'01.2 — 本地 AI',agents:'01.3 — AI 客户端与 Agent',bridge:'01 → 02',global:'02 — 链路 NETWORK',personal:'03 — 场 FIELD'})[section]);
  const ri=s<M.start?0:s<TIMELINE.global.start?1:s<TIMELINE.personal.start?2:3;
  railB.forEach((b,i)=>{b.classList.toggle('on',i===ri);if(i===ri)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});
- rfill.style.height=((rail.offsetHeight+28)*s/TOTAL).toFixed(1)+'px';
+ rfill.style.height=((rail.offsetHeight+28)*scrollS/TOTAL).toFixed(1)+'px';
  show(chAI,win(s,2.36,2.44,TIMELINE.bridge.start,TIMELINE.bridge.start+.1));
  aiLi.forEach((l,i)=>{const on=i===(section==='models'?0:section==='local'?1:2);l.classList.toggle('on',on);const a=l.querySelector('a');if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
  show(chGL,win(old,8.5,8.56,9.26,9.34));show(chPE,win(old,9.82,9.88,10.62,10.72));
@@ -456,7 +456,8 @@ const showcase=window.NFShowcase({ctx,viewport:()=>({W,H,SL,SR,FX,FY,FZ}),line:L
 
 /* ============ 渲染 ============ */
 let curBG='';
-function render(s,time,intro,vel){
+function render(scrollS,time,intro,vel){
+ const s=CLOCK.toScene(scrollS);
  const old=legacyLater(s),bg=old<8.06?'#050505':old<9.3?'#ecebe8':'#0d0d0c';BG=bg;
  if(bg!==curBG){curBG=bg;stage.style.background=bg;document.documentElement.style.background=bg;document.body.style.background=bg}
  INK=old>=8.06&&old<9.3?DARK:LIGHT;
@@ -465,7 +466,7 @@ function render(s,time,intro,vel){
  bigTitle('01',s,1.85,2.42,'序列','SEQUENCE · AI',false);
  if(s>=TIMELINE.local.start&&s<=TIMELINE.local.end)sceneLocal(legacyLocal(s),time);
  showcase.draw(s);
- sceneBridge(old);sceneGlobal(old,time);sceneField(old,time);ui(s,intro);
+ sceneBridge(old);sceneGlobal(old,time);sceneField(old,time);ui(s,intro,scrollS);
 }
 
 /* ============ 主循环与交互 ============ */
@@ -475,7 +476,7 @@ function goTo(s){userMoved=true;if(REDUCED){anim=null;sd=s;scrollTo(0,s*UNIT);re
 function frame(now){
  const dt=Math.min(.05,Math.max(.001,(now-last)/1000));last=now;fpsA=lerp(fpsA,1/dt,.05);
  if(anim){const t=R(now,anim.t0,anim.t0+anim.dur);scrollTo(0,lerp(anim.y0,anim.y1,io(t)));if(t>=1)anim=null}
- const tgt=(AT!==null&&!userMoved)?AT:scrollY/UNIT,prev=sd;
+ const tgt=clamp((AT!==null&&!userMoved)?AT:scrollY/UNIT,0,TOTAL),prev=sd;
  sd=REDUCED?tgt:sd+(tgt-sd)*(1-Math.exp(-dt*7.5));if(Math.abs(tgt-sd)<1e-4)sd=tgt;
  vel=lerp(vel,(sd-prev)/dt,.2);
  const time=Math.max(0,(now-T0)/1000),intro=FIXIT!==null?FIXIT:((AT!==null&&AT>0)||REDUCED)?10:time;
@@ -518,7 +519,7 @@ try{
 const initial=AT!==null?AT:restored!==null?restored:(fromHash() in STOP?STOP[fromHash()]:0);
 sd=clamp(initial,0,TOTAL);scrollTo(0,sd*UNIT);
 addEventListener('pagehide',()=>{try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:scrollY/UNIT,url:positionKey()}))}catch{}});
-if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP};},seek(s){userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT)},positions:showcase.positions};
+if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP};},seek(s){userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT)},positions:showcase.positions};
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{for(const k in gcache)delete gcache[k];layout()});
 requestAnimationFrame(frame);
 })();

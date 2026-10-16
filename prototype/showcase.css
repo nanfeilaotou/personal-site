@@ -4,7 +4,7 @@
 .brand-node{position:absolute;left:0;top:0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:152px;min-height:90px;padding:12px 5px;border:0;background:none;color:inherit;pointer-events:auto;cursor:pointer;font-family:var(--cn);outline-offset:5px;will-change:transform,opacity}
 .brand-node::before{content:'';position:absolute;inset:3px 10px;border:1px solid transparent;background:radial-gradient(ellipse,#050505 24%,#05050500 74%);transition:border-color .2s,background .2s;pointer-events:none}
 .brand-node:hover::before,.brand-node:focus-visible::before,.brand-node[aria-expanded=true]::before{border-color:#777;background:#111c}
-.brand-mark{width:calc(var(--mark-size,36px)*1.65);height:var(--mark-size,36px);display:grid;place-items:center;flex:none;margin-bottom:10px;position:relative;pointer-events:none}
+.brand-mark{width:calc(var(--mark-size,36px)*1.65);height:var(--mark-size,36px);display:flex;align-items:center;justify-content:center;flex:none;margin-bottom:10px;position:relative;pointer-events:none}
 .brand-node img{width:calc(var(--mark-size,36px)*var(--logo-scale,1));height:calc(var(--mark-size,36px)*var(--logo-scale,1));object-fit:contain;position:relative;pointer-events:none}
 .brand-node[data-id=grok]{--logo-scale:1.12}
 .brand-node[data-id=deepseek],.brand-node[data-id=dsh]{--logo-scale:1.25}
@@ -19,7 +19,7 @@
 .brand-node[data-id=comfyui]{--logo-scale:.95}
 .brand-node .node-name{font-size:13px;font-weight:650;line-height:1.35;letter-spacing:.025em;position:relative;max-width:150px}
 .brand-node .node-meta{font:9px/1.5 var(--mono);letter-spacing:.06em;color:#999;margin-top:5px;position:relative}
-.brand-node .wordmark{font:600 17px/1.2 var(--mono);letter-spacing:-.04em;position:relative;max-width:160px}
+.brand-node .wordmark{font:600 17px/1.2 var(--mono);letter-spacing:-.04em;white-space:nowrap;position:relative;max-width:160px}
 .brand-node.text-node .node-name{font-size:11px;color:#aaa}
 .scene-copy{position:absolute;left:31%;top:15%;max-width:62%;pointer-events:none}
 .scene-copy .eyebrow{font:10px var(--mono);color:#888;letter-spacing:.18em;margin-bottom:12px}

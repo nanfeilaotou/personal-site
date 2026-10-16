@@ -1,5 +1,7 @@
 # Prototype 02 实测报告
 
+> 2026-10-17 已完成精修：当前为 10.58 屏，新增 DSH / ZCode 标志。以下是首轮记录；当前范围、文案和测试以 [精修交付](PROTOTYPE-02-REFINEMENT.md) 为准。
+
 日期：2026-10-16。完整记录见 [results.json](../tests/results.json)，截图见 [visual-report.html](../tests/visual-report.html)。
 
 ## 环境与覆盖边界
