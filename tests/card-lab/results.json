@@ -1,0 +1,1007 @@
+{
+  "date": "2026-10-17",
+  "baseline": "a441659",
+  "checks": [
+    {
+      "name": "protected prototype / source assets",
+      "detail": "approved HTML, motion, shader, timeline, node layout and model/Agent data match a441659; all 18 old SVGs unchanged; new official downloads match recorded bytes"
+    },
+    {
+      "name": "local loading / shaders",
+      "detail": "three surfaces prepared from local originals, two programs link, one WebGL context"
+    },
+    {
+      "name": "3 materials / reverse / random pause",
+      "detail": "12 positions per material reproduce identical WebGL framebuffer hashes in reverse; composed screenshots retain the structure for visual inspection"
+    },
+    {
+      "name": "quiet hold / GPU idle",
+      "detail": "no new animation frames or draw calls over a 650ms stationary hold"
+    },
+    {
+      "name": "pointer / click / keyboard",
+      "detail": "tilt leaves scroll progress unchanged; card details can be opened by click or focus and closed by Escape"
+    },
+    {
+      "name": "scroll / scrub / playback",
+      "detail": "range and wheel share scrollY; forward / reverse playback and pause tested"
+    },
+    {
+      "name": "two Global integration studies",
+      "detail": "white four-layer lift and bounded dark aperture rendered; live Global source remains unchanged"
+    },
+    {
+      "name": "desktop performance",
+      "detail": "actual application callback CPU and frame cadence sampled during 150 driven assembly frames at each target resolution"
+    },
+    {
+      "name": "GPU queries",
+      "detail": "EXT_disjoint_timer_query measured actual point and surface draws where supported"
+    },
+    {
+      "name": "Resize reuse",
+      "detail": "8 resize cycles do not grow point buffers or textures"
+    },
+    {
+      "name": "AI original-color comparison",
+      "detail": "WorkBuddy / Muse original SVGs decode; text-to-color keyboard focus works; Grok Bot remains a name mark"
+    },
+    {
+      "name": "material review",
+      "detail": "three official-source cards and two telco logos load; sample numbers masked before display"
+    },
+    {
+      "name": "reduced motion",
+      "detail": "opens as a readable surface; no particle draws or animated interpolation"
+    },
+    {
+      "name": "no WebGL fallback",
+      "detail": "prepared card image and DOM controls remain readable"
+    },
+    {
+      "name": "small viewport / touch",
+      "detail": "390px layout has no horizontal overflow and tap details work"
+    },
+    {
+      "name": "file preview fallback",
+      "detail": "static original image and HTTP startup instructions; no tainted-canvas errors"
+    },
+    {
+      "name": "native image / DPR 2",
+      "detail": "1230×786 native Monzo texture at 615×393 CSS pixels; 2880×1800 backing canvas"
+    },
+    {
+      "name": "WebGL loss / restore",
+      "detail": "prepared surface fallback and original-resolution texture restoration checked"
+    }
+  ],
+  "performance": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "phase": "assembly",
+      "cpu": {
+        "samples": 150,
+        "mean": 0.1559999990463257,
+        "p95": 0.2999999523162842,
+        "max": 0.3999999761581421
+      },
+      "raf": {
+        "samples": 150,
+        "mean": 4.194000000000003,
+        "p95": 4.299999999999272,
+        "max": 8.300000000001091
+      },
+      "observedFps": 238.43586075345718,
+      "longTasks": [],
+      "drawCalls": 236
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "phase": "assembly",
+      "cpu": {
+        "samples": 150,
+        "mean": 0.17600000143051148,
+        "p95": 0.30000007152557373,
+        "max": 0.3999999761581421
+      },
+      "raf": {
+        "samples": 150,
+        "mean": 4.194666666666659,
+        "p95": 4.299999999999272,
+        "max": 8.299999999999272
+      },
+      "observedFps": 238.39796567069337,
+      "longTasks": [],
+      "drawCalls": 236
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "phase": "assembly",
+      "cpu": {
+        "samples": 150,
+        "mean": 0.2493333371480306,
+        "p95": 0.3999999761581421,
+        "max": 0.5
+      },
+      "raf": {
+        "samples": 150,
+        "mean": 4.194666666666659,
+        "p95": 4.299999999999272,
+        "max": 8.399999999999636
+      },
+      "observedFps": 238.39796567069337,
+      "longTasks": [],
+      "drawCalls": 236
+    }
+  ],
+  "gpu": {
+    "available": true,
+    "disjoint": false,
+    "samples": [
+      {
+        "kind": "points",
+        "ms": 0.029696
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.026624
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.004096
+      },
+      {
+        "kind": "points",
+        "ms": 0.026624
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.036864
+      },
+      {
+        "kind": "surface",
+        "ms": 0.003072
+      },
+      {
+        "kind": "points",
+        "ms": 0.013312
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.0256
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.021504
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.0256
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.004096
+      },
+      {
+        "kind": "points",
+        "ms": 0.022528
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.02048
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.024576
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.004096
+      },
+      {
+        "kind": "points",
+        "ms": 0.023552
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.022528
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.246976
+      },
+      {
+        "kind": "points",
+        "ms": 0.02048
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.02048
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.003072
+      },
+      {
+        "kind": "points",
+        "ms": 0.022528
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.014336
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.003072
+      },
+      {
+        "kind": "points",
+        "ms": 0.029696
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0.003072
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "points",
+        "ms": 0.022528
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.003072
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.02048
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.027648
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.028672
+      },
+      {
+        "kind": "surface",
+        "ms": 0.318464
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.019456
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.033792
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.02048
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.013312
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.02048
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.014336
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.006144
+      },
+      {
+        "kind": "points",
+        "ms": 0.024576
+      },
+      {
+        "kind": "surface",
+        "ms": 0.473088
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0.003072
+      },
+      {
+        "kind": "points",
+        "ms": 0.014336
+      },
+      {
+        "kind": "points",
+        "ms": 0.021504
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.006144
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.027648
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 1.170432
+      },
+      {
+        "kind": "points",
+        "ms": 0.03072
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.01536
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.02048
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.019456
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.019456
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0.001024
+      },
+      {
+        "kind": "points",
+        "ms": 0.016384
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.024576
+      },
+      {
+        "kind": "surface",
+        "ms": 0.586752
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "points",
+        "ms": 0.0256
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      },
+      {
+        "kind": "points",
+        "ms": 0.018432
+      },
+      {
+        "kind": "surface",
+        "ms": 0.003072
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.022528
+      },
+      {
+        "kind": "points",
+        "ms": 0.0256
+      },
+      {
+        "kind": "surface",
+        "ms": 0.002048
+      },
+      {
+        "kind": "points",
+        "ms": 0.017408
+      },
+      {
+        "kind": "surface",
+        "ms": 0
+      }
+    ]
+  },
+  "errors": [],
+  "failedResources": [],
+  "browser": "153.0.8010.12",
+  "initial": {
+    "progress": 0.66,
+    "target": 0.66,
+    "mode": "void",
+    "card": "monzo",
+    "dpr": 1,
+    "ready": true,
+    "metrics": {
+      "frames": 1,
+      "draws": 1,
+      "pointDraws": 0,
+      "quadDraws": 1,
+      "points": 36480,
+      "textureBytes": 9761680,
+      "bufferBytes": 583776,
+      "errors": []
+    },
+    "framePending": false,
+    "cardRect": {
+      "cx": 936,
+      "cy": 432,
+      "cw": 615,
+      "ch": 393
+    },
+    "webgl": true
+  },
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "clarity": {
+    "state": {
+      "progress": 0.66,
+      "target": 0.66,
+      "mode": "void",
+      "card": "monzo",
+      "dpr": 2,
+      "ready": true,
+      "metrics": {
+        "frames": 1,
+        "draws": 1,
+        "pointDraws": 0,
+        "quadDraws": 1,
+        "points": 36480,
+        "textureBytes": 9761680,
+        "bufferBytes": 583776,
+        "errors": []
+      },
+      "framePending": false,
+      "cardRect": {
+        "cx": 936,
+        "cy": 432,
+        "cw": 615,
+        "ch": 393
+      },
+      "webgl": true
+    },
+    "width": 2880,
+    "height": 1800
+  },
+  "completed": true
+}
