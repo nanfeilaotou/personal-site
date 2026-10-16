@@ -508,10 +508,16 @@ document.documentElement.classList.toggle('no-gl',!gl);
 glc.addEventListener('webglcontextlost',e=>{e.preventDefault();document.documentElement.classList.add('no-gl')});
 glc.addEventListener('webglcontextrestored',()=>{initGL();buildPoints();document.documentElement.classList.remove('no-gl')});
 initGL();resize();
-let restored=0;try{restored=Number(sessionStorage.getItem('nf-prototype-02-s'))||0}catch{}
-const initial=AT!==null?AT:(fromHash() in STOP?STOP[fromHash()]:restored);
+let restored=null;
+const positionKey=()=>location.pathname+location.search+location.hash;
+try{
+ const saved=JSON.parse(sessionStorage.getItem('nf-prototype-02-position'));
+ const navigation=performance.getEntriesByType('navigation')[0]?.type;
+ if(saved&&saved.url===positionKey()&&['reload','back_forward'].includes(navigation)&&Number.isFinite(saved.s))restored=saved.s;
+}catch{}
+const initial=AT!==null?AT:restored!==null?restored:(fromHash() in STOP?STOP[fromHash()]:0);
 sd=clamp(initial,0,TOTAL);scrollTo(0,sd*UNIT);
-addEventListener('pagehide',()=>{try{sessionStorage.setItem('nf-prototype-02-s',String(scrollY/UNIT))}catch{}});
+addEventListener('pagehide',()=>{try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:scrollY/UNIT,url:positionKey()}))}catch{}});
 if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP};},seek(s){userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT)},positions:showcase.positions};
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{for(const k in gcache)delete gcache[k];layout()});
 requestAnimationFrame(frame);

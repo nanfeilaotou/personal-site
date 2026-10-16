@@ -4,7 +4,7 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   const root=document.getElementById('brands'), panel=document.getElementById('brand-detail');
   const all=[...window.NF_MODELS,...window.NF_AGENTS,...window.NF_LOCAL];
   const groups={}, positions=new Map();
-  let active=null, timer=0, pinned=false;
+  let active=null, timer=0, pinned=false, touchFocusUntil=0;
   const el=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value)n.textContent=value;return n;};
   const link=(label,url)=>{const a=el('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;};
   const content={
@@ -20,10 +20,12 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
       const b=el('button','brand-node'+(item.logo?'':' text-node'));b.type='button';b.dataset.id=item.id;b.setAttribute('aria-label',item.name+'：查看详情');b.setAttribute('aria-controls','brand-detail');b.setAttribute('aria-expanded','false');
       if(item.logo){const img=el('img');img.src='../assets/brands/'+item.logo;img.alt='';img.width=30;img.height=30;img.draggable=false;img.addEventListener('error',()=>img.hidden=true);b.append(img);}
       else b.append(el('span','wordmark',item.shortName||item.name));
-      b.append(el('span','node-name',item.name),el('span','node-meta',item.featuredModels?item.provider:(item.category||item.provider)));
-      b.addEventListener('pointerenter',()=>{clearTimeout(timer);if(!pinned)open(item,b,false);});
+      if(item.logo||item.shortName)b.append(el('span','node-name',item.name));
+      b.append(el('span','node-meta',item.featuredModels?item.provider:(item.category||item.provider)));
+      b.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')touchFocusUntil=performance.now()+600;});
+      b.addEventListener('pointerenter',e=>{if(e.pointerType!=='mouse')return;clearTimeout(timer);if(!pinned)open(item,b,false);});
       b.addEventListener('pointerleave',scheduleClose);
-      b.addEventListener('focus',()=>{clearTimeout(timer);open(item,b,false);});
+      b.addEventListener('focus',()=>{if(performance.now()<touchFocusUntil)return;clearTimeout(timer);open(item,b,false);});
       b.addEventListener('blur',e=>{if(!panel.contains(e.relatedTarget))scheduleClose();});
       b.addEventListener('click',()=>{open(item,b,true);});
       group.append(b);return {item,b,i};
@@ -37,6 +39,11 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   function scheduleClose(){clearTimeout(timer);if(!pinned)timer=setTimeout(()=>{if(!panel.matches(':hover')&&!panel.contains(document.activeElement)&&active?.b!==document.activeElement)close();},220);}
   function locate(b){
     const r=b.getBoundingClientRect(),w=panel.offsetWidth,h=panel.offsetHeight;
+    if(innerWidth<=760){
+      panel.style.left=clamp(r.left+r.width/2-w/2,14,innerWidth-w-14)+'px';
+      const y=r.bottom+12+h<innerHeight-14?r.bottom+12:r.top-h-12;
+      panel.style.top=clamp(y,14,innerHeight-h-14)+'px';return;
+    }
     let x=r.right+12;if(x+w>innerWidth-20)x=r.left-w-12;
     panel.style.left=clamp(x,14,innerWidth-w-14)+'px';
     panel.style.top=clamp(r.top+r.height/2-h/2,14,innerHeight-h-14)+'px';
@@ -92,7 +99,7 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     // Model exit focuses Qwen into the original Local AI field; Agent exit flattens to the bridge.
     const qx=kind==='models'?FX:W/2,qy=kind==='models'?FY:H/2;
     x=lerp(x,qx,exit);y=lerp(y,qy,exit);
-    return {x,y,z,ang,scale:(small?.78:1)*(1+z*.12)*(1-exit*.55),alpha:range(enter,.18,.82)*(1-range(exit,.1,.9)),enter,exit};
+    return {x,y,z,ang,scale:(small?.78:1)*(1+z*.12)*(1-exit*.55),alpha:range(enter,.78,.98)*(1-range(exit,.05,.55)),enter,exit};
   }
   function setGroup(key,s){
     const {W,H,SL,SR}=viewport(),g=groups[key],tl=timeline[key];
@@ -104,7 +111,7 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     const pts=g.nodes.map(({item,b,i})=>{
       const p=projection(key,i,g.nodes.length,s);positions.set(item.id,p);
       b.style.transform=`translate3d(${p.x}px,${p.y}px,0) translate(-50%,-50%) scale(${p.scale})`;
-      b.style.opacity=p.alpha;b.style.pointerEvents=interactive?'auto':'none';b.tabIndex=interactive?0:-1;
+      b.style.opacity=p.alpha;b.style.pointerEvents=interactive&&p.alpha>.7?'auto':'none';b.tabIndex=interactive&&p.alpha>.7?0:-1;
       return p;
     });
     if(key==='local')return;
@@ -133,6 +140,8 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     }
     pts.forEach((p,i)=>{
       const selected=active?.item.id===g.nodes[i].item.id;
+      const fragmentAlpha=(1-range(p.enter,.32,.77))*range(p.enter,0,.18)*fade;
+      if(fragmentAlpha>0)text(g.nodes[i].item.name.replace(/[^a-zA-Z]/g,'').slice(0,3).toUpperCase(),lerp(SL+18,SR-18,i/(pts.length-1)),H*.58-20,10,fragmentAlpha*.65,{al:'center'});
       if(key==='models'&&W>760){line(cx,cy,p.x,p.y,.055*fade*p.enter);}
       const span=selected?24:12;line(p.x-span,p.y+56,p.x+span,p.y+56,fade*(selected?.85:.24));
     });
