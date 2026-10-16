@@ -53,3 +53,7 @@ DSH 节点使用官方 FishLogo，并配合完整产品名称，不将 DeepSeek 
 原 Lobe 下载器 `scripts/collect-brands.py`（本轮未重跑） 拒绝脚本、foreignObject、image、use、事件属性、href/src、url() 和实体；本地 manifest 保存来源、日期、SHA256。运行时只通过本地 img 加载；没有远程图床或第三方脚本。所有 SVG 内容另由静态检查脚本复查。
 
 新增字标的 `url(#id)` 只引用本文件声明的 clipPath；静态检查允许且逐一验证这种本地引用，继续拒绝所有外部引用与主动内容。品牌原始资源不使用 CSS filter 强制去色。
+
+## 2026-10-17 原色候选实验
+
+新增 `workbuddy-color.svg`、`muse-color.svg`，字节与官方原图一致，未改色；这两份为权利保留的官方公开资源，不属于上文 Lobe Icons 的 MIT 素材。来源、SHA256、使用边界见 [Global / 原色候选来源](../global/SOURCES.md) 及其 manifest。对照位于 `prototype/experiments/brand-color.html`。首页名称标识仍保留，未修改节点布局、运动或时间轴。
