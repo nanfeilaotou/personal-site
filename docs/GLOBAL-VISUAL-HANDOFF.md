@@ -55,15 +55,17 @@ Network 最终展示只有上述四个客户端。Clash Verge 原项目与 V2Fly
 |StarryBlu|Bybit Card|招商银行蓝色 Mastercard|
 |---|---|---|
 |![StarryBlu 已处理缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/starryblu.png)|![Bybit 缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/bybit.png)|![招行蓝卡缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/cmb-mastercard.png)|
-|1010×608，用户提供；展示用离线副本已替换印刷号码与姓名区域|1010×630 RGBA，用户提供；完整正面，无卡号、有效期或姓名|581×373 RGBA，招商银行官方公开目录完整原图，无卡号 / 姓名|
+|1010×608，用户提供；展示用离线副本已替换印刷号码与姓名区域|1010×630 RGBA，用户提供；完整正面，无卡号、有效期或姓名|581×373 RGBA，官方目录卡面；四角白底已离线转透明，无卡号 / 姓名|
 
 - StarryBlu 展示用文件：[assets/cards/public/starryblu-card-sanitized.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/public/starryblu-card-sanitized.png)。它离线导出自已验收的 `NFCardSurface` 处理结果，**作为图片文件本身已经处理，不依赖前端遮罩**。原件 `assets/cards/starryblu-card.png` 仅保留研究和追溯；原发布出处与公开演示身份未独立确认。原件及历史未删除、未重写，未来生产发布必须排除未处理原件，不能整仓当作公开生产资源目录。
 
   后续采用该副本时无需携带原件的 `redactions` 配置。当前独立实验仍保留原输入及运行时采样规则，是为了保持已验收算法和回归结果，不代表未来生产应直接发布研究原件。
 - Bybit：[assets/cards/bybit-card.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/bybit-card.png)。来源如实记录为用户提供，不伪造官网地址或授权。
-- 招行：[assets/cards/cmb-mastercard-blue.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/cmb-mastercard-blue.png)。准确名称是 **万事达人民币 IC 借记卡（普卡）**，来自[招行公开目录](https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html)对应条目，不是全币种信用卡。
+- 招行：[assets/cards/cmb-mastercard-blue.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/cmb-mastercard-blue.png)。准确名称是 **万事达人民币 IC 借记卡（普卡）**，来自[招行公开目录](https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html)对应条目，不是全币种信用卡。展示文件已离线清除四角白底及边缘杂边，尺寸和四角区域外像素保持不变；官方原下载件仅归档在 `assets/cards/originals/cmb-mastercard-blue.png`，不用于展示。缩略图与素材总览已同步更新。
 
 卡面来源、原始签名图片网关 URL、处理记录及 SHA256：[assets/cards/SOURCES.md](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/SOURCES.md)、[原始 manifest](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/manifest.json)、[已处理副本 manifest](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/public/manifest.json)。缩略图保留比例，生成器为 `scripts/prepare-global-thumbnails.py`，只从已处理的 StarryBlu 生成缩略图。
+
+![招行卡面在深色与暖白背景下的透明圆角](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/tests/cmb-corners/corner-review.png)
 
 ## 已有四层空间能力
 

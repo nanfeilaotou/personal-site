@@ -1,0 +1,15 @@
+{
+  "checks": [
+    {
+      "name": "native transparency / preserved face",
+      "detail": "four corners alpha 0 in source and thumbnail; 431 changed pixels exclusively inside four 24×24 bounds; every other pixel identical; original download archived with SHA256"
+    },
+    {
+      "name": "browser / particle texture",
+      "detail": "material library and Canvas review load at DPR 2; updated Global screenshot; dark / warm-white comparison; CMB full-particle / texture handoff / native formation values agree forward and reverse to 1e-12; no console or resource errors"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}

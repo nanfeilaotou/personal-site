@@ -50,14 +50,19 @@
     "source": "https://s3gw.cmbimg.com/s/L2x0NzMwNy1vcGVuY2FyZC1wcmQtMTI1NTAwMDA5OC8lRTUlQjAlODElRTklOUQlQTIlRTUlOEQlQTElRTclODklODdfMTc4MTA3MjUzNDE3Nj9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0JmaWxlbmFtZSUzRCUyNUU1JTI1QjAlMjU4MSUyNUU5JTI1OUQlMjVBMiUyNUU1JTI1OEQlMjVBMSUyNUU3JTI1ODklMjU4NyUzQmZpbGVuYW1lJTJBJTNEVVRGLTglMjclMjclMjVFNSUyNUIwJTI1ODElMjVFOSUyNTlEJTI1QTIlMjVFNSUyNThEJTI1QTElMjVFNyUyNTg5JTI1ODcmQVdTQWNjZXNzS2V5SWQ9bHQ3MzA3LW9wZW5jYXJkLXByZCZFeHBpcmVzPTI3MjcxNTI1MzQmU2lnbmF0dXJlPTVEUyUyRng0RWklMkYlMkZ3Zm1HNFg5R1BzYVZveFhhWSUzRA==/bBrohVg4OJOQAvTI8-clCqP6xIg=/lt7307-opencard-prd-cos-dmz/0",
     "sourcePage": "https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html",
     "verifiedAt": "2026-10-17",
-    "sha256": "cdf71a42a69820edb93f0363ddf32bcdc5e10426e9b08453b73bd08c7aabbc43",
-    "bytes": 373113,
-    "modification": "Original file bytes retained. Preview-only StarryBlu privacy sampling is documented separately.",
+    "sha256": "56a88f3deaeb1fa7cea8f41185779873a2b7ec6e1d6d2f53268a641e9f0c4dbc",
+    "bytes": 342124,
+    "modification": "Four exterior white corner mattes removed offline, with edge decontamination inside four 24x24 corner bounds. Dimensions and all other card-face pixels unchanged. Official download retained at sourceFile; no runtime-only mask.",
     "license": "Rights retained by the respective owner; no open reuse licence established.",
     "width": 581,
     "height": 373,
     "mode": "RGBA",
-    "hasAlpha": true
+    "hasAlpha": true,
+    "sourceFile": "assets/cards/originals/cmb-mastercard-blue.png",
+    "sourceSha256": "cdf71a42a69820edb93f0363ddf32bcdc5e10426e9b08453b73bd08c7aabbc43",
+    "sourceBytes": 373113,
+    "hasTransparency": true,
+    "processingScript": "scripts/prepare-cmb-transparency.cjs"
   },
   {
     "file": "assets/global/brands/ifast.svg",

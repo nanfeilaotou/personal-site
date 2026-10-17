@@ -38,7 +38,7 @@
 |---|---|---|
 |`assets/cards/starryblu-card.png`|用户提供，1010×608 RGBA|主测试，深色星空。原文件保留；预览对样张号码和姓名采用相邻无文字区域采样，所有渲染层规则一致。|
 |`assets/cards/bybit-card.png`|用户提供，1010×630 RGBA|主测试，完整浅灰正面；替代此前宣传图里的约 500px 摄影取样。|
-|`assets/cards/cmb-mastercard-blue.png`|招行官方目录，581×373 RGBA|第三张辅助卡：**万事达人民币 IC 借记卡（普卡）**，不是全币种信用卡。无卡号、姓名或有效期。|
+|`assets/cards/cmb-mastercard-blue.png`|招行官方目录，581×373 RGBA；四角白底已离线转透明|第三张辅助卡：**万事达人民币 IC 借记卡（普卡）**，不是全币种信用卡。无卡号、姓名或有效期。|
 |`assets/brands/grok-bot-provided.png`|用户提供，512×512 RGBA|用于独立品牌对照页；标为本地候选，不冒称官方出处已确认。|
 |`assets/global/brands/ifast.svg`|iFAST Global Bank 官网 Header|保留银行独立字标原色与比例。|
 |`assets/global/brands/wise.svg`|Wise 官方媒体包|保留深绿矢量字标；用 CSS 处理其 viewBox 留白。|
@@ -46,7 +46,7 @@
 
 ClubSIM 沿用已下载的官方彩色透明 PNG，未无理由重新下载；210px 原宽按不超过 105 CSS px 展示。SMART 同样沿用既有原色资源。品牌可与黑白网络骨架共存，深绿 / 深蓝标志在浅底审查、白字品牌在深底审查，未用滤镜强制变白。AI 首页维持原有呈现。
 
-招行资源从官方公开产品目录中定位到具体产品条目，读取其实际加载的完整 PNG。旧全币种产品页只有黑色 Mastercard，蓝色 AE 页属于美国运通；未混用这些产品，也未从被遮挡的推广海报补画。逐项来源、原始 URL、SHA256 和使用边界见 [素材记录](../assets/cards/SOURCES.md) 与 [manifest](../assets/cards/manifest.json)。
+招行资源从官方公开产品目录中定位到具体产品条目，读取其实际加载的完整 PNG。后续按用户要求清除了原下载件不透明的四角白底；展示文件保持原尺寸，卡面主体未改。原下载件仅归档至 `assets/cards/originals/cmb-mastercard-blue.png`，来源记录同时保存原件与修正文件的 SHA256。旧全币种产品页只有黑色 Mastercard，蓝色 AE 页属于美国运通；未混用这些产品，也未从被遮挡的推广海报补画。逐项来源、原始 URL、SHA256 和使用边界见 [素材记录](../assets/cards/SOURCES.md) 与 [manifest](../assets/cards/manifest.json)。
 
 ## 显示质量与资源成本
 

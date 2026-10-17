@@ -1,6 +1,6 @@
 # 卡面与 Global 彩色品牌 · 本轮记录
 
-日期：2026-10-17。原始文件字节与 SHA256 见 [manifest.json](manifest.json)。本轮素材仅接入独立实验页；AI 章节与正式 Global 没有改动。
+日期：2026-10-17。下载原件与展示用文件的字节 / SHA256 见 [manifest.json](manifest.json)。本轮素材仅接入独立实验页；AI 章节与正式 Global 没有改动。
 
 ## 提供的本地文件
 
@@ -12,7 +12,9 @@
 
 ## 招行蓝色辅助卡：已找到官方完整卡面
 
-从招商银行官方 [借记卡公开目录](https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html) 中，定位名称 **万事达人民币 IC 借记卡（普卡）** 的条目，读取该条目实际加载的图片。保存为 `cmb-mastercard-blue.png`，**581×373 RGBA**，完整正面、透明圆角、无卡号 / 有效期 / 姓名。原始公开图片网关 URL 记录在 manifest，不在运行时依赖它。
+从招商银行官方 [借记卡公开目录](https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html) 中，定位名称 **万事达人民币 IC 借记卡（普卡）** 的条目，读取该条目实际加载的图片。展示文件为 `cmb-mastercard-blue.png`，**581×373 RGBA**，完整正面、无卡号 / 有效期 / 姓名。下载件虽带 RGBA 通道，但其 alpha 全为 255，四角白底并不透明；此前“透明圆角”的记述不准确。现按用户要求离线清除四角白底并去除边缘白色杂边，四角 24×24 范围以外的像素逐字节不变，不缩图、不重绘卡面。原始公开图片网关 URL 记录在 manifest，不在运行时依赖它。
+
+原始下载件归档至 [originals/cmb-mastercard-blue.png](originals/cmb-mastercard-blue.png)，原 SHA256 为 `cdf71a42a69820edb93f0363ddf32bcdc5e10426e9b08453b73bd08c7aabbc43`；仅供追溯，不用于展示。处理脚本为 [prepare-cmb-transparency.cjs](../../scripts/prepare-cmb-transparency.cjs)。manifest 分别记录原件与修正文件的哈希。首页素材库、卡面实验及交接缩略图均使用修正后的文件，不依赖 CSS 遮罩。
 
 这张蓝卡是人民币借记卡，**不是全币种国际信用卡**。同时查过招商银行 `ccard/uniqbk/xpjs.html` 与 `ccard/wap/`：旧全币种 Mastercard 卡面是黑色带倒影；蓝色 AE 页面属于美国运通。没有把这些不同产品改名为“蓝色 Mastercard”。官方 [借记卡产品推广页](https://market.cmbchina.com/MPage/online/240708104147586/ofwf.html) 还展示了蓝卡与银卡，但蓝卡被遮挡，未拿海报遮挡部分补画成完整图。
 
