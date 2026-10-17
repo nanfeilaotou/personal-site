@@ -56,4 +56,6 @@ DSH 节点使用官方 FishLogo，并配合完整产品名称，不将 DeepSeek 
 
 ## 2026-10-17 原色候选实验
 
+本轮后续：Grok Bot 已收到用户提供的透明图标，作为本地候选加入独立审查页；官方出处仍未单独确认，首页数据不变。Global 允许使用原色，新增 iFAST Global Bank、Wise、PayPal 官方透明 SVG，ClubSIM 沿用现有原色文件。详见 [当前素材记录](../cards/SOURCES.md)。
+
 新增 `workbuddy-color.svg`、`muse-color.svg`，字节与官方原图一致，未改色；这两份为权利保留的官方公开资源，不属于上文 Lobe Icons 的 MIT 素材。来源、SHA256、使用边界见 [Global / 原色候选来源](../global/SOURCES.md) 及其 manifest。对照位于 `prototype/experiments/brand-color.html`。首页名称标识仍保留，未修改节点布局、运动或时间轴。
