@@ -1,12 +1,62 @@
 {
   "verifiedAt": "2026-10-17",
   "purpose": "Global material taxonomy and visual roles only; not homepage scene configuration or verified money-flow connections",
+  "connectivity": {
+    "label": "01 / CONNECTIVITY",
+    "title": "号码 / Connectivity",
+    "relationshipNote": "海外号码与通信、账号注册、验证、社交服务的应用关系；不表示所有服务都必须用手机号，也不保证任一运营商套餐可完成所有平台验证。",
+    "groups": [
+      {
+        "id": "carriers",
+        "name": "通信运营商",
+        "brands": [
+          "Club Sim",
+          "SMART"
+        ],
+        "priority": "infrastructure"
+      },
+      {
+        "id": "phone-services",
+        "name": "手机号相关通讯平台",
+        "brands": [
+          "WhatsApp",
+          "Telegram",
+          "LINE"
+        ],
+        "priority": "primary"
+      },
+      {
+        "id": "social-accounts",
+        "name": "其他社交账号服务",
+        "brands": [
+          "Instagram",
+          "Facebook"
+        ],
+        "priority": "secondary"
+      }
+    ]
+  },
   "accountsWallets": {
     "label": "03 / ACCOUNTS & WALLETS",
     "title": "账户与钱包 / Accounts & Wallets",
     "groups": [
-      {"id": "account-services", "name": "账户资金服务", "brands": ["iFAST Global Bank", "Wise", "PayPal"]},
-      {"id": "wallet-quick-pay", "name": "钱包快捷支付", "brands": ["Apple Pay", "Google Pay"]}
+      {
+        "id": "account-services",
+        "name": "账户资金服务",
+        "brands": [
+          "iFAST Global Bank",
+          "Wise",
+          "PayPal"
+        ]
+      },
+      {
+        "id": "wallet-quick-pay",
+        "name": "钱包快捷支付",
+        "brands": [
+          "Apple Pay",
+          "Google Pay"
+        ]
+      }
     ],
     "relationshipNote": "按内容用途分组，不暗示账户、钱包或卡片之间存在未经核实的资金互通、绑卡或结算关系。"
   },

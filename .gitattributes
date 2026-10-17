@@ -10,3 +10,7 @@ assets/global/network/*.svg -text
 assets/global/network/licenses/* -text -whitespace
 # Retain Google's original SVG line endings byte-for-byte, as downloaded.
 assets/global/brands/google-pay.svg -whitespace
+# Official social artwork retains the original download bytes.
+assets/global/social/*.svg -text
+# Illustrator source archives are binary originals, never text-normalised.
+assets/global/social/source-files/*.ai binary

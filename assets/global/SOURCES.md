@@ -4,6 +4,8 @@
 
 Global 素材库的 [Network 正式清单与许可](network/SOURCES.md) 已定稿为 Clash Verge Rev、FlClash、Shadowrocket、v2rayN。Clash Verge 原项目和 V2Fly 文档图仅保留为历史候选，不用于正式展示。统一入口为 [Global 总览](../../prototype/experiments/global-assets.html) 和 [Opus 交接文档](../../docs/GLOBAL-VISUAL-HANDOFF.md)；通信及账户原始文件没有重下载或修改。
 
+Connectivity 新增 WhatsApp、Telegram、LINE（主要）及 Instagram、Facebook（辅助），见 [通讯 / 社交来源与限制](social/SOURCES.md)、[原始文件 manifest](social/manifest.json)。ClubSIM、SMART 保留为运营商组。五个平台在素材审查页静态分组展示，不进入首页；注册与验证码说明逐项核验，LINE 地区差异及 Facebook 本次帮助页登录限制如实记录。
+
 新增 Apple Pay、Google Pay 原始官方 SVG 及使用规范见 [支付标识记录](brands/PAYMENT-MARKS.md)，原始下载包、成员文件及哈希见 [manifest](manifest.json)。Global 第三领域现为“账户与钱包”，第四领域为“支付卡片”；分组、三卡视觉用途与官方产品范围核验见 [素材分类 manifest](library-manifest.json)。不由并列展示推断品牌互通关系。
 
 以下为此前素材获取与核验记录（2026-10-17），当轮下载了下列 7 份公开资源：三张卡面来源、两个通信 Logo、两个 AI 原色 Logo。原始下载字节与 SHA256 保存在 [manifest.json](manifest.json)。现有 Prototype 02 的 18 个单色 SVG 没有改动。
