@@ -2,8 +2,8 @@
 'use strict';
 window.NFCardSurface={
  async load(item){
-  const image=new Image();image.decoding='async';image.src='../../assets/global/'+item.file;await image.decode();
-  const canvas=document.createElement('canvas');canvas.width=item.quad||item.redactions?item.surfaceWidth:image.naturalWidth;canvas.height=Math.round(canvas.width/item.aspect);const ctx=canvas.getContext('2d');
+  const image=new Image();image.decoding='async';image.src='../../assets/'+(item.asset||'global/'+item.file);await image.decode();
+  const canvas=document.createElement('canvas');canvas.width=item.quad?(item.surfaceWidth||image.naturalWidth):image.naturalWidth;canvas.height=Math.round(canvas.width/item.aspect);const ctx=canvas.getContext('2d');
   let sampleMatrix=[1,0,0,0,1,0,0,0,1];
   if(item.quad){
    const scratch=document.createElement('canvas');scratch.width=image.naturalWidth;scratch.height=image.naturalHeight;const g=scratch.getContext('2d',{willReadFrequently:true});g.drawImage(image,0,0);const src=g.getImageData(0,0,scratch.width,scratch.height).data,out=ctx.createImageData(canvas.width,canvas.height);
@@ -18,7 +18,9 @@ window.NFCardSurface={
    }}ctx.putImageData(out,0,0);
   }else ctx.drawImage(image,0,0,canvas.width,canvas.height);
   if(item.quad){ctx.save();ctx.globalCompositeOperation='destination-in';ctx.beginPath();ctx.roundRect(0,0,canvas.width,canvas.height,canvas.height*.043);ctx.fill();ctx.restore();}
-  if(item.redactions){ctx.fillStyle='#080e1a';for(const [x,y,w,h] of item.redactions)ctx.fillRect(x*canvas.width,y*canvas.height,w*canvas.width,h*canvas.height);ctx.fillStyle='#aab2c0';ctx.font='8px monospace';ctx.fillText('VISUAL SAMPLE',canvas.width*.1,canvas.height*.6);}
+  // Preview-only privacy strip. The original file is retained byte-for-byte.
+  // Points, quad and fallback sample this same adjacent, unlabelled region.
+  if(item.redactions)for(const [x,y,w,h] of item.redactions)ctx.drawImage(image,x*image.naturalWidth,(y-h-.018)*image.naturalHeight,w*image.naturalWidth,h*image.naturalHeight,x*canvas.width,y*canvas.height,w*canvas.width,h*canvas.height);
   return {item,image,canvas,sampleMatrix};
  }
 };

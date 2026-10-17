@@ -19,9 +19,12 @@ node scripts/serve.mjs
 Global 素材与卡面独立实验（通过上述 HTTP 服务预览，不影响首页）：
 
 - [卡面粒子实验 · 原生高清纹理](http://127.0.0.1:4173/prototype/experiments/card-particle.html?p=.66)
+- [真实彩色粒子成像 · 本轮报告](docs/CARD-FORMATION-02.md)
+- [本轮前后对照与实测](tests/card-formation/index.html)
+- [Global 原色品牌](prototype/experiments/global-brands.html)
 - [AI 原色品牌对照](prototype/experiments/brand-color.html)
 - [Global 首批素材](prototype/experiments/global-materials.html)
-- [实验截图和实测结果](tests/card-lab/index.html)
+- [上一轮实验截图和实测结果（归档）](tests/card-lab/index.html)
 - [实现、来源与清晰度限制](docs/GLOBAL-CARD-LAB.md)
 
 八个模型品牌、十个平台和本地 AI 工具的数据分别在 `data/models.js`、`data/agents.js`。核验日期为 2026-10-16；更新型号不需要修改动画。
