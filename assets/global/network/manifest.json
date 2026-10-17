@@ -1,0 +1,91 @@
+{
+  "candidates": [
+    {
+      "id": "clash-verge",
+      "name": "Clash Verge",
+      "file": "assets/global/network/clash-verge.svg",
+      "source": "https://raw.githubusercontent.com/zzzgydi/clash-verge/b5391560fcbca6eb04c76502b9828dd29ca6546c/src/assets/image/logo.svg",
+      "sourcePage": "https://github.com/zzzgydi/clash-verge/blob/b5391560fcbca6eb04c76502b9828dd29ca6546c/src/assets/image/logo.svg",
+      "revision": "b5391560fcbca6eb04c76502b9828dd29ca6546c",
+      "verifiedAt": "2026-10-17",
+      "sha256": "4d45c68e143df95aa977b76df421a7707c9f87834d1b2ec10eb70eb297e82612",
+      "license": "GPL-3.0 repository; no separate trademark grant identified",
+      "licenseFile": "assets/global/network/licenses/clash-original",
+      "note": "历史项目 / 与 Rev 分列，最终名称待确认",
+      "modification": "Original bytes; no recolouring or geometry edits"
+    },
+    {
+      "id": "clash-verge-rev",
+      "name": "Clash Verge Rev",
+      "file": "assets/global/network/clash-verge-rev.png",
+      "source": "https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/cef66cd745ef29aa98e219ffb083b62e13c959e8/src-tauri/icons/icon.png",
+      "sourcePage": "https://github.com/clash-verge-rev/clash-verge-rev/blob/cef66cd745ef29aa98e219ffb083b62e13c959e8/src-tauri/icons/icon.png",
+      "revision": "cef66cd745ef29aa98e219ffb083b62e13c959e8",
+      "verifiedAt": "2026-10-17",
+      "sha256": "ee04739a049564e34c7fee4fcc649f6dd195598c645bf061c1696e3099d67b08",
+      "license": "GPL-3.0 repository; no separate trademark grant identified",
+      "licenseFile": "assets/global/network/licenses/clash-rev",
+      "note": "延续项目候选，不静默替代 Clash Verge",
+      "modification": "Original bytes; no recolouring or geometry edits",
+      "width": 512,
+      "height": 512,
+      "hasAlpha": true
+    },
+    {
+      "id": "flclash",
+      "name": "FlClash",
+      "file": "assets/global/network/flclash.svg",
+      "source": "https://raw.githubusercontent.com/chen08209/FlClash/8d4f9744948751f1273fe871e1d05276fac09b0e/assets_source/images/icon/glyph.svg",
+      "sourcePage": "https://github.com/chen08209/FlClash/blob/8d4f9744948751f1273fe871e1d05276fac09b0e/assets_source/images/icon/glyph.svg",
+      "revision": "8d4f9744948751f1273fe871e1d05276fac09b0e",
+      "verifiedAt": "2026-10-17",
+      "sha256": "37f3ff068e01f9f992d6e192b50b15e4d854a61a618feab5087bf27e244694cd",
+      "license": "GPL-3.0 repository; no separate trademark grant identified",
+      "licenseFile": "assets/global/network/licenses/flclash",
+      "note": "用户指定上游 glyph.svg，原始矢量",
+      "modification": "Original bytes; no recolouring or geometry edits"
+    },
+    {
+      "id": "v2ray",
+      "name": "v2ray / V2Fly 文档标识",
+      "file": "assets/global/network/v2ray.png",
+      "source": "https://raw.githubusercontent.com/v2fly/v2fly-github-io/094c084eef448fc573f2228acc847911ca78ae11/docs/.vuepress/public/v2ray.png",
+      "sourcePage": "https://github.com/v2fly/v2fly-github-io/blob/094c084eef448fc573f2228acc847911ca78ae11/docs/.vuepress/public/v2ray.png",
+      "revision": "094c084eef448fc573f2228acc847911ca78ae11",
+      "verifiedAt": "2026-10-17",
+      "sha256": "5030c7841ef3dbb53b1e56313932cc85dfc1ebe395332bc71864df850ccc3f73",
+      "license": "CC-BY-SA-4.0 repository; no separate trademark grant identified",
+      "licenseFile": "assets/global/network/licenses/v2fly-doc",
+      "note": "核心项目 / 社区文档候选，非 v2rayN 或 v2rayNG 客户端",
+      "modification": "Original bytes; no recolouring or geometry edits",
+      "width": 896,
+      "height": 896,
+      "hasAlpha": true
+    },
+    {
+      "id": "shadowrocket",
+      "name": "Shadowrocket",
+      "developer": "Shadow Launch Technology Limited",
+      "bundleId": "com.liguangming.Shadowrocket",
+      "file": "assets/global/network/shadowrocket.jpg",
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/64/24/2d/64242de2-a763-914f-c686-8777445b83a3/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "sourcePage": "https://apps.apple.com/us/app/shadowrocket/id932747118",
+      "verifiedAt": "2026-10-17",
+      "sha256": "e9e1b7c050ca8f972fba0f202e99556bd7e350f1c49aac36c545fda59fe4bd35",
+      "width": 512,
+      "height": 512,
+      "hasAlpha": false,
+      "license": "App Store product artwork, rights retained by Shadow Launch Technology Limited; no open reuse licence found",
+      "note": "真实 App Store ID 932747118；官方图含应用白底，未伪造透明版本",
+      "modification": "Original 512px JPEG bytes from Apple lookup artwork URL"
+    }
+  ],
+  "concepts": [
+    "IP",
+    "Proxy",
+    "VPS",
+    "Routing",
+    "Remote"
+  ],
+  "confirmedFinalChoice": false
+}

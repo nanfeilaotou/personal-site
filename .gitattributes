@@ -4,3 +4,7 @@ assets/brands/*.svg text eol=lf
 assets/brands/workbuddy-color.svg -text
 assets/brands/muse-color.svg -text
 assets/global/brands/*.svg -text
+assets/brands/*-color.svg -text
+assets/global/network/*.svg -text
+# Vendor licence texts retain upstream bytes, including incidental line-end spaces.
+assets/global/network/licenses/* -text -whitespace

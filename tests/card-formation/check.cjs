@@ -1,19 +1,26 @@
 /* Browser regression for the image-coloured particle handoff; no production edits. */
 const {chromium}=require('playwright');
 const {PNG}=require('pngjs');
+const vm=require('node:vm');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const crypto=require('node:crypto'),cp=require('node:child_process');
-const ROOT=path.resolve(__dirname,'../..'),OUT=__dirname,BASE=process.env.PREVIEW_URL||'http://127.0.0.1:4173';
+const ROOT=path.resolve(__dirname,'../..'),OUT=process.env.CARD_TEST_OUT||__dirname,BASE=process.env.PREVIEW_URL||'http://127.0.0.1:4173';
 const CHROME=process.env.CHROME_PATH||'C:/Users/28919/AppData/Local/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
+fs.mkdirSync(OUT,{recursive:true});
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const report={date:'2026-10-17',baseline:'317032c',checks:[],gates:[],symmetry:[],performance:[],errors:[],failedResources:[]};
 function record(name,detail){report.checks.push({name,detail});console.log('PASS',name);}
 function protect(){
- for(const file of ['prototype/prototype-02.html','prototype/motion.js','prototype/timeline.js','prototype/showcase.js','prototype/showcase.css','data/models.js','data/agents.js'])assert.equal(fs.readFileSync(path.join(ROOT,file),'utf8').replaceAll('\r\n','\n'),cp.execFileSync('git',['show','317032c:'+file],{cwd:ROOT,encoding:'utf8'}).replaceAll('\r\n','\n'),file);
+ for(const file of ['prototype/prototype-02.html','prototype/motion.js','prototype/timeline.js','prototype/experiments/card-particle.html','prototype/experiments/card-particle.js','prototype/experiments/card-particle.css','prototype/experiments/card-surface.js','data/global-materials.js'])assert.equal(fs.readFileSync(path.join(ROOT,file),'utf8').replaceAll('\r\n','\n'),cp.execFileSync('git',['show','b47ac3e:'+file],{cwd:ROOT,encoding:'utf8'}).replaceAll('\r\n','\n'),file);
+ // Homepage logo metadata may evolve; product content and card module may not.
+ for(const file of ['data/models.js','data/agents.js']){
+  const scope={window:{}},oldScope={window:{}};vm.runInNewContext(fs.readFileSync(path.join(ROOT,file),'utf8'),scope);vm.runInNewContext(cp.execFileSync('git',['show','b47ac3e:'+file],{cwd:ROOT,encoding:'utf8'}),oldScope);
+  const clean=window=>JSON.parse(JSON.stringify(window,(k,v)=>k.startsWith('logo')?undefined:v));assert.deepEqual(clean(scope.window),clean(oldScope.window));
+ }
  assert.equal(sha(fs.readFileSync(path.join(ROOT,'index.html'))),'bfc193b140d94b8669327f71a677d68f84db19f573e262119c53894cde4d1711');
  for(const manifest of ['assets/brands/manifest.json','assets/global/manifest.json','assets/cards/manifest.json'])for(const item of JSON.parse(fs.readFileSync(path.join(ROOT,manifest),'utf8'))){const file=manifest==='assets/brands/manifest.json'?'assets/brands/'+item.file:item.file;assert.equal(sha(fs.readFileSync(path.join(ROOT,file))),item.sha256,file);}
  const source=fs.readFileSync(path.join(ROOT,'prototype/experiments/card-particle.js'),'utf8');assert.ok(!source.includes('scan('));assert.ok(!source.includes('outScan'));assert.ok(!source.includes('float leave='));
- record('protected home / original assets','approved home source and all prior assets unchanged; user index preserved; new resources match manifest');
+ record('protected home / original assets','approved motion/timeline and complete card module unchanged; product content unchanged apart from allowed logo metadata; user index and source assets retained');
 }
 function monitor(p){p.on('pageerror',e=>report.errors.push(e.message));p.on('console',m=>{if(m.type()==='error')report.errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)report.failedResources.push({url:r.url(),status:r.status()})});}
 async function ready(p){await p.waitForFunction(()=>document.documentElement.dataset.ready==='true');await idle(p);}

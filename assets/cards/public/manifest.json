@@ -1,0 +1,12 @@
+[
+  {
+    "file": "assets/cards/public/starryblu-card-sanitized.png",
+    "source": "assets/cards/starryblu-card.png",
+    "sha256": "4a9a9a5ad535b827e9b5121b67aa309a4218e7cc95cdd8f1cea959483eb3ce06",
+    "width": 1010,
+    "height": 608,
+    "processing": "Offline export of the existing approved NFCardSurface Canvas: replaces printed number/name region using adjacent non-text pixels. No runtime redaction needed when this derivative is used.",
+    "sourceStatus": "User-provided original; independent public-demo provenance unconfirmed",
+    "generatedAt": "2026-10-17"
+  }
+]

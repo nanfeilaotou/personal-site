@@ -1,0 +1,111 @@
+{
+  "checkedRevision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+  "available": [
+    {
+      "file": "claude-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/claude-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "a3101f3047a119aa11825ad9369510f0c472428c8c52d420e31bc62db44a8364",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "gemini-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/gemini-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "8ab0a9bafec11f7e69bcb9fc4ffd8f1bc927d1ddcbbb6ff36dee5ae8b5a9d602",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "deepseek-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/deepseek-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "deba5f98a5c1796e20fcac3149bcd7eb8a32f0bdd04d048819400b1f28bd1439",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "qwen-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/qwen-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "77f5768c66d08ce1d3d14e73373975c1bc0454be88c81523ddd0ffd7e2974029",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "kimi-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/kimi-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "74a7292aeb0220445d14c5d397d75760e2e8c6ed6a9e5fe4f3023471bf62a9ff",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "codex-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/codex-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "4a2f43ce46b5b6e3722c95088f88d26ef91e6a8c2e598e70642a1c54367386e4",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "claudecode-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/claudecode-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "670b3d8d749d0815ad8f7e62a59d51cb5e2053cb19403f3541a8aed7036a877f",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "antigravity-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/antigravity-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "652128cf55a28bb958563ee372d0bd00208d9e6fd446f523f77aafd811eef8ca",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "comfyui-color.svg",
+      "source": "https://raw.githubusercontent.com/lobehub/lobe-icons/8a1b2821bb768c484fe8da20c5e1838b6bf551a9/packages/static-svg/icons/comfyui-color.svg",
+      "revision": "8a1b2821bb768c484fe8da20c5e1838b6bf551a9",
+      "verifiedAt": "2026-10-17",
+      "sha256": "2f14161b0c6ce1c314b66cac785ac81948bf2b34b784b114e5df09b6797894c6",
+      "license": "MIT (Lobe Icons); original trademarks remain with their owners",
+      "modification": "Original static Color SVG bytes; monochrome asset retained separately"
+    },
+    {
+      "file": "lmstudio-color.webp",
+      "source": "https://lmstudio.ai/assets/marketing/lmstudio-app-logo.webp?dpl=dpl-mv5y0z70",
+      "sourcePage": "https://lmstudio.ai/",
+      "verifiedAt": "2026-10-17",
+      "sha256": "3babbae733b05d66c9038b64cc9dd42939aa2efb36869001d46bb9a1d0db9a82",
+      "width": 200,
+      "height": 200,
+      "license": "Official public product artwork; rights retained, no open reuse licence found",
+      "modification": "Original bytes; app background is part of official art"
+    }
+  ],
+  "missingColorFiles": [
+    "openai",
+    "grok",
+    "zai",
+    "notion",
+    "lmstudio",
+    "hermesagent"
+  ],
+  "additionalChecks": {
+    "lmstudio": "Official homepage app logo acquired; Lobe Color file absent",
+    "hermesagent": "Official website/static/img/logo.png is monochrome black; no chromatic version adopted",
+    "dsh": "Official FishLogo is currentColor; no invented hue",
+    "zcode": "Official independent component is currentColor; no invented hue"
+  }
+}

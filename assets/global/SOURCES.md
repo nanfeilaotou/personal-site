@@ -2,6 +2,8 @@
 
 > 此文件保留上一轮资源记录。当前实验使用的新卡面、招行蓝卡及 Global 原色品牌见 [本轮素材记录](../cards/SOURCES.md)。以下原始资源仍保留用于追溯与回归。
 
+Global 素材库交付新增 [Network 候选及许可](network/SOURCES.md)，包括分列的 Clash Verge / Rev、上游 FlClash、App Store Shadowrocket 和 V2Fly 文档资源。统一入口为 [Global 总览](../../prototype/experiments/global-assets.html) 和 [Opus 交接文档](../../docs/GLOBAL-VISUAL-HANDOFF.md)；通信及账户原始文件没有重下载或修改。
+
 获取与核验日期：2026-10-17。只下载了下列 7 份公开资源：三张卡面来源、两个通信 Logo、两个 AI 原色 Logo。原始下载字节与 SHA256 保存在 [manifest.json](manifest.json)。现有 Prototype 02 的 18 个单色 SVG 没有改动。
 
 所有权利归对应品牌或摄影 / 设计权利人。官网公开可访问不等于开放许可；未找到可覆盖本项目自由修改、广告使用或再授权的通用许可。因此这些文件按“公开产品 / 媒体资源、权利保留”登记，当前只用于本次独立视觉研究。没有将其标为 MIT，也没有声称获得品牌合作或授权；正式站点接入前需按所选场景继续核对品牌规范。

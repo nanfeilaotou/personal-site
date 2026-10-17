@@ -2,6 +2,8 @@
 
 Prototype 02 是独立预览，生产入口 `index.html` 不纳入本轮修改。
 
+AI 品牌已统一采用 B（默认单色、当前目标显色）。下一阶段 Global 创意请先读 [Creative Director 交接入口](docs/GLOBAL-VISUAL-HANDOFF.md)，其中包含 GitHub 可直接查看的素材总览、三卡缩略图、现有四层截图与卡面实验阶段截图，不需要连接开发者电脑。
+
 ```powershell
 node scripts/serve.mjs
 ```
@@ -10,6 +12,9 @@ node scripts/serve.mjs
 
 - [2026-10-17 精修报告：Logo / 文案 / 滚动](docs/PROTOTYPE-02-REFINEMENT.md)
 - [品牌素材审查页](prototype/brand-review.html)
+- [AI 21 条目原色与默认形态](prototype/experiments/ai-brands.html)
+- [Global 全部素材总览](prototype/experiments/global-assets.html)
+- [AI B 定稿与本轮测试](docs/AI-BRAND-FINAL.md)
 - [交付与维护说明](docs/PROTOTYPE-02.md)
 - [实际测试与性能数据](docs/PROTOTYPE-02-TESTS.md)
 - [新旧截图对照](tests/visual-report.html)

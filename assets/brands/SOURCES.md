@@ -56,6 +56,22 @@ DSH 节点使用官方 FishLogo，并配合完整产品名称，不将 DeepSeek 
 
 ## 2026-10-17 原色候选实验
 
+### B 已定稿 · 21 条目统一规则
+
+用户正式选择 B。全三章默认保留既有单色，当前详情对应节点才显色，关闭后恢复；详情和内容索引用小型原图。新增九份 Lobe Icons 固定版本 Color SVG（Claude、Gemini、DeepSeek、Qwen、Kimi、Codex、Claude Code、Antigravity、ComfyUI），MIT 原文仍保留。LM Studio 另用官网原始 WebP；旧单色文件不覆盖。
+
+逐项 Color 文件存在性、SHA256、原始 URL、许可及缺失项见 [color-manifest.json](color-manifest.json)。固定版本未包含 OpenAI、Grok、Z.ai、Notion、LM Studio、Hermes Agent 的对应 Color 文件；LM Studio 已从官网补齐，Hermes 官方候选为纯黑，不采用虚构色彩。DSH / ZCode 沿用独立官方单色标识。Codex 使用库中独立的产品 Color 版本，不等同给 OpenAI 主标添加渐变。
+
+WorkBuddy、Muse、Grok Bot 三份既有资源没有重新下载。Grok Bot 仍为用户提供的灰阶候选，未升级为“官方认证”。实际彩色覆盖 13 个展示条目，Qwen 的两个条目共用一份文件；其他 8 个条目保持黑白原貌。审查：[21 条目页面](../../prototype/experiments/ai-brands.html)，记录：[AI 定稿](../../docs/AI-BRAND-FINAL.md)。以下“待验收”与 A/B/C 文字属于之前阶段历史。
+
+### AI 首页整合 · 本地待验收
+
+本轮按用户明确要求，在首页 Agent 节点接入已有 `workbuddy-color.svg`、`muse-color.svg` 和 `grok-bot-provided.png`。没有重新下载、重画或修改原始 SVG / PNG。WorkBuddy、Muse 的官方来源及原色状态仍按既有 manifest 记录；Grok Bot 仍标为用户提供的本地候选，未独立确认官方出处或授权。
+
+A 与 B 默认状态中的灰阶属于**浏览器显示处理，不是官方单色版本**。保留原图内部明暗，不把所有区域强制填白；只有三枚新增图标采用此处理，七个既有标识、模型生态与 Local AI 标识不变。B 在悬停、聚焦或选中时恢复原色；C 使用未处理的原图。当前三个模式使用同一原始文件，通过单个 img 的滤镜平滑过渡，避免重复图层对位或透明边缘叠加。
+
+对照：[A / B / C](../../prototype/experiments/brand-color.html)。当前本地默认 B，最终模式等待人工验收；本轮未提交或推送。上文与下文的独立原色实验记录为此前阶段的历史状态，不代表本轮新增了官方单色素材。
+
 本轮后续：Grok Bot 已收到用户提供的透明图标，作为本地候选加入独立审查页；官方出处仍未单独确认，首页数据不变。Global 允许使用原色，新增 iFAST Global Bank、Wise、PayPal 官方透明 SVG，ClubSIM 沿用现有原色文件。详见 [当前素材记录](../cards/SOURCES.md)。
 
 新增 `workbuddy-color.svg`、`muse-color.svg`，字节与官方原图一致，未改色；这两份为权利保留的官方公开资源，不属于上文 Lobe Icons 的 MIT 素材。来源、SHA256、使用边界见 [Global / 原色候选来源](../global/SOURCES.md) 及其 manifest。对照位于 `prototype/experiments/brand-color.html`。首页名称标识仍保留，未修改节点布局、运动或时间轴。

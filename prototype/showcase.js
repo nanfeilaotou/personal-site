@@ -1,10 +1,36 @@
 /* Brand content lives in data/*.js. One projection drives both ink and DOM. */
 'use strict';
+/* One mark factory for all AI sections, detail headers and the content index. */
+window.NFBrandMarks = Object.freeze({
+  modes:Object.freeze(['mono','interactive','accent']),
+  mode(value){return this.modes.includes(value)?value:'interactive';},
+  image(file,base,cls,onError){
+    const img=new Image(40,40);img.className=cls;img.alt='';img.draggable=false;
+    img.addEventListener('error',()=>{img.hidden=true;if(onError)onError();});img.src=base+file;return img;
+  },
+  native(item,base='../assets/brands/'){
+    const mark=document.createElement('span');mark.className='brand-native-mark';mark.setAttribute('aria-hidden','true');
+    const file=item.logoColor||item.logo;if(file)mark.append(this.image(file,base,'brand-native-image'));
+    return mark;
+  },
+  create(item,base='../assets/brands/'){
+    const mark=document.createElement('span');mark.className='brand-mark agent-dual-mark';mark.setAttribute('aria-hidden','true');
+    if(item.logoMonoTreatment)mark.dataset.monoTreatment=item.logoMonoTreatment;
+    if(item.logoColorScale)mark.style.setProperty('--logo-color-scale',item.logoColorScale);
+    const mono=item.logoMono||item.logo,color=item.logoColor;
+    mark.dataset.variant=!color?'static':mono===color?'shared':'dual';
+    const layers=!color?[['static',mono]]:mono===color?[['shared',mono]]:[['mono',mono],['color',color]];
+    for(const [kind,file] of layers)if(file)mark.append(this.image(file,base,'agent-logo agent-logo-'+kind,()=>{mark.dataset[kind+'Failed']='true';}));
+    return mark;
+  }
+});
 window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, range, ease, timeline}) {
   const root=document.getElementById('brands'), panel=document.getElementById('brand-detail');
   const all=[...window.NF_MODELS,...window.NF_AGENTS,...window.NF_LOCAL];
   const groups={}, positions=new Map();
-  let active=null, timer=0, pinned=false, touchFocusUntil=0;
+  let active=null, timer=0, pinned=false, touchFocusUntil=0, restoringFocus=false;
+  const query=new URLSearchParams(location.search);
+  const colorMode=query.has('debug')?window.NFBrandMarks.mode(query.get('brandColor')||query.get('agentColor')):'interactive';
   const el=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value)n.textContent=value;return n;};
   const link=(label,url)=>{const a=el('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;};
   const content={
@@ -14,20 +40,19 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   };
   for(const [key,data] of [['models',window.NF_MODELS],['agents',window.NF_AGENTS],['local',window.NF_LOCAL]]){
     const group=el('section','brand-group');group.id=key+'-brands';group.setAttribute('aria-label',content[key][1]);group.inert=true;
+    group.classList.add('ai-brand-scope');group.dataset.brandColor=colorMode;if(key==='agents')group.dataset.agentColor=colorMode;
     const copy=el('div','scene-copy');copy.append(el('div','eyebrow',content[key][0]),el('h2','',content[key][1]),el('p','',content[key][2]));group.append(copy);
     const foot=el('div','scene-foot');foot.append(el('span','',content[key][3]),el('span','',content[key][4]));group.append(foot);
     const nodes=data.map((item,i)=>{
       const b=el('button','brand-node'+(item.logo?'':' text-node'));b.type='button';b.dataset.id=item.id;b.setAttribute('aria-label',item.name+'：查看详情');b.setAttribute('aria-controls','brand-detail');b.setAttribute('aria-expanded','false');
-      const mark=el('span','brand-mark');
-      if(item.logo){const img=el('img');img.src='../assets/brands/'+item.logo;img.alt='';img.width=40;img.height=40;img.draggable=false;img.addEventListener('error',()=>img.hidden=true);mark.append(img);}
-      else mark.append(el('span','wordmark',item.shortName||item.name));
+      const mark=window.NFBrandMarks.create(item);
       b.append(mark);
       if(item.logo||item.shortName)b.append(el('span','node-name',item.name));
       b.append(el('span','node-meta',item.featuredModels?item.provider:(item.category||item.provider)));
       b.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')touchFocusUntil=performance.now()+600;});
       b.addEventListener('pointerenter',e=>{if(e.pointerType!=='mouse')return;clearTimeout(timer);if(!pinned)open(item,b,false);});
       b.addEventListener('pointerleave',scheduleClose);
-      b.addEventListener('focus',()=>{if(performance.now()<touchFocusUntil)return;clearTimeout(timer);open(item,b,false);});
+      b.addEventListener('focus',()=>{if(restoringFocus||performance.now()<touchFocusUntil)return;clearTimeout(timer);open(item,b,false);});
       b.addEventListener('blur',e=>{if(!panel.contains(e.relatedTarget))scheduleClose();});
       b.addEventListener('click',()=>{open(item,b,true);});
       group.append(b);return {item,b,i};
@@ -35,8 +60,8 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     root.append(group);groups[key]={group,nodes};
   }
   function close(returnFocus=false){
-    clearTimeout(timer);if(active){active.b.setAttribute('aria-expanded','false');if(returnFocus)active.b.focus({preventScroll:true});}
-    active=null;pinned=false;panel.hidden=true;
+    clearTimeout(timer);const previous=active;active=null;pinned=false;panel.hidden=true;
+    if(previous){previous.b.setAttribute('aria-expanded','false');if(returnFocus){restoringFocus=true;previous.b.focus({preventScroll:true});restoringFocus=false;}}
   }
   function scheduleClose(){clearTimeout(timer);if(!pinned)timer=setTimeout(()=>{if(!panel.matches(':hover')&&!panel.contains(document.activeElement)&&active?.b!==document.activeElement)close();},220);}
   function locate(b){
@@ -55,9 +80,11 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     if(active)active.b.setAttribute('aria-expanded','false');active={item,b};pinned=pin;
     panel.replaceChildren();const closeButton=el('button','','×');closeButton.type='button';closeButton.setAttribute('aria-label','关闭详情');closeButton.addEventListener('click',()=>close(true));panel.append(closeButton);
     const title=el('h3','',item.name);title.id='detail-title';
-    panel.append(el('div','detail-type',item.category||'模型生态'),title,el('p','provider',item.provider+(item.officialName&&!item.name.includes(item.officialName)?' · '+item.officialName:'')));
+    const heading=el('div','detail-heading');heading.append(window.NFBrandMarks.native(item),title);
+    panel.append(el('div','detail-type',item.category||'模型生态'),heading,el('p','provider',item.provider+(item.officialName&&!item.name.includes(item.officialName)?' · '+item.officialName:'')));
     if(item.featuredModels){panel.append(el('p','model-names',item.featuredModels.length?item.featuredModels.join(' / '):'代表模型待核验'),el('p','model-scope',item.modelScope));}
     panel.append(el('p','detail-description',item.description),el('p','verified','资料核验 '+(item.verifiedAt||'待确认')));
+    if(item.logoStatus)panel.append(el('p','logo-note',item.logoStatus));
     const links=el('div','detail-links');if(item.officialSource)links.append(link('官方资料 ↗',item.officialSource));if(item.detailUrl)links.append(link('访问产品 ↗',item.detailUrl));panel.append(links);
     b.setAttribute('aria-expanded','true');panel.hidden=false;locate(b);
   }
@@ -68,7 +95,7 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   const catalog=document.getElementById('catalog');
   for(const [title,items] of [['模型生态',window.NF_MODELS],['本地 AI',window.NF_LOCAL],['AI 客户端与 Agent',window.NF_AGENTS]]){
     catalog.append(el('h3','',title));const ul=el('ul');
-    for(const item of items){const li=el('li');li.append(el('strong','',item.name+' · '+item.provider),el('p','',item.description));
+    for(const item of items){const li=el('li');const heading=el('div','catalog-heading');heading.append(window.NFBrandMarks.native(item),el('strong','',item.name+' · '+item.provider));li.append(heading,el('p','',item.description));
       if(item.featuredModels)li.append(el('p','',(item.modelScope||'代表型号')+'：'+(item.featuredModels.join(' / ')||'待核验')));
       li.append(el('p','','资料核验：'+(item.verifiedAt||'待确认')));const links=el('div','catalog-links');if(item.officialSource)links.append(link('官方资料 ↗',item.officialSource));if(item.detailUrl)links.append(link('产品入口 ↗',item.detailUrl));li.append(links);ul.append(li);
     }catalog.append(ul);
