@@ -1,6 +1,7 @@
 const {chromium}=require('playwright'),{PNG}=require('pngjs');
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),vm=require('node:vm'),assert=require('node:assert/strict');
-const {clock,toScroll}=require('../timeline-fixture.cjs'),ROOT=path.resolve(__dirname,'../..'),OUT=__dirname,BASE='http://127.0.0.1:4173';
+const {clock,toScroll}=require('../timeline-fixture.cjs'),ROOT=path.resolve(__dirname,'../..'),OUT=process.env.AI_TEST_OUT||__dirname,BASE='http://127.0.0.1:4173';
+fs.mkdirSync(OUT,{recursive:true});
 const CHROME=process.env.CHROME_PATH||'C:/Users/28919/AppData/Local/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
 const report={date:'2026-10-17',baseline:'b47ac3e',checks:[],entries:[],regression:[],errors:[],failed:[]};
 const old=f=>cp.execFileSync('git',['show','b47ac3e:'+f],{cwd:ROOT,maxBuffer:16*1024*1024}),read=f=>fs.readFileSync(path.join(ROOT,f)),norm=b=>b.toString().replaceAll('\r\n','\n'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');

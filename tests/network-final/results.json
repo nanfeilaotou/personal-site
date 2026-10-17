@@ -1,0 +1,451 @@
+{
+  "date": "2026-10-17",
+  "baseline": "9723bd41611888110545dedf2ff75c135ef87ec5",
+  "checks": [
+    {
+      "name": "protected scope",
+      "detail": "AI 21 entries, all scene / timeline / particle code, card experiment / source images unchanged from 9723bd4; pre-existing index.html SHA256 unchanged"
+    },
+    {
+      "name": "Network browsers",
+      "detail": "four final clients / eight original images per view, 1920×1080 / 1440×900 / 1366×768 at DPR 2; native aspect ratio, no cropping, no filters, no upscaling, no horizontal overflow; reload and local links pass"
+    },
+    {
+      "name": "console / resources",
+      "detail": "no console or page errors; no failed requests"
+    },
+    {
+      "name": "handoff links",
+      "detail": "59 relative and feature-branch file / image targets exist; remote retrieval is checked after push"
+    },
+    {
+      "name": "protected scope",
+      "detail": "AI 21 entries, all scene / timeline / particle code, card experiment / source images unchanged from 9723bd4; pre-existing index.html SHA256 unchanged"
+    }
+  ],
+  "views": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "icons": [
+        {
+          "name": "Clash Verge Rev",
+          "images": [
+            {
+              "src": "../../assets/global/network/clash-verge-rev.png",
+              "background": "dark",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/clash-verge-rev.png",
+              "background": "light",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "FlClash",
+          "images": [
+            {
+              "src": "../../assets/global/network/flclash.svg",
+              "background": "dark",
+              "natural": [
+                240,
+                240
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/flclash.svg",
+              "background": "light",
+              "natural": [
+                240,
+                240
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "Shadowrocket",
+          "images": [
+            {
+              "src": "../../assets/global/network/shadowrocket.jpg",
+              "background": "dark",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/shadowrocket.jpg",
+              "background": "light",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "v2rayN",
+          "images": [
+            {
+              "src": "../../assets/global/network/v2rayn.png",
+              "background": "dark",
+              "natural": [
+                256,
+                256
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/v2rayn.png",
+              "background": "light",
+              "natural": [
+                256,
+                256
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "screenshot": "tests/network-final/network-1920.png"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "icons": [
+        {
+          "name": "Clash Verge Rev",
+          "images": [
+            {
+              "src": "../../assets/global/network/clash-verge-rev.png",
+              "background": "dark",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/clash-verge-rev.png",
+              "background": "light",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "FlClash",
+          "images": [
+            {
+              "src": "../../assets/global/network/flclash.svg",
+              "background": "dark",
+              "natural": [
+                240,
+                240
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/flclash.svg",
+              "background": "light",
+              "natural": [
+                240,
+                240
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "Shadowrocket",
+          "images": [
+            {
+              "src": "../../assets/global/network/shadowrocket.jpg",
+              "background": "dark",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/shadowrocket.jpg",
+              "background": "light",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "v2rayN",
+          "images": [
+            {
+              "src": "../../assets/global/network/v2rayn.png",
+              "background": "dark",
+              "natural": [
+                256,
+                256
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/v2rayn.png",
+              "background": "light",
+              "natural": [
+                256,
+                256
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "screenshot": "docs/global-visual/network-final-contrast.png"
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 2,
+      "icons": [
+        {
+          "name": "Clash Verge Rev",
+          "images": [
+            {
+              "src": "../../assets/global/network/clash-verge-rev.png",
+              "background": "dark",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/clash-verge-rev.png",
+              "background": "light",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "FlClash",
+          "images": [
+            {
+              "src": "../../assets/global/network/flclash.svg",
+              "background": "dark",
+              "natural": [
+                240,
+                240
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/flclash.svg",
+              "background": "light",
+              "natural": [
+                240,
+                240
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "Shadowrocket",
+          "images": [
+            {
+              "src": "../../assets/global/network/shadowrocket.jpg",
+              "background": "dark",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/shadowrocket.jpg",
+              "background": "light",
+              "natural": [
+                512,
+                512
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "name": "v2rayN",
+          "images": [
+            {
+              "src": "../../assets/global/network/v2rayn.png",
+              "background": "dark",
+              "natural": [
+                256,
+                256
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            },
+            {
+              "src": "../../assets/global/network/v2rayn.png",
+              "background": "light",
+              "natural": [
+                256,
+                256
+              ],
+              "display": [
+                82,
+                82
+              ],
+              "contained": true,
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "screenshot": "tests/network-final/network-1366.png"
+    }
+  ],
+  "errors": [],
+  "failedResources": [],
+  "completed": true
+}

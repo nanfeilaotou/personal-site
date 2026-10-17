@@ -13,6 +13,7 @@
 - [原有首页 Prototype 02](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/prototype/prototype-02.html)
 - [独立卡面粒子实验](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/prototype/experiments/card-particle.html)
 - [AI 定稿与本轮测试说明](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/docs/AI-BRAND-FINAL.md)
+- [Network 最终定稿验收与回归记录](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/tests/network-final/README.md)
 
 GitHub 的 HTML 源码页不会运行动画；无需访问用户本地电脑即可先看本文件中的截图、缩略图和源代码。克隆此分支后在仓库根目录运行 `node scripts/serve.mjs`，打开 `http://127.0.0.1:4173/prototype/experiments/global-assets.html`。不需要前端构建或运行时外部图床。
 
@@ -21,7 +22,7 @@ GitHub 的 HTML 源码页不会运行动画；无需访问用户本地电脑即�
 |内容分类|理解方式|现有内容|
 |---|---|---|
 |01 号码 / Connectivity|连接身份与基础通信服务|ClubSIM、SMART；SIM/eSIM、短信验证可用通用数字符号表达，不增加更多运营商|
-|02 路径 / Network|连接与路由的技术空间|Clash Verge / Rev、FlClash、Shadowrocket、v2ray 候选；保留 IP / Proxy / VPS / Routing / Remote 通用概念|
+|02 路径 / Network|连接与路由的技术空间|Clash Verge Rev、FlClash、Shadowrocket、v2rayN（四项均已正式确认）；保留 IP / Proxy / VPS / Routing / Remote 通用概念|
 |03 账户 / Banking|银行账户、金融科技和支付服务|iFAST Global Bank、Wise、PayPal；**Wise 是金融科技服务，不是传统银行**，PayPal 为支付平台|
 |04 资金 / Payments|账户与支付相关的识别素材|招行蓝色 Mastercard、Bybit、StarryBlu 三张卡面；不假设它们有相同产品类型、发卡关系或开户条件|
 
@@ -31,18 +32,23 @@ GitHub 的 HTML 源码页不会运行动画；无需访问用户本地电脑即�
 |---|---|---|
 |Connectivity · ClubSIM / Club Sim|[assets/global/brands/clubsim.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/clubsim.png)|[官网](https://www.clubsim.com.hk/en/)，210×88 RGBA；官方彩色图形及白字，适合深底，建议不超过 105 CSS px|
 |Connectivity · SMART|[assets/global/brands/smart.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/smart.png)|[官网](https://store.smart.com.ph/)，299×78 RGBA；保留原色及白字|
-|Network · Clash Verge 原项目|[assets/global/network/clash-verge.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/clash-verge.svg)|zzzgydi 上游 v1.3.8，原项目已归档；GPL-3.0 仓库，原 SVG|
-|Network · Clash Verge Rev 候选|[assets/global/network/clash-verge-rev.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/clash-verge-rev.png)|延续项目上游图，512×512 透明 PNG；GPL-3.0，**与原项目分列，不静默替名**|
+|Network · Clash Verge Rev|[assets/global/network/clash-verge-rev.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/clash-verge-rev.png)|[Rev 上游固定原图](https://github.com/clash-verge-rev/clash-verge-rev/blob/cef66cd745ef29aa98e219ffb083b62e13c959e8/src-tauri/icons/icon.png)，512×512 透明 PNG；GPL-3.0。**用户正式选定**，现有文件未改写|
 |Network · FlClash|[assets/global/network/flclash.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/flclash.svg)|[上游指定 glyph.svg](https://github.com/chen08209/FlClash/blob/8d4f9744948751f1273fe871e1d05276fac09b0e/assets_source/images/icon/glyph.svg)，240×240 蓝色矢量；GPL-3.0|
 |Network · Shadowrocket|[assets/global/network/shadowrocket.jpg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/shadowrocket.jpg)|[App Store ID 932747118](https://apps.apple.com/us/app/shadowrocket/id932747118) 实际图；开发者 **Shadow Launch Technology Limited**，bundle `com.liguangming.Shadowrocket`。512×512 JPEG，原应用白底，非透明；权利保留|
-|Network · v2ray / V2Fly 文档候选|[assets/global/network/v2ray.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/v2ray.png)|V2Fly 官方文档仓库的 `v2ray.png`，896×896 RGBA；仓库 CC-BY-SA-4.0，保留署名及许可。不是 v2rayN/NG 客户端标识|
+|Network · v2rayN|[assets/global/network/v2rayn.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/v2rayn.png)|[2dust/v2rayN 固定原图](https://github.com/2dust/v2rayN/blob/1f083adbe42cfe46ab55249768f6f1976ae233cf/v2rayN/v2rayN.Desktop/v2rayN.png)，revision `1f083adbe42cfe46ab55249768f6f1976ae233cf`，256×256 透明 PNG；GPL-3.0 仓库。另存同 revision 的 [原始 ICO](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/v2rayn.ico)，最大 256px。**用户正式选定**，不是 V2Fly / Xray-core / v2rayNG 标识|
 |Banking · iFAST Global Bank|[assets/global/brands/ifast.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/ifast.svg)|[银行官网](https://www.ifastgb.com/) Header 原始透明 SVG，独立银行字标；权利保留|
 |Banking · Wise|[assets/global/brands/wise.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/wise.svg)|[官方媒体包](https://newsroom.wise.com/en-CAS/assets/228971/)，深绿透明字标；viewBox 留白较大，审查页只调整 CSS，不改原图|
 |Banking · PayPal|[assets/global/brands/paypal.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/paypal.svg)|[官方 Logo Center](https://www.paypal.com/us/webapps/mpp/logo-center) 原色透明标志；权利保留|
 
+Network 最终展示只有上述四个客户端。Clash Verge 原项目与 V2Fly 文档图仅在 manifest 的 `historicalCandidates` 及来源记录中保留，不是待确认的正式展示项。
+
 详细原始资源 URL、固定 Git revision、文件 SHA256、开发者核验与许可文件：[Network 来源](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/SOURCES.md)、[Network manifest](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/manifest.json)、[既有 Global 来源](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/SOURCES.md)。GPL / CC 许可原文在 `assets/global/network/licenses/`。代码或文档许可不等于额外商标授权，官方公开可见也不等于开放商业复用许可；未假称品牌合作。
 
 ![Global 原色素材总览](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/material-library.png)
+
+![四个正式 Network 图标的深色 / 暖白审查](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/network-final-contrast.png)
+
+以上审查图仅检验原色图标在两种背景的识别度；Shadowrocket 保留 App Store 原始白底，未伪造透明图。
 
 ## 三张卡面
 
@@ -68,6 +74,17 @@ GitHub 的 HTML 源码页不会运行动画；无需访问用户本地电脑即�
 当前首页以滚动屏数为唯一进度源：`scrollY / H → NF_TIMELINE.toScene() → 场景`。压缩后的总路程为 10.58 屏，保留原场景坐标映射；Global 接受 `old = sceneS - .91`。调试 `NF_DEBUG.seek(scrollS)` 的参数是压缩后滚动坐标，不是旧场景坐标。`NF_TIMELINE.fromScene()` 可以反向映射。不要同时增加第三套 scroll / pin / 插值权威源。
 
 现有四层不要求成为下一轮最终结构。可以复用其投影、细线、节点与连续反向滚动能力，是否保留、重新排序或替换由 Creative Director 决定。
+
+## 创意参考：背景方向（非分镜）
+
+推荐探索 **深黑数字空间 → 暖白色拓扑空间 → 深黑色彩色粒子成像**：
+
+- 深黑适合数据流、信号、网络路径与光点。
+- 暖白适合高对比的精密网络结构与账户关系。
+- 回到深黑有利于发挥已完成的彩色卡面粒子效果。
+- 黑白变化应通过精心设计的电影式转场建立连续性，避免生硬闪切。
+
+这只是创意参考，未修改正式 Global 的背景、时间轴或粒子效果。**最终场景顺序、背景时长、空间变化方式均交由 Opus 决定**，不要求遵循上面的呈现顺序或现有四层结构，也不预设镜头数。
 
 ## 已有彩色粒子卡面能力
 
@@ -101,14 +118,10 @@ Global 允许直接使用官方原色透明标志。原来的 difference HUD 与
 
 ## 完成状态与待确认
 
-已完成：AI B 统一规则、真实品牌资源、十份 Global Logo 候选、三卡面、离线处理副本、静态总览、GitHub 可读截图，以及独立卡模块回归。
+已完成：AI B 统一规则、真实品牌资源、九个 Global 正式品牌标识（含四个已确认 Network 客户端），另留两份历史候选、三卡面、离线处理副本、静态总览、GitHub 可读截图，以及独立卡模块回归。
 
 仍是独立实验：卡面与 Global 的衔接、`layer` / `portal` 两个既有实验视图，均不是已接入首页的分镜；Global 正式场景本轮未变。
 
-需要用户确认：
+Network 名称选择已全部完成，没有待确认客户端。仍需按未来公开使用场景核对的事项：Grok Bot 本地图标与提供卡面的公开出处、商标 / 商业复用条件仍不是已确认授权。它们的来源状态不会因进入素材库而变成“官方认证”。
 
-1. Network 的最终名称取 **Clash Verge 原项目** 还是 **Clash Verge Rev**。
-2. “v2ray”指核心 / V2Fly 体系，还是某个具体客户端。目前不代用 v2rayN / NG。
-3. Grok Bot 本地图标与提供卡面的公开出处、商标 / 商业复用条件仍不是已确认授权。它们的来源状态不会因进入素材库而变成“官方认证”。
-
-下一轮可以自由规划 Global 的电影式体验，不需要沿用本文件的分类次序、镜头数或布局；本交接只提供真实素材、已验收能力与工程边界。
+Global 素材准备阶段至此结束。下一轮由 Claude Opus 自由规划 Global 的电影式体验，不需要沿用本文件的分类次序、镜头数或布局；本交接只提供真实素材、已验收能力与工程边界。

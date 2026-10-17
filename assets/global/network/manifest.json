@@ -1,19 +1,5 @@
 {
-  "candidates": [
-    {
-      "id": "clash-verge",
-      "name": "Clash Verge",
-      "file": "assets/global/network/clash-verge.svg",
-      "source": "https://raw.githubusercontent.com/zzzgydi/clash-verge/b5391560fcbca6eb04c76502b9828dd29ca6546c/src/assets/image/logo.svg",
-      "sourcePage": "https://github.com/zzzgydi/clash-verge/blob/b5391560fcbca6eb04c76502b9828dd29ca6546c/src/assets/image/logo.svg",
-      "revision": "b5391560fcbca6eb04c76502b9828dd29ca6546c",
-      "verifiedAt": "2026-10-17",
-      "sha256": "4d45c68e143df95aa977b76df421a7707c9f87834d1b2ec10eb70eb297e82612",
-      "license": "GPL-3.0 repository; no separate trademark grant identified",
-      "licenseFile": "assets/global/network/licenses/clash-original",
-      "note": "历史项目 / 与 Rev 分列，最终名称待确认",
-      "modification": "Original bytes; no recolouring or geometry edits"
-    },
+  "selected": [
     {
       "id": "clash-verge-rev",
       "name": "Clash Verge Rev",
@@ -25,11 +11,12 @@
       "sha256": "ee04739a049564e34c7fee4fcc649f6dd195598c645bf061c1696e3099d67b08",
       "license": "GPL-3.0 repository; no separate trademark grant identified",
       "licenseFile": "assets/global/network/licenses/clash-rev",
-      "note": "延续项目候选，不静默替代 Clash Verge",
+      "note": "用户正式选择 Clash Verge Rev；现有 512×512 透明原图保持不变。",
       "modification": "Original bytes; no recolouring or geometry edits",
       "width": 512,
       "height": 512,
-      "hasAlpha": true
+      "hasAlpha": true,
+      "status": "selected"
     },
     {
       "id": "flclash",
@@ -43,24 +30,8 @@
       "license": "GPL-3.0 repository; no separate trademark grant identified",
       "licenseFile": "assets/global/network/licenses/flclash",
       "note": "用户指定上游 glyph.svg，原始矢量",
-      "modification": "Original bytes; no recolouring or geometry edits"
-    },
-    {
-      "id": "v2ray",
-      "name": "v2ray / V2Fly 文档标识",
-      "file": "assets/global/network/v2ray.png",
-      "source": "https://raw.githubusercontent.com/v2fly/v2fly-github-io/094c084eef448fc573f2228acc847911ca78ae11/docs/.vuepress/public/v2ray.png",
-      "sourcePage": "https://github.com/v2fly/v2fly-github-io/blob/094c084eef448fc573f2228acc847911ca78ae11/docs/.vuepress/public/v2ray.png",
-      "revision": "094c084eef448fc573f2228acc847911ca78ae11",
-      "verifiedAt": "2026-10-17",
-      "sha256": "5030c7841ef3dbb53b1e56313932cc85dfc1ebe395332bc71864df850ccc3f73",
-      "license": "CC-BY-SA-4.0 repository; no separate trademark grant identified",
-      "licenseFile": "assets/global/network/licenses/v2fly-doc",
-      "note": "核心项目 / 社区文档候选，非 v2rayN 或 v2rayNG 客户端",
       "modification": "Original bytes; no recolouring or geometry edits",
-      "width": 896,
-      "height": 896,
-      "hasAlpha": true
+      "status": "selected"
     },
     {
       "id": "shadowrocket",
@@ -77,7 +48,88 @@
       "hasAlpha": false,
       "license": "App Store product artwork, rights retained by Shadow Launch Technology Limited; no open reuse licence found",
       "note": "真实 App Store ID 932747118；官方图含应用白底，未伪造透明版本",
-      "modification": "Original 512px JPEG bytes from Apple lookup artwork URL"
+      "modification": "Original 512px JPEG bytes from Apple lookup artwork URL",
+      "status": "selected"
+    },
+    {
+      "id": "v2rayn",
+      "name": "v2rayN",
+      "file": "assets/global/network/v2rayn.png",
+      "source": "https://raw.githubusercontent.com/2dust/v2rayN/1f083adbe42cfe46ab55249768f6f1976ae233cf/v2rayN/v2rayN.Desktop/v2rayN.png",
+      "sourcePage": "https://github.com/2dust/v2rayN/blob/1f083adbe42cfe46ab55249768f6f1976ae233cf/v2rayN/v2rayN.Desktop/v2rayN.png",
+      "revision": "1f083adbe42cfe46ab55249768f6f1976ae233cf",
+      "verifiedAt": "2026-10-17",
+      "sha256": "dc5577105e8806e4ac70137052ddb796734b773888d7bc39a454cb0f1c0d7f31",
+      "width": 256,
+      "height": 256,
+      "hasAlpha": true,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        1,
+        2,
+        255,
+        254
+      ],
+      "license": "GPL-3.0 repository; no separate icon or trademark grant identified",
+      "licenseFile": "assets/global/network/licenses/v2rayn",
+      "licenseSource": "https://raw.githubusercontent.com/2dust/v2rayN/1f083adbe42cfe46ab55249768f6f1976ae233cf/LICENSE",
+      "licenseSha256": "c93d1d90b1111eae8bbc9824405d60186e0cc5f3e643d9feb3fa66e7629e7f17",
+      "note": "用户正式选择的 2dust/v2rayN 桌面客户端；原始透明 PNG，无放大、改色或重绘。",
+      "modification": "Original bytes; no recolouring, geometry edits or upscaling",
+      "alternate": {
+        "file": "assets/global/network/v2rayn.ico",
+        "source": "https://raw.githubusercontent.com/2dust/v2rayN/1f083adbe42cfe46ab55249768f6f1976ae233cf/v2rayN/v2rayN.Desktop/Assets/v2rayN.ico",
+        "sourcePage": "https://github.com/2dust/v2rayN/blob/1f083adbe42cfe46ab55249768f6f1976ae233cf/v2rayN/v2rayN.Desktop/Assets/v2rayN.ico",
+        "sha256": "1c41e4e4df0c16f0536005eb7f9f9f3806a999e70b70a3b79c0378cb7ff5132f",
+        "sizes": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          256
+        ],
+        "note": "同一 revision 的原始 ICO；最大 256×256，网页优先 PNG。"
+      },
+      "status": "selected"
+    }
+  ],
+  "historicalCandidates": [
+    {
+      "id": "clash-verge",
+      "name": "Clash Verge",
+      "file": "assets/global/network/clash-verge.svg",
+      "source": "https://raw.githubusercontent.com/zzzgydi/clash-verge/b5391560fcbca6eb04c76502b9828dd29ca6546c/src/assets/image/logo.svg",
+      "sourcePage": "https://github.com/zzzgydi/clash-verge/blob/b5391560fcbca6eb04c76502b9828dd29ca6546c/src/assets/image/logo.svg",
+      "revision": "b5391560fcbca6eb04c76502b9828dd29ca6546c",
+      "verifiedAt": "2026-10-17",
+      "sha256": "4d45c68e143df95aa977b76df421a7707c9f87834d1b2ec10eb70eb297e82612",
+      "license": "GPL-3.0 repository; no separate trademark grant identified",
+      "licenseFile": "assets/global/network/licenses/clash-original",
+      "note": "历史候选，仅供来源追溯；不用于 Global 最终展示。 已由用户选择 Clash Verge Rev。",
+      "modification": "Original bytes; no recolouring or geometry edits",
+      "status": "historical"
+    },
+    {
+      "id": "v2ray",
+      "name": "v2ray / V2Fly 文档标识",
+      "file": "assets/global/network/v2ray.png",
+      "source": "https://raw.githubusercontent.com/v2fly/v2fly-github-io/094c084eef448fc573f2228acc847911ca78ae11/docs/.vuepress/public/v2ray.png",
+      "sourcePage": "https://github.com/v2fly/v2fly-github-io/blob/094c084eef448fc573f2228acc847911ca78ae11/docs/.vuepress/public/v2ray.png",
+      "revision": "094c084eef448fc573f2228acc847911ca78ae11",
+      "verifiedAt": "2026-10-17",
+      "sha256": "5030c7841ef3dbb53b1e56313932cc85dfc1ebe395332bc71864df850ccc3f73",
+      "license": "CC-BY-SA-4.0 repository; no separate trademark grant identified",
+      "licenseFile": "assets/global/network/licenses/v2fly-doc",
+      "note": "历史候选，仅供来源追溯；不用于 Global 最终展示。 最终选择 v2rayN；本图是 V2Fly 文档标识，不能代用。",
+      "modification": "Original bytes; no recolouring or geometry edits",
+      "width": 896,
+      "height": 896,
+      "hasAlpha": true,
+      "status": "historical"
     }
   ],
   "concepts": [
@@ -87,5 +139,6 @@
     "Routing",
     "Remote"
   ],
-  "confirmedFinalChoice": false
+  "confirmedFinalChoice": true,
+  "confirmedAt": "2026-10-17"
 }
