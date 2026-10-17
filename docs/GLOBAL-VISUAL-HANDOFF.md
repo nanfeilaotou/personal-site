@@ -14,6 +14,7 @@
 - [独立卡面粒子实验](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/prototype/experiments/card-particle.html)
 - [AI 定稿与本轮测试说明](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/docs/AI-BRAND-FINAL.md)
 - [Network 最终定稿验收与回归记录](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/tests/network-final/README.md)
+- [Apple Pay / Google Pay 与最终分类验收](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/tests/payment-marks/README.md)
 
 GitHub 的 HTML 源码页不会运行动画；无需访问用户本地电脑即可先看本文件中的截图、缩略图和源代码。克隆此分支后在仓库根目录运行 `node scripts/serve.mjs`，打开 `http://127.0.0.1:4173/prototype/experiments/global-assets.html`。不需要前端构建或运行时外部图床。
 
@@ -23,8 +24,8 @@ GitHub 的 HTML 源码页不会运行动画；无需访问用户本地电脑即�
 |---|---|---|
 |01 号码 / Connectivity|连接身份与基础通信服务|ClubSIM、SMART；SIM/eSIM、短信验证可用通用数字符号表达，不增加更多运营商|
 |02 路径 / Network|连接与路由的技术空间|Clash Verge Rev、FlClash、Shadowrocket、v2rayN（四项均已正式确认）；保留 IP / Proxy / VPS / Routing / Remote 通用概念|
-|03 账户 / Banking|银行账户、金融科技和支付服务|iFAST Global Bank、Wise、PayPal；**Wise 是金融科技服务，不是传统银行**，PayPal 为支付平台|
-|04 资金 / Payments|账户与支付相关的识别素材|招行蓝色 Mastercard、Bybit、StarryBlu 三张卡面；不假设它们有相同产品类型、发卡关系或开户条件|
+|03 账户与钱包 / Accounts & Wallets|账户资金服务与钱包快捷支付两组|账户资金服务：iFAST Global Bank、Wise、PayPal；钱包快捷支付：Apple Pay、Google Pay。Wise 是金融科技服务；并列不表示资金互通或已支持绑卡。|
+|04 支付卡片 / Payment Cards|三种代表性视觉场景，全部保留|StarryBlu：海外实体卡；招商银行万事达人民币 IC 借记卡（普卡）：国内万事达借记卡；Bybit Card：数字资产虚拟支付。场景选择不是产品形态的排他性断言，实际范围见下表官方资料。|
 
 所有路径均为本功能分支。素材文件本地化，不依赖运行时第三方域名。
 
@@ -36,9 +37,11 @@ GitHub 的 HTML 源码页不会运行动画；无需访问用户本地电脑即�
 |Network · FlClash|[assets/global/network/flclash.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/flclash.svg)|[上游指定 glyph.svg](https://github.com/chen08209/FlClash/blob/8d4f9744948751f1273fe871e1d05276fac09b0e/assets_source/images/icon/glyph.svg)，240×240 蓝色矢量；GPL-3.0|
 |Network · Shadowrocket|[assets/global/network/shadowrocket.jpg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/shadowrocket.jpg)|[App Store ID 932747118](https://apps.apple.com/us/app/shadowrocket/id932747118) 实际图；开发者 **Shadow Launch Technology Limited**，bundle `com.liguangming.Shadowrocket`。512×512 JPEG，原应用白底，非透明；权利保留|
 |Network · v2rayN|[assets/global/network/v2rayn.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/v2rayn.png)|[2dust/v2rayN 固定原图](https://github.com/2dust/v2rayN/blob/1f083adbe42cfe46ab55249768f6f1976ae233cf/v2rayN/v2rayN.Desktop/v2rayN.png)，revision `1f083adbe42cfe46ab55249768f6f1976ae233cf`，256×256 透明 PNG；GPL-3.0 仓库。另存同 revision 的 [原始 ICO](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/network/v2rayn.ico)，最大 256px。**用户正式选定**，不是 V2Fly / Xray-core / v2rayNG 标识|
-|Banking · iFAST Global Bank|[assets/global/brands/ifast.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/ifast.svg)|[银行官网](https://www.ifastgb.com/) Header 原始透明 SVG，独立银行字标；权利保留|
-|Banking · Wise|[assets/global/brands/wise.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/wise.svg)|[官方媒体包](https://newsroom.wise.com/en-CAS/assets/228971/)，深绿透明字标；viewBox 留白较大，审查页只调整 CSS，不改原图|
-|Banking · PayPal|[assets/global/brands/paypal.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/paypal.svg)|[官方 Logo Center](https://www.paypal.com/us/webapps/mpp/logo-center) 原色透明标志；权利保留|
+|账户资金服务 · iFAST Global Bank|[assets/global/brands/ifast.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/ifast.svg)|[银行官网](https://www.ifastgb.com/) Header 原始透明 SVG，独立银行字标；权利保留|
+|账户资金服务 · Wise|[assets/global/brands/wise.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/wise.svg)|[官方媒体包](https://newsroom.wise.com/en-CAS/assets/228971/)，深绿透明字标；viewBox 留白较大，审查页只调整 CSS，不改原图|
+|账户资金服务 · PayPal|[assets/global/brands/paypal.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/paypal.svg)|[官方 Logo Center](https://www.paypal.com/us/webapps/mpp/logo-center) 原色透明标志；权利保留|
+|钱包快捷支付 · Apple Pay|[assets/global/brands/apple-pay.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/apple-pay.svg)|[Apple Developer 品牌页](https://developer.apple.com/apple-pay/marketing/) 官方下载包原始 SVG，带边框白底标识；Apple 商标权利保留，按官方规范使用，未改色或添加效果|
+|钱包快捷支付 · Google Pay|[assets/global/brands/google-pay.svg](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/google-pay.svg)|[Google Pay API 品牌页](https://developers.google.com/pay/api/web/guides/brand-guidelines) 官方下载包原始 acceptance mark SVG；Google 商标权利保留，原色、轮廓与内置留白不改|
 
 Network 最终展示只有上述四个客户端。Clash Verge 原项目与 V2Fly 文档图仅在 manifest 的 `historicalCandidates` 及来源记录中保留，不是待确认的正式展示项。
 
@@ -50,18 +53,36 @@ Network 最终展示只有上述四个客户端。Clash Verge 原项目与 V2Fly
 
 以上审查图仅检验原色图标在两种背景的识别度；Shadowrocket 保留 App Store 原始白底，未伪造透明图。
 
-## 三张卡面
+## 03 账户与钱包：分类与官方标识
 
-|StarryBlu|Bybit Card|招商银行蓝色 Mastercard|
+账户资金服务（iFAST Global Bank、Wise、PayPal）与钱包快捷支付（Apple Pay、Google Pay）内部区分；PayPal 在此按账户 / 支付服务归类，不否认其其他功能。**不画出或暗示未经核实的充值、互转、绑卡或结算关系**，也不表示本站已接入 Apple Pay / Google Pay。
+
+两份支付 SVG 均从官方 ZIP 原样提取，下载 URL、包内路径、包与文件 SHA256 记录在 [素材 manifest](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/manifest.json)。[使用规范与来源](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/brands/PAYMENT-MARKS.md) 记录净空、比例、适用语境及效果限制。Apple Pay 标识不可旋转或动画化；两个标识都不加滤镜、阴影或改色。官方内置的白底形属于标识本身，应保留，不能与银行卡外部白角的处理混淆。
+
+![Apple Pay / Google Pay 白底与深色审查](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/payment-wallets.png)
+
+素材结构与场景用途由 [library-manifest.json](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/global/library-manifest.json) 维护，不改首页时间轴或卡片实验数据。
+
+## 04 支付卡片：三张卡全部保留
+
+|StarryBlu|招商银行蓝色 Mastercard|Bybit Card|
 |---|---|---|
-|![StarryBlu 已处理缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/starryblu.png)|![Bybit 缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/bybit.png)|![招行蓝卡缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/cmb-mastercard.png)|
-|1010×608，用户提供；展示用离线副本已替换印刷号码与姓名区域|1010×630 RGBA，用户提供；完整正面，无卡号、有效期或姓名|581×373 RGBA，官方目录卡面；四角白底已离线转透明，无卡号 / 姓名|
+|![StarryBlu 已处理缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/starryblu.png)|![招行蓝卡缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/cmb-mastercard.png)|![Bybit 缩略图](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/cards/bybit.png)|
+|1010×608，用户提供；展示用离线副本已替换印刷号码与姓名区域|581×373 RGBA，官方目录卡面；四角白底已离线转透明，无卡号 / 姓名|1010×630 RGBA，用户提供；完整正面，无卡号、有效期或姓名|
 
 - StarryBlu 展示用文件：[assets/cards/public/starryblu-card-sanitized.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/public/starryblu-card-sanitized.png)。它离线导出自已验收的 `NFCardSurface` 处理结果，**作为图片文件本身已经处理，不依赖前端遮罩**。原件 `assets/cards/starryblu-card.png` 仅保留研究和追溯；原发布出处与公开演示身份未独立确认。原件及历史未删除、未重写，未来生产发布必须排除未处理原件，不能整仓当作公开生产资源目录。
 
   后续采用该副本时无需携带原件的 `redactions` 配置。当前独立实验仍保留原输入及运行时采样规则，是为了保持已验收算法和回归结果，不代表未来生产应直接发布研究原件。
 - Bybit：[assets/cards/bybit-card.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/bybit-card.png)。来源如实记录为用户提供，不伪造官网地址或授权。
 - 招行：[assets/cards/cmb-mastercard-blue.png](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/cmb-mastercard-blue.png)。准确名称是 **万事达人民币 IC 借记卡（普卡）**，来自[招行公开目录](https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html)对应条目，不是全币种信用卡。展示文件已离线清除四角白底及边缘杂边，尺寸和四角区域外像素保持不变；官方原下载件仅归档在 `assets/cards/originals/cmb-mastercard-blue.png`，不用于展示。缩略图与素材总览已同步更新。
+
+以下区分“本项目选择的视觉用途”和“产品实际范围”，核验日期均为 **2026-10-17**：
+
+|素材|代表性视觉用途|官方范围说明|
+|---|---|---|
+|StarryBlu|海外实体卡场景|[官网](https://www.starryblu.com/) 同时提及实体卡、虚拟卡，并保留卡项目筹备中及监管许可条件的说明；不把宣传描述当作当前各地区已开放申请的保证。提供卡图的原始出处和许可状态仍按用户素材记录。|
+|招商银行万事达人民币 IC 借记卡（普卡）|国内万事达借记卡场景|[招行目录](https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html) 的准确产品名称与本图对应；不称作全币种信用卡，不推断未核实的虚拟版本或钱包绑定范围。|
+|Bybit Card|数字资产虚拟支付场景|[官方申请帮助页](https://www.bybit.com/en/help-center/article/How-to-Apply-for-Bybit-Card) 同时说明虚拟卡和实体卡，地区与资格有限制；选用虚拟支付场景不表示产品只有虚拟卡，也不等同发卡关系或钱包兼容性。|
 
 卡面来源、原始签名图片网关 URL、处理记录及 SHA256：[assets/cards/SOURCES.md](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/SOURCES.md)、[原始 manifest](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/manifest.json)、[已处理副本 manifest](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/assets/cards/public/manifest.json)。缩略图保留比例，生成器为 `scripts/prepare-global-thumbnails.py`，只从已处理的 StarryBlu 生成缩略图。
 
@@ -71,7 +92,7 @@ Network 最终展示只有上述四个客户端。Clash Verge 原项目与 V2Fly
 
 ![当前 Global 四层空间](https://raw.githubusercontent.com/nanfeilaotou/personal-site/refs/heads/feat/home-ai-showcase-v2/docs/global-visual/global-four-layers.png)
 
-这是当前首页实际截图，白底黑线的四层号码 / 路径 / 账户 / 资金结构，本轮没有重画。源入口：[prototype/motion.js](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/prototype/motion.js)，定位 `sceneGlobal(s,time)`；章节边界由 [prototype/timeline.js](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/prototype/timeline.js) 管理。
+这是当前首页实际截图，仍保留旧版白底黑线的四层号码 / 路径 / 账户 / 资金结构，本轮没有重画。资料库第三、第四领域已更新为“账户与钱包”“支付卡片”，不意味着截图内旧标签或正式场景已同步改造。源入口：[prototype/motion.js](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/prototype/motion.js)，定位 `sceneGlobal(s,time)`；章节边界由 [prototype/timeline.js](https://github.com/nanfeilaotou/personal-site/blob/feat/home-ai-showcase-v2/prototype/timeline.js) 管理。
 
 当前首页以滚动屏数为唯一进度源：`scrollY / H → NF_TIMELINE.toScene() → 场景`。压缩后的总路程为 10.58 屏，保留原场景坐标映射；Global 接受 `old = sceneS - .91`。调试 `NF_DEBUG.seek(scrollS)` 的参数是压缩后滚动坐标，不是旧场景坐标。`NF_TIMELINE.fromScene()` 可以反向映射。不要同时增加第三套 scroll / pin / 插值权威源。
 
@@ -120,7 +141,7 @@ Global 允许直接使用官方原色透明标志。原来的 difference HUD 与
 
 ## 完成状态与待确认
 
-已完成：AI B 统一规则、真实品牌资源、九个 Global 正式品牌标识（含四个已确认 Network 客户端），另留两份历史候选、三卡面、离线处理副本、静态总览、GitHub 可读截图，以及独立卡模块回归。
+已完成：AI B 统一规则、真实品牌资源、十一个 Global 正式品牌标识（含四个已确认 Network 客户端和两个官方钱包支付标识），另留两份历史候选、三卡面、离线处理副本、静态总览、GitHub 可读截图，以及独立卡模块回归。
 
 仍是独立实验：卡面与 Global 的衔接、`layer` / `portal` 两个既有实验视图，均不是已接入首页的分镜；Global 正式场景本轮未变。
 

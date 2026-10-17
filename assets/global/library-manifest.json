@@ -1,0 +1,41 @@
+{
+  "verifiedAt": "2026-10-17",
+  "purpose": "Global material taxonomy and visual roles only; not homepage scene configuration or verified money-flow connections",
+  "accountsWallets": {
+    "label": "03 / ACCOUNTS & WALLETS",
+    "title": "账户与钱包 / Accounts & Wallets",
+    "groups": [
+      {"id": "account-services", "name": "账户资金服务", "brands": ["iFAST Global Bank", "Wise", "PayPal"]},
+      {"id": "wallet-quick-pay", "name": "钱包快捷支付", "brands": ["Apple Pay", "Google Pay"]}
+    ],
+    "relationshipNote": "按内容用途分组，不暗示账户、钱包或卡片之间存在未经核实的资金互通、绑卡或结算关系。"
+  },
+  "paymentCards": {
+    "label": "04 / PAYMENT CARDS",
+    "title": "支付卡片 / Payment Cards",
+    "relationshipNote": "三张卡均保留，分别承担代表性视觉用途；这些场景不是对产品形态、发行关系或支持范围的排他性断言。",
+    "items": [
+      {
+        "id": "starryblu",
+        "visualRole": "海外实体卡场景 · 代表性视觉素材",
+        "productScope": "官网同时提及实体卡与虚拟卡，并注明卡项目筹备中、须获监管许可后生效；不据此推断当前地区可申请或钱包可绑定。",
+        "officialSource": "https://www.starryblu.com/",
+        "verifiedAt": "2026-10-17"
+      },
+      {
+        "id": "cmb",
+        "visualRole": "国内万事达借记卡场景 · 代表性视觉素材",
+        "productScope": "准确名称为万事达人民币 IC 借记卡（普卡）；本图对应国内借记卡产品，不称作全币种信用卡。未核实的虚拟版本或钱包绑定能力不作推断。",
+        "officialSource": "https://mobile.cmbchina.com/DCAMobile/applycard/familyportal.html",
+        "verifiedAt": "2026-10-17"
+      },
+      {
+        "id": "bybit",
+        "visualRole": "数字资产虚拟支付场景 · 代表性视觉素材",
+        "productScope": "官方帮助页同时说明虚拟卡与实体卡；支持地区、实体卡发放和申请资格存在限制。选择虚拟支付场景不表示 Bybit Card 只有虚拟卡。",
+        "officialSource": "https://www.bybit.com/en/help-center/article/How-to-Apply-for-Bybit-Card",
+        "verifiedAt": "2026-10-17"
+      }
+    ]
+  }
+}

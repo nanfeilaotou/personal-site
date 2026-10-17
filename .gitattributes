@@ -8,3 +8,5 @@ assets/brands/*-color.svg -text
 assets/global/network/*.svg -text
 # Vendor licence texts retain upstream bytes, including incidental line-end spaces.
 assets/global/network/licenses/* -text -whitespace
+# Retain Google's original SVG line endings byte-for-byte, as downloaded.
+assets/global/brands/google-pay.svg -whitespace

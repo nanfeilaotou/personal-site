@@ -1,0 +1,309 @@
+{
+  "date": "2026-10-17",
+  "baseline": "fe65bc5b23d7d994106744e3667713e88504cd28",
+  "checks": [
+    {
+      "name": "official artwork / protected scope",
+      "detail": "two original SVG byte hashes match, passive vectors, official download/member provenance recorded; all scene/shader/timeline/AI/card images and algorithm unchanged; pre-existing root index preserved"
+    },
+    {
+      "name": "browser / classification / white contrast",
+      "detail": "14 entries, three card roles, two internal account/wallet groups; both official payment marks load on pure white and dark backgrounds at 1920×1080, 1440×900, 1366×768 / DPR 2; Apple clear space retained, no effects/cropping/overflow; reload and local links pass"
+    },
+    {
+      "name": "handoff links",
+      "detail": "64 local / branch file and image targets exist"
+    },
+    {
+      "name": "console / resources",
+      "detail": "no console errors, page errors or failed resources"
+    }
+  ],
+  "views": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "marks": [
+        {
+          "name": "Apple Pay",
+          "images": [
+            {
+              "src": "../../assets/global/brands/apple-pay.svg",
+              "loaded": true,
+              "background": "white",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "width": 128.078125,
+              "height": 81.984375,
+              "padding": [
+                50.125,
+                49,
+                50.125,
+                49.015625
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            },
+            {
+              "src": "../../assets/global/brands/apple-pay.svg",
+              "loaded": true,
+              "background": "dark",
+              "backgroundColor": "rgb(16, 23, 24)",
+              "width": 128.078125,
+              "height": 81.984375,
+              "padding": [
+                50.125,
+                49,
+                50.125,
+                49.015625
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            }
+          ]
+        },
+        {
+          "name": "Google Pay",
+          "images": [
+            {
+              "src": "../../assets/global/brands/google-pay.svg",
+              "loaded": true,
+              "background": "white",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "width": 210,
+              "height": 142.421875,
+              "padding": [
+                9.15625,
+                18.78125,
+                9.171875,
+                18.796875
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            },
+            {
+              "src": "../../assets/global/brands/google-pay.svg",
+              "loaded": true,
+              "background": "dark",
+              "backgroundColor": "rgb(16, 23, 24)",
+              "width": 210,
+              "height": 142.421875,
+              "padding": [
+                9.171875,
+                18.78125,
+                9.171875,
+                18.796875
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            }
+          ]
+        }
+      ],
+      "screenshot": "tests/payment-marks/wallets-1920.png"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "marks": [
+        {
+          "name": "Apple Pay",
+          "images": [
+            {
+              "src": "../../assets/global/brands/apple-pay.svg",
+              "loaded": true,
+              "background": "white",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "width": 128.078125,
+              "height": 81.984375,
+              "padding": [
+                45.125,
+                49,
+                45.125,
+                49.015625
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            },
+            {
+              "src": "../../assets/global/brands/apple-pay.svg",
+              "loaded": true,
+              "background": "dark",
+              "backgroundColor": "rgb(16, 23, 24)",
+              "width": 128.078125,
+              "height": 81.984375,
+              "padding": [
+                45.125,
+                49,
+                45.125,
+                49.015625
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            }
+          ]
+        },
+        {
+          "name": "Google Pay",
+          "images": [
+            {
+              "src": "../../assets/global/brands/google-pay.svg",
+              "loaded": true,
+              "background": "white",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "width": 210,
+              "height": 142.421875,
+              "padding": [
+                4.15625,
+                18.78125,
+                4.171875,
+                18.796875
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            },
+            {
+              "src": "../../assets/global/brands/google-pay.svg",
+              "loaded": true,
+              "background": "dark",
+              "backgroundColor": "rgb(16, 23, 24)",
+              "width": 210,
+              "height": 142.421875,
+              "padding": [
+                4.171875,
+                18.78125,
+                4.171875,
+                18.796875
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            }
+          ]
+        }
+      ],
+      "screenshot": "docs/global-visual/payment-wallets.png"
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 2,
+      "marks": [
+        {
+          "name": "Apple Pay",
+          "images": [
+            {
+              "src": "../../assets/global/brands/apple-pay.svg",
+              "loaded": true,
+              "background": "white",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "width": 128.078125,
+              "height": 81.984375,
+              "padding": [
+                38.953125,
+                49,
+                38.96875,
+                49.015625
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            },
+            {
+              "src": "../../assets/global/brands/apple-pay.svg",
+              "loaded": true,
+              "background": "dark",
+              "backgroundColor": "rgb(16, 23, 24)",
+              "width": 128.078125,
+              "height": 81.984375,
+              "padding": [
+                38.953125,
+                49,
+                38.96875,
+                49.015625
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            }
+          ]
+        },
+        {
+          "name": "Google Pay",
+          "images": [
+            {
+              "src": "../../assets/global/brands/google-pay.svg",
+              "loaded": true,
+              "background": "white",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "width": 204,
+              "height": 138.359375,
+              "padding": [
+                1,
+                20.8125,
+                1,
+                20.828125
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            },
+            {
+              "src": "../../assets/global/brands/google-pay.svg",
+              "loaded": true,
+              "background": "dark",
+              "backgroundColor": "rgb(16, 23, 24)",
+              "width": 204,
+              "height": 138.359375,
+              "padding": [
+                1,
+                20.8125,
+                1,
+                20.828125
+              ],
+              "filter": "none",
+              "transform": "none",
+              "blend": "normal",
+              "animation": "none",
+              "objectFit": "contain"
+            }
+          ]
+        }
+      ],
+      "screenshot": "tests/payment-marks/wallets-1366.png"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}
