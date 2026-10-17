@@ -1,0 +1,32 @@
+{
+  "receivedAt": "2026-10-18",
+  "base": "6415f72b92fd64a1fe7806f2683efb42504197be",
+  "source": "User-unpacked local global-world-prototype delivery; no GitHub replacement",
+  "files": [
+    {
+      "file": "prototype/experiments/global-world.html",
+      "bytes": 5172,
+      "sha256": "b6606acd05242f3fe93ae8aee911f5cfa67b97e8b88b170bd4a2e7274e801a48"
+    },
+    {
+      "file": "prototype/experiments/global-world.css",
+      "bytes": 7951,
+      "sha256": "a04de9c98d22a80ff96b13c3e7d19bc62dda10377e17ac44560a74b26fcd4e28"
+    },
+    {
+      "file": "prototype/experiments/global-world.js",
+      "bytes": 46458,
+      "sha256": "a3cbd59749be1e75a3bf24e32a39490de7c44d425e21990f298e2dfc5a38dedc"
+    },
+    {
+      "file": "prototype/experiments/global-card-adapter.js",
+      "bytes": 17969,
+      "sha256": "6b8387ca6b61de8fd51dc13d8a0ec08a4980fc4cb9cebae9c0a6537e15c03550"
+    },
+    {
+      "file": "prototype/experiments/GLOBAL-WORLD-PROTOTYPE.md",
+      "bytes": 15232,
+      "sha256": "c8396397445e00f94b9a1dd84a1372fecdd7645636fc3e5fb93f17015fadbdf5"
+    }
+  ]
+}
