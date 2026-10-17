@@ -1,5 +1,7 @@
 # NANFEILAOTOU · Global 视觉素材交接
 
+> **2026-10-18 集成更新**：Opus 已完成 Global World 和三卡粒子切换，并正式接入 `prototype/prototype-02.html`。当前实现、15.68 屏时间轴、导航与本机 GPU 验收见 [AI + Global 集成报告](HOME-AI-GLOBAL-INTEGRATION.md)；[独立 Global](../prototype/experiments/global-world.html) 和 [Opus 原始基线](global-world/opus-baseline/README.md) 保留。以下素材记录与早期交互建议按历史阶段保存，不再表示卡片仍未实现或未接入。
+
 更新：2026-10-17。面向未参与前期开发的 Creative Director。当前成果位于功能分支 [`feat/home-ai-showcase-v2`](https://github.com/nanfeilaotou/personal-site/tree/feat/home-ai-showcase-v2)，没有合并 main 或替换生产主页。
 
 **目前有三项成熟能力：四层数字空间、真实品牌原色、彩色粒子卡面生成。** AI 首页 B 已定稿；Global 正式场景仍是原有四层 Canvas 原型，卡面是独立实验，尚未接入首页。
@@ -153,7 +155,7 @@ Network 最终展示只有上述四个客户端。Clash Verge 原项目与 V2Fly
 
 这些算法和进出场效果已获人工审美验收，本轮源码保持不变。集成 Global 时可以规划承接方式，但应把它视为可复用能力，保留质量与反向可复现性；不要用普通图片 fade 或通用粒子模板替代。
 
-## 推荐三卡交互：同屏真实卡面与粒子换卡（未实现）
+## 2026-10-17 早期三卡交互建议（历史交接，后续已实现）
 
 这是下一阶段的明确内容需求与推荐交互，**本轮只交接，不修改 card-particle.html / card-particle.js / card-surface.js、Shader、三张卡面或现有实验**。它不锁定 Opus 的空间构图、镜头顺序、转场风格或具体时长，也不改变四章分类。
 

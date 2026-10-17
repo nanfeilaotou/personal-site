@@ -1,0 +1,601 @@
+{
+  "date": "2026-10-18",
+  "checks": [
+    {
+      "name": "desktop / AI B / Global guides",
+      "detail": "21 AI entries × three sizes hover/Esc; four Global stops and original colours, one initialization, 64,000 points, three visible cards, correct HUD/progress/navigation, working pending guide index, no unsafe StarryBlu master or 5000px Instagram load"
+    },
+    {
+      "name": "three-card state machine",
+      "detail": "real side-card clicks, all three mains, HD gates and CMB pixel budget; repeated/rapid clicks, late retarget, same-card no-op, scroll interruption both directions/exit, return, keyboard Enter/Space and Esc"
+    },
+    {
+      "name": "one navigation authority",
+      "detail": "Global 1–4 vs Alt+0–3, whole-site digits outside Global, clickable local nav, Back/Forward, mid-scene refresh, resize preserves scroll units and real wheel interrupts navigation"
+    },
+    {
+      "name": "lifecycle / resources",
+      "detail": "Context loss/restoration during switch, stable idle card draws zero additional GL frames, offscreen card draw stopped, 12 re-entries keep one initialization and texture upload count; post-GC heap recorded"
+    },
+    {
+      "name": "narrow access smoke",
+      "detail": "390×844: no horizontal overflow, touch side-card selection and guide index accessible; portrait visual optimization explicitly deferred"
+    },
+    {
+      "name": "console / assets",
+      "detail": "no unexpected errors or failed resources throughout integrated homepage tests"
+    }
+  ],
+  "views": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "views": [
+        {
+          "key": "number",
+          "g": 1.4000000000000004,
+          "brands": {
+            "clubsim": [
+              634,
+              442,
+              1
+            ],
+            "smart": [
+              1344,
+              442,
+              1
+            ],
+            "whatsapp": [
+              864,
+              270,
+              1
+            ],
+            "telegram": [
+              1075,
+              799,
+              1
+            ],
+            "line": [
+              1594,
+              302,
+              1
+            ],
+            "instagram": [
+              1238,
+              162,
+              1
+            ],
+            "facebook": [
+              1718,
+              821,
+              1
+            ]
+          },
+          "bg": "rgb(5, 5, 5)",
+          "html": "rgb(5, 5, 5)",
+          "stage": "rgb(5, 5, 5)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-number"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "network",
+          "g": 3.3000000000000007,
+          "brands": {
+            "clash": [
+              713,
+              744,
+              1
+            ],
+            "flclash": [
+              457,
+              653,
+              1
+            ],
+            "shadowrocket": [
+              663,
+              500,
+              1
+            ],
+            "v2rayn": [
+              894,
+              566,
+              1
+            ]
+          },
+          "bg": "rgb(236, 235, 232)",
+          "html": "rgb(236, 235, 232)",
+          "stage": "rgb(236, 235, 232)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-network"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "accounts",
+          "g": 4.25,
+          "brands": {
+            "ifast": [
+              906,
+              194,
+              1
+            ],
+            "wise": [
+              1175,
+              251,
+              1
+            ],
+            "paypal": [
+              1475,
+              302,
+              1
+            ],
+            "applepay": [
+              936,
+              685,
+              1
+            ],
+            "googlepay": [
+              1343,
+              799,
+              1
+            ]
+          },
+          "bg": "rgb(236, 235, 232)",
+          "html": "rgb(236, 235, 232)",
+          "stage": "rgb(236, 235, 232)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-accounts"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "cards",
+          "g": 6.120000000000001,
+          "brands": {},
+          "bg": "rgb(5, 5, 5)",
+          "html": "rgb(5, 5, 5)",
+          "stage": "rgb(5, 5, 5)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-cards"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "views": [
+        {
+          "key": "number",
+          "g": 1.4000000000000004,
+          "brands": {
+            "clubsim": [
+              475,
+              352,
+              1
+            ],
+            "smart": [
+              1008,
+              352,
+              1
+            ],
+            "whatsapp": [
+              648,
+              225,
+              1
+            ],
+            "telegram": [
+              806,
+              666,
+              1
+            ],
+            "line": [
+              1195,
+              252,
+              1
+            ],
+            "instagram": [
+              929,
+              135,
+              1
+            ],
+            "facebook": [
+              1289,
+              684,
+              1
+            ]
+          },
+          "bg": "rgb(5, 5, 5)",
+          "html": "rgb(5, 5, 5)",
+          "stage": "rgb(5, 5, 5)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-number"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "network",
+          "g": 3.3000000000000007,
+          "brands": {
+            "clash": [
+              513,
+              608,
+              1
+            ],
+            "flclash": [
+              298,
+              536,
+              1
+            ],
+            "shadowrocket": [
+              457,
+              409,
+              1
+            ],
+            "v2rayn": [
+              654,
+              464,
+              1
+            ]
+          },
+          "bg": "rgb(236, 235, 232)",
+          "html": "rgb(236, 235, 232)",
+          "stage": "rgb(236, 235, 232)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-network"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "accounts",
+          "g": 4.25,
+          "brands": {
+            "ifast": [
+              648,
+              147,
+              1
+            ],
+            "wise": [
+              900,
+              201,
+              1
+            ],
+            "paypal": [
+              1177,
+              249,
+              1
+            ],
+            "applepay": [
+              680,
+              601,
+              1
+            ],
+            "googlepay": [
+              1048,
+              702,
+              1
+            ]
+          },
+          "bg": "rgb(236, 235, 232)",
+          "html": "rgb(236, 235, 232)",
+          "stage": "rgb(236, 235, 232)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-accounts"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "cards",
+          "g": 6.120000000000001,
+          "brands": {},
+          "bg": "rgb(5, 5, 5)",
+          "html": "rgb(5, 5, 5)",
+          "stage": "rgb(5, 5, 5)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-cards"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "views": [
+        {
+          "key": "number",
+          "g": 1.4000000000000004,
+          "brands": {
+            "clubsim": [
+              451,
+              286,
+              1
+            ],
+            "smart": [
+              956,
+              286,
+              1
+            ],
+            "whatsapp": [
+              615,
+              192,
+              1
+            ],
+            "telegram": [
+              765,
+              568,
+              1
+            ],
+            "line": [
+              1134,
+              215,
+              1
+            ],
+            "instagram": [
+              881,
+              115,
+              1
+            ],
+            "facebook": [
+              1223,
+              584,
+              1
+            ]
+          },
+          "bg": "rgb(5, 5, 5)",
+          "html": "rgb(5, 5, 5)",
+          "stage": "rgb(5, 5, 5)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-number"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "network",
+          "g": 3.3000000000000007,
+          "brands": {
+            "clash": [
+              521,
+              510,
+              1
+            ],
+            "flclash": [
+              338,
+              450,
+              1
+            ],
+            "shadowrocket": [
+              466,
+              342,
+              1
+            ],
+            "v2rayn": [
+              636,
+              389,
+              1
+            ]
+          },
+          "bg": "rgb(236, 235, 232)",
+          "html": "rgb(236, 235, 232)",
+          "stage": "rgb(236, 235, 232)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-network"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "accounts",
+          "g": 4.25,
+          "brands": {
+            "ifast": [
+              640,
+              110,
+              1
+            ],
+            "wise": [
+              838,
+              157,
+              1
+            ],
+            "paypal": [
+              1052,
+              195,
+              1
+            ],
+            "applepay": [
+              673,
+              460,
+              1
+            ],
+            "googlepay": [
+              937,
+              529,
+              1
+            ]
+          },
+          "bg": "rgb(236, 235, 232)",
+          "html": "rgb(236, 235, 232)",
+          "stage": "rgb(236, 235, 232)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-accounts"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        },
+        {
+          "key": "cards",
+          "g": 6.120000000000001,
+          "brands": {},
+          "bg": "rgb(5, 5, 5)",
+          "html": "rgb(5, 5, 5)",
+          "stage": "rgb(5, 5, 5)",
+          "initCount": 1,
+          "points": 64000,
+          "nav": [
+            "global-cards"
+          ],
+          "rail": [
+            "global"
+          ],
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "switches": [
+    {
+      "id": "bybit",
+      "frames": 155,
+      "minQ": 0.05887887026857699,
+      "mixFrames": 32,
+      "final": {
+        "state": {
+          "from": "bybit",
+          "to": null,
+          "desired": "bybit",
+          "m": 0,
+          "q": 1,
+          "busy": false,
+          "token": 1,
+          "webgl": true,
+          "ready": {
+            "starryblu": true,
+            "cmb": true,
+            "bybit": true
+          }
+        },
+        "from": "bybit",
+        "to": null,
+        "q": 1,
+        "m": 0,
+        "surface": 1,
+        "cw": 489.6
+      }
+    },
+    {
+      "id": "cmb",
+      "frames": 158,
+      "minQ": 0.056913422948032984,
+      "mixFrames": 32,
+      "final": {
+        "state": {
+          "from": "cmb",
+          "to": null,
+          "desired": "cmb",
+          "m": 0,
+          "q": 1,
+          "busy": false,
+          "token": 2,
+          "webgl": true,
+          "ready": {
+            "starryblu": true,
+            "cmb": true,
+            "bybit": true
+          }
+        },
+        "from": "cmb",
+        "to": null,
+        "q": 1,
+        "m": 0,
+        "surface": 1,
+        "cw": 290.5
+      }
+    },
+    {
+      "id": "starryblu",
+      "frames": 159,
+      "minQ": 0.05691342294803577,
+      "mixFrames": 33,
+      "final": {
+        "state": {
+          "from": "starryblu",
+          "to": null,
+          "desired": "starryblu",
+          "m": 0,
+          "q": 1,
+          "busy": false,
+          "token": 3,
+          "webgl": true,
+          "ready": {
+            "starryblu": true,
+            "cmb": true,
+            "bybit": true
+          }
+        },
+        "from": "starryblu",
+        "to": null,
+        "q": 1,
+        "m": 0,
+        "surface": 1,
+        "cw": 489.6
+      }
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "reentry": {
+    "cycles": 12,
+    "uploads": 6,
+    "heapBefore": 3890436,
+    "heapAfter": 3902288,
+    "idleGLDraws": 0
+  },
+  "completed": true
+}

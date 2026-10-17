@@ -3,7 +3,7 @@
 /* ============ 基础 ============ */
 const Q=new URLSearchParams(location.search);
 const DEBUG=Q.has('debug'), AT=Q.has('at')?parseFloat(Q.get('at')):null, FIXIT=Q.has('it')?parseFloat(Q.get('it')):null;
-const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches||(DEBUG&&Q.has('reduced'));
 const $=id=>document.getElementById(id);
 const stage=$('stage'),glc=$('gl'),cv=$('cv'),ctx=cv.getContext('2d');
 const clamp=(x,a=0,b=1)=>x<a?a:x>b?b:x, lerp=(a,b,t)=>a+(b-a)*t, R=(x,a,b)=>clamp((x-a)/(b-a));
@@ -15,9 +15,9 @@ const MONO='"JetBrains Mono","SF Mono",Menlo,Consolas,"Liberation Mono",monospac
 
 /* ============ 时间轴（单位：屏）—— 所有画面都是 s 的函数 ============ */
 const CLOCK=window.NF_TIMELINE,TIMELINE=CLOCK.scene,TOTAL=CLOCK.total;
-const STOP={open:0,...Object.fromEntries(['models','local','agents','global','personal'].map(k=>[k,CLOCK[k].stop])),end:TOTAL};
+const STOP={open:0,...Object.fromEntries(['models','local','agents','global','personal'].map(k=>[k,CLOCK[k].stop])),...Object.fromEntries(Object.entries(CLOCK.globalWorld.stops).map(([k,v])=>['global-'+k,v])),end:TOTAL};
 const legacyLocal=s=>lerp(TIMELINE.local.oldStart,TIMELINE.local.oldEnd,R(s,TIMELINE.local.start,TIMELINE.local.end));
-const legacyLater=s=>s-TIMELINE.legacyOffset;
+const legacyLater=s=>s>=TIMELINE.global.end-.08?CLOCK.personalLegacy(s):s-TIMELINE.legacyOffset;
 
 let W=0,H=0,DPR=1,UNIT=1,SL=0,SR=0,LY=0,fs=36,LWS=1;
 let INK=[237,237,235],BG='#050505';
@@ -322,7 +322,7 @@ function sceneBridge(s){
  ctx.fillStyle='#ecebe8';ctx.fillRect(W/2-W/2*lw,H/2-h/2,W*lw,h);
 }
 
-/* ============ 02 链路（预留，已成型） ============ */
+/* Historical Prototype 01 Global: retained for comparison only, no render caller. */
 function sceneGlobal(s,time){
  if(s<8.04||s>9.46)return;
  const col=s<9.3;
@@ -414,28 +414,28 @@ const b2=[...document.querySelectorAll('#bridge .l2 span')],peT=[...document.que
 function show(el,a,dy=0){a=clamp(a);a=Math.round(a*1000)/1000;if(el._a===a&&el._dy===dy)return;el._a=a;el._dy=dy;
  el.style.opacity=a;el.style.visibility=a>.01?'visible':'hidden';el.style.transform=dy?`translateY(${dy.toFixed(1)}px)`:'';}
 const setT=(el,t)=>{if(el._t!==t){el._t=t;el.textContent=t}};
-function ui(s,intro,scrollS=s){
+function ui(s,intro,scrollS=s,world={active:false,g:0}){
  const hud=AT!==null||REDUCED?1:R(intro,1.7,2.8),old=legacyLater(s),M=TIMELINE.models,A=TIMELINE.agents;
  show(hTL,hud);show(hTR,hud);show(hBR,hud);show(rail,hud);show(hBL,hud*(1-R(s,.1,.28)));
  hint.style.opacity=1-R(s,.02,.12);
  setT(progEl,String(Math.round(scrollS/TOTAL*100)).padStart(3,'0')+' / 100');
- const section=s<M.start?'open':s<TIMELINE.local.start?'models':s<A.start?'local':s<TIMELINE.bridge.start?'agents':s<TIMELINE.global.start?'bridge':s<TIMELINE.personal.start?'global':'personal';
- setT(pts,s<.95?`${NPTS.toLocaleString('en')} PTS`:section==='models'?'08 / MODELS':section==='agents'?'10 / PLATFORMS':section==='global'?'NETWORK':section==='personal'?'FIELD':'SEQUENCE');
- setT(crumb,({open:'00 — 起点 POINT',models:'01.1 — 模型生态',local:'01.2 — 本地 AI',agents:'01.3 — AI 客户端与 Agent',bridge:'01 → 02',global:'02 — 链路 NETWORK',personal:'03 — 场 FIELD'})[section]);
- const ri=s<M.start?0:s<TIMELINE.global.start?1:s<TIMELINE.personal.start?2:3;
+ const section=world.active?'global':s<M.start?'open':s<TIMELINE.local.start?'models':s<A.start?'local':s<TIMELINE.bridge.start?'agents':s<TIMELINE.global.start?'bridge':s<TIMELINE.personal.start?'global':'personal';
+ setT(pts,s<.95?`${NPTS.toLocaleString('en')} PTS`:section==='models'?'08 / MODELS':section==='agents'?'10 / PLATFORMS':section==='global'?'VIA':section==='personal'?'FIELD':'SEQUENCE');
+ setT(crumb,world.active&&world.g>=.5?'02.'+(NF_GLOBAL.domainAt(world.g)+1)+' — '+NF_GLOBAL.DOMAINS[NF_GLOBAL.domainAt(world.g)].title+' · VIA':({open:'00 — 起点 POINT',models:'01.1 — 模型生态',local:'01.2 — 本地 AI',agents:'01.3 — AI 客户端与 Agent',bridge:'01 → 02',global:'02 — 经由 VIA',personal:'03 — 场 FIELD'})[section]);
+ const ri=world.active?2:s<M.start?0:s<TIMELINE.global.start?1:s<TIMELINE.personal.start?2:3;
  railB.forEach((b,i)=>{b.classList.toggle('on',i===ri);if(i===ri)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});
  rfill.style.height=((rail.offsetHeight+28)*scrollS/TOTAL).toFixed(1)+'px';
  show(chAI,win(s,2.36,2.44,TIMELINE.bridge.start,TIMELINE.bridge.start+.1));
  aiLi.forEach((l,i)=>{const on=i===(section==='models'?0:section==='local'?1:2);l.classList.toggle('on',on);const a=l.querySelector('a');if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
- show(chGL,win(old,8.5,8.56,9.26,9.34));show(chPE,win(old,9.82,9.88,10.62,10.72));
+ show(chGL,0);show(chPE,world.active?0:win(old,9.82,9.88,10.62,10.72));
  show(enM,win(s,M.formed,M.formed+.1,M.holdEnd,M.end-.1));
  show(enL,win(s,TIMELINE.local.start+.25,TIMELINE.local.start+.35,A.start,A.start+.12));
  show(enA,win(s,A.formed,A.formed+.1,A.holdEnd,A.end-.1));
- show(enG,win(old,8.95,9.03,9.24,9.32));
- show(b1,win(old,7.55,7.65,7.9,7.98),(1-R(old,7.55,7.65))*10);
- b2.forEach((el,i)=>show(el,win(old,7.62+i*.05,7.68+i*.05,7.9,7.98)));
- show(pe,win(old,9.72,9.84,10.5,10.6));peT.forEach((el,k)=>{const v=(peFill(old,k)*100).toFixed(1)+'%';if(el._p!==v){el._p=v;el.style.setProperty('--p',v)}});
- show(endEl,R(old,10.95,11.05));
+ show(enG,0);
+ show(b1,0); // One shared Canvas entry caption owns Bridge and VIA.
+ b2.forEach(el=>show(el,0));
+ show(pe,world.active?0:win(old,9.72,9.84,10.5,10.6));peT.forEach((el,k)=>{const v=(peFill(old,k)*100).toFixed(1)+'%';if(el._p!==v){el._p=v;el.style.setProperty('--p',v)}});
+ show(endEl,world.active?0:R(old,10.95,11.05));
  document.querySelector('.fallback-word').style.opacity=1-R(s,.1,.5);
 }
 
@@ -445,7 +445,7 @@ function resize(){
  for(const c of [glc,cv]){c.width=Math.round(W*DPR);c.height=Math.round(H*DPR)}
  ctx.setTransform(DPR,0,0,DPR,0,0);
  $('track').style.height=(TOTAL*UNIT+H)+'px';
- for(const k in gcache)delete gcache[k];layout();buildPoints();showcase.resize();
+ for(const k in gcache)delete gcache[k];layout();buildPoints();showcase.resize();globalHome.resize();
 }
 function sceneVoid(s){
  if(s>=TIMELINE.global.start&&s<TIMELINE.global.start+1.26)return;
@@ -456,24 +456,36 @@ const showcase=window.NFShowcase({ctx,viewport:()=>({W,H,SL,SR,FX,FY,FZ}),line:L
 
 /* ============ 渲染 ============ */
 let curBG='';
+function setBackground(bg){
+ BG=bg;if(bg===curBG)return;curBG=bg;
+ stage.style.background=bg;document.documentElement.style.background=bg;document.body.style.background=bg;
+}
+const globalHome=window.NFGlobalHome({clock:CLOCK,setBackground,kick:()=>schedule()});
 function render(scrollS,time,intro,vel){
- const s=CLOCK.toScene(scrollS);
- const old=legacyLater(s),bg=old<8.06?'#050505':old<9.3?'#ecebe8':'#0d0d0c';BG=bg;
- if(bg!==curBG){curBG=bg;stage.style.background=bg;document.documentElement.style.background=bg;document.body.style.background=bg}
- INK=old>=8.06&&old<9.3?DARK:LIGHT;
- drawGL(s,time,intro,vel,mouse);ctx.clearRect(0,0,W,H);sceneVoid(s);
+ const s=CLOCK.toScene(scrollS),old=legacyLater(s),world=globalHome.render(scrollS,time);
+ INK=LIGHT;ctx.clearRect(0,0,W,H);glc.style.visibility=world.active?'hidden':'visible';
+ if(world.active){
+  // Only the final matching line field overlaps; no second Global renderer runs.
+  if(world.personalUnderlay){BG='#050505';sceneField(CLOCK.globalWorld.fieldLegacyStart,time);}
+  showcase.draw(s);ui(s,intro,scrollS,world);return;
+ }
+ setBackground('#050505');document.body.classList.remove('on-white');
+ drawGL(s,time,intro,vel,mouse);sceneVoid(s);
  sceneOpen(s,intro);sceneRise(s);
  bigTitle('01',s,1.85,2.42,'序列','SEQUENCE · AI',false);
  if(s>=TIMELINE.local.start&&s<=TIMELINE.local.end)sceneLocal(legacyLocal(s),time);
  showcase.draw(s);
- sceneBridge(old);sceneGlobal(old,time);sceneField(old,time);ui(s,intro,scrollS);
+ if(s>=TIMELINE.personal.start)sceneField(old,time);
+ ui(s,intro,scrollS,world);
 }
 
 /* ============ 主循环与交互 ============ */
 const mouse={x:-9999,y:-9999,on:0};
-let sd=0,userMoved=false,last=performance.now(),T0=last,vel=0,anim=null,fpsA=60;
+let sd=0,userMoved=false,last=performance.now(),T0=last,vel=0,anim=null,fpsA=60,raf=0,frozen=false,debugClock=null;
+function schedule(){if(!raf&&!frozen)raf=requestAnimationFrame(frame);}
 function goTo(s){userMoved=true;if(REDUCED){anim=null;sd=s;scrollTo(0,s*UNIT);return;}const y0=scrollY,y1=s*UNIT,d=Math.abs(y1-y0)/UNIT;anim={y0,y1,t0:performance.now(),dur:clamp(d*240,500,2600)}}
 function frame(now){
+ raf=0;if(frozen)return;
  const dt=Math.min(.05,Math.max(.001,(now-last)/1000));last=now;fpsA=lerp(fpsA,1/dt,.05);
  if(anim){const t=R(now,anim.t0,anim.t0+anim.dur);scrollTo(0,lerp(anim.y0,anim.y1,io(t)));if(t>=1)anim=null}
  const tgt=clamp((AT!==null&&!userMoved)?AT:scrollY/UNIT,0,TOTAL),prev=sd;
@@ -481,23 +493,29 @@ function frame(now){
  vel=lerp(vel,(sd-prev)/dt,.2);
  const time=Math.max(0,(now-T0)/1000),intro=FIXIT!==null?FIXIT:((AT!==null&&AT>0)||REDUCED)?10:time;
  const tx=mouse.on?(mouse.x/W-.5)*2:0,ty=mouse.on?(mouse.y/H-.5)*2:0;mx=lerp(mx,tx,.06);my=lerp(my,ty,.06);
- render(sd,REDUCED?0:Q.has('time')?Number(Q.get('time')):time,intro,REDUCED?0:vel);
+ render(sd,REDUCED?0:debugClock!==null?debugClock:Q.has('time')?Number(Q.get('time')):time,intro,REDUCED?0:vel);
  if(DEBUG)dbg.textContent=`s ${sd.toFixed(3)} · ${fpsA.toFixed(0)} fps · ${NPTS} pts`;
- requestAnimationFrame(frame);
+ schedule();
 }
 addEventListener('mousemove',e=>{if(!REDUCED){mouse.x=e.clientX;mouse.y=e.clientY;mouse.on=1}});
 document.addEventListener('mouseleave',()=>{mouse.on=0});
 const stop=()=>{anim=null;userMoved=true};
 addEventListener('wheel',stop,{passive:true});addEventListener('touchstart',stop,{passive:true});
-addEventListener('keydown',e=>{if(e.target.closest('button,a,input,textarea,select,[contenteditable],dialog'))return;userMoved=true;const m={'0':'open','1':'models','2':'global','3':'personal'}[e.key];if(m){e.preventDefault();navigate(m)}else if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(e.key))anim=null;});
+addEventListener('keydown',e=>{
+ if(e.target.closest('input,textarea,select,[contenteditable],dialog')||e.ctrlKey||e.metaKey)return;
+ const local=globalHome.state.active&&!e.altKey&&['1','2','3','4'].includes(e.key);
+ const m=local?'global-'+['number','network','accounts','cards'][Number(e.key)-1]:({'0':'open','1':'models','2':'global','3':'personal'})[e.key];
+ if(m){e.preventDefault();userMoved=true;navigate(m);}else if(!e.target.closest('button,a')&&['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(e.key))anim=null;
+});
 function navigate(key){if(!(key in STOP))return;history.pushState(null,'','#'+key);goTo(STOP[key]);}
-function fromHash(){const key=location.hash.slice(1);return key==='ai'?'models':key;}
-addEventListener('popstate',()=>{const key=fromHash();if(key in STOP)goTo(STOP[key]);else goTo(0)});
-addEventListener('hashchange',()=>{const key=fromHash();if(key in STOP)goTo(STOP[key])});
+function fromHash(){const key=location.hash.slice(1);if(key==='ai')return 'models';if(key==='via')return 'global';const guide=window.NF_GLOBAL_GUIDES.find(g=>'guide-'+g.id===key);return guide?'global-'+guide.domain:key;}
+function restoreHash(){const key=fromHash();if(key in STOP)goTo(STOP[key]);else goTo(0);const guide=location.hash.match(/^#guide-(.+)$/);if(guide)globalHome.openGuide(guide[1]);}
+addEventListener('popstate',restoreHash);addEventListener('hashchange',restoreHash);
 let toastT=0;const toast=document.createElement('div');
 toast.style.cssText='position:absolute;left:50%;bottom:30px;transform:translateX(-50%);font:500 11px '+MONO+';letter-spacing:.1em;padding:9px 14px;border:1px solid #fff;opacity:0;transition:opacity .3s;white-space:nowrap';
 $('ui').appendChild(toast);
 document.addEventListener('click',e=>{
+ const guide=e.target.closest('[data-guide]');if(guide&&globalHome.openGuide(guide.dataset.guide)){e.preventDefault();return;}
  const g=e.target.closest('[data-go]');if(g){e.preventDefault();navigate(g.dataset.go);return}
  if(e.target.closest('#rewind')){e.preventDefault();navigate('open');return}
  const a=e.target.closest('.entry,#pe a');if(a){e.preventDefault();const t=(a.querySelector('.t')||a).textContent.trim();toast.textContent=`「${t}」子页面将在后续原型中搭建`;toast.style.opacity=1;clearTimeout(toastT);toastT=setTimeout(()=>toast.style.opacity=0,1800)}
@@ -514,12 +532,17 @@ const positionKey=()=>location.pathname+location.search+location.hash;
 try{
  const saved=JSON.parse(sessionStorage.getItem('nf-prototype-02-position'));
  const navigation=performance.getEntriesByType('navigation')[0]?.type;
- if(saved&&saved.url===positionKey()&&['reload','back_forward'].includes(navigation)&&Number.isFinite(saved.s))restored=saved.s;
+ if(saved&&saved.url===positionKey()&&saved.total===TOTAL&&['reload','back_forward'].includes(navigation)&&Number.isFinite(saved.s))restored=saved.s;
 }catch{}
 const initial=AT!==null?AT:restored!==null?restored:(fromHash() in STOP?STOP[fromHash()]:0);
 sd=clamp(initial,0,TOTAL);scrollTo(0,sd*UNIT);
-addEventListener('pagehide',()=>{try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:scrollY/UNIT,url:positionKey()}))}catch{}});
-if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP};},seek(s){userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT)},positions:showcase.positions};
+if(location.hash.startsWith('#guide-'))queueMicrotask(()=>globalHome.openGuide(location.hash.slice(7)));
+addEventListener('pagehide',e=>{if(!e.persisted)globalHome.destroy();try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:scrollY/UNIT,url:positionKey(),total:TOTAL}))}catch{}});
+if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP,navigating:!!anim,global:globalHome.state};},
+ seek(s){userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT);globalHome.invalidate();render(sd,debugClock??Number(Q.get('time')||10),FIXIT??10,0);},
+ freeze(on=true){frozen=on;if(frozen){if(raf)cancelAnimationFrame(raf);raf=0;}else{last=performance.now();schedule();}return frozen;},
+ advance(sec,fps=60){frozen=true;if(raf)cancelAnimationFrame(raf);raf=0;if(debugClock===null)debugClock=Number(Q.get('time')||10);for(let i=0;i<Math.round(sec*fps);i++){debugClock+=1/fps;render(sd,debugClock,10,0);}return globalHome.state;},
+ select(id){return globalHome.request(id);},navigate,positions:showcase.positions};
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{for(const k in gcache)delete gcache[k];layout()});
-requestAnimationFrame(frame);
+schedule();
 })();

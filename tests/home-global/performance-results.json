@@ -1,0 +1,631 @@
+{
+  "date": "2026-10-18",
+  "samples": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "phase": "global-number",
+      "cpu": {
+        "n": 180,
+        "mean": 0.5805555568801032,
+        "p95": 1.100000023841858,
+        "max": 1.2000000476837158
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666667,
+        "p95": 4.2999999999999545,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.99999999999997,
+      "longTasks": [],
+      "resources": {
+        "frames": 2,
+        "pointDraws": 0,
+        "quadDraws": 2,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "phase": "global-network",
+      "cpu": {
+        "n": 180,
+        "mean": 0.1611111150847541,
+        "p95": 0.3999999761581421,
+        "max": 0.8000000715255737
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166111111111111,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 240.0320042672356,
+      "longTasks": [],
+      "resources": {
+        "frames": 2,
+        "pointDraws": 0,
+        "quadDraws": 2,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "phase": "global-accounts",
+      "cpu": {
+        "n": 180,
+        "mean": 1.3133333298895093,
+        "p95": 1.6999999284744263,
+        "max": 2.200000047683716
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.165555555555554,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 240.0640170712191,
+      "longTasks": [],
+      "resources": {
+        "frames": 2,
+        "pointDraws": 0,
+        "quadDraws": 2,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "phase": "global-cards",
+      "cpu": {
+        "n": 180,
+        "mean": 0.08166667090521919,
+        "p95": 0.20000004768371582,
+        "max": 0.20000004768371582
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.167222222222222,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.9680042660979,
+      "longTasks": [],
+      "resources": {
+        "frames": 22,
+        "pointDraws": 0,
+        "quadDraws": 22,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "phase": "live-card-switch",
+      "wallMs": 2545,
+      "cpu": {
+        "n": 604,
+        "mean": 1.5538079448488376,
+        "p95": 3.899999976158142,
+        "max": 11.299999952316284
+      },
+      "interval": {
+        "n": 604,
+        "mean": 4.2149006622516545,
+        "p95": 4.300000000000182,
+        "max": 12.5
+      },
+      "rafHz": 237.25351559431226,
+      "longTasks": [],
+      "resources": {
+        "frames": 626,
+        "pointDraws": 429,
+        "quadDraws": 284,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "phase": "global-number",
+      "cpu": {
+        "n": 180,
+        "mean": 0.3850000003973643,
+        "p95": 0.5,
+        "max": 0.7999999523162842
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666666,
+        "p95": 4.300000000000068,
+        "max": 4.400000000000091
+      },
+      "rafHz": 240.00000000000003,
+      "longTasks": [],
+      "resources": {
+        "frames": 1,
+        "pointDraws": 0,
+        "quadDraws": 1,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "phase": "global-network",
+      "cpu": {
+        "n": 180,
+        "mean": 0.09777778055932787,
+        "p95": 0.20000004768371582,
+        "max": 0.30000007152557373
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666667,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.99999999999997,
+      "longTasks": [],
+      "resources": {
+        "frames": 1,
+        "pointDraws": 0,
+        "quadDraws": 1,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "phase": "global-accounts",
+      "cpu": {
+        "n": 180,
+        "mean": 1.3494444482856327,
+        "p95": 1.6999999284744263,
+        "max": 1.9000000953674316
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666667,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.99999999999997,
+      "longTasks": [],
+      "resources": {
+        "frames": 1,
+        "pointDraws": 0,
+        "quadDraws": 1,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "phase": "global-cards",
+      "cpu": {
+        "n": 180,
+        "mean": 0.08611111309793261,
+        "p95": 0.20000004768371582,
+        "max": 0.30000007152557373
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666667,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.99999999999997,
+      "longTasks": [],
+      "resources": {
+        "frames": 2,
+        "pointDraws": 0,
+        "quadDraws": 2,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "phase": "live-card-switch",
+      "wallMs": 2608,
+      "cpu": {
+        "n": 623,
+        "mean": 1.3215088283652097,
+        "p95": 3.5,
+        "max": 6
+      },
+      "interval": {
+        "n": 623,
+        "mean": 4.186356340288925,
+        "p95": 4.300000000000182,
+        "max": 8.399999999999636
+      },
+      "rafHz": 238.8712089260381,
+      "longTasks": [],
+      "resources": {
+        "frames": 625,
+        "pointDraws": 440,
+        "quadDraws": 279,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1,
+      "phase": "global-number",
+      "cpu": {
+        "n": 180,
+        "mean": 0.3527777738041348,
+        "p95": 0.5,
+        "max": 0.5
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666666,
+        "p95": 4.300000000000068,
+        "max": 4.400000000000091
+      },
+      "rafHz": 240.00000000000003,
+      "longTasks": [],
+      "resources": {
+        "frames": 7,
+        "pointDraws": 0,
+        "quadDraws": 7,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1,
+      "phase": "global-network",
+      "cpu": {
+        "n": 180,
+        "mean": 0.09611111746893988,
+        "p95": 0.20000004768371582,
+        "max": 0.2999999523162842
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.165555555555556,
+        "p95": 4.300000000000182,
+        "max": 4.499999999999773
+      },
+      "rafHz": 240.06401707121898,
+      "longTasks": [],
+      "resources": {
+        "frames": 7,
+        "pointDraws": 0,
+        "quadDraws": 7,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1,
+      "phase": "global-accounts",
+      "cpu": {
+        "n": 180,
+        "mean": 1.3805555535687342,
+        "p95": 1.600000023841858,
+        "max": 2.3000000715255737
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166111111111111,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 240.0320042672356,
+      "longTasks": [],
+      "resources": {
+        "frames": 7,
+        "pointDraws": 0,
+        "quadDraws": 7,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1,
+      "phase": "global-cards",
+      "cpu": {
+        "n": 180,
+        "mean": 0.14166666401757133,
+        "p95": 1,
+        "max": 1.2000000476837158
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666667,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.99999999999997,
+      "longTasks": [],
+      "resources": {
+        "frames": 67,
+        "pointDraws": 0,
+        "quadDraws": 67,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1,
+      "phase": "live-card-switch",
+      "wallMs": 2545,
+      "cpu": {
+        "n": 612,
+        "mean": 1.2620915055664537,
+        "p95": 2.600000023841858,
+        "max": 5
+      },
+      "interval": {
+        "n": 612,
+        "mean": 4.166666666666667,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000546
+      },
+      "rafHz": 239.99999999999997,
+      "longTasks": [],
+      "resources": {
+        "frames": 679,
+        "pointDraws": 437,
+        "quadDraws": 331,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "phase": "global-number",
+      "cpu": {
+        "n": 180,
+        "mean": 0.4377777742014991,
+        "p95": 0.6000000238418579,
+        "max": 0.7000000476837158
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666667,
+        "p95": 4.2999999999999545,
+        "max": 4.300000000000182
+      },
+      "rafHz": 239.99999999999997,
+      "longTasks": [],
+      "resources": {
+        "frames": 1,
+        "pointDraws": 0,
+        "quadDraws": 1,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "phase": "global-network",
+      "cpu": {
+        "n": 180,
+        "mean": 0.09722222222222222,
+        "p95": 0.20000004768371582,
+        "max": 0.2999999523162842
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.166666666666668,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.99999999999994,
+      "longTasks": [],
+      "resources": {
+        "frames": 1,
+        "pointDraws": 0,
+        "quadDraws": 1,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "phase": "global-accounts",
+      "cpu": {
+        "n": 180,
+        "mean": 1.4299999992052714,
+        "p95": 1.7000000476837158,
+        "max": 2.299999952316284
+      },
+      "interval": {
+        "n": 180,
+        "mean": 6.944444444444445,
+        "p95": 8.5,
+        "max": 12.400000000000091
+      },
+      "rafHz": 144,
+      "longTasks": [],
+      "resources": {
+        "frames": 1,
+        "pointDraws": 0,
+        "quadDraws": 1,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "phase": "global-cards",
+      "cpu": {
+        "n": 180,
+        "mean": 0.0833333326710595,
+        "p95": 0.19999992847442627,
+        "max": 0.20000004768371582
+      },
+      "interval": {
+        "n": 180,
+        "mean": 4.16666666666667,
+        "p95": 4.300000000000182,
+        "max": 4.400000000000091
+      },
+      "rafHz": 239.99999999999983,
+      "longTasks": [],
+      "resources": {
+        "frames": 2,
+        "pointDraws": 0,
+        "quadDraws": 2,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "phase": "live-card-switch",
+      "wallMs": 2602,
+      "cpu": {
+        "n": 524,
+        "mean": 2.5049618332440615,
+        "p95": 7.399999976158142,
+        "max": 9.899999976158142
+      },
+      "interval": {
+        "n": 524,
+        "mean": 4.969465648854962,
+        "p95": 8.399999999999636,
+        "max": 8.599999999999454
+      },
+      "rafHz": 201.22887864823346,
+      "longTasks": [],
+      "resources": {
+        "frames": 526,
+        "pointDraws": 341,
+        "quadDraws": 279,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "uploads": 3,
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "notes": "Real local Chromium/ANGLE hardware renderer, no SwiftShader flags. RAF sampling rate is application callback cadence, not a monitor/display FPS guarantee. GL resource byte counts are array/pixel estimates, not driver VRAM.",
+  "renderer": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "vendor": "Google Inc. (NVIDIA)",
+    "version": "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
+  },
+  "browser": "153.0.8010.12",
+  "idleHold": {
+    "seconds": 20,
+    "before": {
+      "frames": 625,
+      "uploads": 3
+    },
+    "after": {
+      "frames": 625,
+      "uploads": 3
+    },
+    "additionalCardDraws": 0
+  },
+  "completed": true
+}

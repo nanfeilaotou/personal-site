@@ -1,0 +1,30 @@
+/* Opus component selectors stay intact; homepage-specific placement follows. */
+@import url("./experiments/global-world.css");
+#global-world{position:fixed;inset:0;z-index:4;visibility:hidden;pointer-events:none;isolation:isolate;color:var(--light,#ededeb)}
+#global-world #gw-stage{background:transparent!important}
+#global-world #gw-chap{top:98px}
+#global-world #gw-nav{top:132px}
+#global-world #gw-ui{z-index:10}
+#global-world .gw-tl,#global-world .gw-br,#global-world #gw-rail{display:none}
+#global-world #gw-cardnav{bottom:88px}
+#global-world #gw-cardnav button{pointer-events:auto}
+#global-world #gw-loading{position:absolute;top:65%;left:50%;transform:translateX(-50%);font:12px var(--cn);color:#ddd}
+#global-world #gw-intro{position:fixed;top:155px;left:30px;font:12px/1.8 var(--cn);max-width:280px;opacity:0;visibility:hidden}
+#global-world .gw-panel .go{min-height:40px}
+#global-world #gw-ui .gw-panel .go:hover,#global-world #gw-ui .gw-panel .go:focus-visible{color:#000}
+#global-world #gw-nav button{min-height:30px}
+#global-world .gw-brand{transition:none}
+#global-world #gw-nav button i{font-size:10px}
+.global-guide-index{scroll-margin:20px;padding:14px 0;border-bottom:1px solid #333}
+.global-guide-index:focus{outline:1px solid #aaa;outline-offset:5px}
+.global-guide-index .guide-status{display:inline-block;color:#bbb;border:1px solid #555;padding:4px 8px;font-size:11px}
+.global-shortcuts{font:10px/1.6 var(--mono);color:#999;margin-top:12px}
+@media(max-width:760px){
+ #global-world #gw-chap{left:16px;top:62px}
+ #global-world #gw-nav{top:auto;bottom:calc(30px + var(--global-panel-height,160px));left:16px;right:16px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:6px}
+ #global-world #gw-nav button{font-size:10px;white-space:nowrap}
+ #global-world #gw-nav button i{font-size:8px;margin-right:4px}
+ #global-world #gw-intro{top:165px;left:16px;font-size:10px;max-width:90vw}
+ body.global-active #catalog-open{display:none}
+ body.global-active #hBR{display:none}
+}

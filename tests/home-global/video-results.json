@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-18",
+  "errors": [],
+  "failed": [],
+  "note": "Actual integrated homepage interaction capture; silent video. Performance benchmarks were recorded separately without video capture.",
+  "wallMs": 43861,
+  "bytes": 8136921,
+  "completed": true
+}

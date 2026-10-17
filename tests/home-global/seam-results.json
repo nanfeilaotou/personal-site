@@ -1,0 +1,498 @@
+{
+  "date": "2026-10-18",
+  "frames": [
+    {
+      "group": "entry",
+      "s": 6.79,
+      "file": "seams/entry-00.png",
+      "meanCoreLuma": 13.801956391875747,
+      "scene": 8.05,
+      "g": null,
+      "active": false,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "",
+      "rail": [
+        "models"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 7.08706,
+      "file": "seams/entry-01.png",
+      "meanCoreLuma": 5.021505376344086,
+      "scene": 8.49000079766,
+      "g": 0,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1e-05",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 7.13,
+      "file": "seams/entry-02.png",
+      "meanCoreLuma": 5.941995221027479,
+      "scene": 8.56,
+      "g": 0,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "0.5",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 7.2,
+      "file": "seams/entry-03.png",
+      "meanCoreLuma": 8.824283154121863,
+      "scene": 8.63,
+      "g": 0,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 7.35,
+      "file": "seams/entry-04.png",
+      "meanCoreLuma": 8.824283154121863,
+      "scene": 8.78,
+      "g": 0,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 7.52,
+      "file": "seams/entry-05.png",
+      "meanCoreLuma": 8.824283154121863,
+      "scene": 8.95,
+      "g": 0,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 7.72,
+      "file": "seams/entry-06.png",
+      "meanCoreLuma": 8.82520908004779,
+      "scene": 9.15,
+      "g": 0.20000000000000107,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 7.92,
+      "file": "seams/entry-07.png",
+      "meanCoreLuma": 5.121505376344086,
+      "scene": 9.35,
+      "g": 0.40000000000000036,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 8.12,
+      "file": "seams/entry-08.png",
+      "meanCoreLuma": 5.0629928315412185,
+      "scene": 9.55,
+      "g": 0.6000000000000014,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 8.42,
+      "file": "seams/entry-09.png",
+      "meanCoreLuma": 6.196012544802867,
+      "scene": 9.85,
+      "g": 0.9000000000000004,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "entry",
+      "s": 8.92,
+      "file": "seams/entry-10.png",
+      "meanCoreLuma": 8.03349761051374,
+      "scene": 10.35,
+      "g": 1.4000000000000004,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "flip",
+      "s": 9.2,
+      "file": "seams/flip-00.png",
+      "meanCoreLuma": 6.145161290322581,
+      "scene": 10.63,
+      "g": 1.6800000000000015,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "flip",
+      "s": 9.26,
+      "file": "seams/flip-01.png",
+      "meanCoreLuma": 28.580689964157706,
+      "scene": 10.69,
+      "g": 1.7400000000000002,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "flip",
+      "s": 9.34,
+      "file": "seams/flip-02.png",
+      "meanCoreLuma": 233.9404420549582,
+      "scene": 10.77,
+      "g": 1.8200000000000003,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "flip",
+      "s": 9.44,
+      "file": "seams/flip-03.png",
+      "meanCoreLuma": 233.88473715651136,
+      "scene": 10.87,
+      "g": 1.92,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "flip",
+      "s": 9.54,
+      "file": "seams/flip-04.png",
+      "meanCoreLuma": 233.47396953405018,
+      "scene": 10.97,
+      "g": 2.0200000000000014,
+      "active": true,
+      "background": "rgb(236, 235, 232)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "flip",
+      "s": 9.64,
+      "file": "seams/flip-05.png",
+      "meanCoreLuma": 233.59362305854242,
+      "scene": 11.07,
+      "g": 2.120000000000001,
+      "active": true,
+      "background": "rgb(236, 235, 232)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "flip",
+      "s": 9.76,
+      "file": "seams/flip-06.png",
+      "meanCoreLuma": 234.1680406212664,
+      "scene": 11.19,
+      "g": 2.24,
+      "active": true,
+      "background": "rgb(236, 235, 232)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "dive",
+      "s": 12,
+      "file": "seams/dive-00.png",
+      "meanCoreLuma": 230.88301971326166,
+      "scene": 13.43,
+      "g": 4.48,
+      "active": true,
+      "background": "rgb(236, 235, 232)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "dive",
+      "s": 12.1,
+      "file": "seams/dive-01.png",
+      "meanCoreLuma": 232.52174432497014,
+      "scene": 13.53,
+      "g": 4.58,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "dive",
+      "s": 12.2,
+      "file": "seams/dive-02.png",
+      "meanCoreLuma": 232.95285244922343,
+      "scene": 13.63,
+      "g": 4.6800000000000015,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "dive",
+      "s": 12.3,
+      "file": "seams/dive-03.png",
+      "meanCoreLuma": 24.97044504181601,
+      "scene": 13.73,
+      "g": 4.780000000000001,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "dive",
+      "s": 12.399999999999999,
+      "file": "seams/dive-04.png",
+      "meanCoreLuma": 8.062126642771805,
+      "scene": 13.83,
+      "g": 4.880000000000001,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "dive",
+      "s": 12.5,
+      "file": "seams/dive-05.png",
+      "meanCoreLuma": 6.583109318996415,
+      "scene": 13.93,
+      "g": 4.98,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "dive",
+      "s": 12.68,
+      "file": "seams/dive-06.png",
+      "meanCoreLuma": 5.334677419354839,
+      "scene": 14.11,
+      "g": 5.16,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14,
+      "file": "seams/exit-00.png",
+      "meanCoreLuma": 5.698611111111111,
+      "scene": 15.43,
+      "g": 6.48,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.079999999999998,
+      "file": "seams/exit-01.png",
+      "meanCoreLuma": 5.938500597371565,
+      "scene": 15.51,
+      "g": 6.5600000000000005,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.16,
+      "file": "seams/exit-02.png",
+      "meanCoreLuma": 7.569160692951016,
+      "scene": 15.59,
+      "g": 6.640000000000001,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.219999999999999,
+      "file": "seams/exit-03.png",
+      "meanCoreLuma": 8.727882317801672,
+      "scene": 15.65,
+      "g": 6.700000000000001,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "1",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.26,
+      "file": "seams/exit-04.png",
+      "meanCoreLuma": 15.168637992831542,
+      "scene": 15.69,
+      "g": 6.74,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "0.75",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.3,
+      "file": "seams/exit-05.png",
+      "meanCoreLuma": 27.981152927120668,
+      "scene": 15.73,
+      "g": 6.780000000000001,
+      "active": true,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "0.25",
+      "rail": [
+        "global"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.32,
+      "file": "seams/exit-06.png",
+      "meanCoreLuma": 34.76678614097969,
+      "scene": 15.75,
+      "g": null,
+      "active": false,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "0.25",
+      "rail": [
+        "personal"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.36,
+      "file": "seams/exit-07.png",
+      "meanCoreLuma": 10.669698327359617,
+      "scene": 15.79,
+      "g": null,
+      "active": false,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "0.25",
+      "rail": [
+        "personal"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.469999999999999,
+      "file": "seams/exit-08.png",
+      "meanCoreLuma": 15.969802867383512,
+      "scene": 15.9,
+      "g": null,
+      "active": false,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "0.25",
+      "rail": [
+        "personal"
+      ]
+    },
+    {
+      "group": "exit",
+      "s": 14.62,
+      "file": "seams/exit-09.png",
+      "meanCoreLuma": 17.649955197132616,
+      "scene": 16.05,
+      "g": null,
+      "active": false,
+      "background": "rgb(5, 5, 5)",
+      "rootOpacity": "0.25",
+      "rail": [
+        "personal"
+      ]
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}

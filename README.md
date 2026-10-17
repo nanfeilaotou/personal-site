@@ -2,13 +2,17 @@
 
 Prototype 02 是独立预览，生产入口 `index.html` 不纳入本轮修改。
 
-AI 品牌已统一采用 B（默认单色、当前目标显色）。下一阶段 Global 创意请先读 [Creative Director 交接入口](docs/GLOBAL-VISUAL-HANDOFF.md)，其中包含 GitHub 可直接查看的素材总览、三卡缩略图、现有四层截图与卡面实验阶段截图，不需要连接开发者电脑。
+AI 品牌统一采用 B（默认单色、当前目标显色），Opus Global World 已接入同一首页：Opening → AI → 经由 / VIA → Personal 预留。最新 [双章节集成报告](docs/HOME-AI-GLOBAL-INTEGRATION.md) 包含 15.68 屏时间轴、导航、实际 GPU 数据与测试；[素材 / 创意历史交接](docs/GLOBAL-VISUAL-HANDOFF.md) 继续保留。
 
 ```powershell
 node scripts/serve.mjs
 ```
 
-打开 [Prototype 02](http://127.0.0.1:4173/prototype/prototype-02.html)。也可直接双击 `prototype/prototype-02.html`，不需要构建或安装依赖。
+打开 [Prototype 02](http://127.0.0.1:4173/prototype/prototype-02.html)。Global 卡面纹理需要同源 HTTP，不以双击 `file://` 为验收入口；无需构建或安装前端框架。
+
+- [AI + Global 整合验收 / 前后对照 / 操作录像](tests/home-global/review.html)
+- [Global 独立原型](http://127.0.0.1:4173/prototype/experiments/global-world.html)
+- [Opus 已验收原始基线](docs/global-world/opus-baseline/README.md)
 
 - [2026-10-17 精修报告：Logo / 文案 / 滚动](docs/PROTOTYPE-02-REFINEMENT.md)
 - [品牌素材审查页](prototype/brand-review.html)
@@ -21,7 +25,7 @@ node scripts/serve.mjs
 - [品牌素材来源与许可](assets/brands/SOURCES.md)
 - [原始 Prototype 01 备份](prototype/prototype-01.html)
 
-Global 素材与卡面独立实验（通过上述 HTTP 服务预览，不影响首页）：
+Global 素材与独立卡面实验（原实验继续保留，通过上述 HTTP 服务预览）：
 
 - [卡面粒子实验 · 原生高清纹理](http://127.0.0.1:4173/prototype/experiments/card-particle.html?p=.66)
 - [真实彩色粒子成像 · 本轮报告](docs/CARD-FORMATION-02.md)

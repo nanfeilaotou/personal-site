@@ -154,7 +154,7 @@ function create(canvas,materials,opts={}){
  function step(dt,env){
   dt=clamp(dt,0,.05);
   if(!env.visible){ // 已离屏：立即收束到最近的确认材质，停止局部调度
-   if(ctl.to&&ctl.m>=.5)commit();ctl.to=null;ctl.m=0;ctl.desired=ctl.from;ctl.q=1;ctl.v=0;return false;
+   if(ctl.to&&ctl.m>=.5)commit();ctl.to=null;ctl.m=0;ctl.desired=ctl.from;ctl.q=1;ctl.v=0;ctl.busy=false;return false;
   }
   if(reduced||!gl||lost){ctl.q=1;ctl.v=0;return false;}
   if(!env.interactive&&(ctl.to||ctl.desired!==ctl.from))ctl.desired=(ctl.to&&ctl.m>=.5)?ctl.to:ctl.from; // 离开稳定区：交还最近状态

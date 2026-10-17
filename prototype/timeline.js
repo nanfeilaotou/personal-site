@@ -1,13 +1,16 @@
 /* One scroll authority. Pure, continuous remapping retains approved scene geometry. */
 window.NF_TIMELINE = (()=>{
+  // Opus local g stays in screens; AI compression below is untouched.
+  const globalWorld=Object.freeze({length:6.8,sceneStart:8.95,prelude:8.49,fieldLegacyStart:9.74,fieldLegacyEnd:11.10,stops:Object.freeze({number:1.40,network:3.30,accounts:4.25,cards:6.12})});
+  const globalEnd=globalWorld.sceneStart+globalWorld.length;
   const scene=Object.freeze({
-    total:12.01,
+    total:+(globalEnd+globalWorld.fieldLegacyEnd-globalWorld.fieldLegacyStart).toFixed(6),
     models:{start:2.42,formed:3.2,holdEnd:4.22,end:4.95,stop:3.65},
     local:{start:4.8,end:6.3,oldStart:4.98,oldEnd:6.36,stop:5.97},
     agents:{start:6.18,formed:6.95,holdEnd:8.05,end:8.49,stop:7.42},
     bridge:{start:8.35,end:8.97,oldStart:7.44},
-    global:{start:8.95,end:10.37,stop:9.97},
-    personal:{start:10.35,end:12.01,stop:11.03},
+    global:{start:globalWorld.sceneStart,end:globalEnd,stop:globalWorld.sceneStart+globalWorld.stops.number},
+    personal:{start:globalEnd,end:+(globalEnd+globalWorld.fieldLegacyEnd-globalWorld.fieldLegacyStart).toFixed(6),stop:globalEnd+(10.12-globalWorld.fieldLegacyStart)},
     legacyOffset:.91
   });
   // [approved scene start, end, retained scroll length, audit reason].
@@ -50,5 +53,9 @@ window.NF_TIMELINE = (()=>{
   for(const key of ['models','local','agents','bridge','global','personal']){
     result[key]=Object.freeze(Object.fromEntries(Object.entries(scene[key]).map(([k,v])=>[k,k.startsWith('old')?v:fromScene(v)])));
   }
+  result.globalWorld=Object.freeze({...globalWorld,start:result.global.start,end:result.global.end,
+    stops:Object.freeze(Object.fromEntries(Object.entries(globalWorld.stops).map(([key,g])=>[key,fromScene(globalWorld.sceneStart+g)])))});
+  result.globalProgress=scroll=>Math.max(0,Math.min(globalWorld.length,toScene(scroll)-globalWorld.sceneStart));
+  result.personalLegacy=sceneS=>globalWorld.fieldLegacyStart+Math.max(0,sceneS-scene.personal.start);
   return Object.freeze(result);
 })();

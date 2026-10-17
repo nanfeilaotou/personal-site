@@ -6,7 +6,7 @@
 'use strict';
 const Q=new URLSearchParams(location.search),DEBUG=Q.has('debug');
 const REDUCED=Q.has('reduced')||matchMedia('(prefers-reduced-motion: reduce)').matches;
-const ASSET='../../assets/';
+const ASSET=new URL('../../assets/',document.currentScript.src).href;
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),mix=(a,b,t)=>a+(b-a)*t,R=(x,a,b)=>clamp((x-a)/(b-a));
 const io=t=>t*t*(3-2*t),eo=t=>1-Math.pow(1-t,3),win=(x,a,b,c,d)=>R(x,a,b)*(1-R(x,c,d));
 const hs=n=>{const s=Math.sin(n*127.1+311.7)*43758.5453;return s-Math.floor(s)};
@@ -52,6 +52,7 @@ const CARDS=[
 const CARD_BY=Object.fromEntries(CARDS.map(c=>[c.id,c]));
 
 /* ---------- 模块状态 ---------- */
+let HOST={};
 let el={},ctx=null,W=1,H=1,DPR=1,mobile=false,VX=0,VY=0,E=800,SWA=.17,CARD={x:0,y:0},ACC={x:0,y:0};
 let grid=null,paths=[],O={x:0,y:0},X={x:0,y:0},CLIENTS=[],VPS={x:0,y:0},blockDots=[];
 let stage=null,ready=false,hover=null,lastTime=null,INK=LIGHT,bgNow='',confirmed='starryblu',slots={left:'cmb',right:'bybit'};
@@ -133,10 +134,10 @@ function applyBrands(){
 const TOKENS=[['01','一个号码'],['02','一条路径'],['03','一个账户'],['04','一张支付卡']];
 function sceneEntry(g,t){
  if(g>.75)return;INK=LIGHT;
- const a1=1-R(g,.24,.34),fs=clamp(W*.023,20,36);Tx('要用上这些，你需要',W/2,H/2-74,fs,a1,{f:CN,w:700,al:'center',ls:fs*.06});
+ const a1=1-R(g,.24,.34);let fs=clamp(W*.023,20,36);if(HOST.entryText){ctx.font=`700 ${fs}px ${CN}`;fs*=Math.min(1,(W-40)/ctx.measureText(HOST.entryText).width);}Tx(HOST.entryText||'要用上这些，你需要',W/2,H/2-74,fs,a1,{f:CN,w:700,al:'center',ls:fs*.06});
  const conv=io(R(g,.20,.46)),ta=1-R(g,.38,.48),sz=clamp(W*.0125,13,19),gap=mobile?18:48;
- ctx.font=`500 ${sz}px ${CN}`;const ws=TOKENS.map(([,s])=>ctx.measureText(s).width+(mobile?0:28));const tot=ws.reduce((a,b)=>a+b,0)+gap*3;let x=W/2-tot/2;
- TOKENS.forEach(([i,s],k)=>{const w=ws[k],ox=x+w/2,oy=mobile?H/2+30+(k%2)*30:H/2+30;x+=w+gap;const px=mix(ox,W/2,conv),py=mix(oy,VY,conv),sc=1-.7*conv;
+ const tokens=HOST.tokens||TOKENS;ctx.font=`500 ${sz}px ${CN}`;const ws=tokens.map(([,s])=>ctx.measureText(s).width+(mobile?0:28));const tot=ws.reduce((a,b)=>a+b,0)+gap*3;let x=W/2-tot/2;
+ tokens.forEach(([i,s],k)=>{const w=ws[k],ox=x+w/2,oy=mobile?H/2+30+(k%2)*30:H/2+30;x+=w+gap;const px=mix(ox,W/2,conv),py=mix(oy,VY,conv),sc=1-.7*conv;
   ctx.save();ctx.translate(px,py);ctx.scale(sc,sc);if(!mobile)Tx(i,-w/2,0,10,ta*.55);Tx(s,mobile?0:-w/2+28,0,sz,ta,{f:CN,al:mobile?'center':'left'});ctx.restore();
   if(conv>0&&conv<1)L(ox,oy-6,px,py,.18*(1-conv)*ta);});
  const pa=R(g,.36,.46)*(1-R(g,.62,.70));
@@ -312,7 +313,7 @@ function sceneExit(lanes,la,wh,sp,t){
   const a=isLane?mix(.9*la,.14+.22*hs(j*2.3),sp):sp*(.14+.22*hs(j*2.3));if(a<=.004)continue;
   const col=isLane?ln.color.map(v=>Math.round(mix(v,237,wh))):LIGHT;ctx.strokeStyle=rgba(col,a);ctx.lineWidth=1;ctx.beginPath();
   for(let i=0;i<n;i++){const u=i/(n-1),fx=-12+u*(W+24),fy=base+amp(j)*(Math.sin(fx*.004+j*.33+t*.25)*.6+Math.sin(fx*.0093-j*.21-t*.17)*.4),p=ln.pts[i];const x=mix(p[0],fx,sp),y=mix(p[1],fy,sp);i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();}
- if(sp>.6){INK=LIGHT;Tx('FIELD · 46 LINES',W-(mobile?20:78),H*.86,9,.5*R(sp,.6,1),{al:'right'});Tx('→ 03 场 · 个人',W-(mobile?20:78),H*.86-16,10,.6*R(sp,.7,1),{al:'right',f:CN});}
+ if(sp>.6&&!HOST.suppressExitLabels){INK=LIGHT;Tx('FIELD · 46 LINES',W-(mobile?20:78),H*.86,9,.5*R(sp,.6,1),{al:'right'});Tx('→ 03 场 · 个人',W-(mobile?20:78),H*.86-16,10,.6*R(sp,.7,1),{al:'right',f:CN});}
 }
 function updateCardDom(dt,g,s,inter){
  const vis=R(g,5.64,5.80)*(1-R(g,6.27,6.38)),st=stage.state,sw=sideW(),k=REDUCED?1:1-Math.exp(-dt*8);
@@ -336,7 +337,7 @@ function updateCardDom(dt,g,s,inter){
  for(const b of el.cardNav){const on=b.dataset.card===st.from;b.setAttribute('aria-pressed',on);b.classList.toggle('pending',b.dataset.card===st.to);b.disabled=!inter;}
  el.cardNavWrap.style.opacity=(vis*(mobile?0:1)).toFixed(3);el.cardNavWrap.style.visibility=vis>.01&&!mobile?'visible':'hidden';
 }
-function onCommit(id){const prev=confirmed;if(prev===id)return;const key=slots.left===id?'left':slots.right===id?'right':null;if(key)slots[key]=prev;for(const c of CARDS)cardDom[c.id]&&(cardDom[c.id].recent=null);if(cardDom[prev])cardDom[prev].recent=prev;confirmed=id;if(el.live)el.live.textContent='已切换至 '+CARD_BY[id].name+' · '+CARD_BY[id].scene;}
+function onCommit(id){const prev=confirmed;if(prev===id)return;const key=slots.left===id?'left':slots.right===id?'right':null;if(key)slots[key]=prev;for(const c of CARDS)cardDom[c.id]&&(cardDom[c.id].recent=null);if(cardDom[prev])cardDom[prev].recent=prev;confirmed=id;if(el.live)el.live.textContent='已切换至 '+CARD_BY[id].name+' · '+CARD_BY[id].scene;if(HOST.onCardCommit)HOST.onCardCommit(id);}
 function requestCard(id){if(!stage)return false;const g=lastG;return stage.request(id,{interactive:g>=ZONE.in&&g<=ZONE.out});}
 
 /* ---------- HUD ---------- */
@@ -357,7 +358,7 @@ function render(g,time){
  g=clamp(g,0,LEN);const dt=lastTime==null?0:clamp(time-lastTime,0,.1);lastTime=time;lastG=g;const t=REDUCED?0:time;
  const C=cam(g);
  const white=(g>=2.0&&C.phi<=68&&g<4.5)||(g>=2.12&&g<4.5);
- const bg=white?WHITE:BLACK;if(bg!==bgNow){bgNow=bg;el.stage.style.background=bg;document.documentElement.style.background=bg;document.body.classList.toggle('on-white',white);}
+ const bg=white?WHITE:BLACK;if(bg!==bgNow){bgNow=bg;if(HOST.setBackground)HOST.setBackground(bg,white);else{el.stage.style.background=bg;document.documentElement.style.background=bg;document.body.classList.toggle('on-white',white);}}
  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);placed={};
  if(!white){INK=LIGHT;for(let i=0;i<40;i++){const d=.3+hs(i*3)*.7,x=hs(i+80)*W,y=((hs(i+250)*H-g*H*.02*d)%H+H)%H;dot(x,y,.35+hs(i+120)*.35,(.04+hs(i+33)*.07)*(g>4.9?.6:1));}}
  sceneEntry(g,t);sceneNumber(g,t);sceneFlip(g,C);diveSheet(g,C);sceneNetwork(g,t,C);sceneAccounts(g,t,C);sceneDive(g,t,C);
@@ -372,7 +373,7 @@ function resize(w,h,dpr){W=w;H=h;DPR=Math.min(2,dpr||1);el.cv.width=Math.round(W
 
 function buildDom(){
  for(const b of BRANDS){const e=document.createElement('button');e.type='button';e.className='gw-brand'+(b.crop?' crop':'');e.dataset.id=b.id;e.style.width=b.w+'px';e.style.height=b.h+'px';e.tabIndex=-1;e.setAttribute('aria-label',b.name+(b.cap?'，'+b.cap:''));
-  e.innerHTML='<span class="logo"><img alt="" draggable="false"></span><span class="cap"><b></b><i></i></span>';const img=e.querySelector('img');img.src=ASSET+b.src;img.alt=b.name;e.querySelector('b').textContent=b.name;e.querySelector('i').textContent=b.cap||'';
+  e.innerHTML='<span class="logo"><img alt="" draggable="false"></span><span class="cap"><b></b><i></i></span>';const img=e.querySelector('img');img.src=HOST.brandSources?.[b.id]||ASSET+b.src;img.alt=b.name;e.querySelector('b').textContent=b.name;e.querySelector('i').textContent=b.cap||'';
   const on=()=>{hover=b.id;kick();},off=()=>{if(hover===b.id){hover=null;kick();}};e.addEventListener('pointerenter',on);e.addEventListener('pointerleave',off);e.addEventListener('focus',on);e.addEventListener('blur',off);
   el.brands.append(e);brandEl[b.id]=e;}
  for(const c of CARDS){const e=document.createElement('button');e.type='button';e.className='gw-card';e.dataset.card=c.id;e.tabIndex=-1;e.setAttribute('aria-label','切换主卡：'+c.name+'，'+c.scene);
@@ -383,12 +384,12 @@ function buildDom(){
 }
 let kick=()=>{};
 let onPtr=null;
-const NF_GLOBAL={LEN,STOPS,ZONE,DOMAINS,CARDS,
+const NF_GLOBAL={LEN,STOPS,ZONE,DOMAINS,CARDS,BRANDS,domainAt,
  async init(opts){
-  el=opts.el;ctx=el.cv.getContext('2d');kick=opts.kick||kick;buildDom();
-  stage=NFCardStage.create(el.gl,CARDS,{reduced:REDUCED,onCommit,noWebGL:Q.has('nogl'),slowLoad:Number(Q.get('slow'))||0,onReady:()=>kick(),onLost:()=>kick(),onRestored:()=>kick()});
+  HOST=opts;if(opts.guides)for(const d of DOMAINS){const guide=opts.guides.find(g=>g.domain===d.key);if(guide){d.link=guide.title;d.href=guide.url||'#guide-'+guide.id;}}el=opts.el;ctx=el.cv.getContext('2d');kick=opts.kick||kick;buildDom();
+  stage=NFCardStage.create(el.gl,CARDS,{reduced:REDUCED,onCommit,noWebGL:opts.noWebGL??Q.has('nogl'),slowLoad:opts.slowLoad??(Number(Q.get('slow'))||0),onReady:()=>kick(),onLost:()=>kick(),onRestored:()=>kick()});
   resize(opts.W,opts.H,opts.dpr);
-    onPtr=e=>{if(e.pointerType!=='mouse'||REDUCED||!stage.snap)return;const s=stage.snap,inside=Math.abs(e.clientX-s.x)<s.cw*.6&&Math.abs(e.clientY-s.y)<s.ch*.7&&lastG>=ZONE.in&&lastG<=ZONE.out;stage.setTilt(inside?(e.clientX-s.x)/s.cw*.19:0,inside?-(e.clientY-s.y)/s.ch*.13:0);kick();};addEventListener('pointermove',onPtr,{passive:true});
+    onPtr=e=>{if(e.pointerType!=='mouse'||REDUCED||!stage.snap||(HOST.isActive&&!HOST.isActive()))return;const s=stage.snap,inside=Math.abs(e.clientX-s.x)<s.cw*.6&&Math.abs(e.clientY-s.y)<s.ch*.7&&lastG>=ZONE.in&&lastG<=ZONE.out;stage.setTilt(inside?(e.clientX-s.x)/s.cw*.19:0,inside?-(e.clientY-s.y)/s.ch*.13:0);kick();};addEventListener('pointermove',onPtr,{passive:true});
   ready=true;stage.load().then(kick); // 不阻塞：首张卡就绪即可交互，其余纹理后台加载（未就绪时换卡保持低 q 等待）
   kick();return true;
  },
@@ -399,10 +400,11 @@ const NF_GLOBAL={LEN,STOPS,ZONE,DOMAINS,CARDS,
  get stage(){return stage;}
 };
 /* 开发探针：世界坐标（以区块步长为单位）→ 屏幕坐标，便于检查布局 */
-NF_GLOBAL._tune=NF_TUNE;NF_GLOBAL._probe=(bx,by,g,h=0)=>{const C=cam(g),q=P(C,bx*2.5*E,by*2.5*E,h*E);return q&&[Math.round(q[0]),Math.round(q[1])];};
+if(DEBUG){NF_GLOBAL._tune=NF_TUNE;NF_GLOBAL._probe=(bx,by,g,h=0)=>{const C=cam(g),q=P(C,bx*2.5*E,by*2.5*E,h*E);return q&&[Math.round(q[0]),Math.round(q[1])];};}
 window.NF_GLOBAL=NF_GLOBAL;
 
 /* ---------- 独立原型驱动：scrollY / H → g（集成时由 NF_TIMELINE 替换） ---------- */
+if(document.documentElement.dataset.globalHost==='home')return;
 const $=id=>document.getElementById(id);
 if(!$('gw-stage'))return;
 const els={stage:$('gw-stage'),cv:$('gw-cv'),gl:$('gw-gl'),fallback:$('gw-fallback'),brands:$('gw-brands'),cards:$('gw-cards'),cardNavWrap:$('gw-cardnav'),cap:$('gw-cardcap'),capK:$('gw-cap-k'),capN:$('gw-cap-n'),capD:$('gw-cap-d'),

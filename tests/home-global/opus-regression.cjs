@@ -1,0 +1,16 @@
+const {fs,path,OUT,ROOT,BASE,launch,ready,worldReady,seek}=require('./helpers.cjs'),cp=require('child_process'),assert=require('assert/strict'),{PNG}=require('pngjs');
+const old=f=>cp.execFileSync('git',['show','6c16a2a:'+f],{cwd:ROOT,maxBuffer:20*1024*1024}),pixels=s=>PNG.sync.read(Buffer.from(s.split(',')[1],'base64'));
+(async()=>{const b=await launch(),report={baseline:'6c16a2a',frames:[],errors:[]};try{
+ const gold=await b.newPage({viewport:{width:1440,height:900}}),standalone=await b.newPage({viewport:{width:1440,height:900}}),home=await b.newPage({viewport:{width:1440,height:900}});
+ for(const p of [gold,standalone,home])p.on('pageerror',e=>report.errors.push(e.message));
+ for(const f of ['global-world.html','global-world.css','global-world.js','global-card-adapter.js'])await gold.route('**/'+f+'*',r=>r.fulfill({body:old('prototype/experiments/'+f),contentType:f.endsWith('.html')?'text/html':f.endsWith('.css')?'text/css':'application/javascript'}));
+ for(const p of [gold,standalone]){await p.goto(BASE+'/prototype/experiments/global-world.html?debug&g=6.12');await p.waitForFunction(()=>document.documentElement.dataset.ready==='true'&&Object.values(NF_GLOBAL.state.card.ready).every(Boolean));await p.evaluate(()=>{NF_GLOBAL_DEBUG.freeze(true)});}
+ await home.goto(BASE+'/prototype/prototype-02.html?debug&at=13.64&it=4&time=10');await ready(home);await worldReady(home);await home.evaluate(()=>NF_DEBUG.freeze());
+ for(const [key,g] of Object.entries({number:1.4,network:3.3,accounts:4.25,cards:6.12})){
+  const take=async p=>p.evaluate(g=>{NF_GLOBAL.render(g,10);return ['gw-cv','gw-gl'].map(id=>document.getElementById(id).toDataURL())},g);
+  const a=await take(gold),z=await take(standalone);await seek(home,7.52+g);const h=await home.evaluate(()=>['gw-cv','gw-gl'].map(id=>document.getElementById(id).toDataURL()));
+  for(let i=0;i<2;i++)for(const [version,content] of [['standalone',z[i]],['integrated',h[i]]]){const A=pixels(a[i]),B=pixels(content);let diff=0,max=0;for(let n=0;n<A.data.length;n++){const d=Math.abs(A.data[n]-B.data[n]);if(d>2)diff++;max=Math.max(max,d);}report.frames.push({key,layer:i?'card-WebGL':'structure-Canvas',version,changedChannels:diff,maxDifference:max});assert.ok(diff/A.data.length<.00002,'Opus '+key+' '+version+' '+i+' '+diff);}
+ }
+ assert.equal(await home.evaluate(()=>typeof NF_GLOBAL_DEBUG),'undefined','standalone driver disabled in homepage');const cdp=await home.context().newCDPSession(home);const {result}=await cdp.send('Runtime.evaluate',{expression:'JSON.stringify({scroll:(getEventListeners(window).scroll||[]).length,resize:(getEventListeners(window).resize||[]).length,keydown:(getEventListeners(window).keydown||[]).length,pointermove:(getEventListeners(window).pointermove||[]).length})',includeCommandLineAPI:true,returnByValue:true});report.homeWindowListeners=JSON.parse(result.value);assert.deepEqual(report.homeWindowListeners,{scroll:0,resize:1,keydown:1,pointermove:1});
+ assert.deepEqual(report.errors,[]);report.completed=true;console.log('PASS Opus original/current standalone/integrated Canvas and card-frame comparisons; one homepage driver');
+}finally{fs.writeFileSync(path.join(OUT,'opus-visual-results.json'),JSON.stringify(report,null,2)+'\n');await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});
