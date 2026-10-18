@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>NANFEILAOTOU · 新导航叠加真实首页（预览）</title>
+<link rel="stylesheet" href="../src/nf-nav.css">
+<style>
+html,body{margin:0;height:100%;background:#050505;overflow:hidden}
+#site{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
+.tag{position:fixed;left:12px;bottom:10px;z-index:70;font:500 10px "JetBrains Mono","Liberation Mono",monospace;letter-spacing:.08em;color:#888;background:rgba(0,0,0,.7);padding:4px 8px;border:1px solid rgba(255,255,255,.15)}
+html.clean .tag{display:none}
+</style>
+</head>
+<body>
+<!-- 同源 iframe 加载 main 首页（未修改任何文件）；新导航挂在父页面，只通过 NF_DEBUG / NF_TIMELINE 只读接口同步 -->
+<iframe id="site" title="NANFEILAOTOU 首页"></iframe>
+<p class="tag" id="tag">ONSITE PREVIEW · 新导航叠加 main 首页 · 旧顶部 HUD 已在预览中隐藏</p>
+<script src="../src/nf-i18n.js"></script>
+<script src="../src/nf-nav.js"></script>
+<script>
+(function(){
+'use strict';
+const Q=new URLSearchParams(location.search),frame=document.getElementById('site');
+if(Q.has('clean'))document.documentElement.classList.add('clean');
+const at=Q.get('at');
+frame.src='/index.html?debug'+(Q.has('it')?'&it=10':'')+(at!==null?'&at='+at:'');
+/* Global 顶栏 tone 关键帧（g 为 Global 叙事进度）：1440×900 实测顶部 64px 平均亮度，归一化后取 0/1 端点。
+   正式集成时建议由 global-world.js 直接用翻面纸面多边形与顶栏矩形求覆盖率（见 NFNav.rectCoverage）。 */
+const GLOBAL_TONE=[[1.817,0],[1.826,1],[4.655,1],[4.673,0]];
+const curve=(k,x)=>{if(x<=k[0][0])return k[0][1];for(let i=1;i<k.length;i++)if(x<=k[i][0]){const a=k[i-1],b=k[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);}return k[k.length-1][1];};
+const MAINKEY={open:'open',ai:'models',global:'global',personal:'personal'};
+const nav=NFNav.mount({scheme:Q.get('scheme')||'a',lang:Q.get('lang')||undefined,theme:Q.get('theme')||undefined,persist:false,
+  onNavigate:key=>{const w=frame.contentWindow;if(w&&w.NF_DEBUG){w.NF_DEBUG.navigate(MAINKEY[key]);}},
+  onLangChange:L=>{if(L==='en')nav.note('Homepage copy is Chinese only for now; the navigation is bilingual. 首页正文暂无英文版本。');},
+  onThemeChange:()=>{},onMenuToggle:open=>{frame.inert=open;}});
+window.NAV=nav;
+function inject(doc){
+  const st=doc.createElement('style');st.id='nfnav-host-patch';
+  /* 只在预览里注入：隐藏被新导航取代的旧顶部 HUD，并把顶部章节栏下移到导航高度之下 */
+  st.textContent=`#hTL,#hTR{display:none!important}#dbg{display:none!important}
+   .chap{top:calc(${getComputedStyle(document.documentElement).getPropertyValue('--nf-nav-h')||'60px'} + 38px)!important}
+   @media(max-width:760px){#global-world #gw-chap{top:calc(${getComputedStyle(document.documentElement).getPropertyValue('--nf-nav-h')||'56px'} + 10px)!important}}`;
+  doc.head.appendChild(st);
+}
+let detachInput=()=>{};
+frame.addEventListener('load',()=>{try{
+  detachInput();nav.cancelNavigation();const doc=frame.contentDocument;inject(doc);
+  // Input events do not bubble out of an iframe. Cancel the preview's selection
+  // lock when the real homepage interrupts or replaces an in-flight navigation.
+  const cancel=()=>nav.cancelNavigation();
+  const key=e=>{if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' ','0','1','2','3','4'].includes(e.key)&&!e.target.closest('input,textarea,select,[contenteditable],dialog'))cancel();};
+  const click=e=>{if(e.target.closest('[data-go],#rewind'))cancel();};
+  doc.addEventListener('wheel',cancel,{passive:true});doc.addEventListener('touchstart',cancel,{passive:true});doc.addEventListener('keydown',key);doc.addEventListener('click',click);
+  detachInput=()=>{doc.removeEventListener('wheel',cancel);doc.removeEventListener('touchstart',cancel);doc.removeEventListener('keydown',key);doc.removeEventListener('click',click);};
+}catch(e){console.error(e);}});
+// Preserve the host's shortcuts when focus is in the parent navigation.
+addEventListener('keydown',e=>{
+  if(nav.state.menu||e.ctrlKey||e.metaKey||e.target.closest('input,textarea,select,[contenteditable]'))return;
+  const w=frame.contentWindow,st=w?.NF_DEBUG?.state;if(!st)return;
+  const local=st.global.active&&!e.altKey&&['1','2','3','4'].includes(e.key);
+  const key=local?({'1':'global-number','2':'global-network','3':'global-accounts','4':'global-cards'})[e.key]:({'0':'open','1':'models','2':'global','3':'personal'})[e.key];
+  if(key){e.preventDefault();nav.cancelNavigation();w.NF_DEBUG.navigate(key);}
+});
+addEventListener('pagehide',e=>{if(!e.persisted)detachInput();});
+function sync(){
+  const w=frame.contentWindow;
+  if(w&&w.NF_DEBUG&&w.NF_TIMELINE){
+    const st=w.NF_DEBUG.state,C=w.NF_TIMELINE,T=C.scene,sc=C.toScene(st.s),gw=st.global||{};
+    let key,prog,tone=0,kind='canvas';
+    const bridgeMid=(T.bridge.start+T.bridge.end)/2;
+    if(sc<T.models.start){key='open';prog=sc/T.models.start;kind='art';}
+    else if(gw.active){key='global';prog=(gw.g||0)/C.globalWorld.length;tone=curve(GLOBAL_TONE,gw.g||0);}
+    else if(sc<bridgeMid){key='ai';prog=(sc-T.models.start)/(C.globalWorld.sceneStart-T.models.start);}
+    else if(sc<T.personal.start){key='global';prog=0;}
+    else{key='personal';prog=(sc-T.personal.start)/Math.max(.001,(C.toScene(C.total)-T.personal.start));}
+    nav.setScene({tone,kind});nav.setActive(key,Math.max(0,Math.min(1,prog)));
+    window.SYNC={s:st.s,sc,key,prog,tone,g:gw.g,active:gw.active};
+  }
+  requestAnimationFrame(sync);
+}
+requestAnimationFrame(sync);
+})();
+</script>
+</body>
+</html>

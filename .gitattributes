@@ -14,3 +14,5 @@ assets/global/brands/google-pay.svg -whitespace
 assets/global/social/*.svg -text
 # Illustrator source archives are binary originals, never text-normalised.
 assets/global/social/source-files/*.ai binary
+# Preserve user-delivered navigation source / evidence bytes on Windows checkouts.
+prototype/experiments/nav/** -text

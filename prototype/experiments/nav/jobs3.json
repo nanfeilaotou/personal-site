@@ -1,0 +1,8 @@
+[
+ {"q":"?scheme=a&nodock&still&at=4.70","out":"f-a-470","clip":{"x":0,"y":0,"width":1440,"height":130}},
+ {"q":"?scheme=a&nodock&still&at=4.733","out":"f-a-473","clip":{"x":0,"y":0,"width":1440,"height":130}},
+ {"q":"?scheme=a&nodock&still&at=4.76","out":"f-a-476","clip":{"x":0,"y":0,"width":1440,"height":130}},
+ {"q":"?scheme=b&nodock&still&at=4.70","out":"f-b-470","clip":{"x":0,"y":0,"width":1440,"height":130}},
+ {"q":"?scheme=b&nodock&still&at=4.733","out":"f-b-473","clip":{"x":0,"y":0,"width":1440,"height":130}},
+ {"q":"?scheme=b&nodock&still&at=4.76","out":"f-b-476","clip":{"x":0,"y":0,"width":1440,"height":130}}
+]

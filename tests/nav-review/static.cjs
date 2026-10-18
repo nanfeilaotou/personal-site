@@ -1,0 +1,6 @@
+const fs=require('fs'),path=require('path'),cp=require('child_process'),crypto=require('crypto'),vm=require('vm'),assert=require('assert/strict');
+const root=path.resolve(__dirname,'../..'),host='C:/Users/28919/.codex/worktrees/release-v010/personal-site',ref='7b7e53b2be1610f18f112f37cd00b58fae4012a1',sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+assert.equal(sha(fs.readFileSync(path.join(root,'index.html'))),'bfc193b140d94b8669327f71a677d68f84db19f573e262119c53894cde4d1711');assert.equal(cp.execFileSync('git',['-C',host,'rev-parse','HEAD']).toString().trim(),ref);cp.execFileSync('git',['-C',host,'diff','--exit-code',ref,'--','index.html','prototype','assets','data']);
+const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'input-manifest.json'),'utf8')),changed=[];for(const f of manifest.files){const current=fs.readFileSync(path.join(root,'prototype/experiments/nav',f.file));if(sha(current)!==f.sha256)changed.push(f.file);}assert.deepEqual(changed,['onsite/index.html','src/nf-nav.js']);
+for(const f of ['src/nf-nav.js','src/nf-i18n.js','lab/lab.js'])new vm.Script(fs.readFileSync(path.join(root,'prototype/experiments/nav',f),'utf8'));
+console.log('PASS original working index and main host preserved; 78 package files audited, only explicit preview input adapter/API changes; source parses');

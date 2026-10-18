@@ -1,0 +1,14 @@
+{
+  "group": "mobile",
+  "date": "2026-10-18",
+  "hostMain": "7b7e53b2be1610f18f112f37cd00b58fae4012a1",
+  "checks": [
+    {
+      "name": "mobile menus",
+      "detail": "A/B at 390/360/320: open/close, language/theme, Tab stays in parent nav, Esc returns menu focus, selection closes, underlying main iframe inert only while menu open; no horizontal overflow"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}

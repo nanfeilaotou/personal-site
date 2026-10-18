@@ -1,0 +1,30 @@
+{
+  "group": "all",
+  "date": "2026-10-18",
+  "hostMain": "7b7e53b2be1610f18f112f37cd00b58fae4012a1",
+  "checks": [
+    {
+      "name": "real main / desktop",
+      "detail": "A/B × three sizes: Opening, AI, flip, warm-white, accounts, three cards, Personal; correct active/tone, old HUD hidden only in iframe; Claude details/Esc and Bybit particle switch work"
+    },
+    {
+      "name": "real input / preview bridges",
+      "detail": "AI→Global lands at main stop; wheel in iframe cancels navigation and target lock; parent-focused number keys / Alt+3 / 0 work; opening theme notice and bilingual nav remain honest about Chinese-only main copy"
+    },
+    {
+      "name": "lab / language / themes / focus",
+      "detail": "A/B nav English, real ZH fallback badges, language anchor preserved; example panels/content light/dark, arrow-key focus. Actual main panels remain unthemed by this standalone overlay."
+    },
+    {
+      "name": "mobile menus",
+      "detail": "A/B at 390/360/320: open/close, language/theme, Tab stays in parent nav, Esc returns menu focus, selection closes, underlying main iframe inert only while menu open; no horizontal overflow"
+    },
+    {
+      "name": "DPR / reduced / resize",
+      "detail": "DPR 2 with system reduced motion, real main navigation, desktop↔mobile Resize retains usable header"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}

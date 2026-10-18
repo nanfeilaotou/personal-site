@@ -1,0 +1,12 @@
+[
+ {"q":"?scheme=a&nodock&still&at=2.2","dpr":2,"acts":[{"move":[760,30],"steps":4},{"wait":120},{"js":"LAB.nav.debug.pause();LAB.nav.debug.step(60)"},{"shot":"a-hover","clip":{"x":300,"y":0,"width":840,"height":70}}]},
+ {"q":"?scheme=a&nodock&still&at=2.2","dpr":2,"acts":[{"key":"Tab"},{"key":"Tab"},{"key":"Tab"},{"key":"Tab"},{"wait":350},{"shot":"a-focus","clip":{"x":300,"y":0,"width":840,"height":70}}]},
+ {"q":"?scheme=b&nodock&still&at=2.2","dpr":2,"acts":[{"move":[790,34],"steps":4},{"wait":200},{"js":"LAB.nav.debug.pause()"},{"shot":"b-hover","clip":{"x":300,"y":0,"width":840,"height":76}}]},
+ {"q":"?scheme=b&nodock&still&at=2.2","dpr":2,"acts":[{"key":"Tab"},{"key":"Tab"},{"key":"Tab"},{"key":"Tab"},{"wait":700},{"shot":"b-focus","clip":{"x":300,"y":0,"width":840,"height":76}}]},
+ {"q":"?scheme=a&nodock&still&at=2.2&lang=en","out":"a-en-ai"},
+ {"q":"?scheme=b&nodock&still&at=5.6&lang=en","out":"b-en-white"},
+ {"q":"?scheme=a&nodock&still&at=2.2&theme=light","out":"a-light-ai"},
+ {"q":"?scheme=b&nodock&still&at=10.4&theme=light","out":"b-light-page"},
+ {"q":"?scheme=a&nodock&still&at=10.4&theme=dark","out":"a-dark-page"},
+ {"q":"?scheme=a&nodock&still&at=0","acts":[{"click":".nfnav__theme"},{"wait":600}],"out":"a-open-themenote","eval":"LAB.nav.state"}
+]
