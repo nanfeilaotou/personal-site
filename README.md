@@ -1,12 +1,12 @@
 # NANFEILAOTOU
 
-V0.1.1 正式入口：[personal-site-7xv.pages.dev](https://personal-site-7xv.pages.dev/)。Cloudflare Pages 沿用现有 main 分支和仓库根静态目录，无需常驻 Node 服务。
+正式入口：[personal-site-7xv.pages.dev](https://personal-site-7xv.pages.dev/)。Cloudflare Pages 沿用现有 main 分支和仓库根静态目录，无需常驻 Node 服务。
 
 唯一首页 HTML 为根 `index.html`；已验收动画继续由 `prototype/` 中的共享脚本和样式维护。旧 `prototype/prototype-02.html` 兼容转到根路径并保留 query / hash，不维护第二份动画页面。
 
 [发布说明、原图访问边界与回滚方法](docs/RELEASE-V0.1.0.md)。
 
-[V0.1.1 UI 精修报告](docs/UI-V0.1.1.md) · [右侧导航与接缝前后对照](tests/ui-v011/review.html)。顶部原导航保留；Opening、AI、Global、卡面和 15.68 屏时间轴保持原样。
+[V0.1.1 UI 精修报告](docs/UI-V0.1.1.md) · [右侧导航与接缝前后对照](tests/ui-v011/review.html)。Opening、AI、Global、卡面和 15.68 屏时间轴保持原样。后续 [LENS 页面导航整合](docs/LENS-INTEGRATION.md) 替换旧顶部栏，右轨仍管理首页章节。
 
 AI 品牌统一采用 B（默认单色、当前目标显色），Opus Global World 已接入同一首页：Opening → AI → 经由 / VIA → Personal 预留。最新 [双章节集成报告](docs/HOME-AI-GLOBAL-INTEGRATION.md) 包含 15.68 屏时间轴、导航、实际 GPU 数据与测试；[素材 / 创意历史交接](docs/GLOBAL-VISUAL-HANDOFF.md) 继续保留。
 

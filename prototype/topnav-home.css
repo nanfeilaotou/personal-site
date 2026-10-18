@@ -1,0 +1,22 @@
+/* Homepage placement only; the delivered LENS artwork stays in nav2/src. */
+:root{--nf-nav-h:68px}
+.chap{top:calc(var(--nf-nav-h) + 38px)}
+#global-world #gw-chap{top:calc(var(--nf-nav-h) + 38px)}
+#global-world #gw-nav{left:30px;right:auto;top:calc(var(--nf-nav-h) + 140px);width:min(22vw,260px);align-items:stretch;gap:0;border-top:1px solid #ffffff4d}
+#global-world #gw-nav button{text-align:left;min-height:40px;border-bottom:1px solid #ffffff1f}
+#global-world #gw-nav button.on::after{float:right;margin-top:16px}
+#global-world #gw-intro{top:calc(var(--nf-nav-h) + 322px)}
+#dbg{top:calc(var(--nf-nav-h) + 6px)}
+@media(max-width:760px){
+ :root{--nf-nav-h:58px}
+ .chap{top:calc(var(--nf-nav-h) + 22px)}
+ #global-world #gw-chap{top:calc(var(--nf-nav-h) + 14px)}
+ #global-world #gw-nav{top:auto;bottom:calc(30px + var(--global-panel-height,160px));left:16px;right:16px;width:auto;flex-direction:row;justify-content:space-between;align-items:center;border:0}
+ #global-world #gw-nav button{border:0;min-height:36px}
+ #global-world #gw-nav button.on::after{float:none;margin-top:0}
+ #global-world #gw-intro{top:calc(var(--nf-nav-h) + 112px)}
+}
+
+#brand-detail{max-height:calc(100dvh - var(--nf-nav-h) - 28px);overflow-y:auto}
+/* Instant jumps can skip Global's intro fade; a child visibility override must not escape its hidden chapter. */
+#global-world[aria-hidden=true] #gw-intro{visibility:hidden!important}

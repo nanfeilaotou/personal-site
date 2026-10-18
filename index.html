@@ -74,17 +74,17 @@ body{color:#fff;font-family:var(--cn);-webkit-font-smoothing:antialiased;overflo
 <link rel="stylesheet" href="prototype/ui.css">
 <link rel="stylesheet" href="prototype/rail.css">
 <link rel="stylesheet" href="prototype/return.css">
+<link rel="stylesheet" href="prototype/experiments/nav2/src/nf-topnav.css">
+<link rel="stylesheet" href="prototype/topnav-home.css">
 </head>
 <body>
+<main id="site-content" lang="zh-CN">
 <a class="skip" href="#catalog">跳过动画，阅读全部内容</a>
 <div class="fallback-word" aria-hidden="true">NANFEI<br>LAOTOU</div>
 <div id="track"></div>
 <div id="stage"><canvas id="gl"></canvas><canvas id="cv"></canvas><div id="void" aria-hidden="true"></div></div>
 <div id="ui">
   <h1 class="sr">NANFEILAOTOU</h1>
-  <div class="hud tl" id="hTL"><div class="brand">NANFEILAOTOU</div></div>
-  <div class="hud tr" id="hTR"><div class="lang"><b>中</b> / <span class="off" title="英文版本尚未提供" aria-disabled="true">EN</span></div>
-    <a href="#ai" data-go="models">01 — AI</a><a href="#global" data-go="global">02 — 全球数字服务</a><a href="#personal" data-go="personal">03 — 个人</a></div>
   <div class="hud bl" id="hBL"><div class="rule"></div><p>AI、全球数字服务、个人项目与日常探索。</p></div>
   <div class="hud br" id="hBR"><div id="hint">向下滚动 ↓</div></div>
 
@@ -151,6 +151,10 @@ body{color:#fff;font-family:var(--cn);-webkit-font-smoothing:antialiased;overflo
 <button id="catalog-open" type="button" aria-haspopup="dialog">浏览全部内容 ↗</button>
 <dialog id="catalog" aria-labelledby="catalog-title"><button id="catalog-close" type="button">关闭 ×</button><h2 id="catalog-title">NANFEILAOTOU / 内容索引</h2><p>直接查阅品牌、内容与官方入口。AI 型号为资料核验时的 API 代表；Global 指南仍在整理。展示不表示产品订阅、账户可用性或品牌间资金互通。</p></dialog>
 <noscript><div style="position:fixed;inset:0;z-index:50;background:#080808;color:white;padding:10vw">NANFEILAOTOU<br>AI、全球数字服务、个人项目与日常探索。<p>动画需要 JavaScript。<a href="../docs/PROTOTYPE-02.md" style="color:white">阅读原型说明</a></p></div></noscript>
+</main>
+<script src="prototype/experiments/nav2/src/nf-i18n.js"></script>
+<script src="prototype/experiments/nav2/src/nf-topnav.js"></script>
+<script src="prototype/topnav-home.js"></script>
 <script src="data/models.js"></script>
 <script src="data/agents.js"></script>
 <script src="prototype/timeline.js"></script>

@@ -1,0 +1,27 @@
+{
+  "errors": [],
+  "failed": [],
+  "note": "Hardware Chromium rAF / CPU long-task observations, not GPU timer-query measurements.",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "idle": {
+    "intervalMs": {
+      "n": 336,
+      "mean": 4.166666666666667,
+      "p95": 4.300000000000182,
+      "max": 4.400000000000091
+    },
+    "navDraws": 0,
+    "longTasks": []
+  },
+  "unavailablePage": {
+    "intervalMs": {
+      "n": 326,
+      "mean": 4.294171779141105,
+      "p95": 4.300000000000182,
+      "max": 45.899999999999636
+    },
+    "navDraws": 0,
+    "longTasks": []
+  },
+  "completed": true
+}

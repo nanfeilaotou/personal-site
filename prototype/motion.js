@@ -410,7 +410,8 @@ function sceneField(s,time,options={}){
 }
 
 /* ============ UI ============ */
-const E=id=>$(id),hTL=E('hTL'),hTR=E('hTR'),hBL=E('hBL'),hBR=E('hBR'),hint=E('hint'),rail=E('rail'),dbg=E('dbg');
+let homeTopNav=null;
+const E=id=>$(id),hBL=E('hBL'),hBR=E('hBR'),hint=E('hint'),rail=E('rail'),dbg=E('dbg');
 const chAI=E('chAI'),chGL=E('chGL'),chPE=E('chPE'),enM=E('enModels'),enL=E('enLocal'),enA=E('enAgents'),enG=E('enGlobal'),b1=E('b1'),pe=E('pe'),endEl=E('end');
 const b2=[...document.querySelectorAll('#bridge .l2 span')],peT=[...document.querySelectorAll('#pe .t')],railB=[...rail.querySelectorAll('button')],aiLi=[...chAI.querySelectorAll('li')];
 function show(el,a,dy=0){a=clamp(a);a=Math.round(a*1000)/1000;if(el._a===a&&el._dy===dy)return;el._a=a;el._dy=dy;
@@ -418,12 +419,14 @@ function show(el,a,dy=0){a=clamp(a);a=Math.round(a*1000)/1000;if(el._a===a&&el._
 const setT=(el,t)=>{if(el._t!==t){el._t=t;el.textContent=t}};
 function ui(s,intro,scrollS=s,world={active:false,g:0}){
  const hud=AT!==null||REDUCED?1:R(intro,1.7,2.8),old=legacyLater(s),M=TIMELINE.models,A=TIMELINE.agents;
- show(hTL,hud);show(hTR,hud);show(hBR,hud*(1-R(s,.03,.14)));show(rail,hud);show(hBL,hud*(1-R(s,.1,.28)));
+ show(hBR,hud*(1-R(s,.03,.14)));show(rail,hud);show(hBL,hud*(1-R(s,.1,.28)));
  hint.style.opacity=1-R(s,.02,.12);
  const section=world.active?'global':s<M.start?'open':s<TIMELINE.local.start?'models':s<A.start?'local':s<TIMELINE.bridge.start?'agents':s<TIMELINE.global.start?'bridge':s<TIMELINE.personal.start?'global':'personal';
  const ri=world.active?2:s<M.start?0:s<TIMELINE.global.start?1:s<TIMELINE.personal.start?2:3;
  railB.forEach((b,i)=>{b.classList.toggle('on',i===ri);if(i===ri)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});
- chapterRail.update({index:ri,scroll:scrollS,surface:world.active?NF_GLOBAL.surface:null});
+ const surface=world.active?NF_GLOBAL.surface:null;
+ chapterRail.update({index:ri,scroll:scrollS,surface});
+ homeTopNav?.update({surface});
  show(chAI,win(s,2.36,2.44,TIMELINE.bridge.start,TIMELINE.bridge.start+.1));
  aiLi.forEach((l,i)=>{const on=i===(section==='models'?0:section==='local'?1:2);l.classList.toggle('on',on);const a=l.querySelector('a');if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
  show(chGL,0);show(chPE,world.active?0:win(old,9.82,9.88,10.62,10.72));
@@ -444,7 +447,7 @@ function resize(){
  for(const c of [glc,cv]){c.width=Math.round(W*DPR);c.height=Math.round(H*DPR)}
  ctx.setTransform(DPR,0,0,DPR,0,0);
  $('track').style.height=(TOTAL*UNIT+H)+'px';
- for(const k in gcache)delete gcache[k];layout();buildPoints();showcase.resize();globalHome.resize();chapterRail.resize();
+ for(const k in gcache)delete gcache[k];layout();buildPoints();showcase.resize();globalHome.resize();chapterRail.resize();homeTopNav?.resize();
 }
 function sceneVoid(s){
  if(s>=TIMELINE.global.start&&s<TIMELINE.global.start+1.26)return;
@@ -523,10 +526,11 @@ function frame(now){
 }
 addEventListener('mousemove',e=>{if(!REDUCED){mouse.x=e.clientX;mouse.y=e.clientY;mouse.on=1}});
 document.addEventListener('mouseleave',()=>{mouse.on=0});
-const stop=()=>{anim=null;userMoved=true;cancelReturn()};
+const stop=()=>{anim=null;userMoved=true;cancelReturn();homeTopNav?.cancel()};
 addEventListener('wheel',stop,{passive:true});addEventListener('touchstart',stop,{passive:true});
 addEventListener('keydown',e=>{
- if(e.target.closest('input,textarea,select,[contenteditable],dialog')||e.ctrlKey||e.metaKey)return;
+ if(e.defaultPrevented||homeTopNav?.state.menu||e.target.closest('input,textarea,select,[contenteditable],dialog')||e.ctrlKey||e.metaKey)return;
+ if(e.key==='Escape'&&homeTopNav?.state.shutter.ph!=='idle'){homeTopNav?.cancel();return;}
  if(returning&&e.key==='Escape'){e.preventDefault();cancelReturn();return;}
  const local=globalHome.state.active&&!e.altKey&&['1','2','3','4'].includes(e.key);
  const m=local?'global-'+['number','network','accounts','cards'][Number(e.key)-1]:({'0':'open','1':'models','2':'global','3':'personal'})[e.key];
@@ -561,10 +565,11 @@ try{
 }catch{}
 const initial=AT!==null?AT:restored!==null?restored:(fromHash() in STOP?STOP[fromHash()]:0);
 sd=clamp(initial,0,TOTAL);scrollTo(0,sd*UNIT);
+homeTopNav=NFHomeTopNav({coverage:chapterRail.coverage});
 if(location.hash.startsWith('#guide-'))queueMicrotask(()=>globalHome.openGuide(location.hash.slice(7)));
 addEventListener('pagehide',e=>{if(!e.persisted)globalHome.destroy();try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:returning?0:scrollY/UNIT,url:positionKey(),total:TOTAL}))}catch{}});
-if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP,navigating:!!anim,returning:!!returning,intro:lastIntro,rail:chapterRail.state,global:globalHome.state};},
- seek(s){cancelReturn();userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT);globalHome.invalidate();render(sd,debugClock??Number(Q.get('time')||10),FIXIT??10,0);},
+if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP,navigating:!!anim,returning:!!returning,intro:lastIntro,rail:chapterRail.state,topNav:homeTopNav.state,global:globalHome.state};},
+ seek(s){homeTopNav?.cancel();cancelReturn();userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT);globalHome.invalidate();render(sd,debugClock??Number(Q.get('time')||10),FIXIT??10,0);},
  freeze(on=true){frozen=on;if(frozen){if(raf)cancelAnimationFrame(raf);raf=0;}else{last=performance.now();schedule();}return frozen;},
  advance(sec,fps=60){frozen=true;if(raf)cancelAnimationFrame(raf);raf=0;if(debugClock===null)debugClock=Number(Q.get('time')||10);for(let i=0;i<Math.round(sec*fps);i++){debugClock+=1/fps;render(sd,debugClock,10,0);}return globalHome.state;},
  select(id){return globalHome.request(id);},navigate,positions:showcase.positions};

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-18",
+  "checks": [
+    {
+      "name": "opening / pointer recovery",
+      "detail": "real opening plays to completed glyph; Global init remains zero; fixed-time mouse repulsion changes pixels and mouseleave restores exact full-frame hash"
+    },
+    {
+      "name": "DPR 2 / tilt / source budget",
+      "detail": "card canvas at physical 2880×1800; pointer tilt preserves scroll; CMB main stays within 581 physical pixels and native texture handoff remains clear"
+    },
+    {
+      "name": "reduced motion",
+      "detail": "system setting respected; all content and real cards readable; selection commits without particle/spring animation"
+    },
+    {
+      "name": "WebGL unavailable",
+      "detail": "both WebGL contexts forced unavailable, Canvas/DOM and static card fallback remain readable, card selection works"
+    },
+    {
+      "name": "async material loading",
+      "detail": "delayed secondary textures wait at low q with no premature HD, latest target wins after readiness"
+    },
+    {
+      "name": "direct guide hash",
+      "detail": "pending guide anchor opens the real accessible content index, focused section and Escape close correctly"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}

@@ -28,5 +28,5 @@ window.NFChapterRail=function({el,clock}){
   current={index,progress:p,coverage:tones,rects};
  }
  el.addEventListener('keydown',e=>{const i=buttons.indexOf(e.target);if(i<0)return;const next=e.key==='ArrowDown'?i+1:e.key==='ArrowUp'?i-1:e.key==='Home'?0:e.key==='End'?3:null;if(next===null)return;e.preventDefault();buttons[(next+4)%4].focus();});
- return {update,resize,get state(){return current}};
+ return {update,resize,coverage,get state(){return current}};
 };

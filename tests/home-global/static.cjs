@@ -3,8 +3,8 @@ const ROOT=path.resolve(__dirname,'../..'),read=f=>fs.readFileSync(path.join(ROO
 const load=s=>{const c={window:{}};vm.runInNewContext(s,c);return c.window.NF_TIMELINE;},before=load(old('prototype/timeline.js')),clock=load(text('prototype/timeline.js')),report={baseline:'6c16a2a',checks:[]};
 const pass=(name,detail)=>{console.log('PASS',name);report.checks.push({name,detail});};
 assert.equal(sha(read('prototype/prototype-01.html')),'bfc193b140d94b8669327f71a677d68f84db19f573e262119c53894cde4d1711');
-require('../ui-v011/static.cjs');
-for(const f of ['data/models.js','data/agents.js','data/global-materials.js','prototype/showcase.js','prototype/showcase.css','prototype/experiments/card-particle.js','prototype/experiments/card-particle.html','prototype/experiments/card-surface.js'])assert.equal(text(f),old(f),f);
+require('../lens/static.cjs');
+for(const f of ['data/models.js','data/agents.js','data/global-materials.js','prototype/showcase.css','prototype/experiments/card-particle.js','prototype/experiments/card-particle.html','prototype/experiments/card-surface.js'])assert.equal(text(f),old(f),f);
 const literal=(s,n)=>s.match(new RegExp('const '+n+'=`([\\s\\S]*?)`;'))[1];for(const n of ['VS','FS'])assert.equal(literal(text('prototype/motion.js'),n),literal(old('prototype/motion.js'),n));
 const card=text('prototype/experiments/global-card-adapter.js'),oldCard=old('prototype/experiments/global-card-adapter.js');
 assert.equal(card.replace('ctl.v=0;ctl.busy=false;return false;','ctl.v=0;return false;'),oldCard,'only offscreen busy flag changes in approved card adapter');

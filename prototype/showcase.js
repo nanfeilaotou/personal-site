@@ -65,15 +65,15 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   }
   function scheduleClose(){clearTimeout(timer);if(!pinned)timer=setTimeout(()=>{if(!panel.matches(':hover')&&!panel.contains(document.activeElement)&&active?.b!==document.activeElement)close();},220);}
   function locate(b){
-    const r=b.getBoundingClientRect(),w=panel.offsetWidth,h=panel.offsetHeight;
+    const r=b.getBoundingClientRect(),w=panel.offsetWidth,h=panel.offsetHeight,top=Math.max(14,(document.getElementById('nf-topnav')?.offsetHeight||0)+12);
     if(innerWidth<=760){
       panel.style.left=clamp(r.left+r.width/2-w/2,14,innerWidth-w-14)+'px';
       const y=r.bottom+12+h<innerHeight-14?r.bottom+12:r.top-h-12;
-      panel.style.top=clamp(y,14,innerHeight-h-14)+'px';return;
+      panel.style.top=clamp(y,top,Math.max(top,innerHeight-h-14))+'px';return;
     }
     let x=r.right+12;if(x+w>innerWidth-20)x=r.left-w-12;
     panel.style.left=clamp(x,14,innerWidth-w-14)+'px';
-    panel.style.top=clamp(r.top+r.height/2-h/2,14,innerHeight-h-14)+'px';
+    panel.style.top=clamp(r.top+r.height/2-h/2,top,Math.max(top,innerHeight-h-14))+'px';
   }
   function open(item,b,pin){
     clearTimeout(timer);if(active?.b===b){pinned=pinned||pin;return;}
