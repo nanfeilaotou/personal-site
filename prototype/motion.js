@@ -423,7 +423,7 @@ function ui(s,intro,scrollS=s,world={active:false,g:0}){
  const section=world.active?'global':s<M.start?'open':s<TIMELINE.local.start?'models':s<A.start?'local':s<TIMELINE.bridge.start?'agents':s<TIMELINE.global.start?'bridge':s<TIMELINE.personal.start?'global':'personal';
  const ri=world.active?2:s<M.start?0:s<TIMELINE.global.start?1:s<TIMELINE.personal.start?2:3;
  railB.forEach((b,i)=>{b.classList.toggle('on',i===ri);if(i===ri)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});
- chapterRail.update({index:ri,scroll:scrollS,surface:world.active&&globalHome.state.initialized?NF_GLOBAL.surface:null});
+ chapterRail.update({index:ri,scroll:scrollS,surface:world.active?NF_GLOBAL.surface:null});
  show(chAI,win(s,2.36,2.44,TIMELINE.bridge.start,TIMELINE.bridge.start+.1));
  aiLi.forEach((l,i)=>{const on=i===(section==='models'?0:section==='local'?1:2);l.classList.toggle('on',on);const a=l.querySelector('a');if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
  show(chGL,0);show(chPE,world.active?0:win(old,9.82,9.88,10.62,10.72));
