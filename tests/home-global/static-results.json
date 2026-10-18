@@ -1,0 +1,72 @@
+{
+  "baseline": "6c16a2a",
+  "checks": [
+    {
+      "name": "protected visuals",
+      "detail": "Opening shaders/sampling/draw, AI data/projections/styles, Local/Personal, original Card Formation, Opus camera/scenes/switch shaders and side-card motion unchanged; only offscreen busy status corrected"
+    },
+    {
+      "name": "timeline",
+      "detail": "AI mapping exact; dense inverse roundtrip; Global 6.8 screens, four correct stops, Personal begins with spread=1, total 15.68"
+    },
+    {
+      "name": "content / one renderer",
+      "detail": "four pending guide entries with real index IDs; no obsolete Global copy in homepage; legacy four-layer renderer has no caller; all modified scripts parse"
+    }
+  ],
+  "timeline": {
+    "total": 15.68,
+    "models": {
+      "start": 2.34,
+      "formed": 3.04,
+      "holdEnd": 3.86,
+      "end": 4.329899377,
+      "stop": 3.419756076
+    },
+    "local": {
+      "start": 4.275,
+      "end": 5.493689116,
+      "oldStart": 4.98,
+      "oldEnd": 6.36,
+      "stop": 5.28
+    },
+    "agents": {
+      "start": 5.425,
+      "formed": 5.94,
+      "holdEnd": 6.79,
+      "end": 7.087059626,
+      "stop": 6.321110608
+    },
+    "bridge": {
+      "start": 7.028884135,
+      "end": 7.54,
+      "oldStart": 7.44
+    },
+    "global": {
+      "start": 7.52,
+      "end": 14.32,
+      "stop": 8.92
+    },
+    "personal": {
+      "start": 14.32,
+      "end": 15.68,
+      "stop": 14.7
+    },
+    "world": {
+      "length": 6.8,
+      "sceneStart": 8.95,
+      "prelude": 8.49,
+      "fieldLegacyStart": 9.74,
+      "fieldLegacyEnd": 11.1,
+      "stops": {
+        "number": 8.92,
+        "network": 10.82,
+        "accounts": 11.77,
+        "cards": 13.64
+      },
+      "start": 7.52,
+      "end": 14.32
+    }
+  },
+  "completed": true
+}

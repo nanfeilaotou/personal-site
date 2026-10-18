@@ -1,0 +1,931 @@
+{
+  "mode": "before",
+  "viewport": [
+    1440,
+    900
+  ],
+  "timeline": {
+    "total": 12.01,
+    "models": {
+      "start": 2.42,
+      "formed": 3.2,
+      "holdEnd": 4.22,
+      "end": 4.95,
+      "stop": 3.65
+    },
+    "local": {
+      "start": 4.8,
+      "end": 6.3,
+      "oldStart": 4.98,
+      "oldEnd": 6.36,
+      "stop": 5.97
+    },
+    "agents": {
+      "start": 6.18,
+      "formed": 6.95,
+      "holdEnd": 8.05,
+      "end": 8.49,
+      "stop": 7.42
+    },
+    "bridge": {
+      "start": 8.35,
+      "end": 8.97,
+      "oldStart": 7.44
+    },
+    "global": {
+      "start": 8.95,
+      "end": 10.37,
+      "stop": 9.97
+    },
+    "personal": {
+      "start": 10.35,
+      "end": 12.01,
+      "stop": 11.03
+    },
+    "legacyOffset": 0.91
+  },
+  "data": {
+    "models": [
+      {
+        "id": "gpt",
+        "name": "GPT / ChatGPT",
+        "provider": "OpenAI",
+        "logo": "openai.svg",
+        "featuredModels": [
+          "GPT-6 Astra",
+          "GPT-6.1 Sol"
+        ],
+        "modelScope": "API 代表型号",
+        "description": "通用推理、多模态理解与编程，连接日常对话和复杂工作。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://developers.openai.com/api/docs/models",
+        "detailUrl": "https://chatgpt.com/"
+      },
+      {
+        "id": "claude",
+        "name": "Claude",
+        "provider": "Anthropic",
+        "logo": "claude.svg",
+        "featuredModels": [
+          "Claude Opus 5.5",
+          "Claude Fable 5.1"
+        ],
+        "modelScope": "API 代表型号 · 并行系列",
+        "description": "从长文理解到持续编程，探索知识工作与智能体协作。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://platform.claude.com/docs/en/models/overview",
+        "detailUrl": "https://claude.ai/"
+      },
+      {
+        "id": "grok",
+        "name": "Grok",
+        "provider": "xAI",
+        "logo": "grok.svg",
+        "featuredModels": [
+          "Grok 4.7"
+        ],
+        "modelScope": "API 代表型号",
+        "description": "面向对话、推理与代码任务的 Grok 模型系列。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://docs.x.ai/developers/models",
+        "detailUrl": "https://grok.com/"
+      },
+      {
+        "id": "gemini",
+        "name": "Gemini",
+        "provider": "Google",
+        "logo": "gemini.svg",
+        "featuredModels": [
+          "Gemini 4 Argon",
+          "Gemini 3.8 Flash"
+        ],
+        "modelScope": "API 代表型号 · 并行系列",
+        "description": "多模态模型家族，覆盖深度推理与高效率交互。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://ai.google.dev/gemini-api/docs/models",
+        "detailUrl": "https://gemini.google.com/"
+      },
+      {
+        "id": "deepseek",
+        "name": "DeepSeek",
+        "provider": "DeepSeek / 深度求索",
+        "logo": "deepseek.svg",
+        "featuredModels": [
+          "DeepSeek-V4.1-Flash",
+          "DeepSeek-V4-Pro-0813"
+        ],
+        "modelScope": "API 代表型号 · Flash / Pro",
+        "description": "并行的 Flash 与 Pro 系列，支持推理和工具调用。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://api-docs.deepseek.com/quick_start/pricing/",
+        "detailUrl": "https://www.deepseek.com/"
+      },
+      {
+        "id": "glm",
+        "name": "GLM",
+        "provider": "Z.ai / 智谱",
+        "logo": "zai.svg",
+        "featuredModels": [
+          "GLM-5.3"
+        ],
+        "modelScope": "API 代表型号",
+        "description": "面向编程和复杂任务的模型系列，连接智谱开发生态。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://docs.z.ai/guides/llm/glm-5.3",
+        "detailUrl": "https://z.ai/"
+      },
+      {
+        "id": "qwen",
+        "name": "Qwen",
+        "provider": "阿里 / Alibaba",
+        "logo": "qwen.svg",
+        "featuredModels": [
+          "Qwen3.8-Max",
+          "Qwen3.8-Flash"
+        ],
+        "modelScope": "云 API 代表型号 · 不等同本地权重版本",
+        "description": "涵盖语言、多模态与开放权重的通义模型生态。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://www.alibabacloud.com/help/en/model-studio/models",
+        "detailUrl": "https://qwen.ai/"
+      },
+      {
+        "id": "kimi",
+        "name": "Kimi",
+        "provider": "Moonshot AI / 月之暗面",
+        "logo": "kimi.svg",
+        "featuredModels": [
+          "Kimi K3",
+          "Kimi K2.7 Code"
+        ],
+        "modelScope": "API 代表型号 · 通用 / 编程",
+        "description": "面向长上下文、知识工作与编程智能体的模型家族。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://platform.kimi.ai/docs/overview",
+        "detailUrl": "https://www.kimi.com/"
+      }
+    ],
+    "agents": [
+      {
+        "id": "codex",
+        "name": "OpenAI Codex",
+        "officialName": "Codex",
+        "provider": "OpenAI",
+        "logo": "codex.svg",
+        "category": "编程 Agent",
+        "description": "在终端、编辑器与云端协助阅读、修改和验证代码。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://learn.chatgpt.com/codex",
+        "detailUrl": "https://developers.openai.com/codex/"
+      },
+      {
+        "id": "claude-code",
+        "name": "Claude Code",
+        "officialName": "Claude Code",
+        "provider": "Anthropic",
+        "logo": "claudecode.svg",
+        "category": "编程 Agent",
+        "description": "理解项目上下文，在开发工具中执行编程任务。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://code.claude.com/docs/en/overview",
+        "detailUrl": "https://code.claude.com/docs/en/overview"
+      },
+      {
+        "id": "dsh",
+        "alias": "DSH",
+        "name": "DeepSeek Harness（DSH）",
+        "shortName": "DSH",
+        "officialName": "DeepSeek Harness",
+        "provider": "DeepSeek",
+        "logo": null,
+        "category": "编程 Agent",
+        "description": "通过 Web 工作台管理工作区、会话与代码任务。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart",
+        "detailUrl": "https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart",
+        "logoStatus": "使用名称标识；未取得可复用的独立产品 SVG"
+      },
+      {
+        "id": "zcode",
+        "alias": "Zcode",
+        "name": "ZCode",
+        "officialName": "ZCode",
+        "provider": "Z.ai / 智谱",
+        "logo": null,
+        "category": "编程 Agent",
+        "description": "围绕复杂开发目标组织多个智能体的桌面编程环境。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://zcode.z.ai/cn",
+        "detailUrl": "https://zcode.z.ai/cn",
+        "logoStatus": "使用名称标识；未确认专用 Logo 的复用条件"
+      },
+      {
+        "id": "workbuddy",
+        "alias": "WorkBuddy",
+        "name": "Tencent WorkBuddy",
+        "shortName": "WorkBuddy",
+        "officialName": "Tencent WorkBuddy",
+        "provider": "腾讯 / Tencent",
+        "logo": null,
+        "category": "AI 工作台",
+        "description": "覆盖日常办公、代码开发与设计创意的 AI 工作台。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://cloud.tencent.com/product/workbuddy",
+        "detailUrl": "https://www.workbuddy.cn/",
+        "logoStatus": "使用名称标识；未确认专用 Logo 的复用条件"
+      },
+      {
+        "id": "hermes",
+        "alias": "Hermes",
+        "name": "Hermes Agent",
+        "officialName": "Hermes Agent",
+        "provider": "Nous Research",
+        "logo": "hermesagent.svg",
+        "category": "自主智能体",
+        "description": "具有记忆与技能学习能力，可持续执行任务的开源智能体。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://github.com/NousResearch/hermes-agent",
+        "detailUrl": "https://github.com/NousResearch/hermes-agent"
+      },
+      {
+        "id": "antigravity",
+        "name": "Google Antigravity",
+        "officialName": "Google Antigravity",
+        "provider": "Google",
+        "logo": "antigravity.svg",
+        "category": "编程 Agent",
+        "description": "以智能体为中心，衔接编辑器、终端和浏览器的开发平台。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://antigravity.google/",
+        "detailUrl": "https://antigravity.google/"
+      },
+      {
+        "id": "grokbot",
+        "alias": "Grokbot",
+        "name": "Grok Bot",
+        "officialName": "Grok Bot",
+        "provider": "Cursor / Grok 生态",
+        "logo": null,
+        "category": "自主智能体",
+        "description": "在持久云电脑上跨应用工作，保留上下文的 AI 队友。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://cursor.com/docs/grok-bot",
+        "detailUrl": "https://cursor.com/docs/grok-bot",
+        "logoStatus": "使用名称标识；不冒用 Grok 模型图标"
+      },
+      {
+        "id": "muse",
+        "alias": "Muse",
+        "name": "Muse（Meta）",
+        "shortName": "Muse",
+        "officialName": "Muse",
+        "provider": "Meta",
+        "logo": null,
+        "category": "个人智能体",
+        "description": "在专属云电脑中跨应用推进日常任务与长期目标。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+        "detailUrl": "https://ai.meta.com/muse/",
+        "logoStatus": "使用名称标识；不冒用 Meta 或其他同名产品图标"
+      },
+      {
+        "id": "notion",
+        "alias": "Notion",
+        "name": "Notion AI",
+        "officialName": "Notion AI",
+        "provider": "Notion",
+        "logo": "notion.svg",
+        "category": "AI 工作台",
+        "description": "把知识、文档和团队工作连接起来的 AI 协作空间。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://www.notion.com/product/ai",
+        "detailUrl": "https://www.notion.com/product/ai"
+      }
+    ],
+    "local": [
+      {
+        "id": "local-qwen",
+        "name": "Qwen",
+        "provider": "阿里 / Alibaba",
+        "logo": "qwen.svg",
+        "category": "本地模型",
+        "description": "开放权重系列。可用版本、量化格式与硬件需求需按具体模型核对。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://github.com/QwenLM",
+        "detailUrl": "https://github.com/QwenLM"
+      },
+      {
+        "id": "lmstudio",
+        "name": "LM Studio",
+        "provider": "LM Studio",
+        "logo": "lmstudio.svg",
+        "category": "推理工具",
+        "description": "在本机加载与运行语言模型，连接本地推理工作流。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://lmstudio.ai/docs",
+        "detailUrl": "https://lmstudio.ai/"
+      },
+      {
+        "id": "comfyui",
+        "name": "ComfyUI",
+        "provider": "Comfy Org",
+        "logo": "comfyui.svg",
+        "category": "生成式工作流",
+        "description": "用节点组合生成流程；去噪图像是独立示意，不代表语言模型量化质量。",
+        "verifiedAt": "2026-10-16",
+        "officialSource": "https://github.com/Comfy-Org/ComfyUI",
+        "detailUrl": "https://www.comfy.org/"
+      }
+    ]
+  },
+  "frames": [
+    {
+      "s": 0,
+      "file": "frames/s-0.00.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 0.2,
+      "file": "frames/s-0.20.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 0.4,
+      "file": "frames/s-0.40.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 0.6,
+      "file": "frames/s-0.60.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 0.8,
+      "file": "frames/s-0.80.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 1,
+      "file": "frames/s-1.00.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 1.2,
+      "file": "frames/s-1.20.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 1.4,
+      "file": "frames/s-1.40.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 1.6,
+      "file": "frames/s-1.60.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 1.8,
+      "file": "frames/s-1.80.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 2,
+      "file": "frames/s-2.00.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 2.2,
+      "file": "frames/s-2.20.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 2.4,
+      "file": "frames/s-2.40.jpg",
+      "crumb": "00 — 起点 POINT",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 2.6,
+      "file": "frames/s-2.60.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 2.8,
+      "file": "frames/s-2.80.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 3,
+      "file": "frames/s-3.00.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 3.2,
+      "file": "frames/s-3.20.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 8
+    },
+    {
+      "s": 3.4,
+      "file": "frames/s-3.40.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 8
+    },
+    {
+      "s": 3.6,
+      "file": "frames/s-3.60.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 8
+    },
+    {
+      "s": 3.8,
+      "file": "frames/s-3.80.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 8
+    },
+    {
+      "s": 4,
+      "file": "frames/s-4.00.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 8
+    },
+    {
+      "s": 4.2,
+      "file": "frames/s-4.20.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 8
+    },
+    {
+      "s": 4.4,
+      "file": "frames/s-4.40.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 0.753425
+        }
+      ],
+      "interactive": 8
+    },
+    {
+      "s": 4.6,
+      "file": "frames/s-4.60.jpg",
+      "crumb": "01.1 — 模型生态",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 0.479452
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 4.8,
+      "file": "frames/s-4.80.jpg",
+      "crumb": "01.2 — 本地 AI",
+      "visible": [
+        {
+          "id": "models-brands",
+          "alpha": 0.205479
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 5,
+      "file": "frames/s-5.00.jpg",
+      "crumb": "01.2 — 本地 AI",
+      "visible": [
+        {
+          "id": "local-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 3
+    },
+    {
+      "s": 5.2,
+      "file": "frames/s-5.20.jpg",
+      "crumb": "01.2 — 本地 AI",
+      "visible": [
+        {
+          "id": "local-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 3
+    },
+    {
+      "s": 5.4,
+      "file": "frames/s-5.40.jpg",
+      "crumb": "01.2 — 本地 AI",
+      "visible": [
+        {
+          "id": "local-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 3
+    },
+    {
+      "s": 5.6,
+      "file": "frames/s-5.60.jpg",
+      "crumb": "01.2 — 本地 AI",
+      "visible": [
+        {
+          "id": "local-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 3
+    },
+    {
+      "s": 5.8,
+      "file": "frames/s-5.80.jpg",
+      "crumb": "01.2 — 本地 AI",
+      "visible": [
+        {
+          "id": "local-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 3
+    },
+    {
+      "s": 6,
+      "file": "frames/s-6.00.jpg",
+      "crumb": "01.2 — 本地 AI",
+      "visible": [
+        {
+          "id": "local-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 3
+    },
+    {
+      "s": 6.2,
+      "file": "frames/s-6.20.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 0.111111
+        },
+        {
+          "id": "local-brands",
+          "alpha": 0.714286
+        }
+      ],
+      "interactive": 3
+    },
+    {
+      "s": 6.4,
+      "file": "frames/s-6.40.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 6.6,
+      "file": "frames/s-6.60.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 6.8,
+      "file": "frames/s-6.80.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 7,
+      "file": "frames/s-7.00.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 10
+    },
+    {
+      "s": 7.2,
+      "file": "frames/s-7.20.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 10
+    },
+    {
+      "s": 7.4,
+      "file": "frames/s-7.40.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 10
+    },
+    {
+      "s": 7.6,
+      "file": "frames/s-7.60.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 10
+    },
+    {
+      "s": 7.8,
+      "file": "frames/s-7.80.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 10
+    },
+    {
+      "s": 8,
+      "file": "frames/s-8.00.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 1
+        }
+      ],
+      "interactive": 10
+    },
+    {
+      "s": 8.2,
+      "file": "frames/s-8.20.jpg",
+      "crumb": "01.3 — AI 客户端与 Agent",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 0.659091
+        }
+      ],
+      "interactive": 10
+    },
+    {
+      "s": 8.4,
+      "file": "frames/s-8.40.jpg",
+      "crumb": "01 → 02",
+      "visible": [
+        {
+          "id": "agents-brands",
+          "alpha": 0.204545
+        }
+      ],
+      "interactive": 0
+    },
+    {
+      "s": 8.6,
+      "file": "frames/s-8.60.jpg",
+      "crumb": "01 → 02",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 8.8,
+      "file": "frames/s-8.80.jpg",
+      "crumb": "01 → 02",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 9,
+      "file": "frames/s-9.00.jpg",
+      "crumb": "02 — 链路 NETWORK",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 9.2,
+      "file": "frames/s-9.20.jpg",
+      "crumb": "02 — 链路 NETWORK",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 9.4,
+      "file": "frames/s-9.40.jpg",
+      "crumb": "02 — 链路 NETWORK",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 9.6,
+      "file": "frames/s-9.60.jpg",
+      "crumb": "02 — 链路 NETWORK",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 9.8,
+      "file": "frames/s-9.80.jpg",
+      "crumb": "02 — 链路 NETWORK",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 10,
+      "file": "frames/s-10.00.jpg",
+      "crumb": "02 — 链路 NETWORK",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 10.2,
+      "file": "frames/s-10.20.jpg",
+      "crumb": "02 — 链路 NETWORK",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 10.4,
+      "file": "frames/s-10.40.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 10.6,
+      "file": "frames/s-10.60.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 10.8,
+      "file": "frames/s-10.80.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 11,
+      "file": "frames/s-11.00.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 11.2,
+      "file": "frames/s-11.20.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 11.4,
+      "file": "frames/s-11.40.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 11.6,
+      "file": "frames/s-11.60.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 11.8,
+      "file": "frames/s-11.80.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 12,
+      "file": "frames/s-12.00.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    },
+    {
+      "s": 12.01,
+      "file": "frames/s-12.01.jpg",
+      "crumb": "03 — 场 FIELD",
+      "visible": [],
+      "interactive": 0
+    }
+  ]
+}

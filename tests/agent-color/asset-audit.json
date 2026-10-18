@@ -1,0 +1,68 @@
+[
+  {
+    "name": "workbuddy-color.svg",
+    "natural": [
+      40,
+      40
+    ],
+    "raster": 512,
+    "alphaBounds": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "visibleBounds": [
+      0,
+      0,
+      511,
+      511
+    ],
+    "transparent": 55561,
+    "partial": 1540
+  },
+  {
+    "name": "muse-color.svg",
+    "natural": [
+      100,
+      100
+    ],
+    "raster": 512,
+    "alphaBounds": [
+      0,
+      82,
+      512,
+      430
+    ],
+    "visibleBounds": [
+      0,
+      82,
+      511,
+      429
+    ],
+    "transparent": 175987,
+    "partial": 3088
+  },
+  {
+    "name": "grok-bot-provided.png",
+    "natural": [
+      512,
+      512
+    ],
+    "raster": 512,
+    "alphaBounds": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "visibleBounds": [
+      0,
+      102,
+      511,
+      511
+    ],
+    "transparent": 4757,
+    "partial": 24806
+  }
+]

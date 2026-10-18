@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NANFEILAOTOU · Global 经由 VIA · 原型</title>
+<meta name="description" content="全球数字服务：号码、网络、账户与钱包、支付卡片。独立可运行原型，不替换首页。">
+<link rel="stylesheet" href="global-world.css">
+</head>
+<body>
+<a class="gw-skip" href="#gw-content">跳过动画，阅读全部内容</a>
+<div id="gw-track" aria-hidden="true"></div>
+<div id="gw-stage" aria-hidden="true"><canvas id="gw-cv"></canvas><canvas id="gw-gl"></canvas><img id="gw-fallback" alt="" hidden></div>
+<!-- 正常合成层：品牌原色与真实卡面，不进入 difference HUD -->
+<div id="gw-brands"></div>
+<div id="gw-cards" role="group" aria-label="支付卡片：选择主卡" aria-busy="false"></div>
+<div id="gw-cardcap" aria-hidden="true"><div class="in"><span class="k" id="gw-cap-k"></span><span class="n" id="gw-cap-n"></span><span class="d" id="gw-cap-d"></span></div></div>
+<div id="gw-cardnav" role="group" aria-label="卡名"></div>
+<!-- difference HUD -->
+<div id="gw-ui">
+  <h1 class="sr">NANFEILAOTOU · 全球数字服务</h1>
+  <div class="gw-tl"><div class="brand">NANFEILAOTOU</div><div class="crumb" id="gw-crumb">01 → 02</div></div>
+  <div id="gw-chap"><div class="no">02</div><div class="tt">经由<small>VIA · 全球数字服务</small></div></div>
+  <nav id="gw-nav" aria-label="Global 领域（快捷键 1–4）">
+    <button type="button" data-go="number"><i>01</i>号码</button>
+    <button type="button" data-go="network"><i>02</i>网络</button>
+    <button type="button" data-go="accounts"><i>03</i>账户与钱包</button>
+    <button type="button" data-go="cards"><i>04</i>支付卡片</button>
+  </nav>
+  <section class="gw-panel" aria-label="号码"><span class="i">02.1 / 4 · CONNECTIVITY</span><span class="t">号码</span><span class="d">以 ClubSIM（香港）与 SMART（菲律宾）为例，理解境外号码与通讯、账号服务之间的关系。注册与验证条件以各平台官方说明为准。</span><a href="#guide-connectivity" class="go">海外号码与通信指南 ↗</a></section>
+  <section class="gw-panel" aria-label="网络"><span class="i">02.2 / 4 · NETWORK</span><span class="t">网络</span><span class="d">从客户端、代理节点到远程服务器，路由决定一次请求经由哪条路径抵达。四个客户端并列，不分先后。</span><a href="#guide-network" class="go">网络工具与连接指南 ↗</a></section>
+  <section class="gw-panel" aria-label="账户与钱包"><span class="i">02.3 / 4 · ACCOUNTS &amp; WALLETS</span><span class="t">账户与钱包</span><span class="d">账户资金服务与钱包快捷支付是两类不同的工具。并列展示，不代表互通、充值或绑卡关系。</span><a href="#guide-accounts" class="go">账户与资金链路指南 ↗</a></section>
+  <section class="gw-panel" aria-label="支付卡片"><span class="i">02.4 / 4 · PAYMENT CARDS</span><span class="t">支付卡片</span><span class="d">三种代表性场景：海外实体卡、国内万事达借记卡、数字资产支付卡。选择侧卡，数据流会重组为新的卡面。</span><a href="#guide-cards" class="go">支付与银行卡指南 ↗</a></section>
+  <div class="gw-br"><div id="gw-hint">向下滚动 ↓</div><div id="gw-prog">G 0.00 / 6.80</div></div>
+  <div id="gw-rail" aria-hidden="true"><span id="gw-fill"></span></div>
+</div>
+<div id="gw-live" class="sr" aria-live="polite"></div>
+<pre id="gw-debug" hidden></pre>
+<div id="gw-http" hidden>动态原型需要 HTTP：在仓库根目录运行 <code>node scripts/serve.mjs</code>，再打开 <code>http://127.0.0.1:4173/prototype/experiments/global-world.html</code></div>
+<section id="gw-content" class="sr" tabindex="-1" aria-label="全部内容">
+  <h2>02 经由 · 全球数字服务</h2>
+  <h3>01 号码 Connectivity</h3><p>通信运营商：ClubSIM（香港 +852）、SMART（菲律宾 +63）。主要通讯平台：WhatsApp、Telegram、LINE。辅助社交账号：Instagram、Facebook。各平台注册与验证条件以官方说明为准，LINE 的手机号验证存在地区差异。</p>
+  <h3>02 网络 Network</h3><p>客户端：Clash Verge Rev、FlClash、Shadowrocket、v2rayN（并列，不分先后）。概念：IP、Proxy、VPS、Routing、Remote。</p>
+  <h3>03 账户与钱包 Accounts &amp; Wallets</h3><p>账户资金服务：iFAST Global Bank（银行）、Wise（金融科技服务）、PayPal（支付平台）。钱包快捷支付：Apple Pay、Google Pay。并列不代表互通或绑卡关系。</p>
+  <h3>04 支付卡片 Payment Cards</h3><p>StarryBlu：海外实体卡场景。招商银行 万事达人民币 IC 借记卡（普卡）：国内万事达借记卡场景。Bybit Card：数字资产虚拟支付场景。</p>
+</section>
+<noscript><div class="gw-noscript">NANFEILAOTOU · 全球数字服务：号码、网络、账户与钱包、支付卡片。动画需要 JavaScript。</div></noscript>
+<script src="global-card-adapter.js"></script>
+<script src="global-world.js"></script>
+</body>
+</html>

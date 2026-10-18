@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-18",
+  "checks": [
+    {
+      "name": "local handoff links",
+      "detail": "76 relative document/image/source targets exist"
+    },
+    {
+      "name": "review / video",
+      "detail": {
+        "duration": 44.48,
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "name": "normal homepage",
+      "detail": "no debug globals, one host driver; slow/nogl development flags ignored without debug"
+    },
+    {
+      "name": "guides contrast / focus",
+      "detail": "four entrance links read black on white when focused/hovered, across black and warm-white stages; Enter opens pending index without moving scroll"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}

@@ -1,0 +1,690 @@
+{
+  "date": "2026-10-17",
+  "baseline": "317032c",
+  "checks": [
+    {
+      "name": "protected home / original assets",
+      "detail": "approved motion/timeline and complete card module unchanged; product content unchanged apart from allowed logo metadata; user index and source assets retained"
+    },
+    {
+      "name": "three cards / 36 gates / 36 symmetric pairs",
+      "detail": "no native draw until all point targets are settled and focus interval is complete; entry and departure use identical WebGL frames at equal formation"
+    },
+    {
+      "name": "isolated native layer",
+      "detail": "surface-only framebuffer is completely empty in settled particle stage; appears only during C handoff"
+    },
+    {
+      "name": "idle hold",
+      "detail": "no scheduled frames or GPU draws during a 650ms stable hold"
+    },
+    {
+      "name": "interaction / reverse playback",
+      "detail": "mouse tilt preserves scroll; keyboard/click details, Escape, range, wheel, forward/reverse play and pause tested"
+    },
+    {
+      "name": "integration studies / resize",
+      "detail": "both independent white-layer studies render; eight resizes reuse buffers and textures"
+    },
+    {
+      "name": "DPR 2 / white handoff / context restoration",
+      "detail": "all source widths respect device-pixel budget; white-card brightness has no opacity dip; lost context restores original textures"
+    },
+    {
+      "name": "before / after evidence",
+      "detail": "baseline 317032c shader rendered with the same supplied Bybit front; old native surface is drawn at p .42"
+    },
+    {
+      "name": "desktop performance",
+      "detail": "150 driven aggregation/handoff frames per desktop resolution; actual callback timing and long-task observation recorded"
+    },
+    {
+      "name": "assets / brand colour",
+      "detail": "three card sources and six transparent brand resources load, original colours retained"
+    },
+    {
+      "name": "fallback / reduced / mobile",
+      "detail": "static readable fallback, reduce-motion, 390px touch, and file:// startup guidance checked"
+    },
+    {
+      "name": "console / resources",
+      "detail": "no browser errors or HTTP resource failures"
+    },
+    {
+      "name": "DPR 2 tilt / short window / review links",
+      "detail": "actual high-DPI tilt preserves progress; short-window layout remains readable; recorded-frame review, 8 images and local links load"
+    }
+  ],
+  "gates": [
+    {
+      "id": "starryblu",
+      "q": 0,
+      "amount": 0,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.12,
+      "amount": 0.12,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.3,
+      "amount": 0.3,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.52,
+      "amount": 0.52,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.7,
+      "amount": 0.7,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.8,
+      "amount": 0.8,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.84,
+      "amount": 0.84,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.88,
+      "amount": 0.88,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "starryblu",
+      "q": 0.9,
+      "amount": 0.9,
+      "settled": true,
+      "surfaceMix": 0.10400000000000022,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "starryblu",
+      "q": 0.94,
+      "amount": 0.9400000000000001,
+      "settled": true,
+      "surfaceMix": 0.6480000000000009,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "starryblu",
+      "q": 0.98,
+      "amount": 0.9800000000000001,
+      "settled": true,
+      "surfaceMix": 1,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "starryblu",
+      "q": 1,
+      "amount": 1,
+      "settled": true,
+      "surfaceMix": 1,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "bybit",
+      "q": 0,
+      "amount": 0,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.12,
+      "amount": 0.12,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.3,
+      "amount": 0.3,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.52,
+      "amount": 0.52,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.7,
+      "amount": 0.7,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.8,
+      "amount": 0.8,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.84,
+      "amount": 0.84,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.88,
+      "amount": 0.88,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "bybit",
+      "q": 0.9,
+      "amount": 0.9,
+      "settled": true,
+      "surfaceMix": 0.10400000000000022,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "bybit",
+      "q": 0.94,
+      "amount": 0.9400000000000001,
+      "settled": true,
+      "surfaceMix": 0.6480000000000009,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "bybit",
+      "q": 0.98,
+      "amount": 0.9800000000000001,
+      "settled": true,
+      "surfaceMix": 1,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "bybit",
+      "q": 1,
+      "amount": 1,
+      "settled": true,
+      "surfaceMix": 1,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "cmb",
+      "q": 0,
+      "amount": 0,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.12,
+      "amount": 0.12,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.3,
+      "amount": 0.3,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.52,
+      "amount": 0.52,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.7,
+      "amount": 0.7,
+      "settled": false,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.8,
+      "amount": 0.8,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.84,
+      "amount": 0.84,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.88,
+      "amount": 0.88,
+      "settled": true,
+      "surfaceMix": 0,
+      "surfaceDraws": 0
+    },
+    {
+      "id": "cmb",
+      "q": 0.9,
+      "amount": 0.9,
+      "settled": true,
+      "surfaceMix": 0.10400000000000022,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "cmb",
+      "q": 0.94,
+      "amount": 0.9400000000000001,
+      "settled": true,
+      "surfaceMix": 0.6480000000000009,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "cmb",
+      "q": 0.98,
+      "amount": 0.9800000000000001,
+      "settled": true,
+      "surfaceMix": 1,
+      "surfaceDraws": 1
+    },
+    {
+      "id": "cmb",
+      "q": 1,
+      "amount": 1,
+      "settled": true,
+      "surfaceMix": 1,
+      "surfaceDraws": 1
+    }
+  ],
+  "symmetry": [
+    {
+      "id": "starryblu",
+      "q": 0,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.12,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.3,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.52,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.7,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.8,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.84,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.88,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.9,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.94,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 0.98,
+      "matching": true
+    },
+    {
+      "id": "starryblu",
+      "q": 1,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.12,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.3,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.52,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.7,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.8,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.84,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.88,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.9,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.94,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 0.98,
+      "matching": true
+    },
+    {
+      "id": "bybit",
+      "q": 1,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.12,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.3,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.52,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.7,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.8,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.84,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.88,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.9,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.94,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 0.98,
+      "matching": true
+    },
+    {
+      "id": "cmb",
+      "q": 1,
+      "matching": true
+    }
+  ],
+  "performance": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "cpu": {
+        "samples": 150,
+        "mean": 0.14133333285649619,
+        "p95": 0.20000004768371582,
+        "max": 0.2999999523162842
+      },
+      "raf": {
+        "samples": 150,
+        "mean": 4.388679999999998,
+        "p95": 4.300000000000011,
+        "max": 37.402000000000015
+      },
+      "observedRafPerSecond": 227.85894619794573,
+      "longTasks": [],
+      "metrics": {
+        "frames": 151,
+        "draws": 166,
+        "pointDraws": 151,
+        "quadDraws": 15,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "errors": []
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "cpu": {
+        "samples": 150,
+        "mean": 0.1406666660308838,
+        "p95": 0.20000004768371582,
+        "max": 0.30000007152557373
+      },
+      "raf": {
+        "samples": 150,
+        "mean": 4.332906666666666,
+        "p95": 4.300000000000068,
+        "max": 29.036
+      },
+      "observedRafPerSecond": 230.7919549001748,
+      "longTasks": [],
+      "metrics": {
+        "frames": 151,
+        "draws": 166,
+        "pointDraws": 151,
+        "quadDraws": 15,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "errors": []
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "cpu": {
+        "samples": 150,
+        "mean": 0.14399999777475994,
+        "p95": 0.20000004768371582,
+        "max": 0.3999999761581421
+      },
+      "raf": {
+        "samples": 150,
+        "mean": 4.360906666666663,
+        "p95": 4.300000000000068,
+        "max": 33.33600000000001
+      },
+      "observedRafPerSecond": 229.31011288172508,
+      "longTasks": [],
+      "metrics": {
+        "frames": 151,
+        "draws": 166,
+        "pointDraws": 151,
+        "quadDraws": 15,
+        "points": 64000,
+        "textureBytes": 5868372,
+        "bufferBytes": 1024096,
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "failedResources": [],
+  "browser": "153.0.8010.12",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "native": [
+    {
+      "id": "starryblu",
+      "widthCSS": 505,
+      "heightCSS": 304,
+      "dpr": 2,
+      "w": 2880,
+      "h": 2500,
+      "source": "cards/starryblu-card.png"
+    },
+    {
+      "id": "bybit",
+      "widthCSS": 505,
+      "heightCSS": 315,
+      "dpr": 2,
+      "w": 2880,
+      "h": 2500,
+      "source": "cards/bybit-card.png"
+    },
+    {
+      "id": "cmb",
+      "widthCSS": 290.5,
+      "heightCSS": 186.5,
+      "dpr": 2,
+      "w": 2880,
+      "h": 2500,
+      "source": "cards/cmb-mastercard-blue.png"
+    }
+  ],
+  "handoffBrightness": [
+    {
+      "q": 0.8,
+      "mean": 214.28733825767705
+    },
+    {
+      "q": 0.84,
+      "mean": 215.07579299600621
+    },
+    {
+      "q": 0.88,
+      "mean": 214.28733825767705
+    },
+    {
+      "q": 0.9,
+      "mean": 214.2841590707106
+    },
+    {
+      "q": 0.94,
+      "mean": 214.26572567975387
+    },
+    {
+      "q": 0.98,
+      "mean": 214.25418434705512
+    },
+    {
+      "q": 1,
+      "mean": 214.25418434705512
+    }
+  ],
+  "old": {
+    "frames": 1,
+    "draws": 2,
+    "pointDraws": 1,
+    "quadDraws": 1,
+    "points": 36480,
+    "textureBytes": 5868372,
+    "bufferBytes": 583776,
+    "errors": []
+  },
+  "completed": true
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "file": "assets/global/social/derived/instagram-512.png",
+    "sourceFile": "assets/global/social/instagram.png",
+    "sourceSha256": "21f86b55f986848665ce54ab354ff6b43b7705e6c421d90c04369882b5956766",
+    "sha256": "8f129aea30da802ed03769c889cc7a6861ffc3fb7af2ee24de2c452fa112d8dc",
+    "width": 512,
+    "height": 512,
+    "createdAt": "2026-10-18",
+    "modification": "Proportional Canvas 2D high-quality downsampling of the official 5000x5000 transparent master; original retained; no crop, recolour, geometry edits or effects.",
+    "usage": "Integrated Global only; standalone approved baseline continues to use the original master."
+  }
+]

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NANFEILAOTOU / Global 实验验收</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080909;color:#e7e7e4;font:15px/1.7 system-ui,sans-serif}main{max-width:1320px;margin:auto;padding:48px 28px}h1{font-size:clamp(28px,4vw,52px);font-weight:500;letter-spacing:-.04em}h2{margin-top:64px;font-weight:500}p,figcaption{color:#a1a3a0}a{color:inherit;text-underline-offset:4px}nav{display:flex;gap:12px;flex-wrap:wrap}nav a{padding:8px 16px;border:1px solid #424444;text-decoration:none}figure{margin:24px 0}img{display:block;width:100%;height:auto;border:1px solid #303332}figcaption{font-size:13px;margin:8px 0 24px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:12px;border-bottom:1px solid #303332}th{color:#aaa;font-weight:400}@media(max-width:780px){.pair{grid-template-columns:1fr}main{padding:24px 18px}}
+</style></head><body><main>
+<p>NANFEILAOTOU / GLOBAL STUDY · 2026-10-17</p><p>此页保存上一轮截图与结果。当前实现已替换素材与出现逻辑，请看 <a href="../card-formation/index.html">真实粒子成像 · 最新验收页 →</a>。</p><h1>卡面、原色与数字结构。</h1><p>独立实验验收。已验收首页、四层 Global、Personal、粒子与时间轴保持原样。卡面展示支持正向、反向、暂停与倾斜。</p>
+<nav><a href="../../prototype/experiments/card-particle.html?p=.66">高清卡面实验 ↗</a><a href="../../prototype/experiments/brand-color.html">AI 品牌 A/B ↗</a><a href="../../prototype/experiments/global-materials.html">首批素材 ↗</a><a href="../../docs/GLOBAL-CARD-LAB.md">完整报告</a><a href="results.json">原始实测数据</a></nav>
+<h2>清晰度：直接取样原图</h2><p>默认 Monzo 原图 1230×786，最大显示 615×393 CSS px，DPR 2 对应完整原始像素。不再经过中间缩图，并修正透视 UV 插值。下图可打开查看原始截图。</p>
+<figure><a href="clarity-native-2x.png"><img src="clarity-native-2x.png" alt="DPR 2 的 Monzo 原生纹理清晰阶段"></a><figcaption>1440×900 CSS 窗口，2880×1800 背板。卡面无卡号、姓名。</figcaption></figure>
+<p>Bybit 1600×900 宣传图内的卡面有效宽度只有约 450–500px；限制到 440 CSS px，高清正面仍待补。Starryblu 原图 232×145，明确标为低分辨率样张。两者没有通过 AI 放大冒充高清。</p>
+<h2>白底四层空间 · 两种独立草案</h2><div class="pair"><figure><a href="../../prototype/experiments/card-particle.html?view=layer&amp;p=.66"><img src="layer-color-hold.png" alt="账户层浮出彩色卡面"></a><figcaption>账户浮出：白底结构保留，卡面局部抬升，接入影响较小。</figcaption></figure><figure><a href="../../prototype/experiments/card-particle.html?view=portal&amp;p=.66"><img src="portal-color-hold.png" alt="白底四层结构与局部黑色取景窗口"></a><figcaption>暗场取景：以局部黑色窗口容纳粒子和彩色卡面，外围保留白底。</figcaption></figure></div>
+<h2>连续阶段 · 可正反向重现</h2><p>每张素材记录 12 个进度；反向定位时 WebGL framebuffer 哈希一致。点击下图查看大图。每格标注进度。</p>
+<figure><a href="monzo-sequence.jpg"><img loading="lazy" src="monzo-sequence.jpg" alt="Monzo 从数据聚合到清晰卡面再解构的十二阶段"></a><figcaption>Monzo / Mastercard · 官方透明原图，主要高清验证素材。</figcaption></figure>
+<figure><a href="bybit-sequence.jpg"><img loading="lazy" src="bybit-sequence.jpg" alt="Bybit 卡面十二阶段"></a><figcaption>Bybit / Georgia · 官方发布图透视取样；有效分辨率受来源限制。</figcaption></figure>
+<figure><a href="starryblu-sequence.jpg"><img loading="lazy" src="starryblu-sequence.jpg" alt="Starryblu 低分辨率样张十二阶段"></a><figcaption>Starryblu · 低分辨率官网样张，显示前遮蔽演示数字与姓名；官网注明卡项目仍在筹备。</figcaption></figure>
+<h2>品牌与素材</h2><p>WorkBuddy 与 Muse 保留官方原色。A 为白色名称，悬停 / 聚焦才出现原色；B 默认原色。Grok Bot 未确认独立标志，继续文字。未把原色素材强制变白。来源、使用边界见 <a href="../../assets/global/SOURCES.md">素材来源记录</a>。</p>
+<div class="pair"><figure><a href="../../prototype/experiments/brand-color.html"><img loading="lazy" src="brands.png" alt="AI 品牌原色 A/B 对照"></a><figcaption>实际页面截图；首页尚未应用这些候选。</figcaption></figure><figure><a href="../../prototype/experiments/global-materials.html"><img loading="lazy" src="materials.png" alt="三张卡面与两个通信标识的来源审查"></a><figcaption>三张卡面 + Club Sim、SMART。公开资源按权利保留登记。</figcaption></figure></div>
+<h2>实际运行</h2><p>Chromium 153 / Windows / RTX 4080 Laptop / ANGLE D3D11。聚合阶段各采样 150 帧；下列是应用回调成本及 rAF 节奏，不代表所有设备的显示帧率。</p>
+<table><thead><tr><th>窗口</th><th>CPU 平均 / p95</th><th>rAF 次数/秒</th><th>采样长任务</th></tr></thead><tbody><tr><td>1920×1080</td><td>0.156 / 0.300ms</td><td>238.4</td><td>0</td></tr><tr><td>1440×900</td><td>0.176 / 0.300ms</td><td>238.4</td><td>0</td></tr><tr><td>1366×768</td><td>0.249 / 0.400ms</td><td>238.4</td><td>0</td></tr></tbody></table>
+<p>650ms 静止阶段无新增帧调度或绘制。GPU Draw 各 100 次：点阵平均 0.0195ms，纹理面平均 0.0294ms；该数据不含清屏与浏览器合成。完整 p95、原始样本及资源检查见 JSON。</p>
+<p>已检查鼠标、键盘、拖动进度、正反播放、触摸、Resize、DPR 2、减少动态效果、无 WebGL、Context 丢失 / 恢复和 file:// 静态提示。未测试真实手机、Safari、Firefox 与低端 GPU。已有首页通过源文件与素材不变检查，本轮未重复其完整浏览器验收。</p>
+<p><a href="../../docs/GLOBAL-CARD-LAB.md">实现与验收说明</a> · <a href="../../prototype/prototype-02.html">返回已验收 Prototype 02</a></p>
+</main></body></html>

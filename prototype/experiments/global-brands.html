@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NANFEILAOTOU / Global 品牌原色</title><link rel="stylesheet" href="lab.css">
+<style>
+.brand-samples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin-top:44px}.brand-sample{border-top:1px solid #555;padding-top:20px;min-width:0}.brand-stage{height:146px;display:flex;align-items:center;justify-content:center;border:1px solid #323535;background:#121718;overflow:hidden}.brand-stage.light{background:#eeeDE9}.brand-stage img{width:auto;height:auto;max-width:210px;max-height:65px;object-fit:contain}.brand-stage img.padded{max-width:none;max-height:none;width:280px;height:280px}.brand-stage img.club{max-width:105px}.brand-stage img.grok{height:70px;max-height:70px}.brand-sample h2{font-size:20px;margin:20px 0 8px}.brand-sample p{font-size:12px;line-height:1.9;color:#999}.brand-sample a{font-size:11px}@media(max-width:650px){.brand-samples{grid-template-columns:1fr}}
+</style></head><body><main class="sheet">
+<nav class="lab-nav"><a href="../prototype-02.html">NANFEILAOTOU / GLOBAL STUDIES</a><span><a href="global-materials.html">卡面素材</a><a href="card-particle.html">粒子实验 ↗</a></span></nav>
+<h1>现实服务，保留它们的颜色。</h1><p>透明原色品牌与黑白网络骨架共存。根据官方颜色选择浅底或深底，不用滤镜强制改色；本页只审查素材，没有接入正式 Global。AI 章节继续维持现有黑白呈现。</p>
+<div id="brands" class="brand-samples"></div>
+<footer>Grok Bot 为本轮用户提供的本地候选，其官方出处未单独确认。其他素材来自官方网页或媒体包。<a href="../../assets/cards/SOURCES.md">本轮来源与使用记录</a> · <a href="brand-color.html">AI 原色候选对照</a></footer>
+</main><script src="../../data/global-materials.js"></script><script>
+for(const item of NF_GLOBAL_BRANDS){
+ const row=document.createElement('article');row.className='brand-sample';
+ const stage=document.createElement('div');stage.className='brand-stage '+(item.background==='light'?'light':'');
+ const image=new Image();image.src='../../assets/'+item.asset;image.alt=item.name;image.className=(item.padded?'padded ':'' )+(item.name==='Club Sim'?'club':'')+(item.name==='Grok Bot'?'grok':'');if(item.name==='iFAST Global Bank')image.style.cssText='width:160px;max-height:none';if(item.padded)image.style.width=image.style.height='200px';stage.append(image);
+ const heading=document.createElement('h2');heading.textContent=item.name;
+ const provider=document.createElement('div');provider.className='mono';provider.textContent=item.provider;
+ const note=document.createElement('p');note.textContent=item.note;
+ const source=document.createElement('a');source.href=item.sourcePage;source.textContent=item.name==='Grok Bot'?'本地提供记录 ↗':'官方来源 ↗';source.target='_blank';source.rel='noopener noreferrer';
+ row.append(stage,heading,provider,note,source);document.getElementById('brands').append(row);
+}
+</script></body></html>

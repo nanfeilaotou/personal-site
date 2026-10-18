@@ -1,0 +1,16 @@
+# Preserve the complete input snapshot byte-for-byte on Windows checkouts.
+prototype/prototype-01.html -text
+assets/brands/*.svg text eol=lf
+assets/brands/workbuddy-color.svg -text
+assets/brands/muse-color.svg -text
+assets/global/brands/*.svg -text
+assets/brands/*-color.svg -text
+assets/global/network/*.svg -text
+# Vendor licence texts retain upstream bytes, including incidental line-end spaces.
+assets/global/network/licenses/* -text -whitespace
+# Retain Google's original SVG line endings byte-for-byte, as downloaded.
+assets/global/brands/google-pay.svg -whitespace
+# Official social artwork retains the original download bytes.
+assets/global/social/*.svg -text
+# Illustrator source archives are binary originals, never text-normalised.
+assets/global/social/source-files/*.ai binary

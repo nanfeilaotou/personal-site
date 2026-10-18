@@ -1,0 +1,563 @@
+{
+  "date": "2026-10-17",
+  "baseline": "b47ac3e",
+  "checks": [
+    {
+      "name": "protected motion / text / old art",
+      "detail": "unchanged shaders, node projection/drawing, 10.58 timeline, Global/Personal/card module and product text; root index and original monochrome assets retained"
+    },
+    {
+      "name": "63 entry checks / native details",
+      "detail": "all 21 entries × three desktop sizes load, keep marker bounds, use unfiltered native detail art, close back to mono, and avoid visible mark overlap"
+    },
+    {
+      "name": "one active target / catalog / navigation",
+      "detail": "pinning prevents other hover colours; panel handoff, 21 native catalog icons, keyboard, rapid navigation, refresh/history and resize checked"
+    },
+    {
+      "name": "opening / timeline / scene regression",
+      "detail": "seven fixed scenes match baseline; intentional Agent DOM art excluded, motion and four-layer Global retained"
+    },
+    {
+      "name": "DPR / reduced / touch / failure",
+      "detail": "DPR 2, reduced transition, touch selection and failed colour layer fallback checked"
+    },
+    {
+      "name": "console / resources",
+      "detail": "no unexpected errors or failed loads in normal previews"
+    }
+  ],
+  "entries": [
+    {
+      "id": "gpt",
+      "name": "GPT / ChatGPT",
+      "expected": "openai.svg",
+      "hasColor": false,
+      "variant": "static",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/openai.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 817.639892578125,
+        "y": 206.3648681640625,
+        "width": 143.72021484375,
+        "height": 100.270263671875,
+        "top": 206.3648681640625,
+        "right": 961.360107421875,
+        "bottom": 306.6351318359375,
+        "left": 817.639892578125
+      }
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "expected": "claude-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/claude-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 1047.1539306640625,
+        "y": 266.068603515625,
+        "width": 150.1507568359375,
+        "height": 104.75668334960938,
+        "top": 266.068603515625,
+        "right": 1197.3046875,
+        "bottom": 370.8252868652344,
+        "left": 1047.1539306640625
+      }
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "expected": "grok.svg",
+      "hasColor": false,
+      "variant": "static",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/grok.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 1153.49365234375,
+        "y": 413.0005798339844,
+        "width": 157.66455078125,
+        "height": 109.99887084960938,
+        "top": 413.0005798339844,
+        "right": 1311.158203125,
+        "bottom": 522.9994506835938,
+        "left": 1153.49365234375
+      }
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "expected": "gemini-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/gemini-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 1056.392578125,
+        "y": 561.090087890625,
+        "width": 161.860107421875,
+        "height": 112.926025390625,
+        "top": 561.090087890625,
+        "right": 1218.252685546875,
+        "bottom": 674.01611328125,
+        "left": 1056.392578125
+      }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "expected": "deepseek-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/deepseek-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 809.360107421875,
+        "y": 623.5882568359375,
+        "width": 160.27978515625,
+        "height": 111.823486328125,
+        "top": 623.5882568359375,
+        "right": 969.639892578125,
+        "bottom": 735.4117431640625,
+        "left": 809.360107421875
+      }
+    },
+    {
+      "id": "glm",
+      "name": "GLM",
+      "expected": "zai.svg",
+      "hasColor": false,
+      "variant": "static",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/zai.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 575.0786743164062,
+        "y": 563.8845825195312,
+        "width": 153.84930419921875,
+        "height": 107.33709716796875,
+        "top": 563.8845825195312,
+        "right": 728.927978515625,
+        "bottom": 671.2216796875,
+        "left": 575.0786743164062
+      }
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "expected": "qwen-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/qwen-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 494.1581726074219,
+        "y": 416.9525451660156,
+        "width": 146.33547973632812,
+        "height": 102.09487915039062,
+        "top": 416.9525451660156,
+        "right": 640.49365234375,
+        "bottom": 519.0474243164062,
+        "left": 494.1581726074219
+      }
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "expected": "kimi-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/kimi-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 596.0266723632812,
+        "y": 268.8630676269531,
+        "width": 142.13995361328125,
+        "height": 99.167724609375,
+        "top": 268.8630676269531,
+        "right": 738.1666259765625,
+        "bottom": 368.0307922363281,
+        "left": 596.0266723632812
+      }
+    },
+    {
+      "id": "local-qwen",
+      "name": "Qwen",
+      "expected": "qwen-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/qwen-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 957.5999755859375,
+        "y": 242.9765625,
+        "width": 152,
+        "height": 106.046875,
+        "top": 242.9765625,
+        "right": 1109.5999755859375,
+        "bottom": 349.0234375,
+        "left": 957.5999755859375
+      }
+    },
+    {
+      "id": "lmstudio",
+      "name": "LM Studio",
+      "expected": "lmstudio-color.webp",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/lmstudio-color.webp",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 957.5999755859375,
+        "y": 333.9765625,
+        "width": 152,
+        "height": 106.046875,
+        "top": 333.9765625,
+        "right": 1109.5999755859375,
+        "bottom": 440.0234375,
+        "left": 957.5999755859375
+      }
+    },
+    {
+      "id": "comfyui",
+      "name": "ComfyUI",
+      "expected": "comfyui-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/comfyui-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 957.5999755859375,
+        "y": 424.9765625,
+        "width": 152,
+        "height": 106.046875,
+        "top": 424.9765625,
+        "right": 1109.5999755859375,
+        "bottom": 531.0234375,
+        "left": 957.5999755859375
+      }
+    },
+    {
+      "id": "codex",
+      "name": "OpenAI Codex",
+      "expected": "codex-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/codex-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 439.75799560546875,
+        "y": 290.7263488769531,
+        "width": 146.9840087890625,
+        "height": 102.54733276367188,
+        "top": 290.7263488769531,
+        "right": 586.7420043945312,
+        "bottom": 393.273681640625,
+        "left": 439.75799560546875
+      }
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "expected": "claudecode-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/claudecode-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 474.75799560546875,
+        "y": 542.726318359375,
+        "width": 146.9840087890625,
+        "height": 102.54730224609375,
+        "top": 542.726318359375,
+        "right": 621.7420043945312,
+        "bottom": 645.2736206054688,
+        "left": 474.75799560546875
+      }
+    },
+    {
+      "id": "dsh",
+      "name": "DeepSeek Harness（DSH）",
+      "expected": "dsh-fish.svg",
+      "hasColor": false,
+      "variant": "static",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/dsh-fish.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 624.4415283203125,
+        "y": 303.49664306640625,
+        "width": 149.49200439453125,
+        "height": 121.554443359375,
+        "top": 303.49664306640625,
+        "right": 773.9335327148438,
+        "bottom": 425.05108642578125,
+        "left": 624.4415283203125
+      }
+    },
+    {
+      "id": "zcode",
+      "name": "ZCode",
+      "expected": "zcode.svg",
+      "hasColor": false,
+      "variant": "static",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/zcode.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 659.4415283203125,
+        "y": 564.1253051757812,
+        "width": 149.49200439453125,
+        "height": 104.297119140625,
+        "top": 564.1253051757812,
+        "right": 808.9335327148438,
+        "bottom": 668.4224243164062,
+        "left": 659.4415283203125
+      }
+    },
+    {
+      "id": "workbuddy",
+      "name": "Tencent WorkBuddy",
+      "expected": "workbuddy-color.svg",
+      "hasColor": true,
+      "variant": "shared",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": "grayscale(0) brightness(1)",
+      "panelSource": "../assets/brands/workbuddy-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 809.125,
+        "y": 320.4765625,
+        "width": 152,
+        "height": 106.046875,
+        "top": 320.4765625,
+        "right": 961.125,
+        "bottom": 426.5234375,
+        "left": 809.125
+      }
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes Agent",
+      "expected": "hermesagent.svg",
+      "hasColor": false,
+      "variant": "static",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/hermesagent.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 844.125,
+        "y": 572.4765625,
+        "width": 152,
+        "height": 106.046875,
+        "top": 572.4765625,
+        "right": 996.125,
+        "bottom": 678.5234375,
+        "left": 844.125
+      }
+    },
+    {
+      "id": "antigravity",
+      "name": "Google Antigravity",
+      "expected": "antigravity-color.svg",
+      "hasColor": true,
+      "variant": "dual",
+      "monoOpacity": "0",
+      "colorOpacity": "1",
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/antigravity-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 993.8084716796875,
+        "y": 310.37554931640625,
+        "width": 154.5079345703125,
+        "height": 107.796630859375,
+        "top": 310.37554931640625,
+        "right": 1148.31640625,
+        "bottom": 418.17218017578125,
+        "left": 993.8084716796875
+      }
+    },
+    {
+      "id": "grokbot",
+      "name": "Grok Bot",
+      "expected": "grok-bot-provided.png",
+      "hasColor": true,
+      "variant": "shared",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": "grayscale(0) brightness(1)",
+      "panelSource": "../assets/brands/grok-bot-provided.png",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 1028.8084716796875,
+        "y": 562.3755493164062,
+        "width": 154.5079345703125,
+        "height": 107.796630859375,
+        "top": 562.3755493164062,
+        "right": 1183.31640625,
+        "bottom": 670.1721801757812,
+        "left": 1028.8084716796875
+      }
+    },
+    {
+      "id": "muse",
+      "name": "Muse",
+      "expected": "muse-color.svg",
+      "hasColor": true,
+      "variant": "shared",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": "grayscale(0) brightness(1)",
+      "panelSource": "../assets/brands/muse-color.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 1178.491943359375,
+        "y": 287.2267761230469,
+        "width": 157.0159912109375,
+        "height": 109.54641723632812,
+        "top": 287.2267761230469,
+        "right": 1335.5079345703125,
+        "bottom": 396.773193359375,
+        "left": 1178.491943359375
+      }
+    },
+    {
+      "id": "notion",
+      "name": "Notion AI",
+      "expected": "notion.svg",
+      "hasColor": false,
+      "variant": "static",
+      "monoOpacity": null,
+      "colorOpacity": null,
+      "sharedFilter": null,
+      "panelSource": "../assets/brands/notion.svg",
+      "panelLoaded": true,
+      "panelFilter": "none",
+      "rect": {
+        "x": 1213.491943359375,
+        "y": 539.226806640625,
+        "width": 157.0159912109375,
+        "height": 109.54644775390625,
+        "top": 539.226806640625,
+        "right": 1370.5079345703125,
+        "bottom": 648.7732543945312,
+        "left": 1213.491943359375
+      }
+    }
+  ],
+  "regression": [
+    {
+      "scene": 0,
+      "changedChannels": 0,
+      "outsideMarkChannels": 0,
+      "note": "Full frame comparison"
+    },
+    {
+      "scene": 0.72,
+      "changedChannels": 0,
+      "outsideMarkChannels": 0,
+      "note": "Full frame comparison"
+    },
+    {
+      "scene": 3.65,
+      "changedChannels": 1116,
+      "outsideMarkChannels": 0,
+      "note": "Original mono files and marker coordinates retained; isolated image-compositing edge raster differences recorded separately"
+    },
+    {
+      "scene": 5.97,
+      "changedChannels": 0,
+      "outsideMarkChannels": 0,
+      "note": "Original mono files and marker coordinates retained; isolated image-compositing edge raster differences recorded separately"
+    },
+    {
+      "scene": 7.42,
+      "changedChannels": 0,
+      "outsideMarkChannels": 0,
+      "note": "Full frame comparison"
+    },
+    {
+      "scene": 9.97,
+      "changedChannels": 0,
+      "outsideMarkChannels": 0,
+      "note": "Full frame comparison"
+    },
+    {
+      "scene": 11.03,
+      "changedChannels": 0,
+      "outsideMarkChannels": 0,
+      "note": "Full frame comparison"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "browser": "153.0.8010.12",
+  "completed": true
+}

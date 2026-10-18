@@ -1,0 +1,641 @@
+{
+  "date": "2026-10-17",
+  "environment": "Windows / headless Chromium / local desktop",
+  "checks": [
+    {
+      "name": "GL pixel regression 1920×1080 s=0",
+      "detail": "identical SHA256; repulsion/recovery checked at s=0"
+    },
+    {
+      "name": "GL pixel regression 1440×900 s=0",
+      "detail": "identical SHA256; repulsion/recovery checked at s=0"
+    },
+    {
+      "name": "GL pixel regression 1440×900 s=0.32",
+      "detail": "identical SHA256; repulsion/recovery checked at s=0"
+    },
+    {
+      "name": "GL pixel regression 1440×900 s=0.72",
+      "detail": "identical SHA256; repulsion/recovery checked at s=0"
+    },
+    {
+      "name": "GL pixel regression 1366×768 s=0",
+      "detail": "identical SHA256; repulsion/recovery checked at s=0"
+    },
+    {
+      "name": "local logo loading",
+      "detail": "all local node SVG assets loaded; 3 intentional name marks"
+    },
+    {
+      "name": "hover / focus / pin / small-scroll / Escape",
+      "detail": "inspector remains usable across pointer gap and 35px scroll"
+    },
+    {
+      "name": "navigation / URL hash / browser back / refresh",
+      "detail": "stable stops; refresh preserves manual scroll even when URL retains a chapter hash"
+    },
+    {
+      "name": "random seek / reverse / mid-animation pause",
+      "detail": "16 positions reproduce the same transforms and chapter state"
+    },
+    {
+      "name": "wheel / continuous small deltas / rapid reversals",
+      "detail": "single interpolated timeline settles at scroll position"
+    },
+    {
+      "name": "complete keyboard-accessible content index",
+      "detail": "21 entries with official sources and product links"
+    },
+    {
+      "name": "10 resize cycles",
+      "detail": "one WebGL context / one point buffer / fixed DOM count; no repeated allocations"
+    },
+    {
+      "name": "WebGL loss / restore",
+      "detail": "fallback wordmark and restored buffer"
+    },
+    {
+      "name": "WebGL unavailable",
+      "detail": "readable opening wordmark and fully usable content"
+    },
+    {
+      "name": "prefers-reduced-motion",
+      "detail": "no animated navigation or idle time motion; all content readable"
+    },
+    {
+      "name": "390px mobile / touch access",
+      "detail": "all nodes stay in viewport; tap opens pinned inspector without covering the trigger"
+    },
+    {
+      "name": "HiDPI cap",
+      "detail": "device DPR 2.5 uses canvas DPR 2"
+    },
+    {
+      "name": "fresh hash / manual-scroll refresh",
+      "detail": "hash initially seeks Agent hold; refresh retains subsequent manual Local position"
+    },
+    {
+      "name": "mouse inspector after touch fix",
+      "detail": "hover and pointer transfer remain usable"
+    },
+    {
+      "name": "file:// direct preview",
+      "detail": "local data scripts and SVGs load without fetch"
+    },
+    {
+      "name": "logo load failure",
+      "detail": "visible product name and working inspector remain after an intentionally aborted SVG request"
+    },
+    {
+      "name": "console / network",
+      "detail": "no unexpected errors or HTTP failures; broken SVG tested separately"
+    },
+    {
+      "name": "GPU timer query",
+      "detail": "120 point-draw samples per desktop resolution; draw-only GPU timing excludes clear/compositing"
+    }
+  ],
+  "regression": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "s": 0,
+      "results": [
+        {
+          "version": "01",
+          "neutral": {
+            "sha256": "5674423de8624128c1ec551beea85bf53f2e44bd7d4befa5d23b102c345f5b3e",
+            "nonzero": 395780
+          },
+          "repelled": {
+            "sha256": "c99c14da1ea5c6f8cfe272fdea87cf712f21f2a6a75312bbfa03e19830829c0d",
+            "nonzero": 408212
+          },
+          "restored": {
+            "sha256": "5674423de8624128c1ec551beea85bf53f2e44bd7d4befa5d23b102c345f5b3e",
+            "nonzero": 395780
+          }
+        },
+        {
+          "version": "02",
+          "neutral": {
+            "sha256": "5674423de8624128c1ec551beea85bf53f2e44bd7d4befa5d23b102c345f5b3e",
+            "nonzero": 395780
+          },
+          "repelled": {
+            "sha256": "c99c14da1ea5c6f8cfe272fdea87cf712f21f2a6a75312bbfa03e19830829c0d",
+            "nonzero": 408212
+          },
+          "restored": {
+            "sha256": "5674423de8624128c1ec551beea85bf53f2e44bd7d4befa5d23b102c345f5b3e",
+            "nonzero": 395780
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "s": 0,
+      "results": [
+        {
+          "version": "01",
+          "neutral": {
+            "sha256": "202029f0c168b8eb32732fc221ecb653e7fe176cf91576a654c5f8df6aa55009",
+            "nonzero": 279168
+          },
+          "repelled": {
+            "sha256": "e367e06b3f37171a98ac50498f53c3a11c870f0f25cfa9ece28a668f156363bf",
+            "nonzero": 292404
+          },
+          "restored": {
+            "sha256": "202029f0c168b8eb32732fc221ecb653e7fe176cf91576a654c5f8df6aa55009",
+            "nonzero": 279168
+          }
+        },
+        {
+          "version": "02",
+          "neutral": {
+            "sha256": "202029f0c168b8eb32732fc221ecb653e7fe176cf91576a654c5f8df6aa55009",
+            "nonzero": 279168
+          },
+          "repelled": {
+            "sha256": "e367e06b3f37171a98ac50498f53c3a11c870f0f25cfa9ece28a668f156363bf",
+            "nonzero": 292404
+          },
+          "restored": {
+            "sha256": "202029f0c168b8eb32732fc221ecb653e7fe176cf91576a654c5f8df6aa55009",
+            "nonzero": 279168
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "s": 0.32,
+      "results": [
+        {
+          "version": "01",
+          "neutral": {
+            "sha256": "8518b3d74af7d4ac28c16a3d40edf736e651a1fe1337b1ef38d7bfe317967ec5",
+            "nonzero": 381308
+          }
+        },
+        {
+          "version": "02",
+          "neutral": {
+            "sha256": "8518b3d74af7d4ac28c16a3d40edf736e651a1fe1337b1ef38d7bfe317967ec5",
+            "nonzero": 381308
+          }
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "s": 0.72,
+      "results": [
+        {
+          "version": "01",
+          "neutral": {
+            "sha256": "c7adea7331c8e785b51c02ff97e441e8ad00b1d9b35202f4d73527d723d594ea",
+            "nonzero": 408460
+          }
+        },
+        {
+          "version": "02",
+          "neutral": {
+            "sha256": "c7adea7331c8e785b51c02ff97e441e8ad00b1d9b35202f4d73527d723d594ea",
+            "nonzero": 408460
+          }
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "s": 0,
+      "results": [
+        {
+          "version": "01",
+          "neutral": {
+            "sha256": "d3b54c13341ca86e0219f5eb0c189dea49c61a503b43d70d91f4b213f681f754",
+            "nonzero": 205296
+          },
+          "repelled": {
+            "sha256": "c3d23a19a5db6d83d61a7fbb20630266828bdce5fe0c3f6b2ef967e797ba2499",
+            "nonzero": 217828
+          },
+          "restored": {
+            "sha256": "d3b54c13341ca86e0219f5eb0c189dea49c61a503b43d70d91f4b213f681f754",
+            "nonzero": 205296
+          }
+        },
+        {
+          "version": "02",
+          "neutral": {
+            "sha256": "d3b54c13341ca86e0219f5eb0c189dea49c61a503b43d70d91f4b213f681f754",
+            "nonzero": 205296
+          },
+          "repelled": {
+            "sha256": "c3d23a19a5db6d83d61a7fbb20630266828bdce5fe0c3f6b2ef967e797ba2499",
+            "nonzero": 217828
+          },
+          "restored": {
+            "sha256": "d3b54c13341ca86e0219f5eb0c189dea49c61a503b43d70d91f4b213f681f754",
+            "nonzero": 205296
+          }
+        }
+      ]
+    }
+  ],
+  "performance": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "scene": "open",
+      "raf": {
+        "samples": 291,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.5
+      },
+      "callbackCpu": {
+        "samples": 291,
+        "mean": 0.272,
+        "p95": 0.4,
+        "max": 1.5
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 291,
+      "frames": 291,
+      "points": 41853,
+      "bufferBytes": 1506708
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scene": "models",
+      "raf": {
+        "samples": 290,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 290,
+        "mean": 0.311,
+        "p95": 0.5,
+        "max": 0.8
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 290,
+      "points": 41853,
+      "bufferBytes": 1506708
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scene": "local",
+      "raf": {
+        "samples": 289,
+        "mean": 4.166,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 289,
+        "mean": 0.311,
+        "p95": 0.5,
+        "max": 0.7
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 289,
+      "points": 41853,
+      "bufferBytes": 1506708
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scene": "agents",
+      "raf": {
+        "samples": 290,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.5
+      },
+      "callbackCpu": {
+        "samples": 290,
+        "mean": 0.235,
+        "p95": 0.3,
+        "max": 0.5
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 290,
+      "points": 41853,
+      "bufferBytes": 1506708
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scene": "global",
+      "raf": {
+        "samples": 291,
+        "mean": 4.166,
+        "p95": 4.3,
+        "max": 4.3
+      },
+      "callbackCpu": {
+        "samples": 291,
+        "mean": 0.354,
+        "p95": 0.5,
+        "max": 1
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 291,
+      "points": 41853,
+      "bufferBytes": 1506708
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scene": "open",
+      "raf": {
+        "samples": 290,
+        "mean": 4.166,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 290,
+        "mean": 0.221,
+        "p95": 0.3,
+        "max": 0.5
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 290,
+      "frames": 290,
+      "points": 29693,
+      "bufferBytes": 1068948
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scene": "models",
+      "raf": {
+        "samples": 290,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 290,
+        "mean": 0.258,
+        "p95": 0.4,
+        "max": 0.5
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 290,
+      "points": 29693,
+      "bufferBytes": 1068948
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scene": "local",
+      "raf": {
+        "samples": 291,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 291,
+        "mean": 0.355,
+        "p95": 0.6,
+        "max": 0.8
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 291,
+      "points": 29693,
+      "bufferBytes": 1068948
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scene": "agents",
+      "raf": {
+        "samples": 290,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 290,
+        "mean": 0.369,
+        "p95": 0.6,
+        "max": 0.8
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 290,
+      "points": 29693,
+      "bufferBytes": 1068948
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scene": "global",
+      "raf": {
+        "samples": 290,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 290,
+        "mean": 0.453,
+        "p95": 0.7,
+        "max": 0.9
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 290,
+      "points": 29693,
+      "bufferBytes": 1068948
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "scene": "open",
+      "raf": {
+        "samples": 290,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.3
+      },
+      "callbackCpu": {
+        "samples": 290,
+        "mean": 0.343,
+        "p95": 0.5,
+        "max": 0.6
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 290,
+      "frames": 290,
+      "points": 21930,
+      "bufferBytes": 789480
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "scene": "models",
+      "raf": {
+        "samples": 291,
+        "mean": 4.167,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 291,
+        "mean": 0.415,
+        "p95": 0.6,
+        "max": 0.7
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 291,
+      "points": 21930,
+      "bufferBytes": 789480
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "scene": "local",
+      "raf": {
+        "samples": 291,
+        "mean": 4.166,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 291,
+        "mean": 0.398,
+        "p95": 0.6,
+        "max": 0.7
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 291,
+      "points": 21930,
+      "bufferBytes": 789480
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "scene": "agents",
+      "raf": {
+        "samples": 291,
+        "mean": 4.166,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 291,
+        "mean": 0.437,
+        "p95": 0.7,
+        "max": 0.9
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 291,
+      "points": 21930,
+      "bufferBytes": 789480
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "scene": "global",
+      "raf": {
+        "samples": 289,
+        "mean": 4.166,
+        "p95": 4.3,
+        "max": 4.4
+      },
+      "callbackCpu": {
+        "samples": 289,
+        "mean": 0.465,
+        "p95": 0.7,
+        "max": 1.1
+      },
+      "observedFps": 240,
+      "longTasks": [],
+      "drawCalls": 0,
+      "frames": 289,
+      "points": 21930,
+      "bufferBytes": 789480
+    }
+  ],
+  "errors": [],
+  "failedResources": [],
+  "browser": "153.0.8010.12",
+  "webgl": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "bufferBytes": 1068948,
+    "gpuTimerAvailable": true
+  },
+  "completed": true,
+  "gpuDraw": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "available": true,
+      "disjoint": false,
+      "samples": 120,
+      "meanMs": 0.01960106666666667,
+      "p95Ms": 0.022528,
+      "maxMs": 0.422912
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "available": true,
+      "disjoint": false,
+      "samples": 120,
+      "meanMs": 0.017058133333333326,
+      "p95Ms": 0.02048,
+      "maxMs": 0.02048
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "available": true,
+      "disjoint": false,
+      "samples": 120,
+      "meanMs": 0.012902399999999986,
+      "p95Ms": 0.01536,
+      "maxMs": 0.017408
+    }
+  ]
+}

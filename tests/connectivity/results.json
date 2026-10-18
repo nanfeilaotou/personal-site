@@ -1,0 +1,359 @@
+{
+  "date": "2026-10-17",
+  "baseline": "6dc5250b60dc499b50fa49cf136bc8f5b71fd837",
+  "checks": [
+    {
+      "name": "official originals / provenance",
+      "detail": "five original file hashes, PNG dimensions/transparency, passive SVG, source/archive/member/limits/fallback records; Facebook editable source hash; no counterfeit or old Telegram logo"
+    },
+    {
+      "name": "protected files",
+      "detail": "AI, Global/Personal, intro, timeline, 64,000-point card module, data, all three card files and existing brand resources unchanged from baseline; pre-existing root index preserved"
+    },
+    {
+      "name": "three desktop reviews",
+      "detail": "19 material entries, four categories, carriers / primary phones / auxiliary social groups; all original marks readable on white, proper clear space/minimum sizes; no effects/crop/overflow; reload and local links work at DPR 2"
+    },
+    {
+      "name": "text / missing-image fallback",
+      "detail": "textOnly mode renders five original names without requesting their images; intentional WhatsApp image failure preserves the label"
+    },
+    {
+      "name": "console / resources",
+      "detail": "normal review has zero console/page errors and failed resources; intentional fallback error isolated"
+    },
+    {
+      "name": "handoff / links",
+      "detail": "79 relative and GitHub-branch file/image targets exist; three-card requirements and current immediate-select limitation explicitly documented as unimplemented"
+    }
+  ],
+  "views": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "icons": [
+        {
+          "id": "whatsapp",
+          "priority": "primary",
+          "src": "../../assets/global/social/whatsapp.svg",
+          "loaded": true,
+          "width": 64,
+          "height": 64,
+          "padding": [
+            197.328125,
+            32,
+            197.328125,
+            32
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "telegram",
+          "priority": "primary",
+          "src": "../../assets/global/social/telegram.svg",
+          "loaded": true,
+          "width": 64,
+          "height": 64,
+          "padding": [
+            197.328125,
+            32,
+            197.34375,
+            32
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "line",
+          "priority": "primary",
+          "src": "../../assets/global/social/line.png",
+          "loaded": true,
+          "width": 64,
+          "height": 63.921875,
+          "padding": [
+            197.328125,
+            32.03125,
+            197.328125,
+            32.046875
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "instagram",
+          "priority": "secondary",
+          "src": "../../assets/global/social/instagram.png",
+          "loaded": true,
+          "width": 48,
+          "height": 48,
+          "padding": [
+            205.328125,
+            40,
+            205.328125,
+            40
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "facebook",
+          "priority": "secondary",
+          "src": "../../assets/global/social/facebook.png",
+          "loaded": true,
+          "width": 48,
+          "height": 48,
+          "padding": [
+            205.328125,
+            40,
+            205.34375,
+            40
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        }
+      ],
+      "screenshot": "tests/connectivity/connectivity-1920.png"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 2,
+      "icons": [
+        {
+          "id": "whatsapp",
+          "priority": "primary",
+          "src": "../../assets/global/social/whatsapp.svg",
+          "loaded": true,
+          "width": 64,
+          "height": 64,
+          "padding": [
+            187.328125,
+            32,
+            187.328125,
+            32
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "telegram",
+          "priority": "primary",
+          "src": "../../assets/global/social/telegram.svg",
+          "loaded": true,
+          "width": 64,
+          "height": 64,
+          "padding": [
+            187.328125,
+            32,
+            187.34375,
+            32
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "line",
+          "priority": "primary",
+          "src": "../../assets/global/social/line.png",
+          "loaded": true,
+          "width": 64,
+          "height": 63.921875,
+          "padding": [
+            187.328125,
+            32.03125,
+            187.328125,
+            32.046875
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "instagram",
+          "priority": "secondary",
+          "src": "../../assets/global/social/instagram.png",
+          "loaded": true,
+          "width": 48,
+          "height": 48,
+          "padding": [
+            195.328125,
+            40,
+            195.328125,
+            40
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "facebook",
+          "priority": "secondary",
+          "src": "../../assets/global/social/facebook.png",
+          "loaded": true,
+          "width": 48,
+          "height": 48,
+          "padding": [
+            195.328125,
+            40,
+            195.34375,
+            40
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        }
+      ],
+      "screenshot": "docs/global-visual/connectivity-platforms.png"
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 2,
+      "icons": [
+        {
+          "id": "whatsapp",
+          "priority": "primary",
+          "src": "../../assets/global/social/whatsapp.svg",
+          "loaded": true,
+          "width": 64,
+          "height": 64,
+          "padding": [
+            175,
+            32,
+            175,
+            32
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "telegram",
+          "priority": "primary",
+          "src": "../../assets/global/social/telegram.svg",
+          "loaded": true,
+          "width": 64,
+          "height": 64,
+          "padding": [
+            175,
+            32,
+            175,
+            32
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "line",
+          "priority": "primary",
+          "src": "../../assets/global/social/line.png",
+          "loaded": true,
+          "width": 64,
+          "height": 63.921875,
+          "padding": [
+            175,
+            32.03125,
+            175,
+            32.046875
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "instagram",
+          "priority": "secondary",
+          "src": "../../assets/global/social/instagram.png",
+          "loaded": true,
+          "width": 48,
+          "height": 48,
+          "padding": [
+            183,
+            40,
+            183,
+            40
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        },
+        {
+          "id": "facebook",
+          "priority": "secondary",
+          "src": "../../assets/global/social/facebook.png",
+          "loaded": true,
+          "width": 48,
+          "height": 48,
+          "padding": [
+            183,
+            40,
+            183,
+            40
+          ],
+          "background": "rgb(255, 255, 255)",
+          "filter": "none",
+          "transform": "none",
+          "animation": "none",
+          "blend": "normal",
+          "shadow": "none"
+        }
+      ],
+      "screenshot": "tests/connectivity/connectivity-1366.png"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "completed": true
+}

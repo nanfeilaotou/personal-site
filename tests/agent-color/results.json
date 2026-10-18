@@ -1,0 +1,2408 @@
+{
+  "date": "2026-10-17",
+  "head": "b47ac3e",
+  "checks": [
+    {
+      "name": "protected source / assets / uncommitted work",
+      "detail": "home shader/background/motion, node projection and drawing, timeline 10.58, model/Local data, seven original Agents, Global/Personal and all card files unchanged; HEAD fixed and staging empty"
+    },
+    {
+      "name": "A / B / C at three sizes",
+      "detail": "all ten names and one image per node load; no clipping or overlapping hit targets; all three modes share identical projected positions"
+    },
+    {
+      "name": "smooth colour / panel / click / Escape / Tab",
+      "detail": "measured intermediate filter value, unchanged image rectangle, mouse handoff into details, pinned colour, ten sequential Tab targets, and original source status"
+    },
+    {
+      "name": "no event or DOM growth",
+      "detail": "random scene seeks and five resizes retain the same 21 nodes and one listener of each original interaction type per Agent"
+    },
+    {
+      "name": "sixteen visual regressions",
+      "detail": "baseline-vs-current opening, models, Local, bridge, Global and Personal images match; Agent Canvas/WebGL geometry compared with its intentionally changed DOM hidden"
+    },
+    {
+      "name": "navigation / refresh",
+      "detail": "rapid models→Global→Agents navigation reaches its stable anchor and keeps the selected colour mode on refresh"
+    },
+    {
+      "name": "resource failure fallback",
+      "detail": "three intentionally failed image responses still leave readable, clickable names; expected network failures isolated from normal console results"
+    },
+    {
+      "name": "HiDPI / reduced motion / touch",
+      "detail": "DPR 2 original-image rendering, zero-transition reduce mode, and touch selection of integrated icons checked"
+    },
+    {
+      "name": "performance",
+      "detail": "200 warmed RAF callback CPU samples for baseline and current stable scene; observed cadence and long tasks retained without FPS guarantees"
+    },
+    {
+      "name": "console / resources",
+      "detail": "all normal preview paths have zero browser errors or failed responses"
+    },
+    {
+      "name": "unified review / default mode",
+      "detail": "all review images and local links load; shared-component A/B/C keyboard and hover operate; no review WebGL contexts; missing/invalid mode uses B"
+    }
+  ],
+  "modes": [
+    {
+      "letter": "A",
+      "mode": "mono",
+      "width": 1920,
+      "height": 1080,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(680.77px, 410.4px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 607.2780151367188,
+            "y": 359.1263427734375,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(729.21px, 712.8px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 655.718017578125,
+            "y": 661.5263061523438,
+            "w": 146.9840087890625,
+            "h": 102.54730224609375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(938.107px, 437.129px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 863.3614501953125,
+            "y": 376.3514099121094,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(986.547px, 739.529px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 911.801513671875,
+            "y": 687.3800659179688,
+            "w": 149.491943359375,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(1195.45px, 448.2px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 1119.4449462890625,
+            "y": 395.17657470703125,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.05)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(1243.88px, 750.6px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 1167.885009765625,
+            "y": 697.5765380859375,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1452.78px, 437.129px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1375.5284423828125,
+            "y": 383.2303161621094,
+            "w": 154.5079345703125,
+            "h": 107.79666137695312
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1501.22px, 739.529px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1423.968505859375,
+            "y": 685.6303100585938,
+            "w": 154.508056640625,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1710.12px, 410.4px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1631.612060546875,
+            "y": 355.62677001953125,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.7)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1758.56px, 712.8px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1680.052001953125,
+            "y": 658.0267944335938,
+            "w": 157.0159912109375,
+            "h": 109.54644775390625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(1) brightness(1.05)",
+          "rect": {
+            "x": 1177.0699462890625,
+            "y": 406.81719970703125,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(1) brightness(1)",
+          "rect": {
+            "x": 1482.90966796875,
+            "y": 697.8283081054688,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(1) brightness(1.7)",
+          "rect": {
+            "x": 1687.797607421875,
+            "y": 364.3104248046875,
+            "w": 44.6126708984375,
+            "h": 44.612701416015625
+          }
+        }
+      ]
+    },
+    {
+      "letter": "B",
+      "mode": "interactive",
+      "width": 1920,
+      "height": 1080,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(680.77px, 410.4px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 607.2780151367188,
+            "y": 359.1263427734375,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(729.21px, 712.8px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 655.718017578125,
+            "y": 661.5263061523438,
+            "w": 146.9840087890625,
+            "h": 102.54730224609375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(938.107px, 437.129px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 863.3614501953125,
+            "y": 376.3514099121094,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(986.547px, 739.529px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 911.801513671875,
+            "y": 687.3800659179688,
+            "w": 149.491943359375,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(1195.45px, 448.2px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 1119.4449462890625,
+            "y": 395.17657470703125,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.05)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(1243.88px, 750.6px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 1167.885009765625,
+            "y": 697.5765380859375,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1452.78px, 437.129px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1375.5284423828125,
+            "y": 383.2303161621094,
+            "w": 154.5079345703125,
+            "h": 107.79666137695312
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1501.22px, 739.529px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1423.968505859375,
+            "y": 685.6303100585938,
+            "w": 154.508056640625,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1710.12px, 410.4px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1631.612060546875,
+            "y": 355.62677001953125,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.7)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1758.56px, 712.8px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1680.052001953125,
+            "y": 658.0267944335938,
+            "w": 157.0159912109375,
+            "h": 109.54644775390625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(1) brightness(1.05)",
+          "rect": {
+            "x": 1177.0699462890625,
+            "y": 406.81719970703125,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(1) brightness(1)",
+          "rect": {
+            "x": 1482.90966796875,
+            "y": 697.8283081054688,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(1) brightness(1.7)",
+          "rect": {
+            "x": 1687.797607421875,
+            "y": 364.3104248046875,
+            "w": 44.6126708984375,
+            "h": 44.612701416015625
+          }
+        }
+      ]
+    },
+    {
+      "letter": "C",
+      "mode": "accent",
+      "width": 1920,
+      "height": 1080,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(680.77px, 410.4px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 607.2780151367188,
+            "y": 359.1263427734375,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(729.21px, 712.8px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 655.718017578125,
+            "y": 661.5263061523438,
+            "w": 146.9840087890625,
+            "h": 102.54730224609375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(938.107px, 437.129px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 863.3614501953125,
+            "y": 376.3514099121094,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(986.547px, 739.529px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 911.801513671875,
+            "y": 687.3800659179688,
+            "w": 149.491943359375,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(1195.45px, 448.2px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 1119.4449462890625,
+            "y": 395.17657470703125,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(1243.88px, 750.6px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 1167.885009765625,
+            "y": 697.5765380859375,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1452.78px, 437.129px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1375.5284423828125,
+            "y": 383.2303161621094,
+            "w": 154.5079345703125,
+            "h": 107.79666137695312
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1501.22px, 739.529px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1423.968505859375,
+            "y": 685.6303100585938,
+            "w": 154.508056640625,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1710.12px, 410.4px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1631.612060546875,
+            "y": 355.62677001953125,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1758.56px, 712.8px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1680.052001953125,
+            "y": 658.0267944335938,
+            "w": 157.0159912109375,
+            "h": 109.54644775390625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 1177.0699462890625,
+            "y": 406.81719970703125,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 1482.90966796875,
+            "y": 697.8283081054688,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 1687.797607421875,
+            "y": 364.3104248046875,
+            "w": 44.6126708984375,
+            "h": 44.612701416015625
+          }
+        }
+      ]
+    },
+    {
+      "letter": "A",
+      "mode": "mono",
+      "width": 1440,
+      "height": 900,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(513.25px, 342px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 439.75799560546875,
+            "y": 290.7263488769531,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(548.25px, 594px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 474.75799560546875,
+            "y": 542.726318359375,
+            "w": 146.9840087890625,
+            "h": 102.54730224609375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(699.188px, 364.274px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 624.4415283203125,
+            "y": 303.49664306640625,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(734.188px, 616.274px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 659.4415283203125,
+            "y": 564.1253051757812,
+            "w": 149.49200439453125,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(885.125px, 373.5px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 809.125,
+            "y": 320.4765625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.05)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(920.125px, 625.5px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 844.125,
+            "y": 572.4765625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1071.06px, 364.274px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 993.8084716796875,
+            "y": 310.37554931640625,
+            "w": 154.5079345703125,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1106.06px, 616.274px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1028.8084716796875,
+            "y": 562.3755493164062,
+            "w": 154.5079345703125,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1257px, 342px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1178.491943359375,
+            "y": 287.2267761230469,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.7)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1292px, 594px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1213.491943359375,
+            "y": 539.226806640625,
+            "w": 157.0159912109375,
+            "h": 109.54644775390625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(1) brightness(1.05)",
+          "rect": {
+            "x": 866.75,
+            "y": 332.1171875,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(1) brightness(1)",
+          "rect": {
+            "x": 1087.7496337890625,
+            "y": 574.5735473632812,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(1) brightness(1.7)",
+          "rect": {
+            "x": 1234.677490234375,
+            "y": 295.9104309082031,
+            "w": 44.6126708984375,
+            "h": 44.612701416015625
+          }
+        }
+      ]
+    },
+    {
+      "letter": "B",
+      "mode": "interactive",
+      "width": 1440,
+      "height": 900,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(513.25px, 342px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 439.75799560546875,
+            "y": 290.7263488769531,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(548.25px, 594px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 474.75799560546875,
+            "y": 542.726318359375,
+            "w": 146.9840087890625,
+            "h": 102.54730224609375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(699.188px, 364.274px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 624.4415283203125,
+            "y": 303.49664306640625,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(734.188px, 616.274px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 659.4415283203125,
+            "y": 564.1253051757812,
+            "w": 149.49200439453125,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(885.125px, 373.5px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 809.125,
+            "y": 320.4765625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.05)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(920.125px, 625.5px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 844.125,
+            "y": 572.4765625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1071.06px, 364.274px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 993.8084716796875,
+            "y": 310.37554931640625,
+            "w": 154.5079345703125,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1106.06px, 616.274px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1028.8084716796875,
+            "y": 562.3755493164062,
+            "w": 154.5079345703125,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1257px, 342px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1178.491943359375,
+            "y": 287.2267761230469,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.7)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1292px, 594px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1213.491943359375,
+            "y": 539.226806640625,
+            "w": 157.0159912109375,
+            "h": 109.54644775390625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(1) brightness(1.05)",
+          "rect": {
+            "x": 866.75,
+            "y": 332.1171875,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(1) brightness(1)",
+          "rect": {
+            "x": 1087.7496337890625,
+            "y": 574.5735473632812,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(1) brightness(1.7)",
+          "rect": {
+            "x": 1234.677490234375,
+            "y": 295.9104309082031,
+            "w": 44.6126708984375,
+            "h": 44.612701416015625
+          }
+        }
+      ]
+    },
+    {
+      "letter": "C",
+      "mode": "accent",
+      "width": 1440,
+      "height": 900,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(513.25px, 342px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 439.75799560546875,
+            "y": 290.7263488769531,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(548.25px, 594px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 474.75799560546875,
+            "y": 542.726318359375,
+            "w": 146.9840087890625,
+            "h": 102.54730224609375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(699.188px, 364.274px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 624.4415283203125,
+            "y": 303.49664306640625,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(734.188px, 616.274px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 659.4415283203125,
+            "y": 564.1253051757812,
+            "w": 149.49200439453125,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(885.125px, 373.5px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 809.125,
+            "y": 320.4765625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(920.125px, 625.5px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 844.125,
+            "y": 572.4765625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1071.06px, 364.274px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 993.8084716796875,
+            "y": 310.37554931640625,
+            "w": 154.5079345703125,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1106.06px, 616.274px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 1028.8084716796875,
+            "y": 562.3755493164062,
+            "w": 154.5079345703125,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1257px, 342px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1178.491943359375,
+            "y": 287.2267761230469,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1292px, 594px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1213.491943359375,
+            "y": 539.226806640625,
+            "w": 157.0159912109375,
+            "h": 109.54644775390625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 866.75,
+            "y": 332.1171875,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 1087.7496337890625,
+            "y": 574.5735473632812,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 1234.677490234375,
+            "y": 295.9104309082031,
+            "w": 44.6126708984375,
+            "h": 44.612701416015625
+          }
+        }
+      ]
+    },
+    {
+      "letter": "A",
+      "mode": "mono",
+      "width": 1366,
+      "height": 768,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(487.424px, 291.84px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 413.9320068359375,
+            "y": 240.5663299560547,
+            "w": 146.9840087890625,
+            "h": 102.54731750488281
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(520.352px, 506.88px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 446.8599853515625,
+            "y": 455.6063537597656,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(662.354px, 310.847px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 587.6080322265625,
+            "y": 250.06979370117188,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(695.282px, 525.887px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 620.5360107421875,
+            "y": 473.73846435546875,
+            "w": 149.49200439453125,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(837.284px, 318.72px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 761.2839965820312,
+            "y": 265.6965637207031,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.05)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(870.212px, 533.76px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 794.2119750976562,
+            "y": 480.736572265625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1012.21px, 310.847px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 934.9599609375,
+            "y": 256.9486999511719,
+            "w": 154.508056640625,
+            "h": 107.79666137695312
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1045.14px, 525.887px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 967.887939453125,
+            "y": 471.98870849609375,
+            "w": 154.508056640625,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1187.14px, 291.84px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1108.635986328125,
+            "y": 237.06678771972656,
+            "w": 157.0159912109375,
+            "h": 109.54643249511719
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.7)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1220.07px, 506.88px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1141.56396484375,
+            "y": 452.1067810058594,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(1) brightness(1.05)",
+          "rect": {
+            "x": 818.9089965820312,
+            "y": 277.3371887207031,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(1) brightness(1)",
+          "rect": {
+            "x": 1026.8291015625,
+            "y": 484.18670654296875,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(1) brightness(1.7)",
+          "rect": {
+            "x": 1164.821533203125,
+            "y": 245.7504425048828,
+            "w": 44.6126708984375,
+            "h": 44.61268615722656
+          }
+        }
+      ]
+    },
+    {
+      "letter": "B",
+      "mode": "interactive",
+      "width": 1366,
+      "height": 768,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(487.424px, 291.84px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 413.9320068359375,
+            "y": 240.5663299560547,
+            "w": 146.9840087890625,
+            "h": 102.54731750488281
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(520.352px, 506.88px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 446.8599853515625,
+            "y": 455.6063537597656,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(662.354px, 310.847px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 587.6080322265625,
+            "y": 250.06979370117188,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(695.282px, 525.887px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 620.5360107421875,
+            "y": 473.73846435546875,
+            "w": 149.49200439453125,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(837.284px, 318.72px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 761.2839965820312,
+            "y": 265.6965637207031,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.05)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(870.212px, 533.76px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 794.2119750976562,
+            "y": 480.736572265625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1012.21px, 310.847px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 934.9599609375,
+            "y": 256.9486999511719,
+            "w": 154.508056640625,
+            "h": 107.79666137695312
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1045.14px, 525.887px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 967.887939453125,
+            "y": 471.98870849609375,
+            "w": 154.508056640625,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1187.14px, 291.84px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1108.635986328125,
+            "y": 237.06678771972656,
+            "w": 157.0159912109375,
+            "h": 109.54643249511719
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(1) brightness(1.7)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1220.07px, 506.88px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1141.56396484375,
+            "y": 452.1067810058594,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(1) brightness(1.05)",
+          "rect": {
+            "x": 818.9089965820312,
+            "y": 277.3371887207031,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(1) brightness(1)",
+          "rect": {
+            "x": 1026.8291015625,
+            "y": 484.18670654296875,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(1) brightness(1.7)",
+          "rect": {
+            "x": 1164.821533203125,
+            "y": 245.7504425048828,
+            "w": 44.6126708984375,
+            "h": 44.61268615722656
+          }
+        }
+      ]
+    },
+    {
+      "letter": "C",
+      "mode": "accent",
+      "width": 1366,
+      "height": 768,
+      "nodes": [
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "transform": "translate3d(487.424px, 291.84px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 413.9320068359375,
+            "y": 240.5663299560547,
+            "w": 146.9840087890625,
+            "h": 102.54731750488281
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "transform": "translate3d(520.352px, 506.88px, 0px) translate(-50%, -50%) scale(0.967)",
+          "rect": {
+            "x": 446.8599853515625,
+            "y": 455.6063537597656,
+            "w": 146.9840087890625,
+            "h": 102.54733276367188
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "dsh",
+          "name": "DeepSeek Harness（DSH）",
+          "transform": "translate3d(662.354px, 310.847px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 587.6080322265625,
+            "y": 250.06979370117188,
+            "w": 149.49200439453125,
+            "h": 121.554443359375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "zcode",
+          "name": "ZCode",
+          "transform": "translate3d(695.282px, 525.887px, 0px) translate(-50%, -50%) scale(0.9835)",
+          "rect": {
+            "x": 620.5360107421875,
+            "y": 473.73846435546875,
+            "w": 149.49200439453125,
+            "h": 104.297119140625
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "workbuddy",
+          "name": "Tencent WorkBuddy",
+          "transform": "translate3d(837.284px, 318.72px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 761.2839965820312,
+            "y": 265.6965637207031,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "transform": "translate3d(870.212px, 533.76px, 0px) translate(-50%, -50%) scale(1)",
+          "rect": {
+            "x": 794.2119750976562,
+            "y": 480.736572265625,
+            "w": 152,
+            "h": 106.046875
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "antigravity",
+          "name": "Google Antigravity",
+          "transform": "translate3d(1012.21px, 310.847px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 934.9599609375,
+            "y": 256.9486999511719,
+            "w": 154.508056640625,
+            "h": 107.79666137695312
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        },
+        {
+          "id": "grokbot",
+          "name": "Grok Bot",
+          "transform": "translate3d(1045.14px, 525.887px, 0px) translate(-50%, -50%) scale(1.0165)",
+          "rect": {
+            "x": 967.887939453125,
+            "y": 471.98870849609375,
+            "w": 154.508056640625,
+            "h": 107.796630859375
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "transform": "translate3d(1187.14px, 291.84px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1108.635986328125,
+            "y": 237.06678771972656,
+            "w": 157.0159912109375,
+            "h": 109.54643249511719
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "grayscale(0) brightness(1)"
+            }
+          ]
+        },
+        {
+          "id": "notion",
+          "name": "Notion AI",
+          "transform": "translate3d(1220.07px, 506.88px, 0px) translate(-50%, -50%) scale(1.033)",
+          "rect": {
+            "x": 1141.56396484375,
+            "y": 452.1067810058594,
+            "w": 157.0159912109375,
+            "h": 109.54641723632812
+          },
+          "image": [
+            {
+              "ok": true,
+              "fit": "contain",
+              "pointer": "none",
+              "filter": "none"
+            }
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "id": "workbuddy",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 818.9089965820312,
+            "y": 277.3371887207031,
+            "w": 36.71875,
+            "h": 36.71875
+          }
+        },
+        {
+          "id": "grokbot",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 1026.8291015625,
+            "y": 484.18670654296875,
+            "w": 36.593994140625,
+            "h": 36.593994140625
+          }
+        },
+        {
+          "id": "muse",
+          "filter": "grayscale(0) brightness(1)",
+          "rect": {
+            "x": 1164.821533203125,
+            "y": 245.7504425048828,
+            "w": 44.6126708984375,
+            "h": 44.61268615722656
+          }
+        }
+      ]
+    }
+  ],
+  "regression": [
+    {
+      "sceneS": 0,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "40f4048a41b80f880b653221af33b89b5f0af224dd91adc3de1f4157c7319276",
+      "afterSha": "40f4048a41b80f880b653221af33b89b5f0af224dd91adc3de1f4157c7319276"
+    },
+    {
+      "sceneS": 0.72,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "0edf20da0230ede6608c0ec393711c199e36670b57729274b903e645159337af",
+      "afterSha": "0edf20da0230ede6608c0ec393711c199e36670b57729274b903e645159337af"
+    },
+    {
+      "sceneS": 2.8,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "cd51daf17c7153315ac8dacb4cbcda247964d072e6c6af9dd40affaf4017c017",
+      "afterSha": "cd51daf17c7153315ac8dacb4cbcda247964d072e6c6af9dd40affaf4017c017"
+    },
+    {
+      "sceneS": 3.65,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "a5f36fcb534bbf4b5e002fb64804840702ebcb14bb8a90c519656042ea696335",
+      "afterSha": "a5f36fcb534bbf4b5e002fb64804840702ebcb14bb8a90c519656042ea696335"
+    },
+    {
+      "sceneS": 4.9,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "f3192288d7943a12a4235421ab814643fe704c6572238ddecb4016249b324316",
+      "afterSha": "f3192288d7943a12a4235421ab814643fe704c6572238ddecb4016249b324316"
+    },
+    {
+      "sceneS": 5.3,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "df66c004964bb0edceb9446bec8f856b98e5a636075e4af991337466a1f7b3e0",
+      "afterSha": "df66c004964bb0edceb9446bec8f856b98e5a636075e4af991337466a1f7b3e0"
+    },
+    {
+      "sceneS": 5.97,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "b6415b87d4111d2126fb12473ab751a873d1f39c03deb3226a570147f6690129",
+      "afterSha": "b6415b87d4111d2126fb12473ab751a873d1f39c03deb3226a570147f6690129"
+    },
+    {
+      "sceneS": 6.2,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "43cb6762c2f4ed0b08875dd57370d9ce2a78cd5f2db74253e80f5b3f27e30a90",
+      "afterSha": "43cb6762c2f4ed0b08875dd57370d9ce2a78cd5f2db74253e80f5b3f27e30a90"
+    },
+    {
+      "sceneS": 7.42,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "73a607e9c986839b51acccb3dc11cebf34a0fea14fdf1514d8deebeca7453793",
+      "afterSha": "73a607e9c986839b51acccb3dc11cebf34a0fea14fdf1514d8deebeca7453793"
+    },
+    {
+      "sceneS": 8.2,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "f8c78ab2e9d20a146fbb994e9e7a324f90931e191e4645fcc18eb18c55d76f32",
+      "afterSha": "f8c78ab2e9d20a146fbb994e9e7a324f90931e191e4645fcc18eb18c55d76f32"
+    },
+    {
+      "sceneS": 8.7,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "3c71aea1925f448ceed4ede4357902ef8de7df660265cb127ec74f57a2d6d088",
+      "afterSha": "3c71aea1925f448ceed4ede4357902ef8de7df660265cb127ec74f57a2d6d088"
+    },
+    {
+      "sceneS": 9.2,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "93f663e34c3f6e0e47f93f69eadacb549b638872d5519f7221a119839879a015",
+      "afterSha": "93f663e34c3f6e0e47f93f69eadacb549b638872d5519f7221a119839879a015"
+    },
+    {
+      "sceneS": 9.97,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "0d34f10ab1f7b7713d23911bbe430bbdd0c3883fcd2221f29cca2897c793538a",
+      "afterSha": "0d34f10ab1f7b7713d23911bbe430bbdd0c3883fcd2221f29cca2897c793538a"
+    },
+    {
+      "sceneS": 10.6,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "5b52e746841e9ee68a73943b37a9016cbda569fa91e88d3cf5d1c85858a605fa",
+      "afterSha": "5b52e746841e9ee68a73943b37a9016cbda569fa91e88d3cf5d1c85858a605fa"
+    },
+    {
+      "sceneS": 11.03,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "d23116d2fc151452841fb2161402af071149d9da4f34b0f6f31f93a85d42918b",
+      "afterSha": "d23116d2fc151452841fb2161402af071149d9da4f34b0f6f31f93a85d42918b"
+    },
+    {
+      "sceneS": 11.8,
+      "changedChannels": 0,
+      "ratio": 0,
+      "max": 0,
+      "beforeSha": "839889f9c9352a1e3de26fd3156f94d4b1a2f711f38bd5c87aff91bb43cb75e3",
+      "afterSha": "839889f9c9352a1e3de26fd3156f94d4b1a2f711f38bd5c87aff91bb43cb75e3"
+    }
+  ],
+  "performance": [
+    {
+      "baseline": true,
+      "cpu": {
+        "samples": 200,
+        "mean": 0.32300000309944155,
+        "p95": 0.5,
+        "max": 0.7000000476837158
+      },
+      "raf": {
+        "samples": 200,
+        "mean": 4.173500000000001,
+        "p95": 4.2999999999999545,
+        "max": 4.300000000000182
+      },
+      "longTasks": []
+    },
+    {
+      "baseline": false,
+      "cpu": {
+        "samples": 200,
+        "mean": 0.3910000014305115,
+        "p95": 0.7000000476837158,
+        "max": 1
+      },
+      "raf": {
+        "samples": 200,
+        "mean": 4.173500000000001,
+        "p95": 4.2999999999999545,
+        "max": 4.300000000000068
+      },
+      "longTasks": []
+    }
+  ],
+  "errors": [],
+  "failedResources": [],
+  "browser": "153.0.8010.12",
+  "colour": {
+    "before": 0,
+    "hover": 96.9651493598862,
+    "midwayGrayscale": 0.418086
+  },
+  "listenerCounts": [
+    {
+      "id": "codex",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "claude-code",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "dsh",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "zcode",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "workbuddy",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "hermes",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "antigravity",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "grokbot",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "muse",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    },
+    {
+      "id": "notion",
+      "counts": {
+        "pointerdown": 1,
+        "pointerenter": 1,
+        "pointerleave": 1,
+        "focus": 1,
+        "blur": 1,
+        "click": 1
+      }
+    }
+  ],
+  "completed": true,
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027E0) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+}

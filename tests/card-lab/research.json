@@ -1,0 +1,42 @@
+[
+  {
+    "name": "coucouya",
+    "url": "https://card.coucouya.com/",
+    "title": "可可鸭 U卡指南 · 资料、成本与真实评价",
+    "observation": "白底编辑排版、卡面叠放与来源入口；仅研究构图，不复制全站。",
+    "screenshot": "research-coucouya.jpg"
+  },
+  {
+    "name": "cardfi",
+    "url": "https://card-fi.com/",
+    "title": "CardFi｜发现、筛选与对比全球 U 卡",
+    "observation": "卡片堆叠与分类入口；部分参考卡图来源不足，未收入素材库。",
+    "screenshot": "research-cardfi.jpg"
+  },
+  {
+    "name": "cardfi-canvas",
+    "url": "https://card-fi.com/explore/canvas",
+    "title": "卡片画布｜浏览全球卡面 - CardFi",
+    "observation": "平移、缩放、悬停简述与点击资料；不采用完整卡片墙。",
+    "screenshot": "research-cardfi-canvas.jpg"
+  },
+  {
+    "name": "starryblu",
+    "url": "https://www.starryblu.com/",
+    "title": "Starryblu | 全球账户一站式理财平台：免费开户·汇款省钱·消费返现·AI智能理财·MAS监管保障",
+    "observation": "官网卡面样张低分辨率，项目状态以官网筹备说明为准。",
+    "screenshot": "research-starryblu.jpg"
+  },
+  {
+    "name": "bybit",
+    "observation": "官方页面来源核对，完整资源记录见 assets/global/SOURCES.md。",
+    "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.bybit.eu/en-EU/cards/\nCall log:\n\u001b[2m  - navigating to \"https://www.bybit.eu/en-EU/cards/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "name": "monzo",
+    "url": "https://monzo.com/current-account",
+    "title": "Current Accounts | Find the Right Current Account for You",
+    "observation": "官网实际加载透明 AVIF；本地保留原图原色。",
+    "screenshot": "research-monzo.jpg"
+  }
+]
