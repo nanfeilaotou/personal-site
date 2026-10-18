@@ -486,16 +486,36 @@ function render(scrollS,time,intro,vel){
 /* ============ 主循环与交互 ============ */
 const mouse={x:-9999,y:-9999,on:0};
 let sd=0,userMoved=false,last=performance.now(),T0=last,vel=0,anim=null,fpsA=60,raf=0,frozen=false,debugClock=null;
+let returning=null,replayIntro=false,lastIntro=0;
+const returnMask=$('return-mask');
 function schedule(){if(!raf&&!frozen)raf=requestAnimationFrame(frame);}
-function goTo(s){userMoved=true;if(REDUCED){anim=null;sd=s;scrollTo(0,s*UNIT);return;}const y0=scrollY,y1=s*UNIT,d=Math.abs(y1-y0)/UNIT;anim={y0,y1,t0:performance.now(),dur:clamp(d*240,500,2600)}}
+function cancelReturn(){returning=null;returnMask.hidden=true;returnMask.style.opacity=0;}
+function resetOpening(now){
+ anim=null;sd=0;vel=0;userMoved=true;T0=now;last=now;debugClock=null;replayIntro=!REDUCED;
+ mouse.on=0;mouse.x=mouse.y=-9999;mx=my=0;scrollTo(0,0);globalHome.invalidate();
+ if(document.activeElement?.closest('#end,#rail'))document.activeElement.blur();
+}
+function returnToStart(){
+ if(returning)return;anim=null;userMoved=true;
+ if(REDUCED){resetOpening(performance.now());cancelReturn();schedule();return;}
+ returning={start:performance.now(),switched:false};returnMask.hidden=false;returnMask.style.opacity=0;schedule();
+}
+function stepReturn(now){
+ if(!returning)return;
+ if(!returning.switched){const p=R(now,returning.start,returning.start+140);returnMask.style.opacity=io(p).toFixed(4);if(p===1){resetOpening(now);returning.switched=true;returning.revealAt=now;}}
+ else{const p=R(now,returning.revealAt,returning.revealAt+180);returnMask.style.opacity=(1-io(p)).toFixed(4);if(p===1)cancelReturn();}
+}
+function goTo(s){if(s===0&&scrollY/UNIT>1.2){returnToStart();return;}cancelReturn();userMoved=true;if(REDUCED){anim=null;sd=s;scrollTo(0,s*UNIT);return;}const y0=scrollY,y1=s*UNIT,d=Math.abs(y1-y0)/UNIT;anim={y0,y1,t0:performance.now(),dur:clamp(d*240,500,2600)}}
 function frame(now){
  raf=0;if(frozen)return;
  const dt=Math.min(.05,Math.max(.001,(now-last)/1000));last=now;fpsA=lerp(fpsA,1/dt,.05);
+ stepReturn(now);
  if(anim){const t=R(now,anim.t0,anim.t0+anim.dur);scrollTo(0,lerp(anim.y0,anim.y1,io(t)));if(t>=1)anim=null}
  const tgt=clamp((AT!==null&&!userMoved)?AT:scrollY/UNIT,0,TOTAL),prev=sd;
  sd=REDUCED?tgt:sd+(tgt-sd)*(1-Math.exp(-dt*7.5));if(Math.abs(tgt-sd)<1e-4)sd=tgt;
  vel=lerp(vel,(sd-prev)/dt,.2);
- const time=Math.max(0,(now-T0)/1000),intro=FIXIT!==null?FIXIT:((AT!==null&&AT>0)||REDUCED)?10:time;
+ const time=Math.max(0,(now-T0)/1000),intro=REDUCED?10:replayIntro?time:FIXIT!==null?FIXIT:(AT!==null&&AT>0)?10:time;
+ lastIntro=intro;if(replayIntro&&time>3.4)replayIntro=false;
  const tx=mouse.on?(mouse.x/W-.5)*2:0,ty=mouse.on?(mouse.y/H-.5)*2:0;mx=lerp(mx,tx,.06);my=lerp(my,ty,.06);
  render(sd,REDUCED?0:debugClock!==null?debugClock:Q.has('time')?Number(Q.get('time')):time,intro,REDUCED?0:vel);
  if(DEBUG)dbg.textContent=`s ${sd.toFixed(3)} · ${fpsA.toFixed(0)} fps · ${NPTS} pts`;
@@ -503,15 +523,16 @@ function frame(now){
 }
 addEventListener('mousemove',e=>{if(!REDUCED){mouse.x=e.clientX;mouse.y=e.clientY;mouse.on=1}});
 document.addEventListener('mouseleave',()=>{mouse.on=0});
-const stop=()=>{anim=null;userMoved=true};
+const stop=()=>{anim=null;userMoved=true;cancelReturn()};
 addEventListener('wheel',stop,{passive:true});addEventListener('touchstart',stop,{passive:true});
 addEventListener('keydown',e=>{
  if(e.target.closest('input,textarea,select,[contenteditable],dialog')||e.ctrlKey||e.metaKey)return;
+ if(returning&&e.key==='Escape'){e.preventDefault();cancelReturn();return;}
  const local=globalHome.state.active&&!e.altKey&&['1','2','3','4'].includes(e.key);
  const m=local?'global-'+['number','network','accounts','cards'][Number(e.key)-1]:({'0':'open','1':'models','2':'global','3':'personal'})[e.key];
  if(m){e.preventDefault();userMoved=true;navigate(m);}else if(!e.target.closest('button,a')&&['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(e.key))anim=null;
 });
-function navigate(key){if(!(key in STOP))return;history.pushState(null,'','#'+key);goTo(STOP[key]);}
+function navigate(key){if(!(key in STOP)||(returning&&key==='open'))return;history.pushState(null,'','#'+key);goTo(STOP[key]);}
 function fromHash(){const key=location.hash.slice(1);if(key==='ai')return 'models';if(key==='via')return 'global';const guide=window.NF_GLOBAL_GUIDES.find(g=>'guide-'+g.id===key);return guide?'global-'+guide.domain:key;}
 function restoreHash(){const key=fromHash();if(key in STOP)goTo(STOP[key]);else goTo(0);const guide=location.hash.match(/^#guide-(.+)$/);if(guide)globalHome.openGuide(guide[1]);}
 addEventListener('popstate',restoreHash);addEventListener('hashchange',restoreHash);
@@ -541,9 +562,9 @@ try{
 const initial=AT!==null?AT:restored!==null?restored:(fromHash() in STOP?STOP[fromHash()]:0);
 sd=clamp(initial,0,TOTAL);scrollTo(0,sd*UNIT);
 if(location.hash.startsWith('#guide-'))queueMicrotask(()=>globalHome.openGuide(location.hash.slice(7)));
-addEventListener('pagehide',e=>{if(!e.persisted)globalHome.destroy();try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:scrollY/UNIT,url:positionKey(),total:TOTAL}))}catch{}});
-if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP,navigating:!!anim,rail:chapterRail.state,global:globalHome.state};},
- seek(s){userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT);globalHome.invalidate();render(sd,debugClock??Number(Q.get('time')||10),FIXIT??10,0);},
+addEventListener('pagehide',e=>{if(!e.persisted)globalHome.destroy();try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:returning?0:scrollY/UNIT,url:positionKey(),total:TOTAL}))}catch{}});
+if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP,navigating:!!anim,returning:!!returning,intro:lastIntro,rail:chapterRail.state,global:globalHome.state};},
+ seek(s){cancelReturn();userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT);globalHome.invalidate();render(sd,debugClock??Number(Q.get('time')||10),FIXIT??10,0);},
  freeze(on=true){frozen=on;if(frozen){if(raf)cancelAnimationFrame(raf);raf=0;}else{last=performance.now();schedule();}return frozen;},
  advance(sec,fps=60){frozen=true;if(raf)cancelAnimationFrame(raf);raf=0;if(debugClock===null)debugClock=Number(Q.get('time')||10);for(let i=0;i<Math.round(sec*fps);i++){debugClock+=1/fps;render(sd,debugClock,10,0);}return globalHome.state;},
  select(id){return globalHome.request(id);},navigate,positions:showcase.positions};
