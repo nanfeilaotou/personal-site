@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-10-18T10:43:53.509Z",
+  "base": "https://personal-site-7xv.pages.dev",
+  "revision": "a369225299673477d40850f70527c54d0871c195",
+  "files": [
+    {
+      "name": "index.html",
+      "status": 200,
+      "sha256": "4a3d0ea5da1b0421f2e729286bc1f2123c67f77d3a17a42653e3c46f78a7012a"
+    },
+    {
+      "name": "prototype/motion.js",
+      "status": 200,
+      "sha256": "65dc4e1249354e89ae5865aeee0d3c0a7c59a77b6baf5742cf00f1d7407d8906"
+    },
+    {
+      "name": "prototype/rail.js",
+      "status": 200,
+      "sha256": "ee7da668955669e92a858163a90eb1b6a6ff51953e3845c8e3e734012dbf181b"
+    },
+    {
+      "name": "prototype/rail.css",
+      "status": 200,
+      "sha256": "e86e3bef86db3bdb590e9787495f9eb023b829f79c4d07ede417a82c34bb2012"
+    },
+    {
+      "name": "prototype/ui.css",
+      "status": 200,
+      "sha256": "235bbfd34926896cbf3ddfc80bc395a762be59e6040920c2f0f39a240cda70b1"
+    },
+    {
+      "name": "prototype/return.css",
+      "status": 200,
+      "sha256": "a5489f53f62a8cef3ec5a4f1780b85c7a1f1a02301854dd6217a5256404e2f3a"
+    },
+    {
+      "name": "prototype/timeline.js",
+      "status": 200,
+      "sha256": "bea6920056b956505ec1a1a8d543bfedc944e1e6d92bb7956023f9fde5b153fd"
+    },
+    {
+      "name": "prototype/experiments/global-world.js",
+      "status": 200,
+      "sha256": "4b85076b20d0f64cd4e50cfaf5cfca055cb9f08fb941efa41e0e600d220fbbbd"
+    },
+    {
+      "name": "prototype/experiments/global-card-adapter.js",
+      "status": 200,
+      "sha256": "5f630893ffc55b0ccff770e529ec1274711c9f04ccbb33c56ff85aca1d6b80bc"
+    },
+    {
+      "name": "prototype/showcase.js",
+      "status": 200,
+      "sha256": "d52f8b4294acc52911885527b4c816dba871ed3978681cf937073377fd615001"
+    },
+    {
+      "name": "data/models.js",
+      "status": 200,
+      "sha256": "b7f5e5df2f2d4c3b59989323abc73ce4d20c84b4c0ef99929310e97c798d8780"
+    },
+    {
+      "name": "data/agents.js",
+      "status": 200,
+      "sha256": "a1926fe825fa7b73d2a89897bf2d0e37ac4cbe01c45b2e71008537638c8e14c4"
+    }
+  ],
+  "completed": true
+}

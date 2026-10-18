@@ -1,0 +1,1185 @@
+{
+  "coverageMethod": "Raster mask of actual background/paper fill calls, excluding foreground grid and labels; instrumentation only",
+  "errors": [],
+  "failed": [],
+  "surface": [
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 1.7200000000000006,
+      "coverage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 1.7400000000000002,
+      "coverage": [
+        0,
+        0.3379431358091307,
+        0.9489781468659774,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "light",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0.3181818181818182,
+        0.9318181818181818,
+        0
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 1.7600000000000016,
+      "coverage": [
+        0.37810934005927654,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "dark",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        0.36363636363636365,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 1.7800000000000011,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 1.8000000000000007,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 1.8200000000000003,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 1.9000000000000004,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 3.3000000000000007,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.5,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.540000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.58,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.620000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.66,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.700000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.74,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.780000000000001,
+      "coverage": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "light",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "g": 4.84,
+      "coverage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 1.7200000000000006,
+      "coverage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 1.7400000000000002,
+      "coverage": [
+        0,
+        0.3420264985660584,
+        0.9489781468659774,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "light",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0.3409090909090909,
+        0.9318181818181818,
+        0
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 1.7600000000000016,
+      "coverage": [
+        0.3938486397897532,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "dark",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        0.38636363636363635,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 1.7800000000000011,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 1.8000000000000007,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 1.8200000000000003,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 1.9000000000000004,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 3.3000000000000007,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.5,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.540000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.58,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.620000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.66,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.700000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.74,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.780000000000001,
+      "coverage": [
+        0.22257071822689398,
+        0.8148409547972756,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "light",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0.20454545454545456,
+        0.7954545454545454,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "g": 4.84,
+      "coverage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 1.7200000000000006,
+      "coverage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 1.7400000000000002,
+      "coverage": [
+        0,
+        0.33706844078428244,
+        0.9489781468659774,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "light",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0.3181818181818182,
+        0.9318181818181818,
+        0
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 1.7600000000000016,
+      "coverage": [
+        0.37473788360142307,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "dark",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        0.36363636363636365,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 1.7800000000000011,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 1.8000000000000007,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 1.8200000000000003,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 1.9000000000000004,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 3.3000000000000007,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.5,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.540000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.58,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.620000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.66,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.700000000000001,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.74,
+      "coverage": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "palette": [
+        "light",
+        "light",
+        "light",
+        "light"
+      ],
+      "pixelCoverage": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.780000000000001,
+      "coverage": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "light",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "g": 4.84,
+      "coverage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "palette": [
+        "dark",
+        "dark",
+        "dark",
+        "dark"
+      ],
+      "pixelCoverage": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "checks": [
+    "three desktop sizes: one existing navigation authority, local progress, independent paper coverage, hover / popup priority, no card / guide overlap, native hash navigation",
+    "mobile right rail hidden, old top navigation and Global sub-navigation reachable"
+  ],
+  "completed": true
+}

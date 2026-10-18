@@ -23,3 +23,5 @@ Existing suites also passed:
 - `tests/home-global/opus-regression.cjs` with the same variables: Opus baseline, standalone and integrated rendering, outputs in `opus-check/`.
 
 Open [review.html](review.html) over HTTP. JSON files retain assertions, real timing samples and the actual NVIDIA renderer. Timing figures are CPU submission / rAF measurements, not GPU timer-query results. Mobile tests use viewport/touch emulation, not a physical device. Source artwork, original V0.1.0 evidence and experimental nav branch are not replaced.
+
+[Production verification](production.md) includes real-root online results. To rerun without replacing local evidence, set `UI_BASE` to production and `UI_OUT` to a fresh directory for `rail.cjs` / `return.cjs`; use `NF_RELEASE_BASE` / `NF_RELEASE_OUT` for the full root suite. `deployment.cjs` compares deployed bytes with current HEAD; `DEPLOY_OUT` optionally stores its report outside this archive.

@@ -1,0 +1,8 @@
+{
+  "conclusion": "success",
+  "head_sha": "a369225299673477d40850f70527c54d0871c195",
+  "id": 117654467037,
+  "name": "Cloudflare Pages",
+  "status": "completed",
+  "summary": "<table><tr><td><strong>Latest commit:</strong> </td><td>\n<code>a369225</code>\n</td></tr>\n<tr><td><strong>Status:</strong></td><td>&nbsp;\u2705&nbsp; Deploy successful!</td></tr>\n<tr><td><strong>Preview URL:</strong></td><td>\n<a href='https://1b2a2fbc.personal-site-7xv.pages.dev'>https://1b2a2fbc.personal-site-7xv.pages.dev</a>\n</td></tr>\n</table>\n\n[View logs](https://dash.cloudflare.com/?to=/ccf8a075220d5b0964e60ed456b57a63/pages/view/personal-site/1b2a2fbc-cf1f-45cf-9376-e2355c36f6f2)\n"
+}
