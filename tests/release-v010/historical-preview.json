@@ -1,0 +1,8 @@
+{
+  "deployment": "d808acff-27dc-406b-882b-4e0b0ef922e8",
+  "codeCommit": "0b944fa93772685e0a79eb19176ea426f3e771b3",
+  "currentProduction": false,
+  "status": 200,
+  "unprocessedResearchBytesStillPresent": true,
+  "note": "Historic immutable Pages deployment, separate from current safe production. Removing it requires access to the existing Cloudflare account; no Cloudflare authenticated session/API token available here. GitHub feature branch/history also intentionally retains the original."
+}

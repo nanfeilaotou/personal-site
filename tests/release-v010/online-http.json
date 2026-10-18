@@ -1,0 +1,79 @@
+{
+  "base": "https://personal-site-7xv.pages.dev",
+  "checks": [
+    {
+      "file": "prototype/motion.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "prototype/showcase.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "prototype/timeline.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "prototype/global-home.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "prototype/experiments/global-world.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "prototype/experiments/global-card-adapter.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "data/models.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "data/agents.js",
+      "status": 200,
+      "exactSource": true,
+      "lineEndingsNormalized": true
+    },
+    {
+      "file": "/assets/cards/starryblu-card.png",
+      "status": 302,
+      "location": "/assets/cards/public/starryblu-card-sanitized.png"
+    },
+    {
+      "file": "/assets/cards/starryblu-card.png?audit=v010",
+      "status": 302,
+      "location": "/assets/cards/public/starryblu-card-sanitized.png?audit=v010"
+    },
+    {
+      "file": "/assets/cards/%73tarryblu-card.png",
+      "status": 200,
+      "location": null
+    },
+    {
+      "file": "/assets/cards//starryblu-card.png",
+      "status": 302,
+      "location": "/assets/cards/public/starryblu-card-sanitized.png"
+    },
+    {
+      "file": "/missing-v010-resource.png",
+      "status": 404
+    }
+  ],
+  "completed": true,
+  "testedCodeCommit": "bac62e848d9656780fe1d935cefce36c78ed0c75"
+}

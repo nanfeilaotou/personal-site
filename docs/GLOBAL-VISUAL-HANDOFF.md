@@ -1,5 +1,7 @@
 # NANFEILAOTOU · Global 视觉素材交接
 
+> V0.1 正式入口为根 `index.html`（唯一 HTML），原 prototype 地址保留兼容跳转。源码动画模块位置不变；发布与素材安全记录见 [RELEASE-V0.1.0.md](RELEASE-V0.1.0.md)。
+
 > **2026-10-18 集成更新**：Opus 已完成 Global World 和三卡粒子切换，并正式接入 `prototype/prototype-02.html`。当前实现、15.68 屏时间轴、导航与本机 GPU 验收见 [AI + Global 集成报告](HOME-AI-GLOBAL-INTEGRATION.md)；[独立 Global](../prototype/experiments/global-world.html) 和 [Opus 原始基线](global-world/opus-baseline/README.md) 保留。以下素材记录与早期交互建议按历史阶段保存，不再表示卡片仍未实现或未接入。
 
 更新：2026-10-17。面向未参与前期开发的 Creative Director。当前成果位于功能分支 [`feat/home-ai-showcase-v2`](https://github.com/nanfeilaotou/personal-site/tree/feat/home-ai-showcase-v2)，没有合并 main 或替换生产主页。

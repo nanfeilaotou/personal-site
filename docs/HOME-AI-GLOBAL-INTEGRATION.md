@@ -1,5 +1,7 @@
 # Prototype 02 · AI + Global 正式整合
 
+> V0.1 发布补充：唯一首页 HTML 现位于根 `index.html`，旧 prototype URL 兼容跳转到 `/`。本文保留本轮集成时的路径与测试语境；当前入口、资源隐私边界及回滚见 [发布记录](RELEASE-V0.1.0.md)。
+
 2026-10-18，分支 `feat/home-ai-showcase-v2`。本轮将用户解压并已验收的本地 Opus Global World 接入现有首页，不合并 main、不改生产配置、根 `index.html` 的既有修改未触碰或提交。手机版竖屏精修按用户后续指示延后，仅做基本可访问性兼容。
 
 ## 预览与证据

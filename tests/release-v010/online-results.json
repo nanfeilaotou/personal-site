@@ -1,5 +1,47 @@
 {
+  "date": "2026-10-18",
   "base": "https://personal-site-7xv.pages.dev",
-  "status": "pending deployment; not tested yet",
-  "completed": false
+  "checks": [
+    {
+      "name": "root / metadata / opening",
+      "detail": "HTTP 200 at /; no prototype URL redirect, real opening, production title/description and no visible prototype footer"
+    },
+    {
+      "name": "desktop / 21 AI / Global / cards",
+      "detail": "three desktop sizes, 21 entries in B mode and details, four Global stops, three real card transitions and rapid reselect, guides/Esc, Personal, images and source safety"
+    },
+    {
+      "name": "root navigation / legacy URLs",
+      "detail": "root hashes, Back/Forward, reload, Global 1–4 / Alt+3 and legacy prototype bookmarks preserve query/hash"
+    },
+    {
+      "name": "fallback / reduced / mobile",
+      "detail": "actual no-WebGL static fallback, reduced motion, narrow touch access; portrait visual polish remains deferred"
+    },
+    {
+      "name": "legacy raw image URL",
+      "detail": "302 to offline-safe derivative, returned bytes match public manifest, no runtime pixel mask required"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "views": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "images": 72
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "images": 73
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "images": 72
+    }
+  ],
+  "completed": true,
+  "testedCodeCommit": "bac62e848d9656780fe1d935cefce36c78ed0c75"
 }

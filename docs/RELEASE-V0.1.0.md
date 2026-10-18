@@ -27,6 +27,7 @@
 - 正式场景、三卡采样、高清层和静态后备只引用 `assets/cards/public/starryblu-card-sanitized.png`，SHA256 为 `4a9a9a5ad535b827e9b5121b67aa309a4218e7cc95cdd8f1cea959483eb3ce06`。号码 / 姓名区域已在文件像素中离线处理。
 - `_redirects` 使旧 `/assets/cards/starryblu-card.png` 请求在 Cloudflare Pages 端 **302 到上述安全副本**，即使源文件存在也优先跳转。不是浏览器遮罩。发布测试验证旧 URL 的响应链及最终返回字节哈希。
 - 初次线上补查发现，百分号编码路径可绕过精确重定向，因此最终发布**不只依赖 URL 规则**：旧 `assets/cards/starryblu-card.png` 在主线发布树中也换成同一安全副本，所有返回图像的路径都只携带已处理像素。未处理研究原件不再存在于本次发布文件树，固定原始 revision / 哈希保留在两份 manifest 中。
+- 首次部署的历史快照 `d808acff-27dc-406b-882b-4e0b0ef922e8` 也仍可返回未处理研究图，已实际核对；它不是当前生产版本。删除该历史部署需要现有 Cloudflare 账号权限，本机没有相应登录会话 / API token，因此未代删，见 [历史快照记录](../tests/release-v010/historical-preview.json)。
 - 公共 GitHub 的功能分支和历史仍可访问原件；此发布不是撤回历史，也不能消除已下载副本。来源仍是用户提供、公开演示字段出处未独立确认，不宣称已核实为演示卡号。本轮不重写 Git 历史。
 
 ## 已保护内容
@@ -38,7 +39,7 @@ Opening Shader / 字形 / 排斥恢复、AI 21 条目与 B 显色、三段 AI �
 ## 回归与证据
 
 - [发布根路径检查脚本](../tests/release-v010/check.cjs)，默认测试 `http://127.0.0.1:4180/`；设置 `NF_RELEASE_BASE=https://personal-site-7xv.pages.dev` 后执行相同在线检查。
-- [本地结果](../tests/release-v010/local-results.json)、[在线结果](../tests/release-v010/online-results.json)。线上结果在真正部署后追加，不预先声称成功。
+- [本地结果](../tests/release-v010/local-results.json)、[在线结果](../tests/release-v010/online-results.json)。本地与线上完整浏览器回归均完成；线上结果标注实际验收的代码提交，后续验收记录提交不再改变应用代码。
 - [静态保护检查](../tests/release-v010/static.cjs)：将根 HTML 的发布差异还原后，与 ff907cb 的已验收 HTML 逐字符相同；`prototype / data` 中只有旧 HTML 兼容入口改变；assets 仅处理旧研究图路径及来源记录，三张正式材质像素、动画脚本和数据无改动。
 - 原 `tests/static-check.cjs`、`tests/home-global/static.cjs` 的根入口断言更新为正式入口规则；原版完整备份哈希保护仍保留，其余检查不减。
 - 另检查 HTTP 返回脚本与 Git 源文件相同（统一 CRLF / LF 后），以及原图普通 / 查询参数 / 百分号编码 / 双斜杠 URL；返回图片时必须与安全副本哈希相同。扫描发布树中的图片，未发现原始研究 PNG 字节。
@@ -65,3 +66,16 @@ git push origin HEAD:main
 ```
 
 这会建立正常回滚提交，保留后续历史。真实教程仍整理中，Personal 保留预留内容；手机精修、其他浏览器和低端 GPU 仍属于后续工作。
+
+## 线上验收结果
+
+Cloudflare 已成功将代码提交 `bac62e848d9656780fe1d935cefce36c78ed0c75` 部署到生产根域名；对应部署 `a7a34ed5-3e17-49b0-acb6-b40883b9dbab`，[平台成功记录](../tests/release-v010/deployment.json) 与 [线上 HTTP 检查](../tests/release-v010/online-http.json) 同时保留。后续补交文档与截图的提交不改变应用文件，最终 main SHA 与 `v0.1.0` 对应关系以 Git 标签为准。
+
+实际访问生产 `/` 并执行三种桌面尺寸回归，Opening、AI 21 条目、Global 四停点与三卡、Personal、Hash / Back / Forward / 刷新、键盘、索引、触摸访问及后备全部通过；Console error / pageerror 和加载失败为 0。普通旧图 URL 302，编码 URL 即使直接返回 200，也与离线安全副本字节完全相同，双斜杠路径同样不返回原件；缺失资源真正返回 404。
+
+[可浏览的线上 / 本地截图对照](../tests/release-v010/index.html)
+
+![线上模型生态](../tests/release-v010/online-models.png)
+![线上三卡阶段](../tests/release-v010/online-cards-1440.png)
+
+尚未做：历史 Cloudflare 预览快照清理（需账号权限）；真实教程、手机竖屏精修与 Personal 正式内容均按原计划延期。GitHub 历史研究件按用户要求保留。
