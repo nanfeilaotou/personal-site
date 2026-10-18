@@ -1,0 +1,5 @@
+/* Production information hierarchy. Debug counters stay in developer views. */
+html:not(.debug-ui) .scene-copy .eyebrow,
+html:not(.debug-ui) .scene-foot span:last-child,
+html:not(.debug-ui) .entry .i,
+html:not(.debug-ui) #global-world .gw-panel .i{display:none}

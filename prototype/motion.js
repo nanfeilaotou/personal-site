@@ -3,6 +3,7 @@
 /* ============ 基础 ============ */
 const Q=new URLSearchParams(location.search);
 const DEBUG=Q.has('debug'), AT=Q.has('at')?parseFloat(Q.get('at')):null, FIXIT=Q.has('it')?parseFloat(Q.get('it')):null;
+document.documentElement.classList.toggle('debug-ui',DEBUG);
 const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches||(DEBUG&&Q.has('reduced'));
 const $=id=>document.getElementById(id);
 const stage=$('stage'),glc=$('gl'),cv=$('cv'),ctx=cv.getContext('2d');
@@ -181,7 +182,7 @@ function bigTitle(no,s,a,b,t1,t2,line){
  ctx.globalAlpha=1-R(p,.9,1);ctx.drawImage(g,x-2*sc,y-2*sc,g.cw*sc,g.ch*sc);ctx.restore();
  const sa=win(p,.16,.32,.5,.62);
  T(t1,SL,LY+46,26,sa,{f:CN,w:700});T(t2,SL,LY+70,10.5,sa*.6);
- T('CH.'+no,SR,LY+46,10.5,sa*.5,{al:'right'});
+ if(DEBUG)T('CH.'+no,SR,LY+46,10.5,sa*.5,{al:'right'});
 }
 function sig(x,y,r,seed,a,t){
  if(a<=0)return;
@@ -211,18 +212,18 @@ function sceneOpen(s,intro){
  if(ca>0){
   const p=18,x0=WM.ox-p,x1=WM.ox+WM.w+p,y0=WM.oy-p,y1=WM.oy+WM.h+p;
   corners(x0,y0,x1-x0,y1-y0,16*eo(R(intro,2.3,3)),.85*ca);
-  ['0','10U','12.8U','22.8U'].forEach((l,i)=>{const y=WM.ys[i];L(x0-42,y,x0-12,y,.35*ca);T(l,x0-48,y+3,9,.45*ca,{al:'right'})});
-  T('NANFEILAOTOU / 自定义几何字形',x0,y1+24,9.5,.5*ca,{w:600});
-  T(`${NGLYPH.toLocaleString('en')} PTS`,x1,y1+24,9.5,.5*ca,{al:'right'});
+  ['0','10U','12.8U','22.8U'].forEach((l,i)=>{const y=WM.ys[i];L(x0-42,y,x0-12,y,.35*ca);if(DEBUG)T(l,x0-48,y+3,9,.45*ca,{al:'right'})});
+  if(DEBUG)T('NANFEILAOTOU / 自定义几何字形',x0,y1+24,9.5,.5*ca,{w:600});
+  if(DEBUG)T(`${NGLYPH.toLocaleString('en')} PTS`,x1,y1+24,9.5,.5*ca,{al:'right'});
  }
  const sp=R(intro,1.45,2.1),sa=win(intro,1.4,1.5,2.05,2.3)*a0;
- if(sa>0){const sx=WM.ox-20+(WM.w+40)*sp;L(sx,WM.oy-46,sx,WM.oy+WM.h+46,.75*sa);T('LOCK '+String(Math.round(sp*100)).padStart(3,'0'),sx+7,WM.oy-36,9,.65*sa)}
+ if(sa>0){const sx=WM.ox-20+(WM.w+40)*sp;L(sx,WM.oy-46,sx,WM.oy+WM.h+46,.75*sa);if(DEBUG)T('LOCK '+String(Math.round(sp*100)).padStart(3,'0'),sx+7,WM.oy-36,9,.65*sa)}
  const pa=1-R(intro,.28,.5);
- if(pa>0&&s<.05){const c=10,X=W/2,Y=H/2;L(X-c,Y,X-4,Y,.6*pa);L(X+4,Y,X+c,Y,.6*pa);L(X,Y-c,X,Y-4,.6*pa);L(X,Y+4,X,Y+c,.6*pa);T('0, 0',X+14,Y-12,9,.5*pa)}
+ if(pa>0&&s<.05){const c=10,X=W/2,Y=H/2;L(X-c,Y,X-4,Y,.6*pa);L(X+4,Y,X+c,Y,.6*pa);L(X,Y-c,X,Y-4,.6*pa);L(X,Y+4,X,Y+c,.6*pa);if(DEBUG)T('0, 0',X+14,Y-12,9,.5*pa)}
  const la=win(s,.12,.2,.4,.48);
- if(la>0){T('Z · 7 LAYERS',WM.ox,WM.oy-34,9.5,.6*la,{w:600});T('进入数字空间',WM.ox,WM.oy-16,12,.5*la,{f:CN})}
+ if(la>0){if(DEBUG)T('Z · 7 LAYERS',WM.ox,WM.oy-34,9.5,.6*la,{w:600});T('进入数字空间',WM.ox,WM.oy-16,12,.5*la,{f:CN})}
  const ia=win(s,.56,.64,.8,.88);
- if(ia>0){T('COLLAPSE',W/2+22,H/2-22,9.5,.6*ia,{w:600});T(`${NGLYPH.toLocaleString('en')} → 1`,W/2+22,H/2-6,9.5,.4*ia)}
+ if(DEBUG&&ia>0){T('COLLAPSE',W/2+22,H/2-22,9.5,.6*ia,{w:600});T(`${NGLYPH.toLocaleString('en')} → 1`,W/2+22,H/2-6,9.5,.4*ia)}
 }
 
 /* ============ 00→01 点 → 线 ============ */
@@ -287,7 +288,7 @@ function sceneLocal(s,time){
  if(s<4.98||s>6.36)return;
  const A=1-R(s,6.22,6.34),fa=eo(R(s,5.0,5.15))*A,x0=FX-FZ/2,y0=FY-FZ/2;
  const sz=lerp(FZ*1.3,FZ,fa);corners(FX-sz/2,FY-sz/2,sz,sz,FZ*.07,.9*fa,1.2);
- T('LOCAL · 127.0.0.1',x0,y0-14,9.5,.6*fa,{w:600});T(`${FZ|0} × ${FZ|0}`,x0+FZ,y0-14,9.5,.4*fa,{al:'right'});
+ if(DEBUG){T('LOCAL · 127.0.0.1',x0,y0-14,9.5,.6*fa,{w:600});T(`${FZ|0} × ${FZ|0}`,x0+FZ,y0-14,9.5,.4*fa,{al:'right'});}
  const mq=R(s,5.12,5.24)*(1-R(s,5.6,5.7))*A,cell=FZ/24;
  let stage=0;QT.forEach(([a,b],i)=>{if(s>=a)stage=i+1});
  if(mq>0){
@@ -397,18 +398,18 @@ function sceneField(s,time){
     x?ctx.lineTo(x,y):ctx.moveTo(x,y)}
    ctx.strokeStyle=ink(la*(1+flat*1.5));ctx.lineWidth=1;ctx.stroke();
   }
-  if(peA>0){const k=act.indexOf(Math.max(...act));T(`FIELD · ${N} LINES`,SR,H*.8,9,.5*peA,{al:'right'});T(`03.${k+1} / 3`,SR,H*.8-16,9,.5*peA,{al:'right',w:600})}
+  if(DEBUG&&peA>0){const k=act.indexOf(Math.max(...act));T(`FIELD · ${N} LINES`,SR,H*.8,9,.5*peA,{al:'right'});T(`03.${k+1} / 3`,SR,H*.8-16,9,.5*peA,{al:'right',w:600})}
  }else{
   const hw=W/2*(1-shr);if(hw>1)L(W/2-hw,H/2,W/2+hw,H/2,.9,1.2);
   const pa=R(shr,.85,1),pul=(time*.6)%1;
   if(pa>0){const g=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,30);g.addColorStop(0,ink(.45*pa));g.addColorStop(1,ink(0));ctx.fillStyle=g;ctx.fillRect(W/2-30,H/2-30,60,60);dot(W/2,H/2,2.2,pa);
    ctx.strokeStyle=ink((1-pul)*.4*pa);ctx.beginPath();ctx.arc(W/2,H/2,8+pul*60,0,6.283);ctx.stroke();
-   T('回到起点',W/2+18,H/2-14,9.5,.55*pa,{f:CN})}
+   if(DEBUG)T('回到起点',W/2+18,H/2-14,9.5,.55*pa,{f:CN})}
  }
 }
 
 /* ============ UI ============ */
-const E=id=>$(id),hTL=E('hTL'),hTR=E('hTR'),hBL=E('hBL'),hBR=E('hBR'),hint=E('hint'),progEl=E('prog'),pts=E('pts'),crumb=E('crumb'),rail=E('rail'),rfill=E('rfill'),dbg=E('dbg');
+const E=id=>$(id),hTL=E('hTL'),hTR=E('hTR'),hBL=E('hBL'),hBR=E('hBR'),hint=E('hint'),rail=E('rail'),rfill=E('rfill'),dbg=E('dbg');
 const chAI=E('chAI'),chGL=E('chGL'),chPE=E('chPE'),enM=E('enModels'),enL=E('enLocal'),enA=E('enAgents'),enG=E('enGlobal'),b1=E('b1'),pe=E('pe'),endEl=E('end');
 const b2=[...document.querySelectorAll('#bridge .l2 span')],peT=[...document.querySelectorAll('#pe .t')],railB=[...rail.querySelectorAll('button')],aiLi=[...chAI.querySelectorAll('li')];
 function show(el,a,dy=0){a=clamp(a);a=Math.round(a*1000)/1000;if(el._a===a&&el._dy===dy)return;el._a=a;el._dy=dy;
@@ -416,12 +417,9 @@ function show(el,a,dy=0){a=clamp(a);a=Math.round(a*1000)/1000;if(el._a===a&&el._
 const setT=(el,t)=>{if(el._t!==t){el._t=t;el.textContent=t}};
 function ui(s,intro,scrollS=s,world={active:false,g:0}){
  const hud=AT!==null||REDUCED?1:R(intro,1.7,2.8),old=legacyLater(s),M=TIMELINE.models,A=TIMELINE.agents;
- show(hTL,hud);show(hTR,hud);show(hBR,hud);show(rail,hud);show(hBL,hud*(1-R(s,.1,.28)));
+ show(hTL,hud);show(hTR,hud);show(hBR,hud*(1-R(s,.03,.14)));show(rail,hud);show(hBL,hud*(1-R(s,.1,.28)));
  hint.style.opacity=1-R(s,.02,.12);
- setT(progEl,String(Math.round(scrollS/TOTAL*100)).padStart(3,'0')+' / 100');
  const section=world.active?'global':s<M.start?'open':s<TIMELINE.local.start?'models':s<A.start?'local':s<TIMELINE.bridge.start?'agents':s<TIMELINE.global.start?'bridge':s<TIMELINE.personal.start?'global':'personal';
- setT(pts,s<.95?`${NPTS.toLocaleString('en')} PTS`:section==='models'?'08 / MODELS':section==='agents'?'10 / PLATFORMS':section==='global'?'VIA':section==='personal'?'FIELD':'SEQUENCE');
- setT(crumb,world.active&&world.g>=.5?'02.'+(NF_GLOBAL.domainAt(world.g)+1)+' — '+NF_GLOBAL.DOMAINS[NF_GLOBAL.domainAt(world.g)].title+' · VIA':({open:'00 — 起点 POINT',models:'01.1 — 模型生态',local:'01.2 — 本地 AI',agents:'01.3 — AI 客户端与 Agent',bridge:'01 → 02',global:'02 — 经由 VIA',personal:'03 — 场 FIELD'})[section]);
  const ri=world.active?2:s<M.start?0:s<TIMELINE.global.start?1:s<TIMELINE.personal.start?2:3;
  railB.forEach((b,i)=>{b.classList.toggle('on',i===ri);if(i===ri)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});
  rfill.style.height=((rail.offsetHeight+28)*scrollS/TOTAL).toFixed(1)+'px';
