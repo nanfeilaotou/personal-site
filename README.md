@@ -1,6 +1,10 @@
-# NANFEILAOTOU · 首页原型
+# NANFEILAOTOU
 
-Prototype 02 是独立预览，生产入口 `index.html` 不纳入本轮修改。
+V0.1 正式入口：[personal-site-7xv.pages.dev](https://personal-site-7xv.pages.dev/)。Cloudflare Pages 沿用现有 main 分支和仓库根静态目录，无需常驻 Node 服务。
+
+唯一首页 HTML 为根 `index.html`；已验收动画继续由 `prototype/` 中的共享脚本和样式维护。旧 `prototype/prototype-02.html` 兼容转到根路径并保留 query / hash，不维护第二份动画页面。
+
+[发布说明、原图访问边界与回滚方法](docs/RELEASE-V0.1.0.md)。
 
 AI 品牌统一采用 B（默认单色、当前目标显色），Opus Global World 已接入同一首页：Opening → AI → 经由 / VIA → Personal 预留。最新 [双章节集成报告](docs/HOME-AI-GLOBAL-INTEGRATION.md) 包含 15.68 屏时间轴、导航、实际 GPU 数据与测试；[素材 / 创意历史交接](docs/GLOBAL-VISUAL-HANDOFF.md) 继续保留。
 
@@ -8,7 +12,7 @@ AI 品牌统一采用 B（默认单色、当前目标显色），Opus Global Wor
 node scripts/serve.mjs
 ```
 
-打开 [Prototype 02](http://127.0.0.1:4173/prototype/prototype-02.html)。Global 卡面纹理需要同源 HTTP，不以双击 `file://` 为验收入口；无需构建或安装前端框架。
+打开 [正式根入口](http://127.0.0.1:4173/)。Global 卡面纹理需要同源 HTTP，不以双击 `file://` 为验收入口；无需构建或安装前端框架。
 
 - [AI + Global 整合验收 / 前后对照 / 操作录像](tests/home-global/review.html)
 - [Global 独立原型](http://127.0.0.1:4173/prototype/experiments/global-world.html)

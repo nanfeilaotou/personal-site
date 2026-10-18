@@ -2,7 +2,8 @@ const fs=require('fs'),path=require('path'),cp=require('child_process'),vm=requi
 const ROOT=path.resolve(__dirname,'../..'),read=f=>fs.readFileSync(path.join(ROOT,f)),text=f=>read(f).toString().replaceAll('\r\n','\n'),old=f=>cp.execFileSync('git',['show','6c16a2a:'+f],{cwd:ROOT,maxBuffer:20*1024*1024}).toString().replaceAll('\r\n','\n'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const load=s=>{const c={window:{}};vm.runInNewContext(s,c);return c.window.NF_TIMELINE;},before=load(old('prototype/timeline.js')),clock=load(text('prototype/timeline.js')),report={baseline:'6c16a2a',checks:[]};
 const pass=(name,detail)=>{console.log('PASS',name);report.checks.push({name,detail});};
-assert.equal(sha(read('index.html')),'bfc193b140d94b8669327f71a677d68f84db19f573e262119c53894cde4d1711');
+assert.equal(sha(read('prototype/prototype-01.html')),'bfc193b140d94b8669327f71a677d68f84db19f573e262119c53894cde4d1711');
+require('../release-v010/static.cjs');
 for(const f of ['data/models.js','data/agents.js','data/global-materials.js','prototype/showcase.js','prototype/showcase.css','prototype/experiments/card-particle.js','prototype/experiments/card-particle.html','prototype/experiments/card-surface.js'])assert.equal(text(f),old(f),f);
 const literal=(s,n)=>s.match(new RegExp('const '+n+'=`([\\s\\S]*?)`;'))[1];for(const n of ['VS','FS'])assert.equal(literal(text('prototype/motion.js'),n),literal(old('prototype/motion.js'),n));
 const card=text('prototype/experiments/global-card-adapter.js'),oldCard=old('prototype/experiments/global-card-adapter.js');

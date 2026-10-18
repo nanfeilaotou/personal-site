@@ -9,9 +9,10 @@ http.createServer(async(req,res)=>{
   try{
     const url=new URL(req.url,'http://localhost'),decoded=decodeURIComponent(url.pathname);
     if(decoded==='/favicon.ico'){res.writeHead(204);return res.end();}
-    const name=decoded==='/'?'/prototype/prototype-02.html':decoded;
+    const name=decoded==='/'?'/index.html':decoded;
+    if(name==='/assets/cards/starryblu-card.png'){res.writeHead(302,{Location:'/assets/cards/public/starryblu-card-sanitized.png'});return res.end();}
     const file=path.resolve(root,'.'+name);
     if(!file.startsWith(root+path.sep)||!((await stat(file)).isFile())){res.writeHead(404);return res.end('Not found');}
     const body=await readFile(file);res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(body);
   }catch{res.writeHead(404);res.end('Not found');}
-}).listen(port,'127.0.0.1',()=>console.log(`Prototype 02: http://127.0.0.1:${port}/prototype/prototype-02.html`));
+}).listen(port,'127.0.0.1',()=>console.log(`NANFEILAOTOU: http://127.0.0.1:${port}/`));
