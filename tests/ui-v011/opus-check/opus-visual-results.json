@@ -1,0 +1,125 @@
+{
+  "baseline": "6c16a2a",
+  "frames": [
+    {
+      "key": "number",
+      "layer": "structure-Canvas",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "number",
+      "layer": "structure-Canvas",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "number",
+      "layer": "card-WebGL",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "number",
+      "layer": "card-WebGL",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "network",
+      "layer": "structure-Canvas",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "network",
+      "layer": "structure-Canvas",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "network",
+      "layer": "card-WebGL",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "network",
+      "layer": "card-WebGL",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "accounts",
+      "layer": "structure-Canvas",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "accounts",
+      "layer": "structure-Canvas",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "accounts",
+      "layer": "card-WebGL",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "accounts",
+      "layer": "card-WebGL",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "cards",
+      "layer": "structure-Canvas",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "cards",
+      "layer": "structure-Canvas",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "cards",
+      "layer": "card-WebGL",
+      "version": "standalone",
+      "changedChannels": 0,
+      "maxDifference": 0
+    },
+    {
+      "key": "cards",
+      "layer": "card-WebGL",
+      "version": "integrated",
+      "changedChannels": 0,
+      "maxDifference": 0
+    }
+  ],
+  "errors": [],
+  "homeWindowListeners": {
+    "scroll": 0,
+    "resize": 1,
+    "keydown": 1,
+    "pointermove": 1
+  },
+  "completed": true
+}

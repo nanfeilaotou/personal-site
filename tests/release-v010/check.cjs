@@ -1,6 +1,6 @@
 // Run against the real root, locally or on the deployed Pages origin.
 const {launch}=require('../home-global/helpers.cjs'),fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
-const BASE=process.env.NF_RELEASE_BASE||'http://127.0.0.1:4180',OUT=__dirname,label=BASE.startsWith('https:')?'online':'local',sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const BASE=process.env.NF_RELEASE_BASE||'http://127.0.0.1:4180',OUT=process.env.NF_RELEASE_OUT||__dirname,label=BASE.startsWith('https:')?'online':'local',sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const report={date:'2026-10-18',base:BASE,checks:[],errors:[],failed:[],views:[]},pass=(name,detail)=>{report.checks.push({name,detail});console.log('PASS',name)};
 const watch=p=>{p.on('pageerror',e=>report.errors.push(e.message));p.on('console',m=>{if(m.type()==='error')report.errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)report.failed.push(r.url())})};
 async function seek(p,key){await p.evaluate(k=>{NF_DEBUG.freeze();NF_DEBUG.seek(typeof k==='number'?k:NF_DEBUG.state.stops[k])},key);if(await p.evaluate(()=>NF_DEBUG.state.global.active)){await p.waitForFunction(()=>NF_DEBUG.state.global.initialized&&Object.values(NF_GLOBAL.state.card.ready).every(Boolean));await p.evaluate(k=>NF_DEBUG.seek(typeof k==='number'?k:NF_DEBUG.state.stops[k]),key);}await p.evaluate(()=>NF_DEBUG.advance(.3));}

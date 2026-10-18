@@ -1,5 +1,5 @@
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path');
-const ROOT=path.resolve(__dirname,'../..'),OUT=__dirname,BASE='http://127.0.0.1:4173',CHROME='C:/Users/28919/AppData/Local/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
+const ROOT=path.resolve(__dirname,'../..'),OUT=process.env.NF_TEST_OUT||__dirname,BASE=process.env.NF_TEST_BASE||'http://127.0.0.1:4173',CHROME='C:/Users/28919/AppData/Local/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
 const launch=()=>chromium.launch({headless:true,executablePath:CHROME});
 const ready=p=>p.waitForFunction(()=>!!window.NF_DEBUG);
 async function worldReady(p){await p.waitForFunction(()=>NF_DEBUG.state.global.initialized);await p.waitForFunction(()=>Object.values(NF_GLOBAL.state.card.ready).every(Boolean));}

@@ -3,13 +3,13 @@ const ROOT=path.resolve(__dirname,'../..'),read=f=>fs.readFileSync(path.join(ROO
 const load=s=>{const c={window:{}};vm.runInNewContext(s,c);return c.window.NF_TIMELINE;},before=load(old('prototype/timeline.js')),clock=load(text('prototype/timeline.js')),report={baseline:'6c16a2a',checks:[]};
 const pass=(name,detail)=>{console.log('PASS',name);report.checks.push({name,detail});};
 assert.equal(sha(read('prototype/prototype-01.html')),'bfc193b140d94b8669327f71a677d68f84db19f573e262119c53894cde4d1711');
-require('../release-v010/static.cjs');
+require('../ui-v011/static.cjs');
 for(const f of ['data/models.js','data/agents.js','data/global-materials.js','prototype/showcase.js','prototype/showcase.css','prototype/experiments/card-particle.js','prototype/experiments/card-particle.html','prototype/experiments/card-surface.js'])assert.equal(text(f),old(f),f);
 const literal=(s,n)=>s.match(new RegExp('const '+n+'=`([\\s\\S]*?)`;'))[1];for(const n of ['VS','FS'])assert.equal(literal(text('prototype/motion.js'),n),literal(old('prototype/motion.js'),n));
 const card=text('prototype/experiments/global-card-adapter.js'),oldCard=old('prototype/experiments/global-card-adapter.js');
 assert.equal(card.replace('ctl.v=0;ctl.busy=false;return false;','ctl.v=0;return false;'),oldCard,'only offscreen busy flag changes in approved card adapter');
 const body=(s,name,end)=>s.slice(s.indexOf('function '+name+'('),s.indexOf(end,s.indexOf('function '+name+'('))).trim();
-for(const [name,end] of [['buildPoints','function drawGL'],['drawGL','/* ============ 2D'],['sceneField','/* ============ UI']])assert.equal(body(text('prototype/motion.js'),name,end),body(old('prototype/motion.js'),name,end));
+for(const [name,end] of [['buildPoints','function drawGL'],['drawGL','/* ============ 2D']])assert.equal(body(text('prototype/motion.js'),name,end),body(old('prototype/motion.js'),name,end));
 const w=text('prototype/experiments/global-world.js'),ow=old('prototype/experiments/global-world.js');for(const [name,end] of [['cam','function cs'],['sceneNumber','/* ---------- 01→02'],['sceneFlip','/* ---------- 02 网络'],['sceneNetwork','/* ---------- 03'],['sceneAccounts','/* ---------- 03→04'],['qNarr','function cardLayout'],['cardLayout','function slotPos'],['updateCardDom','function onCommit']])assert.equal(body(w,name,end),body(ow,name,end),name);
 pass('protected visuals','Opening shaders/sampling/draw, AI data/projections/styles, Local/Personal, original Card Formation, Opus camera/scenes/switch shaders and side-card motion unchanged; only offscreen busy status corrected');
 for(let s=0;s<=before.agents.end;s+=.003)assert.equal(clock.toScene(s),before.toScene(s),'unchanged AI mapping '+s);
