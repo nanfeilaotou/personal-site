@@ -378,10 +378,11 @@ function sceneGlobal(s,time){
 /* ============ 03 场 ============ */
 const PEW=[9.88,10.12,10.32];
 function peFill(s,k){return R(s,PEW[k]-.13,PEW[k]+.03)}
-function sceneField(s,time){
+function sceneField(s,time,options={}){
  if(s<9.44)return;
  INK=LIGHT;
  bigTitle('03',s,9.44,9.86,'场','FIELD · 个人',false);
+ if(options.introOnly)return;
  const N=46,spread=io(R(s,9.45,9.74)),flat=io(R(s,10.55,10.8)),shr=io(R(s,10.8,10.95));
  const act=[0,1,2].map(k=>peFill(s,k)*(k<2?1-peFill(s,k+1):1-R(s,10.48,10.6)));
  const peA=win(s,9.72,9.84,10.5,10.6);
@@ -465,7 +466,11 @@ function render(scrollS,time,intro,vel){
  INK=LIGHT;ctx.clearRect(0,0,W,H);glc.style.visibility=world.active?'hidden':'visible';
  if(world.active){
   // Only the final matching line field overlaps; no second Global renderer runs.
-  if(world.personalUnderlay){BG='#050505';sceneField(CLOCK.globalWorld.fieldLegacyStart,time);}
+  if(world.personalUnderlay){
+   // The underlay must be the same moving field, not a second fully spread field.
+   ctx.drawImage($('gw-cv'),0,0,W,H);
+   BG='#050505';sceneField(CLOCK.globalWorld.fieldLegacyStart,time,{introOnly:true});
+  }
   showcase.draw(s);ui(s,intro,scrollS,world);return;
  }
  setBackground('#050505');document.body.classList.remove('on-white');
