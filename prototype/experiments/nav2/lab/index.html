@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN" data-nf-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>NANFEILAOTOU · 顶部主导航 LENS 实验页</title>
+<link rel="stylesheet" href="../src/nf-topnav.css">
+<link rel="stylesheet" href="lab.css">
+</head>
+<body>
+<canvas id="stage" aria-hidden="true"></canvas>
+<main id="content">
+  <section class="scene" id="open" style="--len:160">
+    <p class="art-hint"><span data-i18n="lab.open.hint">向下滚动</span> · SCROLL</p>
+    <p class="art-tag" data-i18n="lab.open.tag">00 — 开场艺术视觉（模拟）：不受主题影响</p>
+  </section>
+  <section class="scene" id="ai" style="--len:200">
+    <article class="panel panel--l" aria-labelledby="p-ai">
+      <p class="panel__k">01 — AI</p>
+      <h2 class="panel__t" id="p-ai" data-i18n="lab.ai.t">模型生态</h2>
+      <p class="panel__d" data-i18n="lab.ai.d">信息面板属于界面层：跟随用户主题切换深浅；背后的画布颜色保持不变。</p>
+      <ul class="panel__list">
+        <li><span>01.1</span><b data-i18n="lab.ai.l1">模型生态</b></li>
+        <li><span>01.2</span><b data-i18n="lab.ai.l2">本地 AI</b></li>
+        <li><span>01.3</span><b data-i18n="lab.ai.l3">AI 客户端与 Agent</b></li>
+      </ul>
+    </article>
+  </section>
+  <section class="scene" id="global" style="--len:400">
+    <article class="panel panel--r" aria-labelledby="p-gl">
+      <p class="panel__k">02 — VIA</p>
+      <h2 class="panel__t" id="p-gl" data-i18n="lab.gl.t">全球数字服务</h2>
+      <p class="panel__d" data-i18n="lab.gl.d">背景在黑场与暖白场之间翻面；顶栏读取自己下方的真实像素亮度自动适配，面板则由主题决定。</p>
+      <ul class="panel__list">
+        <li><span>01</span><b data-i18n="lab.gl.l1">号码</b></li>
+        <li><span>02</span><b data-i18n="lab.gl.l2">网络</b></li>
+        <li><span>03</span><b data-i18n="lab.gl.l3">账户与钱包</b></li>
+        <li><span>04</span><b data-i18n="lab.gl.l4">支付卡片</b></li>
+      </ul>
+    </article>
+  </section>
+  <section class="scene" id="personal" style="--len:200">
+    <article class="panel panel--l" aria-labelledby="p-pe">
+      <p class="panel__k">03 — FIELD</p>
+      <h2 class="panel__t" id="p-pe" data-i18n="lab.pe.t">个人</h2>
+      <p class="panel__d" data-i18n="lab.pe.d">这一段英文尚未提供：切换到 EN 时安静地保持中文（lang="zh-CN"），只给一次轻提示，不在正文里堆角标。</p>
+    </article>
+  </section>
+  <section class="page" id="page">
+    <div class="page__in">
+      <p class="page__crumb"><span data-i18n="nav.personal">个人</span> / <span data-i18n="lab.page.crumb">内容页示例</span></p>
+      <h1 class="page__t" data-i18n="lab.page.t">未来的内容页：完全跟随主题</h1>
+      <p class="page__meta">2025 · NOTE 001 · <span data-i18n="lab.page.meta">模拟文章</span></p>
+      <p data-i18n="lab.page.p1">没有画布的普通页面里，背景本身由主题决定，所以顶栏直接跟随主题：浅色主题是暖白表面与深色文字，深色主题是黑色表面与浅色文字。</p>
+      <p data-i18n="lab.page.p2">这一段是正文示例，英文版本尚未提供，因此在 EN 模式下保持中文。导航本身、语言与主题控制都已经双语。</p>
+      <figure class="page__fig"><div class="page__grid" aria-hidden="true"></div><figcaption data-i18n="lab.page.fig">图 1　内容区的线条与边框同样来自主题变量。</figcaption></figure>
+      <p data-i18n="lab.page.p3">切换语言时，宿主先记录视口里的阅读锚点，替换文案后再把滚动位置恢复到同一段落，不会回到首页。</p>
+      <p data-i18n="lab.page.p4">滚动到页面底部，导航仍保持「个人」选中；点击「首页」会经由光闸直接回到开场，而不是倒着滚过所有章节。</p>
+      <p class="page__end"><a href="#open" data-jump="open" data-i18n="lab.page.back">回到起点 ↑</a></p>
+    </div>
+  </section>
+</main>
+
+<aside class="dock" id="dock" aria-label="实验控制台">
+  <div class="dock__row dock__head"><b>LENS LAB</b><span class="dock__sub">模拟场景 · 控制台不属于设计</span><button type="button" class="dock__min" id="dockMin" aria-label="收起控制台">—</button></div>
+  <div class="dock__body">
+    <div class="dock__row"><span class="dock__l">主题</span><div class="dock__seg" data-ctl="theme"><button data-v="system">系统</button><button data-v="light">浅</button><button data-v="dark">深</button></div></div>
+    <div class="dock__row"><span class="dock__l">语言</span><div class="dock__seg" data-ctl="lang"><button data-v="zh">中</button><button data-v="en">EN</button></div></div>
+    <div class="dock__row"><span class="dock__l">过渡</span><div class="dock__seg" data-ctl="tr"><button data-v="shutter">光闸</button><button data-v="none">无</button></div></div>
+    <div class="dock__row"><span class="dock__l">滚到</span><div class="dock__seg dock__seg--wrap" data-ctl="jump"><button data-v="0">开场</button><button data-v="2.2">AI</button><button data-v="3.9">全球·黑</button><button data-v="4.75">翻面中</button><button data-v="5.6">全球·白</button><button data-v="7.25">全球·卡</button><button data-v="8.4">个人</button><button data-v="10.4">内容页</button></div></div>
+    <div class="dock__row"><span class="dock__l">预览</span><div class="dock__seg"><button id="mobileBtn">手机 390×844</button></div></div>
+    <pre class="dock__ro" id="readout" aria-live="off"></pre>
+  </div>
+</aside>
+<div class="phone" id="phone" hidden><div class="phone__frame"><iframe title="手机预览" id="phoneFrame"></iframe></div><button type="button" class="phone__x" id="phoneX">关闭预览 ✕</button></div>
+
+<script src="../src/nf-i18n.js"></script>
+<script src="../src/nf-scene-probe.js"></script>
+<script src="../src/nf-topnav.js"></script>
+<script src="lab.js"></script>
+</body>
+</html>

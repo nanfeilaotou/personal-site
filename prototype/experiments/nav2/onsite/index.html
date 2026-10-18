@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>NANFEILAOTOU · LENS 顶部主导航叠加真实首页（预览）</title>
+<link rel="stylesheet" href="../src/nf-topnav.css">
+<style>
+html,body{margin:0;height:100%;background:#050505;overflow:hidden}
+#site{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
+.tag{position:fixed;left:12px;bottom:10px;z-index:70;margin:0;font:500 10px "JetBrains Mono","Liberation Mono",monospace;letter-spacing:.08em;color:#8a8a8a;background:rgba(0,0,0,.72);padding:4px 8px;border:1px solid rgba(255,255,255,.15);pointer-events:none}
+html.clean .tag{display:none}
+</style>
+</head>
+<body>
+<!-- 同源 iframe 加载 main 首页（文件未改动）。新导航挂在父页面：
+     · 同步：只读 NF_DEBUG.state / NF_TIMELINE（与第一轮相同的映射）
+     · 跳转：光闸完全覆盖时调用 NF_DEBUG.seek(STOP[key])（= 建议给 motion.js 增加的 navigate(key,{instant:true})）
+     · 明暗：NFSceneProbe 读取 iframe 内 #stage/#gl/#cv/#gw-cv/#gw-gl 顶栏区域的真实像素，不读任何 body class -->
+<iframe id="site" title="NANFEILAOTOU 首页"></iframe>
+<p class="tag" id="tag">ONSITE PREVIEW · LENS 顶部导航叠加 main 首页 · 旧左上/右上 HUD 仅在预览中隐藏</p>
+<script src="../src/nf-i18n.js"></script>
+<script src="../src/nf-scene-probe.js"></script>
+<script src="../src/nf-topnav.js"></script>
+<script>
+(function(){
+'use strict';
+const Q=new URLSearchParams(location.search),root=document.documentElement,frame=document.getElementById('site');
+if(Q.has('clean'))root.classList.add('clean');
+const MAINKEY={open:'open',ai:'models',global:'global',personal:'personal'};
+const hashKey=()=>{const k=location.hash.slice(1);return k==='via'?'global':k==='models'?'ai':(k in MAINKEY?k:null);};
+/* 父页 hash → iframe hash（main 自己的 fromHash 能识别 #ai/#global/#personal/#open） */
+const at=Q.get('at');
+frame.src='/index.html?debug'+(Q.has('it')?'&it=10':'')+(at!==null?'&at='+at:'')+(hashKey()?'#'+hashKey():'');
+const W=()=>frame.contentWindow, D=()=>{const w=W();return w&&w.NF_DEBUG;};
+const stop=key=>{const d=D();return d?d.state.stops[MAINKEY[key]]:0;};
+let nav=null;
+function navigate(key){
+  const d=D();if(!d)return;
+  d.seek(stop(key));                                          /* 瞬时定位：不经过其他章节 */
+  try{const w=W();w.history.replaceState(null,'',w.location.pathname+w.location.search+'#'+key);}catch(e){}
+  if(location.hash!=='#'+key)history.pushState(null,'','#'+key);
+}
+addEventListener('popstate',()=>nav&&nav.go(hashKey()||'open'));
+
+/* 像素探针：图层自下而上 */
+let probe=null;
+function makeProbe(doc){
+  const q=s=>doc.querySelector(s);
+  probe=NFSceneProbe.create({
+    layers:()=>[q('#stage'),q('#gl'),q('#cv'),q('#gw-cv'),q('#gw-gl'),q('#gw-fallback')],
+    rect:()=>({x:0,y:0,w:innerWidth,h:parseFloat(root.style.getPropertyValue('--nf-nav-h'))||68}),
+    base:'#050505'
+  });
+}
+function inject(doc){
+  const h=getComputedStyle(root).getPropertyValue('--nf-nav-h')||'68px',st=doc.createElement('style');st.id='nftn-host-patch';
+  /* 只在预览中注入：隐藏被新导航取代的旧左上品牌/右上 HUD 与调试面板；章节标题下移到导航之下 */
+  st.textContent=`#hTL,#hTR,#dbg,#nf-topnav,.nftn-shutter{display:none!important}
+   .chap{top:calc(${h} + 38px)!important}
+   @media(max-width:760px){#global-world #gw-chap{top:calc(${h} + 10px)!important}.chap{top:calc(${h} + 14px)!important}}`;
+  doc.head.appendChild(st);
+}
+frame.addEventListener('load',()=>{try{const doc=frame.contentDocument;inject(doc);makeProbe(doc);}catch(e){console.error(e);}});
+
+function mountNav(active){
+  nav=NFTopNav.mount({active,lang:Q.get('lang')||undefined,theme:Q.get('theme')||undefined,persist:!Q.has('nopersist'),
+    navigate,isAt:key=>{const d=D();return !!d&&Math.abs(d.state.s-stop(key))<.015;},
+    onLangChange:L=>({fallbacks:L==='en'?1:0}),          /* 首页正文目前只有中文 */
+    onMenuToggle:open=>{frame.inert=open;}});
+  window.NAV=nav;
+}
+mountNav(hashKey()||'open');
+
+/* 同步：与第一轮相同的章节映射 */
+function sync(){
+  const w=W(),d=D();
+  if(d&&w.NF_TIMELINE&&probe){
+    const st=d.state,C=w.NF_TIMELINE,T=C.scene,sc=C.toScene(st.s),gw=st.global||{};
+    const bridgeMid=(T.bridge.start+T.bridge.end)/2;let key,kind='canvas';
+    if(sc<T.models.start){key='open';kind='art';}
+    else if(gw.active)key='global';
+    else if(sc<bridgeMid)key='ai';
+    else if(sc<T.personal.start)key='global';
+    else key='personal';
+    const pr=probe.sample();
+    nav.setScene({tone:pr.tone,kind});nav.setActive(key);
+    window.SYNC={s:st.s,sc,key,kind,tone:pr.tone,mean:pr.mean,ok:pr.ok,g:gw.g,active:!!gw.active};
+  }
+  requestAnimationFrame(sync);
+}
+requestAnimationFrame(sync);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "source": "User-provided nf-topnav-v2.zip, extracted Desktop/nf-topnav-v2/nav2",
+  "receivedAt": "2026-10-18",
+  "zipSHA256": "103a797a37e782f8d4d2d01e5288ee142ef846f34ea59da8300f1ce063e671d5",
+  "originalSourceSHA256": {
+    "nf-i18n.js": "a43e9916df5ebeb629494ac30f849db385a970d5dfdfbd0f221b2f45fbe3256a",
+    "nf-scene-probe.js": "3386178a79a34eb0adb7906bcef1441639755936fe4809ebe8f2ed2749a4c6a5",
+    "nf-topnav.css": "0991df6dff1501fc859201c54132f26daec92a23baabf2256c7ae52652f00889",
+    "nf-topnav.js": "36df681b21660a401fdcb9dd333ecc9f4f58963db258f54024927a8e2ac93119"
+  },
+  "note": "Original design retained. Production uses a host adapter; source changes and testing are documented in docs/LENS-INTEGRATION.md. Only three representative delivery screenshots stored; local archive retains full frame sequences."
+}
