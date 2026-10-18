@@ -1,0 +1,93 @@
+{
+  "checkedAt": "2026-10-18T12:50:59.881Z",
+  "base": "https://personal-site-7xv.pages.dev",
+  "revision": "64f8b2d144bbad2f3153a378606217ba65c8c2b3",
+  "files": [
+    {
+      "name": "index.html",
+      "status": 200,
+      "sha256": "df101cd61229f2970703530d4b198d765ff8a67663fd9c7c309e3f2786289d54"
+    },
+    {
+      "name": "prototype/experiments/nav2/src/nf-topnav.js",
+      "status": 200,
+      "sha256": "abffd9dbe65ccd4776e02e69f75b61b043bd46fe773af65c9a9cf0db85ec9ad6"
+    },
+    {
+      "name": "prototype/experiments/nav2/src/nf-i18n.js",
+      "status": 200,
+      "sha256": "a43e9916df5ebeb629494ac30f849db385a970d5dfdfbd0f221b2f45fbe3256a"
+    },
+    {
+      "name": "prototype/experiments/nav2/src/nf-topnav.css",
+      "status": 200,
+      "sha256": "0991df6dff1501fc859201c54132f26daec92a23baabf2256c7ae52652f00889"
+    },
+    {
+      "name": "prototype/topnav-home.js",
+      "status": 200,
+      "sha256": "59c7e4f5e5cfb2c55e3f4f5500889ac151eb635a213fc898547088393f329b01"
+    },
+    {
+      "name": "prototype/topnav-home.css",
+      "status": 200,
+      "sha256": "0ca5095a026e8e74e2784b3fa24b1a725d73aa36d8a340070f091c1cc6abf4f6"
+    },
+    {
+      "name": "prototype/motion.js",
+      "status": 200,
+      "sha256": "3234b52e1593092e3e2cc1f43043e1ff9e2a3aca6777a99fb0c98a65d6876917"
+    },
+    {
+      "name": "prototype/rail.js",
+      "status": 200,
+      "sha256": "feeeef5d1e0f9355fe1620f9636cf70426b623f11131f72dd94b252e1e1e54ec"
+    },
+    {
+      "name": "prototype/rail.css",
+      "status": 200,
+      "sha256": "e86e3bef86db3bdb590e9787495f9eb023b829f79c4d07ede417a82c34bb2012"
+    },
+    {
+      "name": "prototype/ui.css",
+      "status": 200,
+      "sha256": "235bbfd34926896cbf3ddfc80bc395a762be59e6040920c2f0f39a240cda70b1"
+    },
+    {
+      "name": "prototype/return.css",
+      "status": 200,
+      "sha256": "a5489f53f62a8cef3ec5a4f1780b85c7a1f1a02301854dd6217a5256404e2f3a"
+    },
+    {
+      "name": "prototype/timeline.js",
+      "status": 200,
+      "sha256": "bea6920056b956505ec1a1a8d543bfedc944e1e6d92bb7956023f9fde5b153fd"
+    },
+    {
+      "name": "prototype/experiments/global-world.js",
+      "status": 200,
+      "sha256": "4b85076b20d0f64cd4e50cfaf5cfca055cb9f08fb941efa41e0e600d220fbbbd"
+    },
+    {
+      "name": "prototype/experiments/global-card-adapter.js",
+      "status": 200,
+      "sha256": "5f630893ffc55b0ccff770e529ec1274711c9f04ccbb33c56ff85aca1d6b80bc"
+    },
+    {
+      "name": "prototype/showcase.js",
+      "status": 200,
+      "sha256": "939da1609cb5fc48254f3d53f44f126a22f2e68ef0d34876a03775ad063654a0"
+    },
+    {
+      "name": "data/models.js",
+      "status": 200,
+      "sha256": "b7f5e5df2f2d4c3b59989323abc73ce4d20c84b4c0ef99929310e97c798d8780"
+    },
+    {
+      "name": "data/agents.js",
+      "status": 200,
+      "sha256": "a1926fe825fa7b73d2a89897bf2d0e37ac4cbe01c45b2e71008537638c8e14c4"
+    }
+  ],
+  "completed": true
+}
