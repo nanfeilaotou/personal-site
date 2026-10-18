@@ -7,6 +7,9 @@
     "height": 608,
     "processing": "Offline export of the existing approved NFCardSurface Canvas: replaces printed number/name region using adjacent non-text pixels. No runtime redaction needed when this derivative is used.",
     "sourceStatus": "User-provided original; independent public-demo provenance unconfirmed",
-    "generatedAt": "2026-10-17"
+    "generatedAt": "2026-10-17",
+    "sourceRevision": "ff907cb5b541f7e7081f71a39a1c9e7c213a84f0",
+    "sourceSha256": "9e8e4e22db26bf2f42f45ff916eb385166d881920d623c5c6f5dc7286e3a2f3b",
+    "sourceNote": "Source path refers to the original in this pinned Git revision. The current release path now holds the sanitized derivative as a compatibility alias."
   }
 ]

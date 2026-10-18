@@ -26,8 +26,8 @@
 
 - 正式场景、三卡采样、高清层和静态后备只引用 `assets/cards/public/starryblu-card-sanitized.png`，SHA256 为 `4a9a9a5ad535b827e9b5121b67aa309a4218e7cc95cdd8f1cea959483eb3ce06`。号码 / 姓名区域已在文件像素中离线处理。
 - `_redirects` 使旧 `/assets/cards/starryblu-card.png` 请求在 Cloudflare Pages 端 **302 到上述安全副本**，即使源文件存在也优先跳转。不是浏览器遮罩。发布测试验证旧 URL 的响应链及最终返回字节哈希。
-- 本轮沿用仓库根静态发布，**研究原件仍留在仓库与上传目录中；是 URL 规则阻止本站直接返回它，并不声称已经从发布包物理删除**。未来改用纯生产白名单构建目录时，应不拷贝该研究原件；若更换静态托管平台，必须先落实等价规则或排除文件。
-- 公共 GitHub 当前研究目录、功能分支和历史仍可访问原件；此发布不是撤回历史，也不能消除已下载副本。来源仍是用户提供、公开演示字段出处未独立确认，不宣称已核实为演示卡号。本轮不重写 Git 历史。
+- 初次线上补查发现，百分号编码路径可绕过精确重定向，因此最终发布**不只依赖 URL 规则**：旧 `assets/cards/starryblu-card.png` 在主线发布树中也换成同一安全副本，所有返回图像的路径都只携带已处理像素。未处理研究原件不再存在于本次发布文件树，固定原始 revision / 哈希保留在两份 manifest 中。
+- 公共 GitHub 的功能分支和历史仍可访问原件；此发布不是撤回历史，也不能消除已下载副本。来源仍是用户提供、公开演示字段出处未独立确认，不宣称已核实为演示卡号。本轮不重写 Git 历史。
 
 ## 已保护内容
 
@@ -39,8 +39,10 @@ Opening Shader / 字形 / 排斥恢复、AI 21 条目与 B 显色、三段 AI �
 
 - [发布根路径检查脚本](../tests/release-v010/check.cjs)，默认测试 `http://127.0.0.1:4180/`；设置 `NF_RELEASE_BASE=https://personal-site-7xv.pages.dev` 后执行相同在线检查。
 - [本地结果](../tests/release-v010/local-results.json)、[在线结果](../tests/release-v010/online-results.json)。线上结果在真正部署后追加，不预先声称成功。
-- [静态保护检查](../tests/release-v010/static.cjs)：将根 HTML 的发布差异还原后，与 ff907cb 的已验收 HTML 逐字符相同；`prototype / data / assets` 中只有旧 HTML 兼容入口改变，动画脚本、数据、材质无改动。
+- [静态保护检查](../tests/release-v010/static.cjs)：将根 HTML 的发布差异还原后，与 ff907cb 的已验收 HTML 逐字符相同；`prototype / data` 中只有旧 HTML 兼容入口改变；assets 仅处理旧研究图路径及来源记录，三张正式材质像素、动画脚本和数据无改动。
 - 原 `tests/static-check.cjs`、`tests/home-global/static.cjs` 的根入口断言更新为正式入口规则；原版完整备份哈希保护仍保留，其余检查不减。
+- 另检查 HTTP 返回脚本与 Git 源文件相同（统一 CRLF / LF 后），以及原图普通 / 查询参数 / 百分号编码 / 双斜杠 URL；返回图片时必须与安全副本哈希相同。扫描发布树中的图片，未发现原始研究 PNG 字节。
+- 旧独立 Card Formation 仍是原算法。为发布安全替换其旧素材路径后，五个正反采样画面仍各有 64,000 点并保持正反对称；相对旧“原图加运行时处理”，仅有 85–391 / 1,296,000 像素的隐私采样 / 过滤边缘差异，平均通道差异不超过 0.00065 / 255，不声称旧实验逐像素一致。正式首页此前已使用安全副本，因此其三张材质像素无变化；详见 [测量](../tests/release-v010/card-privacy-results.json)。
 - 三桌面分辨率：1920×1080、1440×900、1366×768。覆盖根启动、21 AI 条目、四领域、三卡切换 / 快速重选、Hash / Back / Forward / 刷新、键盘、索引 / Esc、资源和 Console。
 - 390×844 只做触摸可达与横向溢出冒烟；系统减少动态和实际禁用 WebGL 仍有静态后备。手机竖屏精修继续延期。
 - 本轮不修改算法，也不重复声称新性能数字；实际硬件性能及更深的 Context / 长时停留验证见 [已验收集成报告](HOME-AI-GLOBAL-INTEGRATION.md)。

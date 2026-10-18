@@ -20,14 +20,18 @@
     "source": "User attachment #2",
     "sourcePage": null,
     "verifiedAt": "2026-10-17",
-    "sha256": "9e8e4e22db26bf2f42f45ff916eb385166d881920d623c5c6f5dc7286e3a2f3b",
-    "bytes": 656747,
-    "modification": "Original file bytes retained. Preview-only StarryBlu privacy sampling is documented separately.",
+    "sha256": "4a9a9a5ad535b827e9b5121b67aa309a4218e7cc95cdd8f1cea959483eb3ce06",
+    "bytes": 670099,
+    "modification": "V0.1 production alias: byte-identical copy of public/starryblu-card-sanitized.png. Original retained only in the accepted feature branch / pinned Git revision, not in the current release file tree.",
     "license": "User-provided visual material; independent official origin and reuse licence not confirmed.",
     "width": 1010,
     "height": 608,
     "mode": "RGBA",
-    "hasAlpha": true
+    "hasAlpha": true,
+    "originalSha256": "9e8e4e22db26bf2f42f45ff916eb385166d881920d623c5c6f5dc7286e3a2f3b",
+    "originalBytes": 656747,
+    "originalRevision": "ff907cb5b541f7e7081f71a39a1c9e7c213a84f0",
+    "publishedAt": "2026-10-18"
   },
   {
     "file": "assets/brands/grok-bot-provided.png",

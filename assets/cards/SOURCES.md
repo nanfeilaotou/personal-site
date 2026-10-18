@@ -1,4 +1,8 @@
-# 卡面与 Global 彩色品牌 · 本轮记录
+# 卡面与 Global 彩色品牌 · 来源记录
+
+## V0.1 公开发布补充（2026-10-18）
+
+正式场景继续使用 `public/starryblu-card-sanitized.png`，其像素和 SHA256 不变。为避免编码 URL 绕过静态重定向，当前发布树中的 `starryblu-card.png` 也改为同一离线安全副本（字节完全相同）。原始研究件仍保留在已验收功能分支及固定 revision `ff907cb5b541f7e7081f71a39a1c9e7c213a84f0`，SHA256 `9e8e4e22db26bf2f42f45ff916eb385166d881920d623c5c6f5dc7286e3a2f3b`，未重写历史。以下“保留原文件 / 运行时处理”描述属于历史阶段；当前主线文件状态以 manifest 中的发布补充为准。公开 GitHub 历史仍可取到原件，本次只保证新生产发布树不包含该原始图像字节。
 
 日期：2026-10-17。下载原件与展示用文件的字节 / SHA256 见 [manifest.json](manifest.json)。本轮素材仅接入独立实验页；AI 章节与正式 Global 没有改动。
 

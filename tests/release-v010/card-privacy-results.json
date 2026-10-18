@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "q": 0.35,
+      "maxChannelDifference": 14,
+      "meanChannelDifference": 0.00006944444444444444,
+      "changedPixels": 85,
+      "largeDifferencePixels": 1,
+      "totalPixels": 1296000
+    },
+    {
+      "q": 0.8,
+      "maxChannelDifference": 29,
+      "meanChannelDifference": 0.0006493055555555555,
+      "changedPixels": 391,
+      "largeDifferencePixels": 48,
+      "totalPixels": 1296000
+    },
+    {
+      "q": 1,
+      "maxChannelDifference": 67,
+      "meanChannelDifference": 0.0005588348765432099,
+      "changedPixels": 308,
+      "largeDifferencePixels": 23,
+      "totalPixels": 1296000
+    },
+    {
+      "q": 0.8,
+      "maxChannelDifference": 29,
+      "meanChannelDifference": 0.0006493055555555555,
+      "changedPixels": 391,
+      "largeDifferencePixels": 48,
+      "totalPixels": 1296000
+    },
+    {
+      "q": 0.35,
+      "maxChannelDifference": 14,
+      "meanChannelDifference": 0.00006944444444444444,
+      "changedPixels": 85,
+      "largeDifferencePixels": 1,
+      "totalPixels": 1296000
+    }
+  ],
+  "completed": true,
+  "note": "Both materials retain 64000 points and exact forward/reverse symmetry. Small sampling differences in the old standalone lab are measured, not claimed pixel-identical. Formal homepage uses the unchanged safe texture."
+}
