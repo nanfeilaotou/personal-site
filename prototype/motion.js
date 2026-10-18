@@ -409,7 +409,7 @@ function sceneField(s,time){
 }
 
 /* ============ UI ============ */
-const E=id=>$(id),hTL=E('hTL'),hTR=E('hTR'),hBL=E('hBL'),hBR=E('hBR'),hint=E('hint'),rail=E('rail'),rfill=E('rfill'),dbg=E('dbg');
+const E=id=>$(id),hTL=E('hTL'),hTR=E('hTR'),hBL=E('hBL'),hBR=E('hBR'),hint=E('hint'),rail=E('rail'),dbg=E('dbg');
 const chAI=E('chAI'),chGL=E('chGL'),chPE=E('chPE'),enM=E('enModels'),enL=E('enLocal'),enA=E('enAgents'),enG=E('enGlobal'),b1=E('b1'),pe=E('pe'),endEl=E('end');
 const b2=[...document.querySelectorAll('#bridge .l2 span')],peT=[...document.querySelectorAll('#pe .t')],railB=[...rail.querySelectorAll('button')],aiLi=[...chAI.querySelectorAll('li')];
 function show(el,a,dy=0){a=clamp(a);a=Math.round(a*1000)/1000;if(el._a===a&&el._dy===dy)return;el._a=a;el._dy=dy;
@@ -422,7 +422,7 @@ function ui(s,intro,scrollS=s,world={active:false,g:0}){
  const section=world.active?'global':s<M.start?'open':s<TIMELINE.local.start?'models':s<A.start?'local':s<TIMELINE.bridge.start?'agents':s<TIMELINE.global.start?'bridge':s<TIMELINE.personal.start?'global':'personal';
  const ri=world.active?2:s<M.start?0:s<TIMELINE.global.start?1:s<TIMELINE.personal.start?2:3;
  railB.forEach((b,i)=>{b.classList.toggle('on',i===ri);if(i===ri)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});
- rfill.style.height=((rail.offsetHeight+28)*scrollS/TOTAL).toFixed(1)+'px';
+ chapterRail.update({index:ri,scroll:scrollS,surface:world.active&&globalHome.state.initialized?NF_GLOBAL.surface:null});
  show(chAI,win(s,2.36,2.44,TIMELINE.bridge.start,TIMELINE.bridge.start+.1));
  aiLi.forEach((l,i)=>{const on=i===(section==='models'?0:section==='local'?1:2);l.classList.toggle('on',on);const a=l.querySelector('a');if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
  show(chGL,0);show(chPE,world.active?0:win(old,9.82,9.88,10.62,10.72));
@@ -443,7 +443,7 @@ function resize(){
  for(const c of [glc,cv]){c.width=Math.round(W*DPR);c.height=Math.round(H*DPR)}
  ctx.setTransform(DPR,0,0,DPR,0,0);
  $('track').style.height=(TOTAL*UNIT+H)+'px';
- for(const k in gcache)delete gcache[k];layout();buildPoints();showcase.resize();globalHome.resize();
+ for(const k in gcache)delete gcache[k];layout();buildPoints();showcase.resize();globalHome.resize();chapterRail.resize();
 }
 function sceneVoid(s){
  if(s>=TIMELINE.global.start&&s<TIMELINE.global.start+1.26)return;
@@ -458,6 +458,7 @@ function setBackground(bg){
  BG=bg;if(bg===curBG)return;curBG=bg;
  stage.style.background=bg;document.documentElement.style.background=bg;document.body.style.background=bg;
 }
+const chapterRail=window.NFChapterRail({el:rail,clock:CLOCK});
 const globalHome=window.NFGlobalHome({clock:CLOCK,setBackground,kick:()=>schedule()});
 function render(scrollS,time,intro,vel){
  const s=CLOCK.toScene(scrollS),old=legacyLater(s),world=globalHome.render(scrollS,time);
@@ -536,7 +537,7 @@ const initial=AT!==null?AT:restored!==null?restored:(fromHash() in STOP?STOP[fro
 sd=clamp(initial,0,TOTAL);scrollTo(0,sd*UNIT);
 if(location.hash.startsWith('#guide-'))queueMicrotask(()=>globalHome.openGuide(location.hash.slice(7)));
 addEventListener('pagehide',e=>{if(!e.persisted)globalHome.destroy();try{sessionStorage.setItem('nf-prototype-02-position',JSON.stringify({s:scrollY/UNIT,url:positionKey(),total:TOTAL}))}catch{}});
-if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP,navigating:!!anim,global:globalHome.state};},
+if(DEBUG)window.NF_DEBUG={get state(){return {s:sd,sceneS:CLOCK.toScene(sd),total:TOTAL,target:scrollY/UNIT,points:NPTS,glyphPoints:NGLYPH,dpr:DPR,webgl:!!gl,bufferBytes:NPTS*36,canvas:[glc.width,glc.height],stops:STOP,navigating:!!anim,rail:chapterRail.state,global:globalHome.state};},
  seek(s){userMoved=true;anim=null;sd=clamp(s,0,TOTAL);scrollTo(0,sd*UNIT);globalHome.invalidate();render(sd,debugClock??Number(Q.get('time')||10),FIXIT??10,0);},
  freeze(on=true){frozen=on;if(frozen){if(raf)cancelAnimationFrame(raf);raf=0;}else{last=performance.now();schedule();}return frozen;},
  advance(sec,fps=60){frozen=true;if(raf)cancelAnimationFrame(raf);raf=0;if(debugClock===null)debugClock=Number(Q.get('time')||10);for(let i=0;i<Math.round(sec*fps);i++){debugClock+=1/fps;render(sd,debugClock,10,0);}return globalHome.state;},

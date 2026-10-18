@@ -1,0 +1,18 @@
+/* B Module language, rebuilt as compact vertical stations. Normal colour layer. */
+#rail{position:fixed;z-index:11;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:stretch;gap:8px;opacity:0;pointer-events:none;mix-blend-mode:normal}
+#rail::before{content:'';position:absolute;top:-8px;bottom:-8px;left:50%;width:1px;background:#8883;pointer-events:none}
+#rail button{all:unset;--rail-bg:rgba(8,9,10,.90);--rail-ink:#dededb;--rail-line:#ffffff29;--rail-accent:#5AA9FF;position:relative;display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;background:var(--rail-bg);border:1px solid var(--rail-line);box-sizing:border-box;color:var(--rail-ink);cursor:pointer;pointer-events:auto;opacity:.76;font:500 11px var(--mono);letter-spacing:.1em;transition:border-color .14s,opacity .14s}
+#rail button[data-surface=light]{--rail-bg:rgba(243,242,238,.96);--rail-ink:#232323;--rail-line:#0000002b;--rail-accent:#1e63c6}
+#rail button.on,#rail button:hover,#rail button:focus-visible{opacity:1;border-color:var(--rail-accent)}
+#rail button.on .rail-index,#rail button:focus-visible .rail-index{color:var(--rail-accent)}
+#rail button::before{content:'';position:absolute;inset:4px;opacity:0;pointer-events:none;background:linear-gradient(var(--rail-accent),var(--rail-accent)) 0 0/6px 1px no-repeat,linear-gradient(var(--rail-accent),var(--rail-accent)) 0 0/1px 6px no-repeat,linear-gradient(var(--rail-accent),var(--rail-accent)) 100% 100%/6px 1px no-repeat,linear-gradient(var(--rail-accent),var(--rail-accent)) 100% 100%/1px 6px no-repeat;transition:opacity .14s}
+#rail button.on::before,#rail button:hover::before,#rail button:focus-visible::before{opacity:1}
+#rail button:focus-visible{outline:1px solid var(--rail-accent);outline-offset:4px}
+#rail .rail-label{position:absolute;right:calc(100% + 10px);padding:7px 11px;border:1px solid var(--rail-line);background:var(--rail-bg);color:var(--rail-ink);font:500 12px var(--cn);letter-spacing:.08em;white-space:nowrap;opacity:0;transform:translateX(5px);transition:opacity .14s,transform .18s;pointer-events:none}
+#rail:not(.has-detail) button:is(:hover,:focus-visible) .rail-label{opacity:1;transform:none}
+#rail .rail-meter{position:absolute;right:-1px;top:5px;bottom:5px;width:2px;background:var(--rail-line);opacity:0;pointer-events:none}
+#rail .rail-meter i{display:block;height:100%;width:100%;background:var(--rail-accent);transform:scaleY(0);transform-origin:top}
+#rail button.on .rail-meter{opacity:1}
+@media(max-width:760px){#rail{display:none}}
+@media(prefers-reduced-motion:reduce){#rail button,#rail button::before,#rail .rail-label{transition:none}}
+@media(forced-colors:active){#rail button.on{outline:2px solid Highlight}#rail button{border-color:ButtonText}}

@@ -85,6 +85,9 @@ const ZN=-F*.7;
 function clipNear(pts){const out=[];for(let i=0;i<pts.length;i++){const a=pts[i],b=pts[(i+1)%pts.length],ia=a[2]>=ZN,ib=b[2]>=ZN;if(ia)out.push(a);if(ia!==ib){const t=(ZN-a[2])/(b[2]-a[2]);out.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,ZN]);}}return out;}
 function seg(C,x1,y1,x2,y2,a,w=1,h1=0,h2=h1){let p=cs(C,x1,y1,h1),q=cs(C,x2,y2,h2);if(p[2]<ZN&&q[2]<ZN)return;if(p[2]<ZN||q[2]<ZN){const t=(ZN-p[2])/(q[2]-p[2]),m=[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t,ZN];if(p[2]<ZN)p=m;else q=m;}const A=pj(C,p),B=pj(C,q);L(A[0],A[1],B[0],B[1],a,w);}
 function sheet(C,S){const pts=clipNear([[-S,-S],[S,-S],[S,S],[-S,S]].map(([x,y])=>cs(C,x,y)));if(pts.length<3)return null;return pts.map(p=>pj(C,p));}
+// Read-only surface geometry; the same camera / paper used by the renderer.
+function whiteSurface(g,C){return (g>=2.0&&C.phi<=68&&g<4.5)||(g>=2.12&&g<4.5);}
+function surfaceGeometry(){const g=lastG,C=cam(g);return {baseTone:whiteSurface(g,C)?1:0,whitePolygon:((g>=1.70&&g<2.2)||(g>=4.5&&g<4.84))?sheet(C,E*40):null};}
 function ground(C,pts){const out=[];for(const [x,y] of pts){const p=P(C,x,y);if(!p)return null;out.push(p);}return out;}
 
 /* ---------- 布局 ---------- */
@@ -357,7 +360,7 @@ function render(g,time){
  if(!ready)return {needsFrame:false};const t0=performance.now();
  g=clamp(g,0,LEN);const dt=lastTime==null?0:clamp(time-lastTime,0,.1);lastTime=time;lastG=g;const t=REDUCED?0:time;
  const C=cam(g);
- const white=(g>=2.0&&C.phi<=68&&g<4.5)||(g>=2.12&&g<4.5);
+ const white=whiteSurface(g,C);
  const bg=white?WHITE:BLACK;if(bg!==bgNow){bgNow=bg;if(HOST.setBackground)HOST.setBackground(bg,white);else{el.stage.style.background=bg;document.documentElement.style.background=bg;document.body.classList.toggle('on-white',white);}}
  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);placed={};
  if(!white){INK=LIGHT;for(let i=0;i<40;i++){const d=.3+hs(i*3)*.7,x=hs(i+80)*W,y=((hs(i+250)*H-g*H*.02*d)%H+H)%H;dot(x,y,.35+hs(i+120)*.35,(.04+hs(i+33)*.07)*(g>4.9?.6:1));}}
@@ -385,6 +388,7 @@ function buildDom(){
 let kick=()=>{};
 let onPtr=null;
 const NF_GLOBAL={LEN,STOPS,ZONE,DOMAINS,CARDS,BRANDS,domainAt,
+ get surface(){return surfaceGeometry();},
  async init(opts){
   HOST=opts;if(opts.guides)for(const d of DOMAINS){const guide=opts.guides.find(g=>g.domain===d.key);if(guide){d.link=guide.title;d.href=guide.url||'#guide-'+guide.id;}}el=opts.el;ctx=el.cv.getContext('2d');kick=opts.kick||kick;buildDom();
   stage=NFCardStage.create(el.gl,CARDS,{reduced:REDUCED,onCommit,noWebGL:opts.noWebGL??Q.has('nogl'),slowLoad:opts.slowLoad??(Number(Q.get('slow'))||0),onReady:()=>kick(),onLost:()=>kick(),onRestored:()=>kick()});
