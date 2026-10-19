@@ -1,6 +1,6 @@
-# 手机竖屏专项 · 第一轮人工验收版
+# 手机竖屏专项 · 已验收发布版
 
-日期：2026-10-19。正式基线 **main / 7ad321568909e997f1f16eea646e995c73a9119e**；开发分支 **feat/mobile-portrait**，独立 worktree。**本轮构图变更先提供预览，未合并 main、未替换正式站点。**
+日期：2026-10-19。正式基线 **main / 7ad321568909e997f1f16eea646e995c73a9119e**；开发分支 **feat/mobile-portrait**，独立 worktree。**2026-10-19 用户完成初步预览并授权发布；本版合入 main，通过既有 Cloudflare Pages 流程上线，供真实手机复核。**
 
 [截图、边界框与实时构图审查](../tests/mobile-portrait/review.html) · [320px 前后概览](../tests/mobile-portrait/comparison-320.png) · [原始几何结果](../tests/mobile-portrait/geometry-results.json) · [触摸结果](../tests/mobile-portrait/touch-results.json) · [切卡录像](../tests/mobile-portrait/video/card-switching.webm)
 
@@ -80,10 +80,10 @@
 - iPhone Safari、Android Chrome 的真实字体、动态地址栏、系统手势区和低端 GPU 表现。
 - 横屏只验证旋转恢复、无重复初始化和内容基本可达，未完成横屏美术重排。
 - 招行卡源图仍为低分辨率素材，不虚构高清细节；需要更大展示时应提供更高清的可信来源。
-- 当前未检测到剩余的指定竖屏稳定布局遮挡/裁切；整体留白、手机构图与运动节奏仍等待用户视觉验收。
+- 当前未检测到剩余的指定竖屏稳定布局遮挡/裁切；用户已完成初步视觉验收；真实手机上的留白、运动节奏和系统行为继续收集反馈。
 
 ## 文件与发布状态
 
 主要新增 `prototype/mobile-layout.js`、`prototype/mobile.css`；小范围适配 `index.html`、`motion.js`、`showcase.js`、`global-home.js`、`topnav-home.js`、Global World 及 LENS 空白关闭事件。测试在 `tests/mobile-portrait/`，通用静态入口转接当前保护规则，旧报告未覆盖或删除。
 
-**main 保持 7ad3215，正式部署不替换。仅推送本功能分支供审查，验收后再安排 main 发布。**
+正式根地址：[personal-site-7xv.pages.dev](https://personal-site-7xv.pages.dev/)。保留手机功能分支和原始验收证据；本轮只发布已验收内容，不增加新的场景调整。发布核验见 [发布记录](../tests/mobile-portrait/RELEASE.md)。

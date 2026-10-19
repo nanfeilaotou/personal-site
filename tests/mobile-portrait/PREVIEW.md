@@ -23,4 +23,4 @@ Cloudflare feature deployment succeeded: [snapshot](https://568b88ef.personal-si
 
 Manual review priorities: 320px Agent density and Local workflow; large-phone whitespace; Global number/network/accounts composition; three real cards and repeated changes; Personal readability/line response. The page nav must remain Home throughout. Physical iPhone/Android and full landscape art are not claimed tested.
 
-**Approval pending: main and the formal deployment remain unchanged.**
+**Release authorized 2026-10-19:** user approved the preview and requested main / production publication for physical-phone testing. The unchanged-production result above is historical preview evidence; see [RELEASE.md](RELEASE.md) for publication status.
