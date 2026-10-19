@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-19",
+  "note": "Real Chromium touch emulation without debug parameters or response hooks; video frame rate is not browser performance.",
+  "errors": [],
+  "failed": [],
+  "cards": [
+    "cmb",
+    "bybit",
+    "starryblu"
+  ],
+  "completed": true
+}

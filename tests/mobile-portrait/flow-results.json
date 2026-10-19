@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-19",
+  "errors": [],
+  "failed": [],
+  "checks": [
+    "real portrait Opening, continuous forward/reverse native scrolling through all four chapters, 20 paused positions reversible",
+    "AI title handoffs have one readable title, no Local/Agent double text",
+    "native finger swipe can scroll the canvas page; refresh restores exact chapter position; top page navigation stays Home"
+  ],
+  "continuous": {
+    "forward": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reverse": [
+      3,
+      2,
+      1,
+      0
+    ]
+  },
+  "completed": true
+}

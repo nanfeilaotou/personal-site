@@ -3,7 +3,7 @@
   "checks": [
     {
       "name": "protected visuals",
-      "detail": "Opening shaders/sampling/draw, AI data/projections/styles, Local/Personal, original Card Formation, Opus camera/scenes/switch shaders and side-card motion unchanged; only offscreen busy status corrected"
+      "detail": "Opening shaders/sampling/draw, AI data/projections/styles, Personal field and original Card Formation untouched; portrait-only framing, unchanged desktop output and switch state/shaders protected by the current guard plus pixel comparisons"
     },
     {
       "name": "timeline",

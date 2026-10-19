@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-19",
+  "method": "AABBs of painted DOM content and actual renderer text/cube/workflow coordinates. Decorative infinite grids, particle flow and background lines may intentionally extend beyond the viewport.",
+  "before": {
+    "outside": 0,
+    "overlaps": 240,
+    "criticalCanvasOutside": 20
+  },
+  "after": {
+    "outside": 0,
+    "overlaps": 0
+  },
+  "checks": [
+    "five portrait sizes at DPR1/DPR2; 165 frames before and after",
+    "eight models, three local tools, ten agents, seven connectivity, four network and five account logos visible",
+    "no stable DOM outside/overlap; opening glyph, Local matrix/workflow, network cubes and all three formed cards fit",
+    "critical Canvas labels do not leave the viewport or cover content"
+  ],
+  "canvasIssues": [],
+  "completed": true
+}

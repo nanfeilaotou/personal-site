@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-18",
+  "base": "http://127.0.0.1:4202",
+  "semantics": "Top = pages; current scrolling site is always Home. Rail = homepage chapters. Theme never recolours the homepage.",
+  "errors": [],
+  "failed": [],
+  "checks": [
+    "desktop 1440: fixed Home, four scenes, unavailable page links, keyboard, rail destinations and detail priority",
+    "desktop 1920: fixed Home, four scenes, unavailable page links, keyboard, rail destinations and detail priority",
+    "desktop 1366: fixed Home, four scenes, unavailable page links, keyboard, rail destinations and detail priority",
+    "dark and light preferences leave every sampled homepage surface / detail / catalog / artwork colour unchanged, including the white Global scene",
+    "language / theme preference persistence, exact scroll reload and Chinese body fallback without chapter-to-page confusion",
+    "existing Global 1-4, site Alt+0-3, hashes, Back and Forward still operate homepage chapters only",
+    "1180 / 980 / 761 and mobile 390 / 320: layout, trapped focus, Escape, inert background and theme-independent menu",
+    "reduced motion: unavailable pages do not create shutters or scroll"
+  ],
+  "completed": true
+}

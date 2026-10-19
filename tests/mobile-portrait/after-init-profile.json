@@ -1,0 +1,227 @@
+{
+  "before": false,
+  "top": [
+    {
+      "fn": "",
+      "url": "http://127.0.0.1:4202/prototype/motion.js",
+      "line": 0,
+      "ms": 60.94999999999999
+    },
+    {
+      "fn": "",
+      "url": "http://127.0.0.1:4202/prototype/motion.js",
+      "line": 0,
+      "ms": 60.94999999999999
+    },
+    {
+      "fn": "load",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-card-adapter.js",
+      "line": 136,
+      "ms": 58.05300000000002
+    },
+    {
+      "fn": "frame",
+      "url": "http://127.0.0.1:4202/prototype/motion.js",
+      "line": 516,
+      "ms": 56.23499999999999
+    },
+    {
+      "fn": "render",
+      "url": "http://127.0.0.1:4202/prototype/motion.js",
+      "line": 471,
+      "ms": 54.355999999999995
+    },
+    {
+      "fn": "render",
+      "url": "http://127.0.0.1:4202/prototype/global-home.js",
+      "line": 34,
+      "ms": 48.91199999999999
+    },
+    {
+      "fn": "upload",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-card-adapter.js",
+      "line": 121,
+      "ms": 34.18
+    },
+    {
+      "fn": "init",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-world.js",
+      "line": 399,
+      "ms": 33.339
+    },
+    {
+      "fn": "init",
+      "url": "http://127.0.0.1:4202/prototype/global-home.js",
+      "line": 22,
+      "ms": 33.339
+    },
+    {
+      "fn": "mount",
+      "url": "http://127.0.0.1:4202/prototype/experiments/nav2/src/nf-topnav.js",
+      "line": 120,
+      "ms": 27.604999999999997
+    },
+    {
+      "fn": "window.NFHomeTopNav",
+      "url": "http://127.0.0.1:4202/prototype/topnav-home.js",
+      "line": 2,
+      "ms": 27.604999999999997
+    },
+    {
+      "fn": "resize",
+      "url": "http://127.0.0.1:4202/prototype/motion.js",
+      "line": 449,
+      "ms": 25.282999999999998
+    },
+    {
+      "fn": "laneColors",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-card-adapter.js",
+      "line": 129,
+      "ms": 23.872999999999998
+    },
+    {
+      "fn": "resize",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-world.js",
+      "line": 380,
+      "ms": 14.405000000000001
+    },
+    {
+      "fn": "loadAll",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-card-adapter.js",
+      "line": 141,
+      "ms": 13.463999999999999
+    },
+    {
+      "fn": "layout",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-world.js",
+      "line": 95,
+      "ms": 12.641000000000002
+    },
+    {
+      "fn": "initGL",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-card-adapter.js",
+      "line": 112,
+      "ms": 11.834999999999999
+    },
+    {
+      "fn": "",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-world.js",
+      "line": 107,
+      "ms": 9.204
+    },
+    {
+      "fn": "makeProgram",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-card-adapter.js",
+      "line": 106,
+      "ms": 7.091
+    },
+    {
+      "fn": "astar",
+      "url": "http://127.0.0.1:4202/prototype/experiments/global-world.js",
+      "line": 114,
+      "ms": 6.8999999999999995
+    }
+  ],
+  "costs": [
+    {
+      "op": "context",
+      "ms": 3
+    },
+    {
+      "op": "compileShader",
+      "ms": 0
+    },
+    {
+      "op": "getShaderParameter",
+      "ms": 1.5
+    },
+    {
+      "op": "compileShader",
+      "ms": 0
+    },
+    {
+      "op": "getShaderParameter",
+      "ms": 0.3999999761581421
+    },
+    {
+      "op": "linkProgram",
+      "ms": 0
+    },
+    {
+      "op": "bufferData",
+      "ms": 0.20000004768371582
+    },
+    {
+      "op": "context",
+      "ms": 3.600000023841858
+    },
+    {
+      "op": "compileShader",
+      "ms": 0
+    },
+    {
+      "op": "getShaderParameter",
+      "ms": 1.2999999523162842
+    },
+    {
+      "op": "compileShader",
+      "ms": 0
+    },
+    {
+      "op": "getShaderParameter",
+      "ms": 1.100000023841858
+    },
+    {
+      "op": "linkProgram",
+      "ms": 0
+    },
+    {
+      "op": "getProgramParameter",
+      "ms": 0.7999999523162842
+    },
+    {
+      "op": "compileShader",
+      "ms": 0
+    },
+    {
+      "op": "getShaderParameter",
+      "ms": 0.6000000238418579
+    },
+    {
+      "op": "compileShader",
+      "ms": 0
+    },
+    {
+      "op": "getShaderParameter",
+      "ms": 0.8000000715255737
+    },
+    {
+      "op": "linkProgram",
+      "ms": 0
+    },
+    {
+      "op": "getProgramParameter",
+      "ms": 0.8999999761581421
+    },
+    {
+      "op": "bufferData",
+      "ms": 0.6000000238418579
+    },
+    {
+      "op": "bufferData",
+      "ms": 0
+    },
+    {
+      "op": "texImage2D",
+      "ms": 4.299999952316284
+    },
+    {
+      "op": "texImage2D",
+      "ms": 10.800000071525574
+    },
+    {
+      "op": "texImage2D",
+      "ms": 8.199999928474426
+    }
+  ]
+}

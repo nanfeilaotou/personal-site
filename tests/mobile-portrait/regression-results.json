@@ -1,0 +1,68 @@
+{
+  "baseline": "7ad3215",
+  "errors": [],
+  "failed": [],
+  "comparisons": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "checks": [
+        "opening",
+        "depth",
+        "models",
+        "local-quant",
+        "local",
+        "agents",
+        "number",
+        "network",
+        "accounts",
+        "cards",
+        "personal"
+      ],
+      "identical": true
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "checks": [
+        "opening",
+        "depth",
+        "models",
+        "local-quant",
+        "local",
+        "agents",
+        "number",
+        "network",
+        "accounts",
+        "cards",
+        "personal"
+      ],
+      "identical": true
+    },
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "checks": [
+        "opening",
+        "depth",
+        "models",
+        "local-quant",
+        "local",
+        "agents",
+        "number",
+        "network",
+        "accounts",
+        "cards",
+        "personal"
+      ],
+      "identical": true
+    }
+  ],
+  "completed": true
+}

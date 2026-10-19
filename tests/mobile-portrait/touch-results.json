@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-19",
+  "errors": [],
+  "failed": [],
+  "checks": [
+    "320x568: 21 touch details, guides, 3 particle switches, retarget/interruption, menu/blank/Esc/inert and fast return",
+    "360x740: 21 touch details, guides, 3 particle switches, retarget/interruption, menu/blank/Esc/inert and fast return",
+    "375x667: 21 touch details, guides, 3 particle switches, retarget/interruption, menu/blank/Esc/inert and fast return",
+    "390x844: 21 touch details, guides, 3 particle switches, retarget/interruption, menu/blank/Esc/inert and fast return",
+    "430x932: 21 touch details, guides, 3 particle switches, retarget/interruption, menu/blank/Esc/inert and fast return",
+    "controlled 47/34px safe insets, forced short detail scroll with fixed close, native rapid taps, real context loss/recovery, rotation/resize with stable listener counts, reload position",
+    "controlled visualViewport-only 568 to 512 to 568: compact layout, readable targets, particle cards and position preserved",
+    "320px reduced motion and real no-WebGL fallback preserve three-card selection"
+  ],
+  "views": [
+    {
+      "w": 320,
+      "h": 568,
+      "entries": 21,
+      "cards": 3
+    },
+    {
+      "w": 360,
+      "h": 740,
+      "entries": 21,
+      "cards": 3
+    },
+    {
+      "w": 375,
+      "h": 667,
+      "entries": 21,
+      "cards": 3
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "entries": 21,
+      "cards": 3
+    },
+    {
+      "w": 430,
+      "h": 932,
+      "entries": 21,
+      "cards": 3
+    }
+  ],
+  "nativeRapidSwitch": {
+    "lastTarget": "cmb",
+    "confirmed": "cmb"
+  },
+  "contextRestoration": true,
+  "listenerCounts": {
+    "resize": 2,
+    "keydown": 2,
+    "pointermove": 1,
+    "visualResize": 1
+  },
+  "completed": true
+}

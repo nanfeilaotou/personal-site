@@ -1,0 +1,87 @@
+{
+  "label": "after",
+  "date": "2026-10-19",
+  "scope": "Desktop NVIDIA hardware rendering a touch/mobile viewport; not physical phone performance. rAF/CPU timing; no GPU timer query.",
+  "errors": [],
+  "failed": [],
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4080 Laptop GPU (0x000027E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "startupLongTasks": [
+    {
+      "start": 29.300000071525574,
+      "duration": 64
+    },
+    {
+      "start": 106.89999997615814,
+      "duration": 230
+    },
+    {
+      "start": 337,
+      "duration": 83
+    },
+    {
+      "start": 469.2000000476837,
+      "duration": 97
+    }
+  ],
+  "before": {
+    "metrics": {
+      "frames": 2,
+      "pointDraws": 0,
+      "quadDraws": 2,
+      "points": 64000,
+      "textureBytes": 5868372,
+      "bufferBytes": 1024096,
+      "uploads": 3,
+      "errors": []
+    },
+    "contexts": 2
+  },
+  "idle": {
+    "intervalMs": {
+      "n": 288,
+      "mean": 4.1663194444444445,
+      "p95": 4.300000000000182,
+      "max": 4.5
+    },
+    "longTasks": [],
+    "cardDraws": 0
+  },
+  "switch": {
+    "intervalMs": {
+      "n": 717,
+      "mean": 4.184100418410042,
+      "p95": 4.300000000000182,
+      "max": 8.300000000000182
+    },
+    "longTasks": [],
+    "draws": 609
+  },
+  "heapBefore": {
+    "usedSize": 3003612,
+    "totalSize": 4251648,
+    "embedderHeapUsedSize": 5596232,
+    "backingStorageSize": 212325
+  },
+  "heapAfter": {
+    "usedSize": 3110692,
+    "totalSize": 3989504,
+    "embedderHeapUsedSize": 5540248,
+    "backingStorageSize": 204502
+  },
+  "after": {
+    "metrics": {
+      "frames": 781,
+      "pointDraws": 434,
+      "quadDraws": 435,
+      "points": 64000,
+      "textureBytes": 5868372,
+      "bufferBytes": 1024096,
+      "uploads": 3,
+      "errors": []
+    },
+    "contexts": 2,
+    "brands": 16,
+    "cards": 3
+  },
+  "completed": true
+}
