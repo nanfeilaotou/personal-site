@@ -21,6 +21,7 @@ $env:MOBILE_LABEL='after'
 node tests/mobile-portrait/audit.cjs
 node tests/mobile-portrait/geometry.cjs
 node tests/mobile-portrait/touch.cjs
+node tests/mobile-portrait/flow.cjs
 node tests/mobile-portrait/desktop.cjs
 node tests/mobile-portrait/performance.cjs
 node tests/mobile-portrait/video.cjs
@@ -41,5 +42,7 @@ Also executed existing suites into isolated subdirectories:
 - `tests/static-check.cjs` / `tests/home-global/static.cjs` now delegate immutable boundaries to this portrait guard; original fixture reports remain archived.
 
 Some older runners retain their historical fixture `date` string. This run's actual client date, baseline, scope and report inventory are in `run-metadata.json`; results/assertions are not rewritten to manufacture a pass.
+
+Verified public preview and online results: [PREVIEW.md](PREVIEW.md). Local diagnostic `draft/` captures are intentionally ignored and not submitted; canonical evidence is `before/` and `after/`.
 
 Limits: desktop NVIDIA hardware + mobile/touch/viewport emulation. Safari/WebKit/Firefox and real Android/iPhone are not available. Insets, short detail body, and visualViewport-only changes are explicitly controlled pressure cases. Rotation verifies recovery, not a new landscape design. Performance reports are rAF/CPU/counters, not phone FPS or GPU timer-query evidence.
