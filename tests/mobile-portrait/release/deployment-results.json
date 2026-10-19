@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-19",
+  "base": "https://personal-site-7xv.pages.dev",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "2fb3c048cc160b0fb2c9c3175f50c6578819407ccd5ee801b1ac9cd2a9de1cb9"
+    },
+    {
+      "file": "prototype/mobile-layout.js",
+      "status": 200,
+      "sha256": "f96bac66e174b983565ec66a1ecc26961db6049b050b73fa1fe65be697ea9b6f"
+    },
+    {
+      "file": "prototype/mobile.css",
+      "status": 200,
+      "sha256": "cd43ce9e665240f0b39689e571853b5e8d8aff2bdbe1fbc06713b3c21adc0b4a"
+    },
+    {
+      "file": "prototype/motion.js",
+      "status": 200,
+      "sha256": "ea714c4afd2bacb3e9831210c8f8332fe84402f77ffd09eb3b8f3af033fe5802"
+    },
+    {
+      "file": "prototype/showcase.js",
+      "status": 200,
+      "sha256": "cebbbbe7aa3a3d45c47f2f011a0a05c1180a8a3c6e94c89450f3ca397341a298"
+    },
+    {
+      "file": "prototype/global-home.js",
+      "status": 200,
+      "sha256": "413c1e44ed9bdebecb404516470ba5086b10a0cb8b43370fd20fe803f3dc6db6"
+    },
+    {
+      "file": "prototype/topnav-home.js",
+      "status": 200,
+      "sha256": "a575dad002bf695aae9bb390d8f6740f1697ee8c8cd4504d0386f2ea848ea2cc"
+    },
+    {
+      "file": "prototype/experiments/global-world.js",
+      "status": 200,
+      "sha256": "8b4a1e83a6f431f455252d8cbd1d69cbffa2505fd18095f98dd30409d708aef0"
+    },
+    {
+      "file": "prototype/experiments/nav2/src/nf-topnav.js",
+      "status": 200,
+      "sha256": "a5e570aec691812e0d84c073e69a1ffde90e45155341445d33a5600c0276c7d8"
+    },
+    {
+      "file": "tests/mobile-portrait/review.html",
+      "status": 200
+    },
+    {
+      "file": "tests/mobile-portrait/after-audit.json",
+      "status": 200
+    },
+    {
+      "file": "tests/mobile-portrait/contacts/320x568.webp",
+      "status": 200
+    },
+    {
+      "file": "tests/mobile-portrait/video/card-switching.webm",
+      "status": 200
+    }
+  ],
+  "checks": [
+    "production root and all modified runtime sources match approved implementation",
+    "current review JSON, contact sheet and video match local evidence"
+  ],
+  "physicalDeviceTested": false,
+  "completed": true
+}
