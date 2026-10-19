@@ -41,8 +41,8 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   for(const [key,data] of [['models',window.NF_MODELS],['agents',window.NF_AGENTS],['local',window.NF_LOCAL]]){
     const group=el('section','brand-group');group.id=key+'-brands';group.setAttribute('aria-label',content[key][1]);group.inert=true;
     group.classList.add('ai-brand-scope');group.dataset.brandColor=colorMode;if(key==='agents')group.dataset.agentColor=colorMode;
-    const copy=el('div','scene-copy');copy.append(el('div','eyebrow',content[key][0]),el('h2','',content[key][1]),el('p','',content[key][2]));group.append(copy);
-    const foot=el('div','scene-foot');foot.append(el('span','',content[key][3]),el('span','',content[key][4]));group.append(foot);
+    const copy=el('div','scene-copy');copy.append(el('div','eyebrow',content[key][0]),el('h2','',content[key][1]),el('p','desktop-summary',content[key][2]),el('p','mobile-summary',({models:'八个品牌，探索不同的模型生态。',local:'本地模型、推理工具与生成工作流。',agents:'编程助手、客户端与智能体。'})[key]));group.append(copy);
+    const foot=el('div','scene-foot');foot.append(el('span','desktop-hint',content[key][3]),el('span','mobile-hint',({models:'点按品牌，查看型号与官方资料。',agents:'点按平台，查看介绍与官方入口。',local:'方格表示数值精度；去噪展示生成流程。'})[key]),el('span','',content[key][4]));group.append(foot);
     const nodes=data.map((item,i)=>{
       const b=el('button','brand-node'+(item.logo?'':' text-node'));b.type='button';b.dataset.id=item.id;b.setAttribute('aria-label',item.name+'：查看详情');b.setAttribute('aria-controls','brand-detail');b.setAttribute('aria-expanded','false');
       const mark=window.NFBrandMarks.create(item);
@@ -57,7 +57,7 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
       b.addEventListener('click',()=>{open(item,b,true);});
       group.append(b);return {item,b,i};
     });
-    root.append(group);groups[key]={group,nodes};
+    root.append(group);groups[key]={group,nodes,copy,foot};
   }
   function close(returnFocus=false){
     clearTimeout(timer);const previous=active;active=null;pinned=false;panel.hidden=true;
@@ -65,7 +65,9 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   }
   function scheduleClose(){clearTimeout(timer);if(!pinned)timer=setTimeout(()=>{if(!panel.matches(':hover')&&!panel.contains(document.activeElement)&&active?.b!==document.activeElement)close();},220);}
   function locate(b){
+    let body=panel.querySelector('.detail-scroll');if(window.NF_MOBILE?.state.active&&!body){body=el('div','detail-scroll');for(const n of [...panel.children])if(n.tagName!=='BUTTON')body.append(n);panel.append(body);}else if(!window.NF_MOBILE?.state.active&&body){panel.append(...body.children);body.remove();}
     const r=b.getBoundingClientRect(),w=panel.offsetWidth,h=panel.offsetHeight,top=Math.max(14,(document.getElementById('nf-topnav')?.offsetHeight||0)+12);
+    if(window.NF_MOBILE?.state.active){const m=NF_MOBILE.state;panel.style.left=m.pad+'px';panel.style.top=clamp(r.top+r.height/2-h/2,m.header+12,Math.max(m.header+12,m.view.h-m.safe.bottom-h-12))+'px';return;}
     if(innerWidth<=760){
       panel.style.left=clamp(r.left+r.width/2-w/2,14,innerWidth-w-14)+'px';
       const y=r.bottom+12+h<innerHeight-14?r.bottom+12:r.top-h-12;
@@ -108,6 +110,12 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   // Scroll-only camera. No idle node drift, and no pointer-driven hit-target motion.
   function projection(kind,i,n,s){
     const {W,H,SL,SR,FX,FY,FZ}=viewport(),small=W<=760;
+    if(window.NF_MOBILE?.state.active){
+      const m=NF_MOBILE.state,p=NF_MOBILE.node(kind,i,n);if(kind==='local')return {...p,scale:1,alpha:1};
+      const tl=timeline[kind],enter=ease(range(s,tl.start+i*.024,tl.formed-.08+i*.012)),exit=ease(range(s,tl.holdEnd,tl.end)),twist=(1-enter)*Math.PI*.45;
+      const cx=m.ai.cx,cy=m.ai.cy,dx=p.x-cx,dy=p.y-cy;
+      return {h:p.h,x:lerp(cx+(i/(n-1)-.5)*m.ai.w*.7,cx+dx*Math.cos(twist)-dy*Math.sin(twist)*.2,enter)*(1-exit)+ (kind==='models'?FX:W/2)*exit,y:lerp(cy,cy+dx*Math.sin(twist)*.2+dy*Math.cos(twist),enter)*(1-exit)+(kind==='models'?FY:H/2)*exit,scale:1-exit*.4,alpha:range(enter,.90,1)*(1-range(exit,0,.18)),enter,exit};
+    }
     if(kind==='local')return {x:small?W*(.24+i*.27):FX+FZ/2+115,y:small?H*.68:FY-FZ/2+35+i*91,scale:small?.85:1,alpha:1};
     const tl=timeline[kind],enter=ease(range(s,tl.start+i*.024,tl.formed-.08+i*.012)),exit=ease(range(s,tl.holdEnd,tl.end));
     const left=small?W*.09:SL+20,right=small?W*.85:SR-35,aw=right-left,cx=(left+right)/2,cy=H*(small?.52:.52);
@@ -133,6 +141,8 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
   function setGroup(key,s){
     const {W,H,SL,SR}=viewport(),g=groups[key],tl=timeline[key];
     const alpha=key==='local'?range(s,tl.start,tl.start+.18)*(1-range(s,tl.end-.14,tl.end)):range(s,tl.start,tl.start+.18)*(1-range(s,tl.holdEnd,tl.end));
+    const portrait=window.NF_MOBILE?.state.active;
+    if(portrait){const end=key==='models'?[tl.end-.30,tl.end-.18]:key==='local'?[tl.end-.18,tl.end-.12]:[tl.end-.25,tl.end-.10],a=(s>=tl.start?1:0)*(1-range(s,...end));if(g.textAlpha!==a||!g.portraitText)for(const copy of [g.copy,g.foot]){copy.style.opacity=a;copy.style.visibility=a>.01?'visible':'hidden';}g.textAlpha=a;g.portraitText=true;}else if(g.portraitText){for(const copy of [g.copy,g.foot]){copy.style.removeProperty('opacity');copy.style.removeProperty('visibility');}g.portraitText=false;}
     const visible=alpha>.005;
     g.group.style.visibility=visible?'visible':'hidden';g.group.style.opacity=alpha;
     const interactive=alpha>.65&&(key==='local'||s>tl.formed-.1);g.group.inert=!interactive;
@@ -144,6 +154,7 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
       return p;
     });
     if(key==='local')return;
+    if(window.NF_MOBILE?.state.active){drawPortrait(key,pts,s,alpha);if(active&&g.group.contains(active.b)&&alpha<.12)close();return;}
     const cx=(SL+SR)/2,cy=H*.52,fade=alpha;
     // Many quiet, ordered fragments assemble into two layered spatial rails.
     for(let layer=0;layer<3;layer++){
@@ -176,6 +187,11 @@ window.NFShowcase = function ({ctx, viewport, line, dot, text, clamp, lerp, rang
     });
     if(key==='models'&&W>760){text('AI',cx,cy+18,64,.13*fade,{w:300,al:'center',ls:6});text('MODEL CONSTELLATION',cx,cy+45,8,.32*fade,{al:'center'});}
     if(active&&g.group.contains(active.b)&&alpha<.12)close();
+  }
+  function drawPortrait(key,pts,s,alpha){
+    const tl=timeline[key],formed=ease(range(s,tl.start,tl.formed)),exit=ease(range(s,tl.holdEnd,tl.end));
+    for(let col=0;col<2;col++){const stations=pts.filter((_,i)=>i%2===col);ctx.beginPath();stations.forEach((p,j)=>j?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle=`rgba(237,237,235,${alpha*.18*formed*(1-exit)})`;ctx.lineWidth=1;ctx.stroke();for(let j=0;j<stations.length-1;j++)for(let k=1;k<8;k++){const p=stations[j],q=stations[j+1],u=k/8;dot(lerp(p.x,q.x,u),lerp(p.y,q.y,u),.6,alpha*.22*formed*(1-exit));}}
+    pts.forEach((p,i)=>{line(p.x-10,p.y+(p.h||52)/2+2,p.x+10,p.y+(p.h||52)/2+2,alpha*.22*p.alpha);});
   }
   function draw(s){for(const key of ['models','local','agents'])setGroup(key,s);}
   function resize(){if(active)requestAnimationFrame(()=>locate(active.b));}

@@ -1,2 +1,6 @@
 # Raw local Opus delivery; selected source and review evidence are tracked.
 /global-world-review/
+
+# Regenerable local mobile investigations; canonical evidence is before/after.
+tests/mobile-portrait/draft/
+tests/mobile-portrait/draft-audit.json

@@ -14,6 +14,7 @@ window.NFGlobalHome=function({clock,setBackground,kick}){
   const h=document.createElement('h4');h.textContent=guide.title;const status=document.createElement('p');status.className='guide-status';status.textContent=guide.url?'已配置内容入口':guide.status;item.append(h,status);
   const d=global.DOMAINS.find(x=>x.key===guide.domain),p=document.createElement('p');p.textContent=d.desc;item.append(p);
   const names=document.createElement('p');names.textContent=(guide.domain==='cards'?global.CARDS:global.BRANDS.filter(b=>b.d===guide.domain)).map(b=>b.name).join(' · ');item.append(names);
+  if(guide.domain==='cards'){for(const c of global.CARDS){const note=document.createElement('p');note.className='mobile-card-notes';note.textContent=c.name+'：'+c.note;item.append(note);}}
   if(guide.url){const a=document.createElement('a');a.href=guide.url;a.textContent='阅读指南 ↗';item.append(a);}
   section.append(item);const panel=els.panels.find(p=>p.getAttribute('aria-label')===d.title),a=panel.querySelector('a');a.textContent=guide.title+' ↗';if(guide.url){a.href=guide.url;a.removeAttribute('data-guide');}
  }
@@ -21,9 +22,10 @@ window.NFGlobalHome=function({clock,setBackground,kick}){
  function invalidate(){if(destroyed)return;dirty=true;kick();}
  function init(){
   if(initialized||initializing||destroyed)return;initializing=true;initCount++;
-  global.init({el:els,W:innerWidth,H:innerHeight,dpr:devicePixelRatio,kick:invalidate,isActive:()=>active,
+  const viewport=window.NF_MOBILE?.viewport();
+  global.init({el:els,W:innerWidth,H:viewport?.h||innerHeight,dpr:devicePixelRatio,kick:invalidate,isActive:()=>active,
    entryText:'从 AI 出发，连接更广阔的数字世界。',tokens:[['01','号码'],['02','网络'],['03','账户与钱包'],['04','支付卡片']],
-   suppressExitLabels:true,guides,onCardCommit(id){
+   suppressExitLabels:true,guides,portraitLayout:()=>window.NF_MOBILE?.state.active?window.NF_MOBILE:null,onCardCommit(id){
     if(!active||document.activeElement?.closest('.gw-card')?.dataset.card!==id)return;
     queueMicrotask(()=>{if(!active)return;const target=innerWidth>760?els.cardNavWrap.querySelector('[data-card="'+id+'"]'):els.nav[3];target.focus({preventScroll:true});});
    },setBackground:(bg,white)=>{setBackground(bg);document.body.classList.toggle('on-white',white);},
@@ -50,7 +52,7 @@ window.NFGlobalHome=function({clock,setBackground,kick}){
   return {active:true,g,personalUnderlay:fieldBlend>0};
  }
  function openGuide(id){const guide=guides.find(x=>x.id===id);if(!guide||guide.url)return false;if(!catalog.open)catalog.showModal();$('guide-'+id).focus({preventScroll:true});$('guide-'+id).scrollIntoView({block:'center'});return true;}
- function resize(){if(initialized)global.resize(innerWidth,innerHeight,devicePixelRatio);invalidate();}
+ function resize(){const v=window.NF_MOBILE?.viewport();if(initialized)global.resize(innerWidth,v?.h||innerHeight,devicePixelRatio);invalidate();}
  function destroy(){destroyed=true;if(initialized||initializing)global.destroy();root.inert=true;root.style.visibility='hidden';active=false;}
  return {render,resize,destroy,openGuide,request(id){const ok=global.request(id);invalidate();return ok;},invalidate,
   get state(){return {active,initialized,initializing,initCount,g:lastG,needsFrame,global:initialized?global.state:null};}};

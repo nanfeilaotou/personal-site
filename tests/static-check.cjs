@@ -27,5 +27,5 @@ for(const m of JSON.parse(read('assets/brands/manifest.json')))assert.equal(requ
 assert.ok(!/grain|keyframes gr/.test(read('prototype/prototype-02.html')));
 assert.ok(!/TOKEN|EMBEDDING|ATTENTION|SAMPLING|MODEL CONTEXT PROTOCOL|HARNESS/.test(motion));
 assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root,'prototype/prototype-01.html'))).digest('hex'),'bfc193b140d94b8669327f71a677d68f84db19f573e262119c53894cde4d1711','original prototype archive remains untouched');
-require('./lens/static.cjs');
+require('./mobile-portrait/static.cjs');
 console.log('PASS: unchanged shaders / sampling / WebGL draw / Global; 8 models + 10 agents + 3 local; SVG and JS checks; original archive retained; production root checked.');

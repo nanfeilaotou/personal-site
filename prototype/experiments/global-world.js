@@ -57,6 +57,7 @@ let el={},ctx=null,W=1,H=1,DPR=1,mobile=false,VX=0,VY=0,E=800,SWA=.17,CARD={x:0,
 let grid=null,paths=[],O={x:0,y:0},X={x:0,y:0},CLIENTS=[],VPS={x:0,y:0},blockDots=[];
 let stage=null,ready=false,hover=null,lastTime=null,INK=LIGHT,bgNow='',confirmed='starryblu',slots={left:'cmb',right:'bybit'};
 let cardDom={},brandEl={},placed={},lastG=0,stats={frames:0,ms:0};
+const portrait=()=>HOST.portraitLayout?.()||null;
 const ink=a=>`rgba(${INK[0]},${INK[1]},${INK[2]},${a})`;
 const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a})`;
 
@@ -71,11 +72,11 @@ function ticks(x,y,w,h,l,a){if(a<=.004)return;ctx.strokeStyle=ink(a);ctx.lineWid
 let NS=1; // 网络阶段缩放：移动端按宽度缩小，保证 ORIGIN→REMOTE 全部在屏内
 const NF_TUNE={psi:18,drift:3,sw:.82,dx:0,dy:0}; // 账户阶段相机：桌面 / 移动端在 layout() 中设定
 function cam(g){
- const f0=io(R(g,1.72,2.08)),a=io(R(g,2.45,2.92)),z=io(R(g,3.48,3.88)),d=io(R(g,4.54,4.80));
- let phi=g<2.2?90*(1-f0):55*a;phi=mix(phi,48,z);phi=mix(phi,90,d);
+ const pm=portrait(),f0=io(R(g,1.72,2.08)),a=io(R(g,pm?2.08:2.45,pm?2.38:2.92)),z=io(R(g,3.48,3.88)),d=io(R(g,4.54,4.80));
+ let phi=g<2.2?90*(1-f0):pm?55*io(R(g,2.2,2.52)):55*a;phi=mix(phi,48,z);phi=mix(phi,90,d);
  const T=NF_TUNE;let psi=mix(25*a,T.psi,z)+T.drift*R(g,3.88,4.5);psi=mix(psi,0,d);
  let sw=mix(mix(1,NS,a),SWA*T.sw,z);sw=mix(sw,SWA*.6,d);
- let cx=mix(W/2,VX,a),cy=mix(VY,mobile?H*.44:H*.56,a);cx=mix(cx,ACC.x+T.dx*W,z);cy=mix(cy,ACC.y+T.dy*H,z);cx=mix(cx,CARD.x,d);cy=mix(cy,CARD.y,d);
+ let cx=mix(W/2,VX,a),cy=mix(VY,pm?pm.state.network.cy:mobile?H*.44:H*.56,a);cx=mix(cx,ACC.x+T.dx*W,z);cy=mix(cy,ACC.y+T.dy*H,z);cx=mix(cx,CARD.x,d);cy=mix(cy,CARD.y,d);
  return {phi,psi,sw,cx,cy,ct:Math.cos(phi*DEG),st:Math.sin(phi*DEG),cp:Math.cos(psi*DEG),sp:Math.sin(psi*DEG)};
 }
 function cs(C,x,y,h=0){x*=C.sw;y*=C.sw;h*=C.sw;const x1=x*C.cp-y*C.sp,y1=x*C.sp+y*C.cp;return [x1,y1*C.ct-h*C.st,-y1*C.st-h*C.ct];}
@@ -88,6 +89,7 @@ function sheet(C,S){const pts=clipNear([[-S,-S],[S,-S],[S,S],[-S,S]].map(([x,y])
 // Read-only surface geometry; the same camera / paper used by the renderer.
 function whiteSurface(g,C){return (g>=2.0&&C.phi<=68&&g<4.5)||(g>=2.12&&g<4.5);}
 function surfaceGeometry(){const g=lastG,C=cam(g);return {baseTone:whiteSurface(g,C)?1:0,whitePolygon:((g>=1.70&&g<2.2)||(g>=4.5&&g<4.84))?sheet(C,E*40):null};}
+function unproject(C,x,y){const dy=y-C.cy,v=dy/(C.ct+dy*C.st/F),sc=1/(1-v*C.st/F),u=(x-C.cx)/sc;return {x:(u*C.cp+v*C.sp)/C.sw,y:(-u*C.sp+v*C.cp)/C.sw};}
 function ground(C,pts){const out=[];for(const [x,y] of pts){const p=P(C,x,y);if(!p)return null;out.push(p);}return out;}
 
 /* ---------- 布局 ---------- */
@@ -99,6 +101,7 @@ function layout(){
  O={x:-.30*E,y:.22*E};X={x:.40*E,y:-.42*E};VPS={x:.48*E,y:.16*E};
  const cr=(mobile?.29:.19)*E; // 移动端网络整体缩小，客户端环半径相应放大，避免 Logo 互相遮挡
  CLIENTS=[45,135,225,315].map((a,i)=>({id:['clash','flclash','shadowrocket','v2rayn'][i],x:O.x+Math.cos(a*DEG)*cr,y:O.y+Math.sin(a*DEG)*cr}));
+ const pm=portrait();if(pm){const m=pm.state,r=m.network;Object.assign(NF_TUNE,{drift:0,dy:0});NS=Math.max(r.w/(2*E),r.h/(2*E*Math.cos(55*DEG)))*1.08;VX=r.cx;VY=m.number.y+88;ACC={x:m.accounts.cx,y:m.accounts.cy};CARD={x:m.card.x,y:m.card.y};const C=cam(STOPS.network);O=unproject(C,r.cx,r.y+r.h*.59);X=unproject(C,r.x+r.w*.72,r.bottom-12);VPS=unproject(C,r.x+r.w*.28,r.bottom-12);CLIENTS=['clash','flclash','shadowrocket','v2rayn'].map((id,i)=>({id,...unproject(C,r.x+r.w*(i%2?.75:.25),r.y+(i<2?22:96)+44)}));}
  const N=50,c=2*E/N,pts=[];
  for(let j=0;j<N;j++)for(let i=0;i<N;i++){const k=i+j*N,gx=-E+(i+.5)*c,gy=-E+(j+.5)*c,jx=(hs(k*1.31)-.5)*c*.72,jy=(hs(k*2.77+5)-.5)*c*.72,x=gx+jx,y=gy+jy;pts.push({gx,gy,x,y,d:metric(x,y),s:hs(k*.73)});}
  grid={N,c,pts};
@@ -126,8 +129,9 @@ function partial(Pp,frac){const target=Pp.len*frac,out=[Pp.pts[0]];for(let k=1;k
 function place(id,x,y,a,o={}){placed[id]={x,y,a:clamp(a),gray:o.gray||0,dark:!!o.dark,hot:hover===id};}
 function applyBrands(){
  for(const b of BRANDS){const e=brandEl[b.id],p=placed[b.id];const a=p?p.a:0;
-  if(a<=.01){if(e._v){e._v=0;e.style.visibility='hidden';e.style.opacity=0;e.tabIndex=-1;e.style.pointerEvents='none';}continue;}
-  const x=Math.round(p.x-b.w/2),y=Math.round(p.y-b.h/2),key=x+','+y+','+a.toFixed(3)+','+p.gray.toFixed(2)+p.dark;
+  if(a<=.01){if(e._v){e._v=0;e._k=null;e._live=false;e.style.visibility='hidden';e.style.opacity=0;e.tabIndex=-1;e.style.pointerEvents='none';}continue;}
+  const pm=portrait(),size=pm?pm.brand(b):{w:b.w,h:b.h};if(pm){e.style.width=size.w+'px';e.style.height=size.h+'px';e.style.setProperty('--m-logo-w',size.logoW+'px');e.style.setProperty('--m-logo-h',size.logoH+'px');e.style.setProperty('--m-cap-w',size.capW+'px');}
+  const x=Math.round(p.x-size.w/2),y=Math.round(p.y-size.h/2),key=x+','+y+','+a.toFixed(3)+','+p.gray.toFixed(2)+p.dark;
   if(e._k!==key){e._k=key;e._v=1;e.style.visibility='visible';e.style.opacity=a;e.style.transform=`translate3d(${x}px,${y}px,0)`;e.querySelector('img').style.filter=p.gray>.01?`grayscale(${p.gray.toFixed(2)}) contrast(${(1-p.gray*.25).toFixed(2)})`:'';e.classList.toggle('dark',p.dark);}
   const live=a>.6;if(e._live!==live){e._live=live;e.tabIndex=live?0:-1;e.style.pointerEvents=live?'auto':'none';}
  }
@@ -137,18 +141,20 @@ function applyBrands(){
 const TOKENS=[['01','一个号码'],['02','一条路径'],['03','一个账户'],['04','一张支付卡']];
 function sceneEntry(g,t){
  if(g>.75)return;INK=LIGHT;
+ const pm=portrait();if(pm){const a1=1-R(g,.24,.34),cy=(pm.state.header+pm.state.bar.y)/2;Tx('从 AI 出发，',W/2,cy-68,20,a1,{f:CN,w:700,al:'center'});Tx('连接更广阔的数字世界。',W/2,cy-36,20,a1,{f:CN,w:700,al:'center'});const conv=io(R(g,.20,.46)),ta=1-R(g,.38,.48);(HOST.tokens||TOKENS).forEach(([,label],i)=>{const x=W*(i%2?.72:.28),y=cy+20+Math.floor(i/2)*40,px=mix(x,W/2,conv),py=mix(y,VY,conv);Tx(label,px,py,14,ta,{f:CN,al:'center'});});}else{
  const a1=1-R(g,.24,.34);let fs=clamp(W*.023,20,36);if(HOST.entryText){ctx.font=`700 ${fs}px ${CN}`;fs*=Math.min(1,(W-40)/ctx.measureText(HOST.entryText).width);}Tx(HOST.entryText||'要用上这些，你需要',W/2,H/2-74,fs,a1,{f:CN,w:700,al:'center',ls:fs*.06});
  const conv=io(R(g,.20,.46)),ta=1-R(g,.38,.48),sz=clamp(W*.0125,13,19),gap=mobile?18:48;
  const tokens=HOST.tokens||TOKENS;ctx.font=`500 ${sz}px ${CN}`;const ws=tokens.map(([,s])=>ctx.measureText(s).width+(mobile?0:28));const tot=ws.reduce((a,b)=>a+b,0)+gap*3;let x=W/2-tot/2;
  tokens.forEach(([i,s],k)=>{const w=ws[k],ox=x+w/2,oy=mobile?H/2+30+(k%2)*30:H/2+30;x+=w+gap;const px=mix(ox,W/2,conv),py=mix(oy,VY,conv),sc=1-.7*conv;
   ctx.save();ctx.translate(px,py);ctx.scale(sc,sc);if(!mobile)Tx(i,-w/2,0,10,ta*.55);Tx(s,mobile?0:-w/2+28,0,sz,ta,{f:CN,al:mobile?'center':'left'});ctx.restore();
   if(conv>0&&conv<1)L(ox,oy-6,px,py,.18*(1-conv)*ta);});
+ }
  const pa=R(g,.36,.46)*(1-R(g,.62,.70));
  if(pa>0){const pul=(t*.55)%1;dot(W/2,VY,2.2,pa);ctx.strokeStyle=ink((1-pul)*.35*pa);ctx.lineWidth=1;ctx.beginPath();ctx.arc(W/2,VY,6+pul*46,0,TAU);ctx.stroke();Tx('你 · YOU',W/2+14,VY-12,9.5,pa*.6*win(g,.42,.5,.58,.66));}
 }
 
 /* ---------- 01 号码：点 → 载波；运营商节点；平台作为应用场景出现 ---------- */
-function carriers(){return mobile?[{id:'clubsim',x:W*.25,code:'+852',area:'HONG KONG'},{id:'smart',x:W*.75,code:'+63',area:'PHILIPPINES'}]:[{id:'clubsim',x:W*.33,code:'+852',area:'HONG KONG'},{id:'smart',x:W*.70,code:'+63',area:'PHILIPPINES'}];}
+function carriers(){const pm=portrait();if(pm)return ['clubsim','smart'].map((id,i)=>({id,x:pm.numberNode(id).x,code:i?'+63':'+852',area:i?'PHILIPPINES':'HONG KONG'}));return mobile?[{id:'clubsim',x:W*.25,code:'+852',area:'HONG KONG'},{id:'smart',x:W*.75,code:'+63',area:'PHILIPPINES'}]:[{id:'clubsim',x:W*.33,code:'+852',area:'HONG KONG'},{id:'smart',x:W*.70,code:'+63',area:'PHILIPPINES'}];}
 const PLATFORMS=[
  {id:'whatsapp',d:[.45,-.25],m:[.10,-.20],at:1.00,main:1},{id:'telegram',d:[.56,.24],m:[.46,.19],at:1.05,main:1},{id:'line',d:[.83,-.22],m:[.92,-.21],at:1.10,main:1},
  {id:'instagram',d:[.645,-.35],m:[.52,-.30],at:1.18,main:0},{id:'facebook',d:[.895,.26],m:[.84,.17],at:1.23,main:0}];
@@ -165,18 +171,19 @@ function sceneNumber(g,t){
   const la=R(g,1.56,1.68);if(la>0)L(0,VY,W,VY,la,1.2);}
  const nodes=carriers(),fade=1-R(g,1.50,1.62);
  nodes.forEach((n,i)=>{const a=eo(R(g,.80+i*.06,.92+i*.06))*fade;if(a<=0)return;const y=waveAt(n.x,g,t);
-  ctx.setLineDash([2,4]);for(let k=0;k<3;k++){const r=8+((t*34+k*52)%156),al=(1-r/164)*.36*a;ctx.strokeStyle=ink(al);ctx.lineWidth=1;ctx.beginPath();ctx.arc(n.x,y,r,0,TAU);ctx.stroke();}ctx.setLineDash([]);
-  ctx.fillStyle=ink(a);ctx.fillRect(n.x-3,y-3,6,6);L(n.x,y-8,n.x,VY-52,.5*a);
-  Tx(n.code,n.x,VY+34,mobile?13:15,a,{al:'center',w:600});Tx(n.area+' · CARRIER 0'+(i+1),n.x,VY+50,8.5,a*.5,{al:'center'});
-  place(n.id,n.x,VY-(mobile?80:98),a);
-  if(i===0){const ea=a*R(g,.96,1.06),ex=n.x+(mobile?-6:-104),ey=VY+(mobile?72:36);if(ea>0){ctx.strokeStyle=ink(.7*ea);ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(ex-11,ey-8,22,16,3);ctx.stroke();L(ex-11,ey,ex+11,ey,.45*ea);L(ex-3,ey-8,ex-3,ey+8,.45*ea);L(ex+4,ey-8,ex+4,ey+8,.45*ea);Tx('eSIM',ex,ey+22,8.5,ea*.6,{al:'center'});}}
-  if(i===1){const oa=a*R(g,1.0,1.1),ox=n.x+(mobile?-30:84),oy=VY+(mobile?72:34);if(oa>0){Tx('SMS · OTP',ox,oy-10,8.5,oa*.55);for(let k=0;k<6;k++){const on=REDUCED?1:((t*1.6)%7)>k;ctx.strokeStyle=ink(.55*oa);ctx.strokeRect(ox+k*11,oy-2,8,10);if(on)dot(ox+k*11+4,oy+3,1.4,.8*oa);}}}
+  ctx.setLineDash([2,4]);for(let k=0;k<3;k++){const span=portrait()?44:156,r=8+((t*34+k*52)%span),al=(1-r/(span+8))*.36*a;ctx.strokeStyle=ink(al);ctx.lineWidth=1;ctx.beginPath();ctx.arc(n.x,y,r,0,TAU);ctx.stroke();}ctx.setLineDash([]);
+  ctx.fillStyle=ink(a);ctx.fillRect(n.x-3,y-3,6,6);L(n.x,y-8,n.x,portrait()?VY-12:VY-52,.5*a);
+  if(!portrait()){Tx(n.code,n.x,VY+34,mobile?13:15,a,{al:'center',w:600});Tx(n.area+' · CARRIER 0'+(i+1),n.x,VY+50,8.5,a*.5,{al:'center'});
+  }
+  const np=portrait()?.numberNode(n.id);place(n.id,np?np.x:n.x,np?np.y:VY-(mobile?80:98),a);
+  if(i===0&&!portrait()){const ea=a*R(g,.96,1.06),ex=n.x+(mobile?-6:-104),ey=VY+(mobile?72:36);if(ea>0){ctx.strokeStyle=ink(.7*ea);ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(ex-11,ey-8,22,16,3);ctx.stroke();L(ex-11,ey,ex+11,ey,.45*ea);L(ex-3,ey-8,ex-3,ey+8,.45*ea);L(ex+4,ey-8,ex+4,ey+8,.45*ea);Tx('eSIM',ex,ey+22,8.5,ea*.6,{al:'center'});}}
+  if(i===1&&!portrait()){const oa=a*R(g,1.0,1.1),ox=n.x+(mobile?-30:84),oy=VY+(mobile?72:34);if(oa>0){Tx('SMS · OTP',ox,oy-10,8.5,oa*.55);for(let k=0;k<6;k++){const on=REDUCED?1:((t*1.6)%7)>k;ctx.strokeStyle=ink(.55*oa);ctx.strokeRect(ox+k*11,oy-2,8,10);if(on)dot(ox+k*11+4,oy+3,1.4,.8*oa);}}}
  });
  // 号码在载波上传输：少量数据包，两种方向，不画运营商与平台之间的连线
  const pk=R(g,.96,1.08)*fade*(1-flat);
  if(pk>0&&!REDUCED){for(let j=0;j<7;j++){const dir=j%2?-1:1,span=W*.9,u=((t*.07*(1+j*.13)+j*.137)%1),x=dir>0?W*.05+u*span:W*.95-u*span;const y=waveAt(x,g,t),a=pk*Math.sin(u*Math.PI)*.8;dot(x,y,1.6,a);Tx((j%2?'+63':'+852').charAt(Math.floor(u*4)%4)||'+',x+4,y-6,8,a*.6);}}
  // 平台：被载波波前触及后，从载波“接收”出现；主要 / 辅助以尺寸与线型区分
- for(const p of PLATFORMS){const f=mobile?p.m:p.d,x=f[0]*W,y=VY+(mobile&&p.main&&f[1]<0?Math.min(f[1]*H,-172):f[1]*H),r=eo(R(g,p.at,p.at+.09))*fade;if(r<=0)continue;
+ for(const p of PLATFORMS){const np=portrait()?.numberNode(p.id),f=mobile?p.m:p.d,x=np?np.x:f[0]*W,y=np?np.y:VY+(mobile&&p.main&&f[1]<0?Math.min(f[1]*H,-172):f[1]*H),r=eo(R(g,p.at,p.at+.09))*fade;if(r<=0)continue;
   const wy=waveAt(x,g,t),dir=Math.sign(y-wy),end=y-dir*(p.main?26:19),cur=mix(wy,end,r),hot=hover===p.id;
   path([[x,wy],[x,cur]],(p.main?.55:.32)*r*(hot?1.6:1),hot?1.4:1,false,p.main?null:[2,3]);L(x-5,wy,x+5,wy,.7*r);
   place(p.id,x,y,R(r,.55,1));}
@@ -198,31 +205,31 @@ function sceneFlip(g,C){
 function sceneNetwork(g,t,C){
  if(g<2.1||g>4.6)return;INK=DARK;
  const fade=(1-R(g,3.52,3.86)*.72)*(1-R(g,4.56,4.72)),jit=io(R(g,2.12,2.30)),pa=R(g,2.12,2.24);
- const Rd=2.6*E*eo(R(g,2.22,2.86)),lock=io(R(g,2.80,3.10)),cube=eo(R(g,2.96,3.18)),late=1-R(g,3.46,3.62);
+ const Rd=2.6*E*eo(R(g,portrait()?2.48:2.22,2.86)),lock=io(R(g,2.80,3.10)),cube=eo(R(g,2.96,3.18)),late=1-R(g,3.46,3.62);
  // 点阵
  for(const p of grid.pts){const x=mix(p.gx,p.x,jit),y=mix(p.gy,p.y,jit),q=P(C,x,y);if(!q||q[0]<-4||q[0]>W+4||q[1]<-4||q[1]>H+4)continue;
   const lead=Rd-p.d,on=lead>0,front=on&&lead<.09*E;let a=(on?.42:.13)*pa*fade,r=.75*Math.min(1.4,q[2]);if(front){a=.9*pa;r*=1.7;}dot(q[0],q[1],r,a);}
  // 等时线
  const ia=pa*(1-.6*lock)*late;
  if(ia>0)for(let k=1;k<=8;k++){const D=k*.24*E;if(D>Rd)break;const ka=ia*.32*R((Rd-D)/(.12*E),0,1),pts=[];for(let s=0;s<=120;s++){const th=s/120*TAU,r=D/(1+.22*noiseA(th)),x=O.x+Math.cos(th)*r,y=O.y+Math.sin(th)*r;if(Math.abs(x)>E||Math.abs(y)>E){if(pts.length>1)path(pts,ka,1,false,[3,4]);pts.length=0;continue;}const q=P(C,x,y);if(q)pts.push(q);}path(pts,ka,1,false,[3,4]);
-  if(k%2===0){const th=-.62,r=D/(1+.22*noiseA(th)),q=P(C,O.x+Math.cos(th)*r,O.y+Math.sin(th)*r);if(q)Tx('+'+k*6+' ms',q[0]+6,q[1]-4,8.5,ka*1.6);}}
+  if(k%2===0&&!portrait()){const th=-.62,r=D/(1+.22*noiseA(th)),q=P(C,O.x+Math.cos(th)*r,O.y+Math.sin(th)*r);if(q)Tx('+'+k*6+' ms',q[0]+6,q[1]-4,8.5,ka*1.6);}}
  const o=P(C,O.x,O.y);
  if(o&&pa>0){dot(o[0],o[1],2.6,pa*late);const pul=REDUCED?.4:(t*.5)%1;ctx.strokeStyle=ink((1-pul)*.4*pa*late);ctx.beginPath();ctx.arc(o[0],o[1],5+pul*26,0,TAU);ctx.stroke();Tx('ORIGIN · 你',o[0]+10,o[1]+18,8.5,.6*pa*late);
-  const lr=R(g,2.5,2.62)*late*(1-lock*.5),lq=P(C,O.x+.62*E,O.y+.02*E);if(lq&&lr>0)Tx('ROUTING · 等时线扩散',lq[0],lq[1]+16,8.5,.7*lr);}
+  const lr=R(g,2.5,2.62)*late*(1-lock*.5),lq=P(C,O.x+.62*E,O.y+.02*E);if(lq&&lr>0&&!portrait())Tx('ROUTING · 等时线扩散',lq[0],lq[1]+16,8.5,.7*lr);}
  // 候选路径 → 锁定。四条等权，不分主次；悬停高亮对应路径束
  const hotI=CLIENTS.findIndex(c=>c.id===hover),cand=R(g,2.62,2.72)*(1-lock)*late;
  paths.forEach((pp,i)=>{const dim=hotI>=0&&hotI!==i?.22:1;
   if(cand>0)path(ground(C,pp.pts)||[],.28*cand,1,false,[2,3]);
   if(lock>0){const part=ground(C,partial(pp,lock));if(part){path(part,.85*dim*late,hotI===i?2.6:1.3);if(hotI===i)for(let k=0;k<pp.pts.length;k+=3){const q=P(C,...pp.pts[k]);if(q&&pp.acc[k]<=pp.len*lock)dot(q[0],q[1],1.8,.9*late);}}}});
- if(lock>.5&&late>0){const mid=paths[1].pts[Math.floor(paths[1].pts.length*.45)],q=P(C,mid[0],mid[1]);if(q){L(q[0],q[1],q[0]+28,q[1]-22,.5*late*R(lock,.5,1));Tx('PROXY · 代理',q[0]+32,q[1]-24,8.5,.75*late*R(lock,.5,1));}}
+ if(lock>.5&&late>0&&!portrait()){const mid=paths[1].pts[Math.floor(paths[1].pts.length*.45)],q=P(C,mid[0],mid[1]);if(q){L(q[0],q[1],q[0]+28,q[1]-22,.5*late*R(lock,.5,1));Tx('PROXY · 代理',q[0]+32,q[1]-24,8.5,.75*late*R(lock,.5,1));}}
  // 远程节点：线框立方体抬升
  const cubes=[{p:X,s:.06*E,h:.13*E*cube,lab:'REMOTE · 远程',sub:'IP 203.0.113.24'},{p:VPS,s:.036*E,h:.07*E*eo(R(g,3.02,3.22)),lab:'VPS',sub:'NODE · 02'}];
  for(const cb of cubes){if(cb.h<=.5||late<=0)continue;const {x,y}=cb.p,s=cb.s,V=[[-s,-s],[s,-s],[s,s],[-s,s]];const bot=V.map(([dx,dy])=>P(C,x+dx,y+dy,0)),top=V.map(([dx,dy])=>P(C,x+dx,y+dy,cb.h));if(bot.some(v=>!v)||top.some(v=>!v))continue;
   ctx.fillStyle=`rgba(236,235,232,${.9*late})`;ctx.beginPath();top.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fill();
   path([...bot,bot[0]],.5*late);path([...top,top[0]],.9*late,1.2);for(let k=0;k<4;k++)L(bot[k][0],bot[k][1],top[k][0],top[k][1],.7*late);
-  const c0=P(C,x,y,cb.h);const la=R(cb.h/(cb===cubes[0]?.13*E:.07*E),.6,1)*late;const rt=c0[0]+120>W,lx=rt?c0[0]-6:c0[0]+6,al=rt?'right':'left';const st=Math.min(c0[1]-30,Math.min(...top.map(p=>p[1]))-16); /* 标签抬到顶面最高点之上，避免顶面远边穿过文字 */L(c0[0],c0[1],c0[0],st,.5*la);const kb=`rgba(236,235,232,${(.9*la).toFixed(3)})`;Tx(cb.lab,lx,st-4,9,la,{w:600,al,bg:kb});Tx(cb.sub,lx,st+8,8.5,la*.55,{al,bg:kb});}
+  const c0=P(C,x,y,cb.h);const la=R(cb.h/(cb===cubes[0]?.13*E:.07*E),.6,1)*late;const pm=portrait(),rt=pm?cb===cubes[0]:c0[0]+120>W,lx=pm?(rt?pm.state.network.right:pm.state.network.x):rt?c0[0]-6:c0[0]+6,al=rt?'right':'left';let st=Math.min(c0[1]-30,Math.min(...top.map(p=>p[1]))-16); /* 标签抬到顶面最高点之上，避免顶面远边穿过文字 */L(c0[0],c0[1],portrait()?lx:c0[0],st,.5*la);const kb=`rgba(236,235,232,${(.9*la).toFixed(3)})`;Tx(cb.lab,lx,st-4,portrait()?11:9,la,{w:600,al,bg:kb});Tx(cb.sub,lx,st+(portrait()?11:8),portrait()?10.5:8.5,la*.55,{al,bg:kb});}
  // 客户端环形入口：灰阶出现，被波前扫过后显色；Logo 正对屏幕
- const ca=R(g,2.24,2.34)*(1-R(g,3.44,3.54));
+ const ca=R(g,portrait()?2.48:2.24,portrait()?2.58:2.34)*(1-R(g,3.44,3.54));
  for(const cl of CLIENTS){const q=P(C,cl.x,cl.y);if(!q)continue;const gray=1-R(Rd-metric(cl.x,cl.y),0,.06*E);
   if(ca>0){L(q[0],q[1],q[0],q[1]-22,.5*ca);dot(q[0],q[1],2,.8*ca);}place(cl.id,q[0],q[1]-44,ca,{gray,dark:true});}
 }
@@ -231,7 +238,7 @@ function sceneNetwork(g,t,C){
 const ANCHORS=[ // b：桌面区块坐标；m：移动端区块坐标（均为整数区块中心，账户一排、钱包一排，中间是收缩成区块的网络平面）
  {id:'ifast',type:'bank',b:[-1,-1],m:[-2,-1],at:3.74},{id:'wise',type:'fintech',b:[0,-1],m:[-1,-1],at:3.80},{id:'paypal',type:'relay',b:[1,-1],m:[0,-1],at:3.86},
  {id:'applepay',type:'wallet',b:[0,1],m:[0,1],at:3.96},{id:'googlepay',type:'wallet',b:[1,1],m:[1,1],at:4.02}];
-function anchorPos(a){const step=2.5*E,b=mobile?a.m:a.b;return {x:b[0]*step,y:b[1]*step};}
+function anchorPos(a){const pm=portrait();if(pm){const n=pm.accountNode(a.id),b=BRANDS.find(b=>b.id===a.id);return unproject(cam(STOPS.accounts),n.x-b.w/2-22,n.y+16);}const step=2.5*E,b=mobile?a.m:a.b;return {x:b[0]*step,y:b[1]*step};}
 const GROUPS=[{id:'acc',ids:['ifast','wise','paypal'],lab:'ACCOUNTS · 账户资金服务',labM:'账户资金服务'},{id:'wal',ids:['applepay','googlepay'],lab:'WALLETS · 钱包快捷支付',labM:'钱包快捷支付'}];
 function groupRect(gr){const ps=gr.ids.map(id=>anchorPos(ANCHORS.find(a=>a.id===id))),m=1.12*E,x0=Math.min(...ps.map(p=>p.x))-m,x1=Math.max(...ps.map(p=>p.x))+m,y0=Math.min(...ps.map(p=>p.y))-m,y1=Math.max(...ps.map(p=>p.y))+m;return [[x0,y0],[x1,y0],[x1,y1],[x0,y1]];}
 // 分组标签避让：在停靠点相机下，依次尝试矩形各顶点 × 左/右对齐 × 上/下偏移，取第一个不压品牌、不出屏、不压说明面板的位置；每次 layout 只算一次，避免逐帧跳动
@@ -257,16 +264,16 @@ function sceneAccounts(g,t,C){
  for(let bj=-3;bj<=3;bj++)for(let bi=-4;bi<=4;bi++){const cx=bi*step,cy=bj*step,a=ba*R(z,.12+(Math.abs(bi)+Math.abs(bj))*.08,.75)*.32*out;if(a<=0)continue;const q=ground(C,[[cx-E,cy-E],[cx+E,cy-E],[cx+E,cy+E],[cx-E,cy+E]]);if(q)path([...q,q[0]],a*(bi||bj?1:.6));}
  for(const d of blockDots){const q=P(C,d[0],d[1]);if(!q)continue;dot(q[0],q[1],.8,.28*ba*R(z,.2+d[3]*.06,.85)*out);}
  // 分组区域：账户资金服务 / 钱包快捷支付；品牌之间不连线
- for(const gr of GROUPS){const q=ground(C,groupRect(gr));const ga=R(g,3.92,4.08)*out;if(!q||ga<=0)continue;path([...q,q[0]],.42*ga,1,false,[5,5]);
+ for(const gr of GROUPS){const pm=portrait();if(pm){const r=pm.state.accounts,split=pm.accountNode('applepay').y-36,y0=gr.id==='acc'?r.y:split,y1=gr.id==='acc'?split-8:r.bottom,ga=R(g,3.92,4.08)*out;path([[r.x,y1],[r.x,y0],[r.right,y0],[r.right,y1]],.25*ga,1,false,[4,5]);Tx(gr.labM,r.x+6,y0+13,11,ga*.8,{f:CN,w:600});continue;}const q=ground(C,groupRect(gr));const ga=R(g,3.92,4.08)*out;if(!q||ga<=0)continue;path([...q,q[0]],.42*ga,1,false,[5,5]);
   const pl=labelPlan()[gr.id];if(pl){const v=q[pl.v];Tx(mobile?gr.labM:gr.lab,v[0]+pl.dx,v[1]+pl.dy,9,.8*ga,{w:600,al:pl.al});}}
  // 锚点
- for(const an of ANCHORS){const a=eo(R(g,an.at,an.at+.14))*out;if(a<=0)continue;const {x,y}=anchorPos(an),hot=hover===an.id,k=hot?1.5:1,hgt=(an.type==='wallet'?.7:.95)*E*a;
+ for(const an of ANCHORS){const a=eo(R(g,an.at,an.at+.14))*out;if(a<=0)continue;const {x,y}=anchorPos(an),hot=hover===an.id,k=hot?1.5:1,hgt=(portrait()?.12:an.type==='wallet'?.7:.95)*E*a;
   if(an.type==='bank'){const s=.2*E,q=ground(C,[[x-s,y-s],[x+s,y-s],[x+s,y+s],[x-s,y+s]]);if(q){ctx.fillStyle=ink(.85*a);ctx.beginPath();q.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fill();}const s2=.34*E,q2=ground(C,[[x-s2,y-s2],[x+s2,y-s2],[x+s2,y+s2],[x-s2,y+s2]]);if(q2)path([...q2,q2[0]],.5*a*k);}
   if(an.type==='fintech'){const rot=tt*.15+g*.6;for(let i=0;i<48;i++){const th=i/48*TAU+rot,r0=.42*E,r1=r0+(i%4?.07:.16)*E,p=P(C,x+Math.cos(th)*r0,y+Math.sin(th)*r0),q=P(C,x+Math.cos(th)*r1,y+Math.sin(th)*r1);if(p&&q)L(p[0],p[1],q[0],q[1],.6*a*k);}const ring=[];for(let i=0;i<=64;i++){const th=i/64*TAU,p=P(C,x+Math.cos(th)*.3*E,y+Math.sin(th)*.3*E);if(p)ring.push(p);}path(ring,.4*a*k);}
   if(an.type==='relay'){const s=.13*E;for(const sx of [-1,1]){const cx=x+sx*.36*E,q=ground(C,[[cx-s,y-s],[cx+s,y-s],[cx+s,y+s],[cx-s,y+s]]);if(q)path(q,.85*a*k,1.2);}for(const dy of [-.05*E,.05*E])seg(C,x-.23*E,y+dy,x+.23*E,y+dy,.55*a*k);if(!REDUCED)for(let i=0;i<3;i++){const u=((tt*.45+i/3)%1),px=x+mix(-.23,.23,i%2?1-u:u)*E,q=P(C,px,y+(i%2?.05:-.05)*E);if(q)dot(q[0],q[1],1.6,.9*a*Math.sin(u*Math.PI));}}
   if(an.type==='wallet'){for(let i=0;i<3;i++){const ph=REDUCED?0:((tt*.5)%1)*.12*E,r=(.18+i*.15)*E+ph,arc=[];for(let s=0;s<=24;s++){const th=-.75+s/24*1.5,p=P(C,x+Math.cos(th)*r,y+Math.sin(th)*r);if(p)arc.push(p);}path(arc,(.65-i*.16)*a*k);}const s=.09*E,q=ground(C,[[x-s*1.4,y-s*2],[x+s*.2,y-s*2],[x+s*.2,y+s*2],[x-s*1.4,y+s*2]]);if(q)path([...q,q[0]],.7*a*k);}
   const b=P(C,x,y,0),tp=P(C,x,y,hgt);if(b&&tp){L(b[0],b[1],tp[0],tp[1],.7*a*k,an.type==='bank'?1.6:1);dot(tp[0],tp[1],1.8,a);if(an.type==='bank')L(tp[0]-7,tp[1],tp[0]+7,tp[1],.8*a);
-   const br=BRANDS.find(q=>q.id===an.id);place(an.id,tp[0],tp[1]-br.h/2-10-CAPH,R(a,.55,1),{dark:true});}
+   const br=BRANDS.find(q=>q.id===an.id),np=portrait()?.accountNode(an.id);if(np)L(tp[0],tp[1],np.x-br.w/2-4,np.y,.45*a);place(an.id,np?np.x:tp[0],np?np.y:tp[1]-br.h/2-10-CAPH,R(a,.55,1),{dark:true});}
  }
 }
 
@@ -291,9 +298,9 @@ function drawLanes(lanes,sp,alpha,white,field,t=0){
 
 /* ---------- 04 支付卡片：叙事 q（滚动）与局部换卡 q（点击）取 min ---------- */
 function qNarr(g){if(REDUCED)return g>=5.0&&g<6.62?1:0;if(g<5.0)return 0;if(g<5.7)return (g-5.0)/.7;if(g<6.3)return 1;if(g<6.62)return (6.62-g)/.32;return 0;}
-function cardLayout(m){const cw=Math.min(m.maxWidth,mobile?W*.80:W*.34,H*(mobile?.30:.44)*m.aspect);return {x:CARD.x,y:CARD.y,cw,ch:cw/m.aspect};}
-function slotPos(key){const ref=cardLayout(CARDS[0]),sw=sideW();if(mobile)return {x:key==='left'?W*.27:W*.73,y:CARD.y+ref.ch/2+104+sw/1.6/2,rot:key==='left'?12:-12}; /* 移动端：侧卡让出主卡说明（约 3 行） */return {x:CARD.x+(key==='left'?-1:1)*(ref.cw/2+56+sw/2),y:CARD.y+8,rot:key==='left'?24:-24};}
-const sideW=()=>mobile?W*.36:Math.min(232,W*.155);
+function cardLayout(m){const pm=portrait();if(pm){const r=pm.state.card,cw=Math.min(m.maxWidth,r.mainMaxW);return {x:r.x,y:r.y,cw,ch:cw/m.aspect};}const cw=Math.min(m.maxWidth,mobile?W*.80:W*.34,H*(mobile?.30:.44)*m.aspect);return {x:CARD.x,y:CARD.y,cw,ch:cw/m.aspect};}
+function slotPos(key){const pm=portrait();if(pm){const m=pm.state;return {x:m.global.cards.x+m.global.cards.w*(key==='left'?.25:.75),y:m.card.sideY,rot:0};}const ref=cardLayout(CARDS[0]),sw=sideW();if(mobile)return {x:key==='left'?W*.27:W*.73,y:CARD.y+ref.ch/2+104+sw/1.6/2,rot:key==='left'?12:-12}; /* 移动端：侧卡让出主卡说明（约 3 行） */return {x:CARD.x+(key==='left'?-1:1)*(ref.cw/2+56+sw/2),y:CARD.y+8,rot:key==='left'?24:-24};}
+const sideW=()=>portrait()?portrait().state.card.sideW:mobile?W*.36:Math.min(232,W*.155);
 function sceneCards(g,t,dt){
  const qn=qNarr(g),visible=g>=4.96&&g<6.72,inter=g>=ZONE.in&&g<=ZONE.out;
  if(!stage)return {busy:false};
@@ -328,14 +335,14 @@ function updateCardDom(dt,g,s,inter){
   const cu=d.cur;for(const p of ['x','y','sc','rot','op','br'])cu[p]=d.init?mix(cu[p],tg[p],k):tg[p];d.init=true;
   const op=cu.op*vis,live=inter&&op>.7&&c.id!==st.from&&c.id!==st.to,hot=hover===c.id;
   const tr=`translate3d(${(cu.x-sw/2).toFixed(1)}px,${(cu.y-sw/c.aspect/2).toFixed(1)}px,0) perspective(900px) rotateY(${cu.rot.toFixed(2)}deg) scale(${(cu.sc*(hot&&live?1.04:1)).toFixed(3)})`;
-  if(d._tr!==tr){d._tr=tr;d.el.style.transform=tr;}d.el.style.opacity=op.toFixed(3);d.el.style.visibility=op>.01?'visible':'hidden';d.img.style.filter=`brightness(${(mix(.5,.62,cu.br)+(hot&&live?.22:0)).toFixed(2)})`;
+  if(d._tr!==tr){d._tr=tr;d.el.style.transform=tr;}d.el.style.opacity=op.toFixed(3);d.el.style.visibility=op>.01?'visible':'hidden';d.img.style.filter=`brightness(${(portrait()?mix(.72,.86,cu.br)+(hot&&live?.06:0):mix(.5,.62,cu.br)+(hot&&live?.22:0)).toFixed(2)})`;
   if(d._live!==live){d._live=live;d.el.tabIndex=live?0:-1;d.el.style.pointerEvents=live?'auto':'none';d.el.setAttribute('aria-hidden',live?'false':'true');}
  }
  // 主卡说明：只描述已确认材质；交接中显示重组状态
  const m=CARD_BY[st.from],to=st.to&&CARD_BY[st.to],capA=vis*(to?1:R(s.q,.86,1));
  el.cap.style.opacity=capA.toFixed(3);el.cap.style.visibility=capA>.01?'visible':'hidden';
- const top=s.y+s.ch/2+(mobile?14:22);el.cap.style.transform=`translate3d(${Math.round(s.x)}px,${Math.round(top)}px,0)`;
- const txt=to?['REASSEMBLING · 数据流重组',to.short,'']:[m.scene,m.name,m.note];if(el.cap._t!==txt.join()){el.cap._t=txt.join();el.capK.textContent=txt[0];el.capN.textContent=txt[1];el.capD.textContent=txt[2];}
+ const top=portrait()?portrait().state.card.capY:s.y+s.ch/2+(mobile?14:22);el.cap.style.transform=`translate3d(${Math.round(s.x)}px,${Math.round(top)}px,0)`;
+ const txt=to?['REASSEMBLING · 数据流重组',to.short,'']:[m.scene,portrait()?(m.id==='cmb'?'招行 Mastercard':m.short):m.name,m.note];if(el.cap._t!==txt.join()){el.cap._t=txt.join();el.capK.textContent=txt[0];el.capN.textContent=txt[1];el.capD.textContent=txt[2];}
  el.cards.setAttribute('aria-busy',st.busy?'true':'false');
  for(const b of el.cardNav){const on=b.dataset.card===st.from;b.setAttribute('aria-pressed',on);b.classList.toggle('pending',b.dataset.card===st.to);b.disabled=!inter;}
  el.cardNavWrap.style.opacity=(vis*(mobile?0:1)).toFixed(3);el.cardNavWrap.style.visibility=vis>.01&&!mobile?'visible':'hidden';
@@ -372,10 +379,11 @@ function render(g,time){
  return {needsFrame:ambient||cards.busy};
 }
 function resize(w,h,dpr){W=w;H=h;DPR=Math.min(2,dpr||1);el.cv.width=Math.round(W*DPR);el.cv.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);layout();if(stage){stage.resize(W,H,DPR);stage.setLayout(m=>cardLayout(m));}
- const sw=sideW();for(const c of CARDS){const d=cardDom[c.id];if(d){d.el.style.width=sw+'px';d.init=false;}}}
+ if(!portrait())for(const b of BRANDS){const e=brandEl[b.id];if(e){e.style.width=b.w+'px';e.style.height=b.h+'px';e._k=null;}}
+ const sw=sideW();for(const c of CARDS){const d=cardDom[c.id];if(d){d.el.style.width=sw+'px';d.el.querySelector('.nm').textContent=portrait()&&c.id==='cmb'?'招行 Mastercard':c.short;d.init=false;}}}
 
 function buildDom(){
- for(const b of BRANDS){const e=document.createElement('button');e.type='button';e.className='gw-brand'+(b.crop?' crop':'');e.dataset.id=b.id;e.style.width=b.w+'px';e.style.height=b.h+'px';e.tabIndex=-1;e.setAttribute('aria-label',b.name+(b.cap?'，'+b.cap:''));
+ for(const b of BRANDS){const e=document.createElement('button');e.type='button';e.className='gw-brand'+(b.crop?' crop':'');e.dataset.id=b.id;e.dataset.domain=b.d;e.style.width=b.w+'px';e.style.height=b.h+'px';e.tabIndex=-1;e.setAttribute('aria-label',b.name+(b.cap?'，'+b.cap:''));
   e.innerHTML='<span class="logo"><img alt="" draggable="false"></span><span class="cap"><b></b><i></i></span>';const img=e.querySelector('img');img.src=HOST.brandSources?.[b.id]||ASSET+b.src;img.alt=b.name;e.querySelector('b').textContent=b.name;e.querySelector('i').textContent=b.cap||'';
   const on=()=>{hover=b.id;kick();},off=()=>{if(hover===b.id){hover=null;kick();}};e.addEventListener('pointerenter',on);e.addEventListener('pointerleave',off);e.addEventListener('focus',on);e.addEventListener('blur',off);
   el.brands.append(e);brandEl[b.id]=e;}

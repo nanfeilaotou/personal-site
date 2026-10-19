@@ -574,7 +574,8 @@
       const tb = e.target.closest('button[data-theme]');
       if (tb) { api.setTheme(tb.dataset.theme); return; }
       if (e.target.closest('.nftn__theme')) { api.setTheme(resolvedTheme() === 'light' ? 'dark' : 'light'); return; }
-      if (e.target.closest('.nftn__menu')) { S.menu ? closeMenu(true) : openMenu(); }
+      if (e.target.closest('.nftn__menu')) { S.menu ? closeMenu(true) : openMenu(); return; }
+      if (S.menu && e.target.closest('.nftn__panel') && !e.target.closest('a,button,[role=group]')) closeMenu(true);
     });
     const cellAt = (x, y) => { if (!G) return -1; const lx = x - G.left, ly = y - G.top; if (ly < G.cy - LH - 6 || ly > G.cy + LH + 6) return -1; return G.cells.findIndex(c => lx >= c.x0 && lx <= c.x1); };
     on(E.primary, 'pointermove', e => {
